@@ -1,0 +1,13 @@
+site_name: Defra architecture
+site_url: https://defra.github.io/architecture
+theme: 
+  name: material
+  logo: img/code-white.png
+  favicon: img/code-black.png
+  palette:
+    primary: green
+  font:
+    text: 'Arial'
+    code: 'Roboto Mono'
+repo_url: https://github.com/DEFRA/architecture
+remote_branch: gh-pages
