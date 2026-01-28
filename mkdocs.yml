@@ -11,3 +11,7 @@ theme:
     code: 'Roboto Mono'
 repo_url: https://github.com/DEFRA/architecture
 remote_branch: gh-pages
+nav:
+  - Home: index.md
+  - Guardrails:
+    - Placeholder: guardrails/placeholder.md
