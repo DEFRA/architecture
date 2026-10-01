@@ -308,6 +308,9 @@ def on_page_markdown(markdown, page, config, files):
     marker = "<!-- guardrails:library -->"
     if marker in markdown:
         markdown = markdown.replace(marker, _library(page, files))
+    marker = "<!-- guardrails:musts -->"
+    if marker in markdown:
+        markdown = markdown.replace(marker, _musts(page, files))
     on_page = [g for g in _guardrails if g["page"] == page.file.src_uri]
     if on_page:
         markdown = _add_panels(markdown, on_page, page, files)
@@ -387,6 +390,18 @@ def _add_panels(markdown: str, on_page: list[dict], page, files) -> str:
         )
     out.append(markdown[last:])
     return "".join(out)
+
+
+def _musts(page, files) -> str:
+    """Every Must guardrail in force, as a table for contracts and statements of work."""
+    rows = ["| Guardrail | Requirement | Evidence | Since |", "| --- | --- | --- | --- |"]
+    musts = [g for g in _guardrails if g["level"] == "must" and g["status"] != "deprecated"]
+    for g in musts:
+        rows.append(
+            f'| <a href="{_href(g, page, files)}">{g["id"]}</a> {g["title"]} | {g["statement"]} | {g["evidence"]} | '
+            f"{g['since_version']} |"
+        )
+    return f"There are **{len(musts)}** Must guardrails.\n\n" + "\n".join(rows) + "\n"
 
 
 def _library(page, files) -> str:

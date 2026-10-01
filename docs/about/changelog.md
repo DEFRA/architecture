@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Delivery partners
+
+- **[Delivery partners](delivery-partners.md) is now a section**, with new pages on [contracting with this site](../partners/contracting.md) (versioning policy, how to cite a version, model clauses and an annex of every Must), a [mobilisation checklist](../partners/mobilisation.md), [handover and exit](../partners/handover-and-exit.md) and [working with other suppliers](../partners/multi-supplier.md).
+- **New draft guardrail [GR-AI-07](../guardrails/ai.md#gr-ai-07):** suppliers use AI coding assistants openly and safely, in line with GR-AI-02. Comments welcome.
+
 ### Patterns and a worked example
 
 - **New [Patterns](../patterns/index.md) section**, modelled on the Department for Education's: asynchronous submission with an outbox, acting on behalf of an organisation or holding, file upload with malware scanning, reading from an authoritative source, and publishing open data with metadata. Each lists the guardrails it helps you meet and related Secure by Design artefacts.

@@ -32,6 +32,11 @@ guardrails:
   GR-AI-06:
     phases: [discovery, alpha]
     evidence: Technical Design Authority review outcome recorded in the ADR
+  GR-AI-07:
+    phases: [alpha, beta, live]
+    evidence: "Supplier's agreed list of AI coding assistants and how each runs within Defra-approved terms, the review process for generated code, and disclosure in pull requests or delivery reports"
+    since_version: 0.2.0
+    sbd_principles: [2, 10]
 ---
 
 # Artificial intelligence
@@ -70,3 +75,18 @@ Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctr
 ## GR-AI-06 Talk to the TDA about novel use {#gr-ai-06}
 
 <span class="rfc rfc--must">Must</span> Novel uses of AI, and any use of generative AI in decision making, are reviewed by the [Technical Design Authority](../governance/tda.md).
+
+## GR-AI-07 Suppliers use AI coding assistants openly and safely {#gr-ai-07}
+
+<span class="rfc rfc--should">Should</span> Delivery partners who use AI coding assistants on Defra work agree which tools they use with Defra, use them only under terms that meet [GR-AI-02](#gr-ai-02), have a person review every change before it is merged, and say in pull requests or delivery reports where AI did significant work.
+
+**Why:** AI coding assistants can speed up delivery, but they can also leak code, secrets or data to a third party, bring in code with unclear licences, and produce plausible but wrong code. Defra owns the code it pays for and must be able to trust it.
+
+**How to meet it:**
+
+- Agree the tools and their configuration with the Defra engagement lead at [mobilisation](../partners/mobilisation.md), and record them in the repository.
+- Use only enterprise versions that do not keep or train on Defra code or prompts, and turn off public code suggestions where the tool allows it.
+- Never put secrets, personal data or OFFICIAL-SENSITIVE information into prompts.
+- Review AI-generated code with the same care as any other code ([GR-DEV-03](software-development.md#gr-dev-03)), including licences of any suggested code.
+
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).

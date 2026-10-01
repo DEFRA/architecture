@@ -101,6 +101,11 @@ def test_adrs_have_their_own_guardrail():
     assert "ten principles" not in text
 
 
+def test_supplier_ai_guardrail_is_a_draft_should():
+    g = next(g for g in guardrails.parse(DOCS) if g["id"] == "GR-AI-07")
+    assert (g["level"], g["status"], g["since_version"]) == ("should", "draft", "0.2.0")
+
+
 GOOD_PAGE = """---
 guardrail_defaults:
   status: draft

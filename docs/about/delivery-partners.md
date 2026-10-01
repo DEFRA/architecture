@@ -2,6 +2,16 @@
 
 <p class="lead">Much of Defra's digital work is delivered with partners. This page sets out what you can expect from us, and what we expect from you, so we can work as one team.</p>
 
+## In this section
+
+| Page | Use it to |
+| --- | --- |
+| [Contracting with this site](../partners/contracting.md) | Cite a fixed version of the guardrails in a contract, and use the model clauses |
+| [Mobilisation checklist](../partners/mobilisation.md) | Get access, devices and accounts in place, and know who to meet in week one |
+| [Handover and exit](../partners/handover-and-exit.md) | Know what "done" means when you hand a service on |
+| [Working with other suppliers](../partners/multi-supplier.md) | Share integrations, incidents and environments with other teams |
+| [Deliver a service](../deliver/index.md) | See the guardrails, artefacts and evidence for each phase |
+
 ## Why we publish this
 
 We want partners - large and small - to understand how Defra builds technology **before** they bid or start work. Clear, public expectations mean better proposals, fewer surprises and faster delivery.
@@ -22,7 +32,8 @@ We want partners - large and small - to understand how Defra builds technology *
 | Use Defra's strategic platforms and capabilities unless there is an agreed exception | [GR-HOST-01](../guardrails/hosting-and-platforms.md#gr-host-01), [GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01) |
 | Follow the [Defra software development standards](https://defra.github.io/software-development-standards/) for day-to-day engineering | [GR-DEV-07](../guardrails/software-development.md#gr-dev-07) |
 | Work in Defra's GitHub organisations from day one, in the open by default | [GR-DEV-02](../guardrails/software-development.md#gr-dev-02), [GR-OPEN-01](../guardrails/open-source.md#gr-open-01) |
-| Record significant decisions as ADRs in Defra repositories | [ADRs](../governance/architecture-decision-records.md) |
+| Record significant decisions as ADRs in Defra repositories | [GR-DEV-09](../guardrails/software-development.md#gr-dev-09) |
+| Use AI coding assistants only as agreed with Defra, with every change reviewed by a person | [GR-AI-07](../guardrails/ai.md#gr-ai-07) (draft) |
 | Build security in, including threat modelling with the team | [Secure by Design](../security/secure-by-design.md) |
 | Hand over services that Defra, or another partner, can run and change | [GR-DEV-08](../guardrails/software-development.md#gr-dev-08), [GR-OPS-05](../guardrails/observability-and-operations.md#gr-ops-05) |
 | Share knowledge with Defra staff as you go | - |
@@ -30,14 +41,14 @@ We want partners - large and small - to understand how Defra builds technology *
 
 ## Using this site in bids and contracts
 
-Commercial teams may reference this site in statements of requirements and statements of work. Referencing guardrail ids (for example "the supplier will meet all Must guardrails at howellsr.github.io/architecture, as at the contract start date") gives both sides a clear, shared baseline. Guardrail ids are stable and changes are recorded in [what's new](changelog.md).
+Commercial teams may reference this site in statements of requirements and statements of work. Cite a fixed, tagged version rather than the live site, so both sides share one baseline. [Contracting with this site](../partners/contracting.md) explains the versioning policy and has model clauses for guardrails, NFRs, code, ADRs, Secure by Design, AI coding assistants and exit.
 
 ## Getting started on an engagement
 
-1. Read the [guardrails](../guardrails/index.md) and the relevant [reference architecture](../handrail/reference-architectures/index.md).
-2. Meet the solution design authority for the area you are working in.
-3. Get access to the Defra GitHub organisation and the delivery platform.
-4. Run the [self-assurance checklist](../guardrails/index.md#self-assure-in-10-minutes) at the end of discovery.
+1. Read the [guardrails](../guardrails/index.md) and the relevant [reference architecture](../handrail/reference-architectures/index.md) and [patterns](../patterns/index.md).
+2. Work through the [mobilisation checklist](../partners/mobilisation.md): access, devices and who to meet in week one.
+3. Use [Deliver a service](../deliver/index.md) for what each phase needs, and its evidence checklists before each assessment.
+4. Plan [handover](../partners/handover-and-exit.md) from the start.
 
 ## Help us improve
 
