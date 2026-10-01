@@ -95,7 +95,7 @@ The table shows the starting point for where authoritative data lives. If you ar
 | **Observation / sample** | A measurement, survey record or laboratory result | Sampling point id, sample id | Monitoring and laboratory systems |
 
 !!! warning "Help us keep this accurate"
-    Authoritative sources change as Defra consolidates systems. If you know a row is wrong or out of date, please [suggest an edit](https://github.com/DEFRA/architecture/edit/main/docs/data/defra-on-a-page.md).
+    Authoritative sources change as Defra consolidates systems. If you know a row is wrong or out of date, please [suggest an edit](https://github.com/howellsr/architecture/edit/main/docs/data/defra-on-a-page.md).
 
 ## How to use it
 

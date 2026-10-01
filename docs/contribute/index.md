@@ -5,9 +5,9 @@
 ## Ways to contribute
 
 - **Spotted a mistake or something unclear?** Select **Edit this page** (the pencil icon at the top of each page) to propose a change on GitHub.
-- **Have a question or an idea?** [Open an issue](https://github.com/DEFRA/architecture/issues).
+- **Have a question or an idea?** [Open an issue](https://github.com/howellsr/architecture/issues).
 - **Want to change a guardrail?** Open a pull request explaining what and why. See [how guardrails change](../guardrails/index.md#how-guardrails-change).
-- **Improving the capability model?** Edit the YAML in [`capabilities/`](https://github.com/DEFRA/architecture/tree/main/capabilities). The site build checks your change.
+- **Improving the capability model?** Edit the YAML in [`capabilities/`](https://github.com/howellsr/architecture/tree/main/capabilities). The site build checks your change.
 
 ## Writing style
 
@@ -48,7 +48,7 @@ Before opening a pull request, check the site builds cleanly:
 mkdocs build --strict
 ```
 
-The same check runs automatically on every pull request. Merges to `main` are published to [defra.github.io/architecture](https://defra.github.io/architecture/).
+The same check runs automatically on every pull request. Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/).
 
 ## What not to publish
 

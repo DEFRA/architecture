@@ -2,9 +2,9 @@ site_name: Defra architecture
 site_description: >-
   Architecture handrails, guardrails and governance for Defra digital, data and
   technology - for internal product and platform teams and delivery partners.
-site_url: https://defra.github.io/architecture/
-repo_url: https://github.com/DEFRA/architecture
-repo_name: DEFRA/architecture
+site_url: https://howellsr.github.io/architecture/
+repo_url: https://github.com/howellsr/architecture
+repo_name: howellsr/architecture
 edit_uri: edit/main/docs/
 remote_branch: gh-pages
 

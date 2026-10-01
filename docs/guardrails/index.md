@@ -64,7 +64,7 @@ Ticked every box? Great - carry on, and record it. Not sure, or found a gap? See
 
 Guardrails are owned by the architecture team, reviewed by the [Technical Design Authority](../governance/tda.md) and approved by the [Technology Governance Board](../governance/tgb.md). Anyone can propose a change:
 
-1. Open an issue or pull request in [the repository](https://github.com/DEFRA/architecture) describing the change and why.
+1. Open an issue or pull request in [the repository](https://github.com/howellsr/architecture) describing the change and why.
 2. The architecture team triages it within two weeks.
 3. Minor clarifications are merged directly. New or changed **Must** guardrails go to the TDA for review and to the TGB for approval.
 4. Changes are listed in [what's new](../about/changelog.md).

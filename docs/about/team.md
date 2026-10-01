@@ -15,7 +15,7 @@
 
 ## How to reach us
 
-- **Questions and suggestions about this site:** [open an issue](https://github.com/DEFRA/architecture/issues)
+- **Questions and suggestions about this site:** [open an issue](https://github.com/howellsr/architecture/issues)
 - **Defra staff:** use the architecture channel on Defra's collaboration tools, or ask your delivery lead to put you in touch
 - **Delivery partners:** contact the architecture team through your Defra engagement lead
 - **Drop-in sessions:** we run regular architecture clinics for any team, including partners - ask your solution design authority for details

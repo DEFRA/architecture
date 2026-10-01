@@ -1,6 +1,6 @@
 # What's new
 
-<p class="lead">Significant changes to guardrails, capabilities and governance. Minor wording changes are visible in the <a href="https://github.com/DEFRA/architecture/commits/main">commit history</a>.</p>
+<p class="lead">Significant changes to guardrails, capabilities and governance. Minor wording changes are visible in the <a href="https://github.com/howellsr/architecture/commits/main">commit history</a>.</p>
 
 ## October 2026
 

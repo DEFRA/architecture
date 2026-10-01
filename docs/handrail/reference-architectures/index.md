@@ -16,4 +16,4 @@
 
 ## Coming next
 
-We plan to add reference architectures for incident response, grants and scheme management, field inspection with offline mobile working, and public registers. Tell us which you need most by [opening an issue](https://github.com/DEFRA/architecture/issues).
+We plan to add reference architectures for incident response, grants and scheme management, field inspection with offline mobile working, and public registers. Tell us which you need most by [opening an issue](https://github.com/howellsr/architecture/issues).

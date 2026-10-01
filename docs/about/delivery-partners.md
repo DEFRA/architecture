@@ -29,7 +29,7 @@ We want partners - large and small - to understand how Defra builds technology *
 
 ## Using this site in bids and contracts
 
-Commercial teams may reference this site in statements of requirements and statements of work. Referencing guardrail ids (for example "the supplier will meet all Must guardrails at defra.github.io/architecture, as at the contract start date") gives both sides a clear, shared baseline. Guardrail ids are stable and changes are recorded in [what's new](changelog.md).
+Commercial teams may reference this site in statements of requirements and statements of work. Referencing guardrail ids (for example "the supplier will meet all Must guardrails at howellsr.github.io/architecture, as at the contract start date") gives both sides a clear, shared baseline. Guardrail ids are stable and changes are recorded in [what's new](changelog.md).
 
 ## Getting started on an engagement
 
@@ -40,4 +40,4 @@ Commercial teams may reference this site in statements of requirements and state
 
 ## Help us improve
 
-Partners see many organisations. If something here makes it harder than it needs to be to deliver for Defra, tell us - [open an issue](https://github.com/DEFRA/architecture/issues) or propose a change.
+Partners see many organisations. If something here makes it harder than it needs to be to deliver for Defra, tell us - [open an issue](https://github.com/howellsr/architecture/issues) or propose a change.

@@ -24,4 +24,4 @@ Level 1 capabilities are agreed. **Level 2 capabilities are a draft** - informed
 
 ## Improving the model
 
-The model lives in [`capabilities/business-capabilities.yaml`](https://github.com/DEFRA/architecture/blob/main/capabilities/business-capabilities.yaml). To propose a change, open a pull request explaining which attribute it improves. Changes to level 1 capabilities are reviewed by the [Technical Design Authority](../governance/tda.md) and approved by the [Technology Governance Board](../governance/tgb.md).
+The model lives in [`capabilities/business-capabilities.yaml`](https://github.com/howellsr/architecture/blob/main/capabilities/business-capabilities.yaml). To propose a change, open a pull request explaining which attribute it improves. Changes to level 1 capabilities are reviewed by the [Technical Design Authority](../governance/tda.md) and approved by the [Technology Governance Board](../governance/tgb.md).
