@@ -64,6 +64,40 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 </div>
 </section>
 
+<section class="da-section" aria-labelledby="decide" markdown>
+<p class="da-kicker da-kicker--dark">How we decide</p>
+<h2 id="decide" class="da-h2">Doctrine, principles, guardrails</h2>
+<p class="da-intro">One line of sight from the CDIO's non-negotiables to the decisions your team makes this week.</p>
+
+<div class="da-cascade" markdown>
+
+<div class="da-cascade__step" markdown>
+<span class="da-cascade__n"><!-- guardrails:doctrines --></span>
+
+### [DDTS doctrine](principles/doctrine.md)
+
+The non-negotiables: platforms before projects, standards before exceptions, reuse before buy, data as an enterprise asset, assume AI, outcomes over structures, digital first.
+</div>
+
+<div class="da-cascade__step" markdown>
+<span class="da-cascade__n"><!-- guardrails:principles --></span>
+
+### [Architecture principles](principles/architecture-principles.md)
+
+How architecture applies the doctrine: delivery-focused, designed for users, maximum value, clean data, connected, secure, innovative, right tools.
+</div>
+
+<div class="da-cascade__step" markdown>
+<span class="da-cascade__n"><!-- guardrails:count --></span>
+
+### [Guardrails](guardrails/library.md)
+
+Practical Must, Should and Could defaults. Stay inside them and your team decides.
+</div>
+
+</div>
+</section>
+
 <section class="da-band" aria-labelledby="flow" markdown>
 <div class="da-band__copy" markdown>
 <p class="da-kicker">Light-touch governance</p>
@@ -156,6 +190,7 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 <li><a href="https://www.gov.uk/service-manual/service-standard"><strong>Service Standard</strong><span>The 14 points every government service meets</span></a></li>
 <li><a href="https://www.gov.uk/guidance/the-technology-code-of-practice"><strong>Technology Code of Practice</strong><span>How government designs, builds and buys technology</span></a></li>
 <li><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/"><strong>Secure by Design</strong><span>Government's approach to security in delivery</span></a></li>
+<li><a href="https://github.com/co-cddo/SbD"><strong>Secure by Design artefact library</strong><span>Reusable security patterns, checklists and threat models</span></a></li>
 </ul>
 </div>
 <div class="da-panel" markdown>
@@ -165,6 +200,6 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 [What to expect from us, and what we expect from you](about/delivery-partners.md)
 <h3>Help improve this site</h3>
 <p>Spotted a gap or something wrong? <a href="https://github.com/howellsr/architecture/issues">Open an issue</a> or use the edit button on any page.</p>
-[What's new](about/changelog.md)
+This site is in alpha. See the [roadmap](about/roadmap.md) and [what's new](about/changelog.md).
 </div>
 </section>

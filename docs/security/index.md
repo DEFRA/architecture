@@ -44,6 +44,7 @@
 ## Standards we align to
 
 - [Secure by Design](https://www.security.gov.uk/policy-and-guidance/secure-by-design/) - the government approach for digital services
+- [Secure by Design artefact library](https://github.com/co-cddo/SbD) - reusable security patterns, blueprints, checklists and threat models from across government
 - [Government Cyber Security Strategy](https://www.gov.uk/government/publications/government-cyber-security-strategy-2022-to-2030)
 - The NCSC [Cyber Assessment Framework](https://www.ncsc.gov.uk/collection/cyber-assessment-framework), assured through GovAssure
 - [Government security classifications](https://www.gov.uk/government/publications/government-security-classifications)

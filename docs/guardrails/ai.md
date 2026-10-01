@@ -2,11 +2,15 @@
 
 <p class="lead">AI can help Defra do more with less - from classifying species in images to drafting responses. These guardrails help teams use it safely, lawfully and transparently.</p>
 
-Builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government). Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
+Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctrine.md#ddts-05), and builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government). Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
 
-## GR-AI-01 Start with the problem, not the technology {#gr-ai-01}
+## GR-AI-01 Consider AI first {#gr-ai-01}
 
-<span class="rfc rfc--should">Should</span> Show that AI is the right tool for a user or business need, and that a simpler approach would not work as well.
+<span class="rfc rfc--should">Should</span> When designing a service or process, actively explore whether AI can improve quality, productivity, user experience or outcomes before choosing a traditional approach, and record the reasoning either way.
+
+**Why:** the DDTS doctrine says [assume AI until proven otherwise](../principles/doctrine.md#ddts-05). That does not mean AI everywhere; it means deliberately considering the opportunity before dismissing it.
+
+**How to meet it:** in discovery and alpha, look for repetitive tasks, triage, summarising, classification or decision support that AI could help with. Note in your ADR what you considered and why you did or did not use AI.
 
 ## GR-AI-02 Use approved AI services and tenancies {#gr-ai-02}
 
@@ -23,6 +27,9 @@ Builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/
 ## GR-AI-05 Evaluate, monitor and threat model {#gr-ai-05}
 
 <span class="rfc rfc--must">Must</span> Evaluate models for accuracy, bias and safety before release, monitor them in live, and include AI-specific threats (prompt injection, data leakage, model abuse) in your [threat model](../security/threat-modelling.md).
+
+!!! tip "Cross-government AI tools"
+    OCTO's [AI technology enablement](https://architecture.cddo.cabinetoffice.gov.uk/psai-tech/index.html) resources include an AI risk management toolkit, an AI assurance questionnaire, the public sector AI governance operating model and a service assessment questions navigator. Use them to evidence [GR-AI-03](#gr-ai-03), [GR-AI-04](#gr-ai-04) and [GR-AI-05](#gr-ai-05).
 
 ## GR-AI-06 Talk to the TDA about novel use {#gr-ai-06}
 

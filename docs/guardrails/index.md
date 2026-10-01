@@ -31,7 +31,7 @@ Search them all in the [guardrail library](library.md), or browse by area:
 
 | Area | What it covers |
 | --- | --- |
-| [Architecture principles](principles.md) | The ten principles every other guardrail derives from |
+| [Architecture principles](../principles/architecture-principles.md) | The ten principles every other guardrail derives from |
 | [Choosing technology](choosing-technology.md) | Reuse, buy or build; SaaS; avoiding lock-in; exit plans |
 | [Hosting and platforms](hosting-and-platforms.md) | Cloud first, the Core Delivery Platform, environments, infrastructure as code |
 | [Software development](software-development.md) | Languages, source control, CI/CD, testing, dependencies |

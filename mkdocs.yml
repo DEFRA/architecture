@@ -56,6 +56,12 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+plugins:
+  # Keep hyphenated ids such as GR-HOST-01, NFR-AVL-01 and DDTS-01 as single
+  # search terms, so searching for an id finds that guardrail first.
+  - search:
+      separator: '[\s,:!=\[\]()"/]+|\.(?!\d)'
+
 extra_css:
   - stylesheets/defra.css
 
@@ -67,6 +73,8 @@ hooks:
   - hooks/guardrails.py
   - hooks/nfrs.py
   - hooks/page_status.py
+  - hooks/cache_busting.py
+  - hooks/site_info.py
 
 extra:
   generator: false
@@ -120,11 +128,15 @@ nav:
       - Using this site: about/using-this-site.md
       - Working with us as a delivery partner: about/delivery-partners.md
       - The architecture team: about/team.md
+      - Roadmap: about/roadmap.md
       - What's new: about/changelog.md
+  - Principles:
+      - principles/index.md
+      - DDTS doctrine: principles/doctrine.md
+      - Architecture principles: principles/architecture-principles.md
   - Guardrails:
       - guardrails/index.md
       - Guardrail library: guardrails/library.md
-      - Architecture principles: guardrails/principles.md
       - Choosing technology: guardrails/choosing-technology.md
       - Hosting and platforms: guardrails/hosting-and-platforms.md
       - Software development: guardrails/software-development.md

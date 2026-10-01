@@ -4,6 +4,9 @@
 
 **Typical business capabilities:** [04 Engage with citizens and organisations](../business-capabilities.md#bc04), [05 Issue licences and permits](../business-capabilities.md#bc05), [07 Administer funds and grants](../business-capabilities.md#bc07).
 
+!!! info "Part of the government picture"
+    This reference architecture is Defra's detailed view of one part of the cross-government [Citizen Facing Reference Architecture](https://architecture.cddo.cabinetoffice.gov.uk/citizen-architecture/CF.html). That model lists Defra Grants in its business logic layer and the GOV.UK components used here - One Login, Pay, Notify and Forms - in its interaction and channel layers.
+
 ## Context
 
 Most Defra services follow the same pattern: a user signs in, tells us something (often on behalf of a business or holding), may pay, and the information is processed by staff or automatically. This reference architecture covers the citizen-facing part and its hand-off to back-office processing.

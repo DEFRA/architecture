@@ -1,6 +1,7 @@
 """MkDocs hook that builds the searchable guardrail library.
 
-Guardrails are written by hand in ``docs/guardrails/*.md`` using a fixed shape:
+Guardrails are written by hand in ``docs/guardrails/*.md`` (principles in
+``docs/principles/architecture-principles.md``) using a fixed shape:
 
     ## GR-HOST-01 Use Defra's strategic delivery platform by default {#gr-host-01}
 
@@ -13,7 +14,8 @@ guardrail pages can never drift apart. It:
 
 * checks every guardrail has a unique id, a matching anchor and a level;
 * replaces ``<!-- guardrails:library -->`` with a filterable list of all
-  guardrails; and
+  guardrails, and ``<!-- guardrails:count -->``, ``<!-- guardrails:principles -->``
+  and ``<!-- guardrails:doctrines -->`` with the current figures; and
 * gives pages that use the ``home.html`` template the figures shown in the hero.
 """
 
@@ -47,14 +49,26 @@ def _plain(text: str) -> str:
     return text.replace("**", "").replace("`", "").strip()
 
 
+# Folders whose pages define guardrails, and pages in them that do not.
+SOURCES = ("principles", "guardrails")
+NOT_GUARDRAILS = ("index.md", "library.md", "doctrine.md")
+
+
+def _guardrail_files(docs_dir: str):
+    for section in SOURCES:
+        folder = os.path.join(docs_dir, section)
+        if not os.path.isdir(folder):
+            continue
+        for name in sorted(os.listdir(folder)):
+            if name.endswith(".md") and name not in NOT_GUARDRAILS:
+                yield section, name
+
+
 def parse(docs_dir: str) -> list[dict]:
-    folder = os.path.join(docs_dir, "guardrails")
     found: list[dict] = []
     errors: list[str] = []
-    for name in sorted(os.listdir(folder)):
-        if not name.endswith(".md") or name in ("index.md", "library.md"):
-            continue
-        with open(os.path.join(folder, name), encoding="utf-8") as handle:
+    for section, name in _guardrail_files(docs_dir):
+        with open(os.path.join(docs_dir, section, name), encoding="utf-8") as handle:
             text = handle.read()
         area = TITLE.search(text).group(1)
         matches = list(HEADING.finditer(text))
@@ -76,7 +90,7 @@ def parse(docs_dir: str) -> list[dict]:
                     "level": kind,
                     "statement": _plain(statement),
                     "area": area,
-                    "page": f"guardrails/{name}",
+                    "page": f"{section}/{name}",
                 }
             )
     ids = [g["id"] for g in found]
@@ -95,8 +109,11 @@ def on_config(config):
             return yaml.safe_load(handle)["capabilities"]
 
     tech = load("technology-capabilities.yaml")
+    with open(os.path.join(config["docs_dir"], "principles", "doctrine.md"), encoding="utf-8") as handle:
+        doctrines = len(re.findall(r"^## \d+\. .+\{#ddts-\d+\}$", handle.read(), re.M))
     _stats.clear()
     _stats.update(
+        doctrines=doctrines,
         guardrails=sum(1 for g in _guardrails if g["level"] != "principle"),
         must=levels["must"],
         should=levels["should"],
@@ -112,6 +129,8 @@ def on_config(config):
 def on_page_markdown(markdown, page, config, files):
     if page.meta.get("template") == "home.html":
         page.meta["stats"] = dict(_stats)
+    for name, key in (("count", "guardrails"), ("principles", "principles"), ("doctrines", "doctrines")):
+        markdown = markdown.replace(f"<!-- guardrails:{name} -->", str(_stats[key]))
     marker = "<!-- guardrails:library -->"
     if marker in markdown:
         markdown = markdown.replace(marker, _library(page, files))

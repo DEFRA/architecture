@@ -1,6 +1,6 @@
 # Threat model template
 
-See [threat modelling](../../security/threat-modelling.md) for guidance. Keep it in your repository (or in a private location if it contains sensitive detail) and update it with every significant change.
+See [threat modelling](../../security/threat-modelling.md) for guidance, and the [Secure by Design artefact library](https://github.com/co-cddo/SbD) for example threat models. Keep it in your repository (or in a private location if it contains sensitive detail) and update it with every significant change.
 
 ```markdown
 # Threat model: <service>

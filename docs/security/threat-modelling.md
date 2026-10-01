@@ -50,6 +50,7 @@ Check coverage, record assumptions, and set the next review date.
 
 - A whiteboard or online diagramming tool is enough to start
 - [OWASP Threat Dragon](https://owasp.org/www-project-threat-dragon/) for diagram-based models that can be stored as code
+- Example threat models and threat catalogues in the cross-government [Secure by Design artefact library](https://github.com/co-cddo/SbD)
 - The [threat model template](../governance/templates/threat-model.md)
 
 ## Storing threat models

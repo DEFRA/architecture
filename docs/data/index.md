@@ -30,6 +30,9 @@
 
 </div>
 
+!!! info "Cross-government data architecture"
+    Defra's data architecture aligns with the cross-government [data architecture guidance](https://data-architecture.datamarketplace.gov.uk/) and the [Data Standards Authority](https://www.gov.uk/government/collections/data-standards-for-government). Where they cover a topic, we follow them and only add what is specific to Defra.
+
 ## Data principles
 
 1. **Data has an owner.** Every data set has an accountable business owner.

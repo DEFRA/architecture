@@ -56,12 +56,13 @@ def _load(path: str) -> dict:
 def guardrail_pages(docs_dir: str) -> dict[str, str]:
     """Map each guardrail id to the docs-relative page that defines it."""
     found = {}
-    folder = os.path.join(docs_dir, "guardrails")
-    for name in sorted(os.listdir(folder)):
-        if name.endswith(".md"):
-            with open(os.path.join(folder, name), encoding="utf-8") as handle:
-                for gid in GUARDRAIL_HEADING.findall(handle.read()):
-                    found[gid] = f"guardrails/{name}"
+    for section in ("principles", "guardrails"):
+        folder = os.path.join(docs_dir, section)
+        for name in sorted(os.listdir(folder)):
+            if name.endswith(".md"):
+                with open(os.path.join(folder, name), encoding="utf-8") as handle:
+                    for gid in GUARDRAIL_HEADING.findall(handle.read()):
+                        found[gid] = f"{section}/{name}"
     return found
 
 

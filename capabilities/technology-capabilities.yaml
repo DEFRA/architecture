@@ -9,7 +9,33 @@
 #   emerging   - being established. Talk to the architecture team first.
 #   gap        - no agreed Defra-wide answer yet. Raise with the TDA if you need it.
 #
+# government_model:
+#   where the capability sits in the cross-government Digital Technology
+#   Capability Model (https://architecture.cddo.cabinetoffice.gov.uk/digital-capability-model/),
+#   so Defra and government describe technology in the same language.
+#   One of the ids under government_model_levels below.
+#
 # This file is validated and rendered by hooks/capabilities.py at build time.
+
+government_model_levels:
+  - id: service
+    name: "Level 1: Service applications"
+  - id: corporate
+    name: "Level 2: Corporate services"
+  - id: integration
+    name: "Level 3: Middleware - integration"
+  - id: data
+    name: "Level 3: Middleware - data and information management"
+  - id: ai
+    name: "Level 3: Middleware - artificial intelligence"
+  - id: devops
+    name: "Level 3: Middleware - DevOps"
+  - id: foundation
+    name: "Level 4: Foundational technology"
+  - id: governance
+    name: "Level 5: Governance and standards"
+  - id: security
+    name: "Level 6: Security"
 
 domains:
   - id: engage
@@ -30,6 +56,7 @@ capabilities:
   - id: TC01
     name: Customer identity and access
     domain: engage
+    government_model: service
     status: strategic
     description: >-
       Let citizens, businesses and their agents sign in, prove who they are and
@@ -43,6 +70,7 @@ capabilities:
   - id: TC02
     name: Staff identity and access
     domain: engage
+    government_model: security
     status: strategic
     description: >-
       Single sign-on, role-based access and joiner/mover/leaver for Defra group
@@ -54,6 +82,7 @@ capabilities:
   - id: TC03
     name: Digital forms and applications
     domain: engage
+    government_model: service
     status: emerging
     description: >-
       Capture structured information from users through accessible, GOV.UK
@@ -67,6 +96,7 @@ capabilities:
   - id: TC04
     name: Notifications
     domain: engage
+    government_model: service
     status: strategic
     description: Send emails, text messages and letters to users.
     options:
@@ -76,6 +106,7 @@ capabilities:
   - id: TC05
     name: Payments and collections
     domain: engage
+    government_model: service
     status: strategic
     description: Take card and other payments for fees, charges and penalties.
     options:
@@ -85,6 +116,7 @@ capabilities:
   - id: TC06
     name: Content and publishing
     domain: engage
+    government_model: service
     status: strategic
     description: Publish guidance, policy, consultations and news.
     options:
@@ -95,6 +127,7 @@ capabilities:
   - id: TC07
     name: Customer and stakeholder relationship management
     domain: engage
+    government_model: corporate
     status: strategic
     description: >-
       A single view of the customers, organisations and stakeholders we deal
@@ -106,6 +139,7 @@ capabilities:
   - id: TC08
     name: Case and workflow management
     domain: operate
+    government_model: service
     status: strategic
     description: >-
       Route, track and complete work items (applications, inspections,
@@ -117,6 +151,7 @@ capabilities:
   - id: TC09
     name: Rules and decisioning
     domain: operate
+    government_model: service
     status: emerging
     description: >-
       Express eligibility, risk scoring and business rules as versioned,
@@ -127,6 +162,7 @@ capabilities:
   - id: TC10
     name: Document and records management
     domain: operate
+    government_model: data
     status: strategic
     description: >-
       Store, classify, retain and dispose of documents and records in line with
@@ -138,6 +174,7 @@ capabilities:
   - id: TC11
     name: Field work and inspection
     domain: operate
+    government_model: service
     status: gap
     description: >-
       Plan, schedule and record inspections, surveys and sampling in the field,
@@ -147,6 +184,7 @@ capabilities:
   - id: TC12
     name: Incident and emergency management
     domain: operate
+    government_model: service
     status: gap
     description: >-
       Detect, log, coordinate and report on incidents such as animal and plant
@@ -156,6 +194,7 @@ capabilities:
   - id: TC13
     name: Finance and enterprise resource planning
     domain: operate
+    government_model: corporate
     status: strategic
     description: General ledger, purchase to pay, order to cash, HR and payroll.
     options:
@@ -164,6 +203,7 @@ capabilities:
   - id: TC14
     name: Grants and scheme management
     domain: operate
+    government_model: service
     status: emerging
     description: >-
       Configure schemes, take applications, manage agreements, verify claims and
@@ -175,6 +215,7 @@ capabilities:
   - id: TC15
     name: Geospatial and location services
     domain: insight
+    government_model: data
     status: strategic
     description: >-
       Store, analyse, visualise and serve spatial data - land parcels,
@@ -189,6 +230,7 @@ capabilities:
   - id: TC16
     name: Data platform and analytics
     domain: insight
+    government_model: data
     status: emerging
     description: >-
       Ingest, store, transform and analyse data at scale with governed access
@@ -200,6 +242,7 @@ capabilities:
   - id: TC17
     name: Reference and master data
     domain: insight
+    government_model: data
     status: emerging
     description: >-
       Authoritative, shared records for the things many services depend on:
@@ -212,6 +255,7 @@ capabilities:
   - id: TC18
     name: Environmental monitoring and IoT
     domain: insight
+    government_model: data
     status: gap
     description: >-
       Ingest and manage high-volume telemetry and observations from sensors,
@@ -221,6 +265,7 @@ capabilities:
   - id: TC19
     name: Data sharing and publishing
     domain: insight
+    government_model: integration
     status: strategic
     description: >-
       Share data with partners through APIs and publish open data with good
@@ -235,6 +280,7 @@ capabilities:
   - id: TC20
     name: Artificial intelligence and machine learning
     domain: insight
+    government_model: ai
     status: emerging
     description: >-
       Train, evaluate, deploy and monitor models, including generative AI, safely
@@ -247,6 +293,7 @@ capabilities:
   - id: TC21
     name: Application hosting and delivery platform
     domain: platform
+    government_model: devops
     status: strategic
     description: >-
       Build, test, deploy and run services on a secure, observable, paved road
@@ -258,6 +305,7 @@ capabilities:
   - id: TC22
     name: API management and integration
     domain: platform
+    government_model: integration
     status: strategic
     description: >-
       Publish, secure, discover and manage APIs and asynchronous messaging
@@ -269,6 +317,7 @@ capabilities:
   - id: TC23
     name: Observability and security monitoring
     domain: platform
+    government_model: security
     status: strategic
     description: >-
       Logs, metrics, traces, alerting and protective monitoring feeding the
@@ -281,6 +330,7 @@ capabilities:
   - id: TC24
     name: Collaboration and productivity
     domain: platform
+    government_model: foundation
     status: strategic
     description: Email, documents, meetings and team collaboration for staff.
     options:

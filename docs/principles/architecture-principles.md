@@ -2,7 +2,7 @@
 
 <p class="lead">Defra's eight Strategic Architecture Principles. They make decisions consistent, reduce complexity and stop change fragmenting across services. Use them to govern technology change across Defra so that it supports Defra's strategic goals.</p>
 
-Every guardrail on this site puts one or more of these principles into practice. When a guardrail does not give you a direct answer, ask: *which option best fits these principles?*
+The principles apply the [DDTS doctrine](doctrine.md) to technology change, and every guardrail puts one or more of them into practice - see [how they fit together](index.md). When a guardrail does not give you a direct answer, ask: *which option best fits these principles?*
 
 | # | Principle | In short |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Invest in automation and standardised environments.
 - Keep services loosely coupled to allow incremental changes and isolated deployments.
 
-**Put into practice by:** [governance](../governance/index.md), the [decision check](../governance/decision-check.md), [software development](software-development.md), [hosting and platforms](hosting-and-platforms.md), [observability and operations](observability-and-operations.md).
+**Put into practice by:** [governance](../governance/index.md), the [decision check](../governance/decision-check.md), [software development](../guardrails/software-development.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [observability and operations](../guardrails/observability-and-operations.md).
 
 ## GR-PRIN-02 Design for users {#gr-prin-02}
 
@@ -44,7 +44,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Assess off-the-shelf systems against Defra user interface standards to maximise compliance.
 - Reuse existing processes for similar user-facing tasks across Defra and its arm's length bodies - issuing permits, managing customer cases - so they feel familiar to users.
 
-**Put into practice by:** [front end and accessibility](front-end-and-accessibility.md), [identity and access](identity-and-access.md), the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual).
+**Put into practice by:** [front end and accessibility](../guardrails/front-end-and-accessibility.md), [identity and access](../guardrails/identity-and-access.md), the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual).
 
 ## GR-PRIN-03 Maximise value, minimise waste {#gr-prin-03}
 
@@ -61,7 +61,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Discourage one-off solutions and use patterns that minimise technical debt.
 - Include reuse checks in architecture reviews, and require justification for duplicating a capability.
 
-**Put into practice by:** [choosing technology](choosing-technology.md), the [handrail](../handrail/index.md), [hosting and platforms](hosting-and-platforms.md), [open source](open-source.md), [sustainability](sustainability.md).
+**Put into practice by:** [choosing technology](../guardrails/choosing-technology.md), the [handrail](../handrail/index.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [open source](../guardrails/open-source.md), [sustainability](../guardrails/sustainability.md).
 
 ## GR-PRIN-04 Clean data, clear decisions {#gr-prin-04}
 
@@ -79,7 +79,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Provide secure, scalable data platforms and APIs for easy, governed access.
 - Treat data quality as a prerequisite for analytical and operational decisions.
 
-**Put into practice by:** [data guardrails](data.md), [Defra on a page](../data/defra-on-a-page.md), [data standards](../data/data-standards.md), [artificial intelligence](ai.md).
+**Put into practice by:** [data guardrails](../guardrails/data.md), [Defra on a page](../data/defra-on-a-page.md), [data standards](../data/data-standards.md), [artificial intelligence](../guardrails/ai.md).
 
 ## GR-PRIN-05 Connect and collaborate {#gr-prin-05}
 
@@ -97,7 +97,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Enable single sign-on and consistent identity management across services.
 - Share clean, consistent, context-rich data while respecting privacy, ethics and compliance.
 
-**Put into practice by:** [APIs and integration](apis-and-integration.md), [identity and access](identity-and-access.md), [data guardrails](data.md).
+**Put into practice by:** [APIs and integration](../guardrails/apis-and-integration.md), [identity and access](../guardrails/identity-and-access.md), [data guardrails](../guardrails/data.md).
 
 ## GR-PRIN-06 Secure today, safe tomorrow {#gr-prin-06}
 
@@ -111,7 +111,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Follow the Defra group Security (DgS) strategy and recommendations.
 - Use role-based access control to manage access to system functions and data.
 
-**Put into practice by:** [security guardrails](security.md), [Secure by Design in Defra](../security/secure-by-design.md), [threat modelling](../security/threat-modelling.md).
+**Put into practice by:** [security guardrails](../guardrails/security.md), [Secure by Design in Defra](../security/secure-by-design.md), [threat modelling](../security/threat-modelling.md).
 
 ## GR-PRIN-07 Empower to innovate {#gr-prin-07}
 
@@ -129,7 +129,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Bring architects, technologists and business units together to act on innovation opportunities aligned to outcomes.
 - Track innovation by value, scalability and learning - not just technical novelty.
 
-**Put into practice by:** [artificial intelligence](ai.md), the [decision check](../governance/decision-check.md), [open source and working in the open](open-source.md).
+**Put into practice by:** [artificial intelligence](../guardrails/ai.md), the [decision check](../governance/decision-check.md), [open source and working in the open](../guardrails/open-source.md).
 
 ## GR-PRIN-08 Right tools, right place {#gr-prin-08}
 
@@ -146,7 +146,7 @@ Every guardrail on this site puts one or more of these principles into practice.
 - Design IT support for diverse contexts: self-service, remote diagnostics and on-site support.
 - Keep devices easy to replace or upgrade as needs change.
 
-**Put into practice by:** [front end and accessibility](front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](identity-and-access.md#gr-iam-02).
+**Put into practice by:** [front end and accessibility](../guardrails/front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](../guardrails/identity-and-access.md#gr-iam-02).
 
 ---
 

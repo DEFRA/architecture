@@ -26,7 +26,8 @@ Most changes are to Markdown in `docs/` or to the YAML data files. You rarely ne
 | Path | What it holds | Who usually edits it |
 | --- | --- | --- |
 | `docs/` | Every page, in Markdown. The folder structure matches the site sections. | Anyone |
-| `docs/guardrails/*.md` | Principles and guardrails. The guardrail library is built from these. | Architects |
+| `docs/principles/` | DDTS doctrine and architecture principles | Chief Architect and CDIO office |
+| `docs/guardrails/*.md` | Guardrails. The guardrail library is built from these and the principles. | Architects |
 | `capabilities/*.yaml` | Business and technology capability models | Business and enterprise architects |
 | `nfrs/*.yaml` | Service tiers and the NFR catalogue | Solution architects |
 | `mkdocs.yml` | Site settings and the navigation | Site maintainers |
@@ -66,6 +67,10 @@ Edit `nfrs/catalogue.yaml` or `nfrs/service-tiers.yaml`. Comments at the top of 
 ### Change the capability model
 
 Edit `capabilities/business-capabilities.yaml` or `capabilities/technology-capabilities.yaml`. The map, catalogue and mapping matrix are generated from them.
+
+### Change the doctrine or principles
+
+The doctrine is in `docs/principles/doctrine.md` and the principles in `docs/principles/architecture-principles.md`. Keep the heading shapes (`## 1. Title {#ddts-01}` and `## GR-PRIN-01 Title {#gr-prin-01}`) - the tests and home page figures rely on them. Changes need TGB approval.
 
 ### Mark a page as draft
 

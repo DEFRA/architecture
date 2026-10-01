@@ -18,6 +18,7 @@ Markers:
     <!-- capabilities:technology-summary -->   counts by status
     <!-- capabilities:technology-catalogue --> technology catalogue by domain
     <!-- capabilities:matrix -->               business x technology heatmap
+    <!-- capabilities:stack -->                layered technology reference model
 """
 
 from __future__ import annotations
@@ -62,7 +63,10 @@ def validate(business: dict, technology: dict, docs_dir: str) -> list[str]:
     for dup in {i for i in tech_ids if tech_ids.count(i) > 1}:
         errors.append(f"duplicate technology capability id {dup}")
 
+    levels = {lvl["id"] for lvl in technology.get("government_model_levels", [])}
     for cap in technology["capabilities"]:
+        if cap.get("government_model") not in levels:
+            errors.append(f"{cap['id']} has unknown government_model {cap.get('government_model')!r}")
         if cap.get("domain") not in domains:
             errors.append(f"{cap['id']} has unknown domain {cap.get('domain')!r}")
         if cap.get("status") not in STATUS_LABELS:
@@ -149,6 +153,7 @@ def on_page_markdown(markdown, page, config, files):
         "technology-summary": _technology_summary,
         "technology-catalogue": _technology_catalogue,
         "matrix": _matrix,
+        "stack": _stack,
     }
     for name, render in renderers.items():
         marker = f"<!-- capabilities:{name} -->"
@@ -216,7 +221,8 @@ def _business_detail(_url_to, url_to) -> str:
         if cap["type"] != current_type:
             current_type = cap["type"]
             out.append(f"## {current_type.capitalize()} capabilities\n")
-        out.append(f'### {cap["number"]} {cap["name"]} {{#{cap["id"].lower()}}}\n')
+        # The id is in the heading so searching "BC05" finds this section first.
+        out.append(f'### {cap["number"]} {cap["name"]} ({cap["id"]}) {{#{cap["id"].lower()}}}\n')
         out.append(f'{cap["description"]}\n')
         out.append('<div class="grid" markdown>\n')
         out.append('<div markdown>\n\n**Outcomes**\n')
@@ -234,6 +240,32 @@ def _business_detail(_url_to, url_to) -> str:
     return "\n".join(out) + "\n"
 
 
+def _stack(url_to, md_to=None) -> str:
+    """Layered view of the technology capabilities, one row per domain.
+
+    Domains are listed top to bottom in the order they appear in
+    technology-capabilities.yaml: closest to users first, foundations last.
+    """
+    rows = []
+    for domain in _model["technology"]["domains"]:
+        chips = "".join(
+            f'<li><a class="tstack__cap tstack__cap--{c["status"]}" href="{url_to(TECHNOLOGY_PAGE, c["id"].lower())}">'
+            f'<span class="tstack__id">{c["id"]}</span> {e(c["name"])}'
+            f'<span class="visually-hidden"> ({STATUS_LABELS[c["status"]]})</span></a></li>'
+            for c in _model["technology"]["capabilities"]
+            if c["domain"] == domain["id"]
+        )
+        rows.append(
+            f'<div class="tstack__layer"><div class="tstack__label"><strong>{e(domain["name"])}</strong>'
+            f'<span>{e(domain["description"])}</span></div><ul class="tstack__caps">{chips}</ul></div>'
+        )
+    legend = " ".join(_status_badge(s) for s in STATUS_LABELS)
+    return (
+        f'<div class="tstack" role="group" aria-label="Defra technology reference model">{"".join(rows)}</div>\n'
+        f'<p class="tstack__legend">Status: {legend}</p>\n'
+    )
+
+
 def _technology_summary(url_to, md_to=None) -> str:
     counts = Counter(c["status"] for c in _model["technology"]["capabilities"])
     cards = "".join(
@@ -246,12 +278,16 @@ def _technology_summary(url_to, md_to=None) -> str:
 
 def _technology_catalogue(_url_to, url_to) -> str:
     bus = _model["bus_by_id"]
+    levels = {lvl["id"]: lvl["name"] for lvl in _model["technology"]["government_model_levels"]}
     out = []
     for domain in _model["technology"]["domains"]:
         out.append(f'## {domain["name"]}\n\n{domain["description"]}\n')
         for cap in (c for c in _model["technology"]["capabilities"] if c["domain"] == domain["id"]):
             out.append(f'### {cap["id"]} {cap["name"]} {{#{cap["id"].lower()}}}\n')
             out.append(f'{_status_badge(cap["status"])} {cap["description"]}\n')
+            out.append(
+                f'<small>Government capability model: {e(levels[cap["government_model"]])}</small>\n'
+            )
             options = cap.get("options", [])
             if options:
                 out.append("**Use first**\n")

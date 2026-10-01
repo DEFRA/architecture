@@ -2,11 +2,13 @@
 
 <p class="lead">Security guardrails for every Defra service. They put the government <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/">Secure by Design</a> approach into practice.</p>
 
-Supports principle [GR-PRIN-06](principles.md#gr-prin-06). See also [enterprise security architecture](../security/index.md).
+Supports principle [GR-PRIN-06](../principles/architecture-principles.md#gr-prin-06). See also [enterprise security architecture](../security/index.md).
 
 ## GR-SEC-01 Follow Secure by Design {#gr-sec-01}
 
 <span class="rfc rfc--must">Must</span> Every new service and significant change follows the [Secure by Design](../security/secure-by-design.md) activities, with a named risk owner, from discovery onward.
+
+**How to meet it:** start from the patterns and checklists in the [Secure by Design artefact library](https://github.com/co-cddo/SbD) rather than designing controls from scratch.
 
 ## GR-SEC-02 Keep a current threat model {#gr-sec-02}
 

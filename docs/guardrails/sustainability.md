@@ -2,7 +2,7 @@
 
 <p class="lead">Defra leads the <a href="https://www.gov.uk/government/publications/greening-government-ict-and-digital-services-strategy-2020-2025">Greening Government ICT and Digital Services strategy</a>. Our own services should show what good looks like.</p>
 
-Supports principle [GR-PRIN-03](principles.md#gr-prin-03) and TCoP point 12.
+Supports principle [GR-PRIN-03](../principles/architecture-principles.md#gr-prin-03) and TCoP point 12.
 
 ## GR-SUS-01 Consider sustainability in design decisions {#gr-sus-01}
 

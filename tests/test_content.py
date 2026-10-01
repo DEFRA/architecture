@@ -50,6 +50,13 @@ def test_capability_model_catches_unknown_reference():
     assert any("TC99" in e for e in capabilities.validate(business, technology, DOCS))
 
 
+def test_every_technology_capability_has_a_government_model_level():
+    technology = load_yaml("capabilities", "technology-capabilities.yaml")
+    del technology["capabilities"][0]["government_model"]
+    business = load_yaml("capabilities", "business-capabilities.yaml")
+    assert any("government_model" in e for e in capabilities.validate(business, technology, DOCS))
+
+
 # --- Guardrails ----------------------------------------------------------------
 
 
@@ -58,6 +65,16 @@ def test_guardrails_parse():
     levels = {g["level"] for g in found}
     assert levels == {"principle", "must", "should", "could"}
     assert len([g for g in found if g["level"] == "principle"]) == 8
+
+
+def test_principles_live_in_the_principles_section():
+    pages = {g["page"] for g in guardrails.parse(DOCS) if g["level"] == "principle"}
+    assert pages == {"principles/architecture-principles.md"}
+
+
+def test_doctrine_has_seven_non_negotiables():
+    with open(os.path.join(DOCS, "principles", "doctrine.md"), encoding="utf-8") as handle:
+        assert len(re.findall(r"^## \d+\. .+\{#ddts-0\d\}$", handle.read(), re.M)) == 7
 
 
 def test_guardrail_without_badge_fails(tmp_path):

@@ -10,6 +10,16 @@
 - **Decide in the open.** Decisions are recorded as [ADRs](architecture-decision-records.md), published wherever possible, and reusable by other teams.
 - **Proportionate to risk.** The route depends on novelty, reach and risk - not on the size of the team or the supplier.
 
+## Seek advice, not permission
+
+Most architecture decisions do not need a board. They need the right conversation at the right time. Before making a significant decision, a team:
+
+1. **Asks for advice** from the people with relevant expertise - an architect, the platform team, security - and from the people who will be affected by it.
+2. **Decides** - the team remains accountable for the decision and its outcome.
+3. **Records** the decision and the advice it received as an [ADR](architecture-decision-records.md), in the open.
+
+This keeps decisions close to the work and fast enough to learn from, while making sure no one is surprised. It reflects the [DDTS doctrine](../principles/doctrine.md) - teams decide without escalating every choice - and the government [lightweight architecture](https://technology.blog.gov.uk/2026/08/28/lightweight-architecture-for-learning-at-pace/) approach. The boards below are for the minority of decisions that are novel, cross-cutting or outside the guardrails.
+
 ## Three tiers
 
 ```mermaid

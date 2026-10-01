@@ -12,6 +12,7 @@ Save as `docs/adr/NNNN-short-title.md` in your repository.
 - Business capabilities: e.g. BC05 Issue licences and permits
 - Technology capabilities: e.g. TC08 Case and workflow management
 - Guardrails: e.g. GR-HOST-01 (met), GR-DEV-01 (departure - see below)
+- Advice sought from: e.g. platform team, security architect, teams affected
 
 ## Context
 

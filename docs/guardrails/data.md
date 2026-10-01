@@ -2,7 +2,7 @@
 
 <p class="lead">Defra's science, regulation and payments all depend on trusted data. These guardrails make sure the data each service creates is an asset for the whole department.</p>
 
-Supports principle [GR-PRIN-04](principles.md#gr-prin-04). See also [enterprise data architecture](../data/index.md).
+Supports principle [GR-PRIN-04](../principles/architecture-principles.md#gr-prin-04). See also [enterprise data architecture](../data/index.md).
 
 ## GR-DATA-01 Every data set has an owner {#gr-data-01}
 
