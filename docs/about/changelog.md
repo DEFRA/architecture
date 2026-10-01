@@ -4,6 +4,12 @@
 
 ## October 2026
 
+### Patterns and a worked example
+
+- **New [Patterns](../patterns/index.md) section**, modelled on the Department for Education's: asynchronous submission with an outbox, acting on behalf of an organisation or holding, file upload with malware scanning, reading from an authoritative source, and publishing open data with metadata. Each lists the guardrails it helps you meet and related Secure by Design artefacts.
+- **[Worked example: apply for a licence](../patterns/worked-example/index.md):** a fictional service taken through the transactional reference architecture, with C4 context and container diagrams, [three sample ADRs](../patterns/worked-example/adrs.md) and a [threat model excerpt](../patterns/worked-example/threat-model.md).
+- **Proposed reference architectures** for capabilities Defra does not yet have a strategic solution for: [field inspection](../handrail/reference-architectures/field-inspection.md), [incident response](../handrail/reference-architectures/incident-response.md) and [grants and schemes](../handrail/reference-architectures/grants.md).
+
 ### Deliver a service
 
 - **New [Deliver a service](../deliver/index.md) section:** one page for each phase - discovery, alpha, beta and live - and for significant change and retiring a service. Each lists the guardrails that apply, the architecture artefacts to produce, the governance touchpoints and the evidence pack to bring to an assessment.

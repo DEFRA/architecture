@@ -34,6 +34,7 @@ guardrails = load_hook("guardrails")
 nfrs = load_hook("nfrs")
 traceability = load_hook("traceability")
 delivery = load_hook("delivery")
+patterns = load_hook("patterns")
 
 
 # --- Capability model --------------------------------------------------------
@@ -254,6 +255,26 @@ def test_every_platform_says_what_is_unknown():
     for platform in load_yaml("delivery", "platforms.yaml")["platforms"]:
         for field in ("gives", "request", "lead_time", "support", "docs"):
             assert platform.get(field), f"{platform['id']}: set {field}, or 'tbc' if it is not known"
+
+
+# --- Patterns ------------------------------------------------------------------
+
+
+def test_patterns_are_valid():
+    found = patterns.parse(DOCS, {g["id"]: g for g in guardrails.parse(DOCS)})
+    assert len(found) >= 5
+    assert {p["category"] for p in found} <= set(patterns.CATEGORIES)
+
+
+def test_pattern_with_unknown_guardrail_fails(tmp_path):
+    folder = tmp_path / "patterns"
+    folder.mkdir()
+    (folder / "bad.md").write_text(
+        "---\npattern:\n  category: data\n  status: draft\n  summary: x\n  guardrails: [GR-NOPE-01]\n---\n"
+        "# Bad\n\n<!-- patterns:guardrails -->\n<!-- patterns:sbd -->\n"
+    )
+    with pytest.raises(Exception, match="unknown guardrail GR-NOPE-01"):
+        patterns.parse(str(tmp_path), {})
 
 
 # --- Pages ---------------------------------------------------------------------

@@ -19,6 +19,7 @@ The site is a static site built with [MkDocs](https://www.mkdocs.org/) and [Mate
 | `capabilities/` | Business and technology capability models (YAML) |
 | `nfrs/` | Service tiers and the non-functional requirements catalogue (YAML) |
 | `delivery/` | The delivery lifecycle and Defra platforms, used to build the "Deliver a service" pages (YAML) |
+| `docs/patterns/` | Architecture patterns. Front matter lists each pattern's guardrails and Secure by Design artefacts, validated at build time |
 | `hooks/` | Build-time scripts that validate the content and generate the capability map, guardrail library and metadata (`guardrails.json`), NFR tables, doctrine-to-guardrail traceability, draft banners and the open questions page |
 | `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, alpha banner, theme, decision check and library filter |
 | `tests/` | Content checks (`pytest`) and the WCAG 2.2 AA accessibility check (`npm test`) |

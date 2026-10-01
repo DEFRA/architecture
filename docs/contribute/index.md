@@ -116,6 +116,21 @@ Every guardrail page lists the principles it puts into practice in its front mat
 
 Add `status: draft` to the page's front matter. The page shows a "Draft - to be confirmed" banner and a marker in the navigation. Remove the line once the content is agreed. To list draft pages, run `grep -rl "status: draft" docs`.
 
+### Add a pattern
+
+Copy an existing page in `docs/patterns/` and keep its sections: context, solution (with a diagram), guardrails it helps you meet, related Secure by Design artefacts, and when not to use it. Set the front matter:
+
+```yaml
+pattern:
+  category: integration      # infrastructure, integration, security or data
+  status: proposed           # proposed, draft or endorsed
+  summary: One sentence saying when to use it.
+  guardrails: [GR-API-05, GR-API-06]
+  sbd: [stride-template]     # artefact keys listed in hooks/patterns.py
+```
+
+Keep the `<!-- patterns:guardrails -->` and `<!-- patterns:sbd -->` markers where those sections go. The build fills them in, adds the pattern to the [catalogue](../patterns/index.md), and fails if a guardrail id is unknown. Add the page to `nav` in `mkdocs.yml`.
+
 ### Flag a fact that is not confirmed
 
 Do not guess Defra facts such as names, contacts, URLs, lead times or approvals. Write a visible box instead:
