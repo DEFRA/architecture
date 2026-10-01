@@ -25,3 +25,7 @@ ___*
 .idea
 
 site/
+
+__pycache__/
+.venv/
+.cache/

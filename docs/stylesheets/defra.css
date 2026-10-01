@@ -1,0 +1,391 @@
+/* Defra architecture - theme overrides for MkDocs Material.
+ *
+ * Colours follow the Defra green used across Defra digital services. The dark
+ * green is used for anything carrying text so it meets WCAG 2.2 AA contrast;
+ * the brighter Defra green is used for accents and large numerals only.
+ */
+
+:root {
+  --defra-green: #00a33b;
+  --defra-green-dark: #00703c;
+  --defra-green-darker: #005a30;
+  --defra-green-tint: #e6f4ea;
+  --defra-black: #0b0c0c;
+  --defra-grey: #505a5f;
+  --defra-grey-light: #f3f2f1;
+  --defra-amber: #f47738;
+  --defra-amber-text: #8a3a0b;
+  --defra-red: #d4351c;
+  --defra-blue: #1d70b8;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--defra-green-dark);
+  --md-primary-fg-color--light: var(--defra-green);
+  --md-primary-fg-color--dark: var(--defra-green-darker);
+  --md-accent-fg-color: var(--defra-green-darker);
+  --md-typeset-a-color: var(--defra-green-dark);
+  --md-default-fg-color: var(--defra-black);
+  --bcm-tile-bg: #ffffff;
+  --bcm-line: #b1b4b6;
+  --bcm-number: var(--defra-green);
+  --cap-hit: var(--defra-green-dark);
+  --cap-row-alt: var(--defra-grey-light);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #003d21;
+  --md-primary-fg-color--light: var(--defra-green);
+  --md-primary-fg-color--dark: #002a17;
+  --md-accent-fg-color: #4cc77a;
+  --md-typeset-a-color: #5fd08a;
+  --bcm-tile-bg: var(--md-default-bg-color);
+  --bcm-line: #4a5058;
+  --bcm-number: #4cc77a;
+  --cap-hit: #4cc77a;
+  --cap-row-alt: rgba(255, 255, 255, 0.04);
+}
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.md-typeset {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.md-typeset h1 {
+  color: var(--md-primary-fg-color);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--bcm-number);
+}
+
+.md-typeset h2 {
+  font-weight: 700;
+  border-bottom: 1px solid var(--bcm-line);
+  padding-bottom: 0.2em;
+}
+
+.md-typeset h3 {
+  font-weight: 700;
+}
+
+/* GOV.UK-style focus state: yellow with a black underline */
+.md-typeset a:focus,
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible {
+  outline: 3px solid transparent;
+  background-color: #ffdd00;
+  box-shadow: 0 -2px #ffdd00, 0 4px #0b0c0c;
+  color: #0b0c0c !important;
+  text-decoration: none;
+}
+
+.md-typeset a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.md-typeset .md-button,
+.md-typeset .grid.cards a,
+.md-typeset a.bcm-tile,
+.md-typeset .cap-matrix a {
+  text-decoration: none;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--defra-green-dark);
+  border-color: var(--defra-green-dark);
+  box-shadow: 0 2px 0 #002d18;
+}
+
+/* Lead paragraph */
+.md-typeset .lead {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+  max-width: 40em;
+}
+
+/* Hero band on the home page */
+.defra-hero {
+  border-left: 0.4rem solid var(--defra-green);
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 0 0 1.5rem;
+}
+
+.defra-hero p {
+  margin: 0.4rem 0;
+}
+
+/* Cards */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border-top: 4px solid var(--defra-green);
+  border-radius: 0;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  border-top-color: var(--defra-green-dark);
+}
+
+/* ---------- Business capability map (mirrors the agreed slide) ---------- */
+
+.bcm {
+  margin: 1.5rem 0;
+}
+
+.bcm__heading {
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  margin: 0 0 0.5rem;
+}
+
+[data-md-color-scheme="slate"] .bcm__heading {
+  color: var(--bcm-number);
+}
+
+.bcm__heading--supporting {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 2px solid var(--defra-green);
+}
+
+.bcm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0 1.5rem;
+}
+
+.md-typeset a.bcm-tile {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.7rem 0.25rem;
+  border-bottom: 1px solid var(--bcm-line);
+  color: var(--md-default-fg-color);
+  background: var(--bcm-tile-bg);
+  transition: background-color 120ms;
+}
+
+.md-typeset a.bcm-tile:hover {
+  background: var(--defra-green-tint);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a.bcm-tile:hover {
+  background: rgba(76, 199, 122, 0.12);
+}
+
+.bcm-tile__number {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 700;
+  color: var(--bcm-number);
+  min-width: 2.2rem;
+}
+
+.bcm-tile__name {
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+/* ---------- Status badges ---------- */
+
+.cap-status {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.05rem 0.4rem;
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+.cap-status--strategic {
+  background: #cce2d8;
+  color: #005a30;
+}
+
+.cap-status--emerging {
+  background: #fcd6c3;
+  color: #6e3619;
+}
+
+.cap-status--gap {
+  background: #f6d7d2;
+  color: #942514;
+}
+
+.cap-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.cap-count {
+  flex: 1 1 8rem;
+  padding: 0.75rem 1rem;
+  border-top: 4px solid;
+  background: var(--md-code-bg-color);
+}
+
+.cap-count--strategic { border-color: var(--defra-green-dark); }
+.cap-count--emerging { border-color: var(--defra-amber); }
+.cap-count--gap { border-color: var(--defra-red); }
+
+.cap-count__n {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.cap-count__label {
+  font-size: 0.8rem;
+}
+
+/* ---------- Capability matrix ---------- */
+
+.cap-matrix-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0 2rem;
+}
+
+.cap-matrix-wrapper:focus-visible {
+  outline: 3px solid #ffdd00;
+}
+
+.md-typeset table.cap-matrix {
+  border-collapse: collapse;
+  font-size: 0.7rem;
+  min-width: 100%;
+  display: table;
+}
+
+.md-typeset .cap-matrix th,
+.md-typeset .cap-matrix td {
+  border: 1px solid var(--bcm-line);
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.md-typeset .cap-matrix tbody th {
+  text-align: left;
+  min-width: 13rem;
+  max-width: 16rem;
+  font-weight: 400;
+  position: sticky;
+  left: 0;
+  background: var(--md-default-bg-color);
+  z-index: 1;
+}
+
+.md-typeset .cap-matrix tbody tr:nth-child(even) td {
+  background: var(--cap-row-alt);
+}
+
+.cap-matrix__num {
+  font-weight: 700;
+  color: var(--bcm-number);
+  margin-right: 0.25rem;
+}
+
+.md-typeset .cap-matrix__domain {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+.md-typeset .cap-matrix__tech {
+  height: 11rem;
+  vertical-align: bottom;
+  white-space: nowrap;
+  min-width: 1.6rem;
+  width: 1.6rem;
+}
+
+.md-typeset .cap-matrix__tech span {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 400;
+}
+
+.md-typeset .cap-matrix__tech--emerging { border-bottom: 4px solid var(--defra-amber); }
+.md-typeset .cap-matrix__tech--gap { border-bottom: 4px solid var(--defra-red); }
+.md-typeset .cap-matrix__tech--strategic { border-bottom: 4px solid var(--defra-green-dark); }
+
+.md-typeset .cap-matrix__hit {
+  color: var(--cap-hit);
+  font-size: 0.9rem;
+}
+
+.md-typeset .cap-matrix__totals th,
+.md-typeset .cap-matrix__totals td {
+  font-weight: 700;
+  border-top: 2px solid var(--md-primary-fg-color);
+}
+
+/* ---------- Guardrail cards ---------- */
+
+.md-typeset .guardrail {
+  border-left: 0.3rem solid var(--defra-green-dark);
+  padding: 0.1rem 0 0.1rem 0.9rem;
+  margin: 1.25rem 0;
+}
+
+.md-typeset .rfc {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.05rem 0.4rem;
+  margin-right: 0.35rem;
+  border-radius: 2px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.md-typeset .rfc--must { background: var(--defra-green-dark); color: #fff; }
+.md-typeset .rfc--should { background: #cce2d8; color: #005a30; }
+.md-typeset .rfc--could { background: var(--defra-grey-light); color: var(--defra-black); }
+
+/* Tables read better a little tighter */
+.md-typeset table:not([class]) th {
+  background: var(--defra-green-tint);
+  color: var(--defra-black);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: rgba(76, 199, 122, 0.12);
+  color: var(--md-default-fg-color);
+}
+
+/* Header tweaks */
+.md-header__title {
+  font-weight: 700;
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Text for screen readers only */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
