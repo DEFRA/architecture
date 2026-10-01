@@ -27,6 +27,8 @@ Identifiers (for example `GR-HOST-01`) are stable so they can be referenced in d
 
 ## The guardrails
 
+Search them all in the [guardrail library](library.md), or browse by area:
+
 | Area | What it covers |
 | --- | --- |
 | [Architecture principles](principles.md) | The ten principles every other guardrail derives from |
@@ -58,7 +60,7 @@ Use this checklist at the end of discovery, at each phase gate and before any si
 - [ ] The service meets WCAG 2.2 AA and uses the GOV.UK Design System (`GR-FE-01`, `GR-FE-02`)
 - [ ] Significant decisions are recorded as ADRs (`GR-PRIN-10`)
 
-Ticked every box? Great - carry on, and record it. Not sure, or found a gap? See [which governance route to take](../governance/triage.md).
+Ticked every box? Great - carry on, and record it. Not sure, or found a gap? Use the [decision check](../governance/decision-check.md) to find the right route.
 
 ## How guardrails change
 

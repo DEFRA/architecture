@@ -37,11 +37,17 @@ flowchart TB
 
 <div class="grid cards" markdown>
 
+-   **[Check a decision](decision-check.md)**
+
+    ---
+
+    An interactive check that suggests your route and drafts a decision record.
+
 -   **[Which route do I take?](triage.md)**
 
     ---
 
-    Five questions to tell you whether you can self-assure or need a board.
+    How triage works, and when you can self-assure or need a board.
 
 -   **[Record a decision](architecture-decision-records.md)**
 

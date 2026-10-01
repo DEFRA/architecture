@@ -19,6 +19,7 @@ copyright: >-
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: img/code-white.png
   favicon: img/code-black.png
@@ -58,8 +59,12 @@ theme:
 extra_css:
   - stylesheets/defra.css
 
+extra_javascript:
+  - javascripts/site.js
+
 hooks:
   - hooks/capabilities.py
+  - hooks/guardrails.py
 
 extra:
   generator: false
@@ -67,6 +72,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/DEFRA
       name: Defra on GitHub
+    - icon: fontawesome/solid/code
+      link: https://defra.github.io/software-development-standards/
+      name: Defra software development standards
     - icon: fontawesome/solid/book
       link: https://digital.defra.gov.uk/service-manual
       name: Defra Digital Service Manual
@@ -111,6 +119,7 @@ nav:
       - What's new: about/changelog.md
   - Guardrails:
       - guardrails/index.md
+      - Guardrail library: guardrails/library.md
       - Architecture principles: guardrails/principles.md
       - Choosing technology: guardrails/choosing-technology.md
       - Hosting and platforms: guardrails/hosting-and-platforms.md
@@ -124,6 +133,7 @@ nav:
       - Open source and working in the open: guardrails/open-source.md
       - Artificial intelligence: guardrails/ai.md
       - Sustainability: guardrails/sustainability.md
+      - Software development standards: https://defra.github.io/software-development-standards/
   - Handrail:
       - handrail/index.md
       - Business capabilities: handrail/business-capabilities.md
@@ -136,6 +146,7 @@ nav:
           - Data and analytics: handrail/reference-architectures/data-and-analytics.md
   - Governance:
       - governance/index.md
+      - Check a decision: governance/decision-check.md
       - Which route do I take?: governance/triage.md
       - Technology Governance Board: governance/tgb.md
       - Technical Design Authority: governance/tda.md

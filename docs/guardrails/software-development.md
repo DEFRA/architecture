@@ -4,6 +4,9 @@
 
 Supports principles [GR-PRIN-07](principles.md#gr-prin-07) and [GR-PRIN-09](principles.md#gr-prin-09).
 
+!!! tip "Looking for detailed coding guidance?"
+    These guardrails set the boundaries. The [Defra software development standards](https://defra.github.io/software-development-standards/) are the detailed, practical guide to languages, coding style, testing, source control, versioning and release - follow them for day-to-day engineering.
+
 ## GR-DEV-01 Use the supported languages and frameworks {#gr-dev-01}
 
 <span class="rfc rfc--should">Should</span> Use Defra's supported stack for new services so that skills, libraries and support are shared.
@@ -45,7 +48,7 @@ Supports principles [GR-PRIN-07](principles.md#gr-prin-07) and [GR-PRIN-09](prin
 
 ## GR-DEV-07 Follow shared coding standards {#gr-dev-07}
 
-<span class="rfc rfc--should">Should</span> Use automated linting and formatting, and follow Defra's published coding standards, so code looks and behaves consistently across teams.
+<span class="rfc rfc--should">Should</span> Use automated linting and formatting, and follow the [Defra software development standards](https://defra.github.io/software-development-standards/), so code looks and behaves consistently across teams.
 
 ## GR-DEV-08 Document as you go {#gr-dev-08}
 

@@ -9,6 +9,10 @@ Source for the Defra architecture site at [https://howellsr.github.io/architectu
 | `docs/` | Site content in Markdown |
 | `capabilities/` | Business and technology capability models (YAML) - the single source for the handrail |
 | `hooks/capabilities.py` | MkDocs hook that validates the capability models, renders the capability map, catalogue and matrix, and publishes `capabilities.json` |
+| `hooks/guardrails.py` | MkDocs hook that checks every guardrail (id, anchor, level) and builds the searchable guardrail library and home page figures |
+| `overrides/home.html` | Home page hero (search and figures) layered on the Material theme |
+| `docs/javascripts/site.js` | Guardrail library filter and the interactive decision check |
+| `docs/stylesheets/defra.css` | Site theme and components |
 | `includes/` | Shared snippets such as abbreviations |
 | `.github/workflows/ci.yml` | Strict build on every pull request; publish to GitHub Pages on merge to `main` |
 
@@ -29,6 +33,7 @@ The site is published with GitHub Pages at <https://howellsr.github.io/architect
 
 - Every push to `main` runs `.github/workflows/ci.yml`, which builds the site with `mkdocs build --strict` and then runs `mkdocs gh-deploy` to push the built site to the `gh-pages` branch.
 - GitHub Pages serves the `gh-pages` branch. One-off setup (repository admin): **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)` → Save**.
+- If the site shows this README instead of the home page, Pages is serving `main`. Change the branch to `gh-pages` as above.
 - To republish without a code change, run the **ci** workflow manually from the **Actions** tab (**Run workflow** on `main`).
 - Pull requests run the build only; they never publish.
 

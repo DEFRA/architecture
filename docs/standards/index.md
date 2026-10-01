@@ -7,6 +7,7 @@
 | Resource | What it is |
 | --- | --- |
 | [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) | How Defra designs, builds and runs digital services, including service assessments |
+| [Defra software development standards](https://defra.github.io/software-development-standards/) | Detailed engineering practice: languages, coding style, testing, source control, versioning and release |
 | [Defra Digital blog](https://defradigital.blog.gov.uk/) | What Defra digital, data and technology teams are working on and learning |
 | [Defra on GitHub](https://github.com/DEFRA) | Defra's open source code |
 | [Defra Data Services Platform](https://environment.data.gov.uk/) | Defra group open and shared data |

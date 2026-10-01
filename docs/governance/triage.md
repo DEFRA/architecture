@@ -2,6 +2,9 @@
 
 <p class="lead">Answer five questions to find the lightest governance route that fits your work.</p>
 
+!!! tip "Prefer an interactive version?"
+    The [decision check](decision-check.md) walks you through these questions, suggests a route and drafts a decision record for you.
+
 ```mermaid
 flowchart TD
     A([Start]) --> Q1{"Does it change Defra<br/>technology strategy, or<br/>create or retire a<br/>strategic platform?"}

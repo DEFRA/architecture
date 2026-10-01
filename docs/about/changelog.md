@@ -4,6 +4,15 @@
 
 ## October 2026
 
+### Front door and tools
+
+- **New home page** with search, "What do you need to do?" routes, the governance flow, the capability map and links to detailed guidance.
+- **[Check a decision](../governance/decision-check.md):** an interactive check that suggests a governance route and drafts a decision record.
+- **[Guardrail library](../guardrails/library.md):** search and filter every guardrail and principle, built automatically from the guardrail pages.
+- Links to the [Defra software development standards](https://defra.github.io/software-development-standards/) for detailed coding practice.
+
+### First release
+
 - **New site.** First version of the Defra architecture site, published in the open.
 - **Guardrails:** first set of guardrails across 13 areas, with stable ids and Must/Should/Could levels, and a 10-minute self-assurance checklist.
 - **Handrail:** Defra business capability model (9 core and 2 supporting capabilities) with draft level 2 capabilities, a technology capability catalogue of 24 capabilities, a capability mapping matrix and three reference architectures. The model is published as machine-readable YAML and JSON.

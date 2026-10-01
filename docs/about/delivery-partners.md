@@ -20,6 +20,7 @@ We want partners - large and small - to understand how Defra builds technology *
 | --- | --- |
 | Follow the guardrails, and raise early where you think one is wrong | [Guardrails](../guardrails/index.md) |
 | Use Defra's strategic platforms and capabilities unless there is an agreed exception | [GR-HOST-01](../guardrails/hosting-and-platforms.md#gr-host-01), [GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01) |
+| Follow the [Defra software development standards](https://defra.github.io/software-development-standards/) for day-to-day engineering | [GR-DEV-07](../guardrails/software-development.md#gr-dev-07) |
 | Work in Defra's GitHub organisations from day one, in the open by default | [GR-DEV-02](../guardrails/software-development.md#gr-dev-02), [GR-OPEN-01](../guardrails/open-source.md#gr-open-01) |
 | Record significant decisions as ADRs in Defra repositories | [ADRs](../governance/architecture-decision-records.md) |
 | Build security in, including threat modelling with the team | [Secure by Design](../security/secure-by-design.md) |
