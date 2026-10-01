@@ -75,9 +75,11 @@ hooks:
   - hooks/nfrs.py
   - hooks/delivery.py
   - hooks/patterns.py
+  - hooks/registers.py
   - hooks/page_status.py
   - hooks/cache_busting.py
   - hooks/site_info.py
+  - hooks/releases.py
   - hooks/open_questions.py
 
 extra:
@@ -126,6 +128,10 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+# Pages built but deliberately left out of the navigation.
+not_in_nav: |
+  /print/
+
 nav:
   - Home:
       - index.md
@@ -139,6 +145,9 @@ nav:
       - The architecture team: about/team.md
       - Roadmap: about/roadmap.md
       - What's new: about/changelog.md
+      - Releases and versions: about/releases.md
+      - Approval status: about/approval-status.md
+      - Moving to a Defra GitHub organisation: about/moving-to-defra.md
       - Open questions: about/open-questions.md
   - Deliver a service:
       - deliver/index.md
@@ -175,6 +184,9 @@ nav:
       - Open source and working in the open: guardrails/open-source.md
       - Artificial intelligence: guardrails/ai.md
       - Sustainability: guardrails/sustainability.md
+      - Products and platforms (draft): guardrails/products-and-platforms.md
+      - Digital first (draft): guardrails/digital-first.md
+      - Field working and devices (draft): guardrails/field-working-and-devices.md
       - Software development standards: https://defra.github.io/software-development-standards/
   - NFRs:
       - nfrs/index.md
@@ -214,6 +226,8 @@ nav:
       - Solution design authorities: governance/solution-design-authorities.md
       - Architecture decision records: governance/architecture-decision-records.md
       - Exceptions to guardrails: governance/exceptions.md
+      - Exception register: governance/exception-register.md
+      - Guardrails health: governance/guardrails-health.md
       - Templates:
           - governance/templates/index.md
           - Architecture decision record: governance/templates/adr.md

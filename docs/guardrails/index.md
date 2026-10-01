@@ -52,8 +52,11 @@ Search them all in the [guardrail library](library.md), or browse by area:
 | [Observability and operations](observability-and-operations.md) | Logging, monitoring, alerting, resilience and support |
 | [Front end and accessibility](front-end-and-accessibility.md) | GOV.UK design system, WCAG 2.2 AA, progressive enhancement |
 | [Open source and working in the open](open-source.md) | Coding in the open, licensing, publishing safely |
-| [Artificial intelligence](ai.md) | Safe, lawful and transparent use of AI |
+| [Artificial intelligence](ai.md) | Safe, lawful and transparent use of AI, including AI agents and supplier use of AI coding assistants |
 | [Sustainability](sustainability.md) | Greening government ICT and efficient design |
+| [Products and platforms](products-and-platforms.md) (draft) | Long-lived product teams, ownership, contributing to platforms, retiring products |
+| [Digital first and end-to-end services](digital-first.md) (draft) | Challenging paper processes, designing across boundaries, assisted digital |
+| [Field working and devices](field-working-and-devices.md) (draft) | Devices suited to the job, offline working, device security |
 
 ## Self-assure in 10 minutes
 

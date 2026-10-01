@@ -4,6 +4,15 @@
 
 ## October 2026
 
+### For the CDIO: versions, approvals and health
+
+- **Versioned releases.** The site now has [releases](releases.md) with semantic version numbers, recorded in `CHANGELOG.md`. Each release is tagged and has a PDF of every guardrail attached, to cite in contracts. The banner on every page shows the version in force.
+- **[Approval status](approval-status.md)** of each section of the site, and who approved it.
+- **[Exception register](../governance/exception-register.md)** and **[guardrails health](../governance/guardrails-health.md)**: exceptions per guardrail, exceptions expiring soon and guardrails that are candidates to change, reviewed every quarter.
+- **Who guardrails apply to:** each guardrail area now says whether it applies to arm's length bodies as well as the core department. These are still to be confirmed.
+- **New draft guardrails** from the high-priority backlog: [products and platforms](../guardrails/products-and-platforms.md), [digital first and end-to-end services](../guardrails/digital-first.md), [field working and devices](../guardrails/field-working-and-devices.md) and [agentic AI](../guardrails/ai.md#gr-ai-08).
+- **[Moving this site to a Defra GitHub organisation](moving-to-defra.md):** the plan, including redirects so links in contracts keep working.
+
 ### Delivery partners
 
 - **[Delivery partners](delivery-partners.md) is now a section**, with new pages on [contracting with this site](../partners/contracting.md) (versioning policy, how to cite a version, model clauses and an annex of every Must), a [mobilisation checklist](../partners/mobilisation.md), [handover and exit](../partners/handover-and-exit.md) and [working with other suppliers](../partners/multi-supplier.md).

@@ -55,7 +55,7 @@ Run the same checks as CI before you raise a pull request:
 
 | Check | Command |
 | --- | --- |
-| Python lint and format (Ruff) | `ruff check hooks tests && ruff format --check hooks tests` |
+| Python lint and format (Ruff) | `ruff check hooks tests scripts && ruff format --check hooks tests scripts` |
 | JavaScript lint (neostandard) | `npm run lint` |
 | Content checks | `pytest` |
 | Build, links and anchors | `mkdocs build --strict` |

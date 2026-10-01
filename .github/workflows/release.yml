@@ -1,0 +1,87 @@
+name: release
+
+# Releases a version when CHANGELOG.md on main has a released version that is
+# not tagged yet and no unreleased changes. It tags the commit vX.Y.Z, builds
+# the site, makes a PDF of every guardrail and attaches it to a GitHub
+# release. See CHANGELOG.md.
+
+on:
+  push:
+    branches: [main]
+    paths: [CHANGELOG.md]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Tag and release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Find the version to release
+        id: version
+        run: |
+          set +e
+          version=$(python scripts/release_info.py notes.md)
+          status=$?
+          set -e
+          if [ "$status" = 3 ]; then
+            echo "Unreleased changes in CHANGELOG.md - nothing to release."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [ "$status" = 0 ] || exit "$status"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if git rev-parse -q --verify "refs/tags/v$version" >/dev/null; then
+            echo "v$version is already tagged - nothing to release."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Releasing v$version."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build the site
+        if: steps.version.outputs.skip == 'false'
+        run: mkdocs build --strict
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        if: steps.version.outputs.skip == 'false'
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Make the guardrails PDF
+        if: steps.version.outputs.skip == 'false'
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          node scripts/guardrails-pdf.js "dist/defra-architecture-guardrails-v${{ steps.version.outputs.version }}.pdf"
+
+      - name: Tag and publish the release
+        if: steps.version.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          gh release create "v$VERSION" dist/*.pdf \
+            --target "$GITHUB_SHA" \
+            --title "Version $VERSION" \
+            --notes-file notes.md

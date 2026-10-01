@@ -1740,6 +1740,10 @@ body {
   background: #bbd4ea;
 }
 
+.da-phase__version {
+  margin-top: 0.15rem !important;
+}
+
 .da-phase__text {
   margin: 0;
   font-size: 0.75rem;
@@ -1901,4 +1905,12 @@ body {
   color: #fff;
   background-color: var(--da-green);
   border-color: var(--da-green);
+}
+
+/* Material keeps section headings in the sidebar sticky. When a long section
+   scrolls, the heading covers part of the first link (WCAG 2.2 target size),
+   so let the heading scroll with the list. */
+.md-sidebar--primary .md-nav--lifted > .md-nav__list > .md-nav__item--active > .md-nav__link {
+  position: static;
+  box-shadow: none;
 }

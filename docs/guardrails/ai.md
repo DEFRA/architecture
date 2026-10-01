@@ -1,4 +1,5 @@
 ---
+applicability: tbc
 principles: [GR-PRIN-07, GR-PRIN-04]
 # Metadata for every guardrail on this page. See the contribution guide for the fields.
 guardrail_defaults:
@@ -37,6 +38,26 @@ guardrails:
     evidence: "Supplier's agreed list of AI coding assistants and how each runs within Defra-approved terms, the review process for generated code, and disclosure in pull requests or delivery reports"
     since_version: 0.2.0
     sbd_principles: [2, 10]
+  GR-AI-08:
+    phases: [alpha, beta, live]
+    evidence: List of each agent's tools and permissions, granted to the agent's own identity and reviewed
+    since_version: 0.2.0
+    sbd_principles: [7]
+  GR-AI-09:
+    phases: [alpha, beta, live]
+    evidence: Design showing which agent actions need human approval, and tests proving they cannot happen without it
+    since_version: 0.2.0
+    sbd_principles: [4]
+  GR-AI-10:
+    phases: [beta, live]
+    evidence: Audit records of agent inputs, tool calls, approvals and outcomes, sent to security monitoring
+    since_version: 0.2.0
+    sbd_principles: [5]
+  GR-AI-11:
+    phases: [alpha, beta, live]
+    evidence: Threat model covering prompt injection through every input the agent reads, with tested mitigations
+    since_version: 0.2.0
+    sbd_principles: [3, 8]
 ---
 
 # Artificial intelligence
@@ -90,3 +111,39 @@ Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctr
 - Review AI-generated code with the same care as any other code ([GR-DEV-03](software-development.md#gr-dev-03)), including licences of any suggested code.
 
 This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+
+## Agentic AI
+
+AI agents do more than answer questions: they plan steps and take actions through tools, such as updating records, sending messages or calling APIs. That makes them useful, and it makes mistakes and attacks more costly. These draft guardrails come from the [guardrail backlog](../about/roadmap.md#guardrail-backlog) and apply on top of [GR-AI-02](#gr-ai-02) to [GR-AI-06](#gr-ai-06).
+
+## GR-AI-08 Give agents the least privilege they need {#gr-ai-08}
+
+<span class="rfc rfc--must">Must</span> AI agents act under their own identity, with access only to the tools, data and actions their task needs, and never with a person's full permissions.
+
+**Why:** an agent can be tricked or can simply be wrong. Limiting what it can reach limits the damage ([GR-IAM-03](identity-and-access.md#gr-iam-03)).
+
+**How to meet it:** list each agent's tools and permissions, grant them to a workload identity for the agent, and review them as you would a privileged user's.
+
+## GR-AI-09 Get human approval for consequential actions {#gr-ai-09}
+
+<span class="rfc rfc--must">Must</span> An agent does not take an action with legal, financial or significant effects on people, or one that cannot easily be undone, without approval from an accountable person.
+
+**Why:** [GR-AI-03](#gr-ai-03) keeps a human accountable for decisions. Agents act faster than people can notice, so approval has to be designed in, not assumed.
+
+**How to meet it:** classify the agent's actions in alpha. Enforce approval in the tool layer, not only in the prompt, and test that the agent cannot bypass it.
+
+## GR-AI-10 Keep an audit trail of what agents do {#gr-ai-10}
+
+<span class="rfc rfc--must">Must</span> Record what each agent was asked, what it read, which tools it called with what inputs, who approved what, and the outcome - and send security-relevant events to security monitoring.
+
+**Why:** without a full record, nobody can explain, challenge or reverse what an agent did.
+
+**How to meet it:** log at the tool layer with correlation ids ([GR-OPS-02](observability-and-operations.md#gr-ops-02)), and keep records for as long as the decisions they support.
+
+## GR-AI-11 Defend agents against prompt injection {#gr-ai-11}
+
+<span class="rfc rfc--must">Must</span> Treat everything an agent reads - documents, emails, web pages, tool results - as untrusted input that may try to change its instructions, and design controls that hold even if it does.
+
+**Why:** prompt injection is the most common way to make an agent misuse its tools or leak data.
+
+**How to meet it:** include injection through every input in your [threat model](../security/threat-modelling.md) ([GR-AI-05](#gr-ai-05)), separate untrusted content from instructions, restrict tools as in GR-AI-08 and require approval as in GR-AI-09.

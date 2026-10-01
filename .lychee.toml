@@ -22,6 +22,9 @@ exclude = [
   # pages are not live until after merge; internal links are checked by
   # `mkdocs build --strict` and by lychee against the built files.
   "^https://howellsr\\.github\\.io/architecture/",
+  # Files in this repository's main branch do not exist until a pull request
+  # is merged. tests/test_content.py checks they exist in the checkout instead.
+  "^https://github\\.com/howellsr/architecture/(blob|tree)/main/",
   # security.gov.uk returns 403 to automated checkers; check these by hand
   "^https://www\\.security\\.gov\\.uk/",
 ]

@@ -1,0 +1,26 @@
+# Register of approved exceptions to guardrails.
+#
+# Rendered on docs/governance/exception-register.md and used for the
+# guardrails health page by hooks/registers.py. Do not record security
+# vulnerabilities or anything that would help an attacker - give the
+# guardrail, the service and the dates only.
+#
+# id:         EX-YYYY-NNN, never reused
+# guardrail:  the guardrail id
+# service:    the service or product the exception is for
+# approved:   date approved (YYYY-MM-DD)
+# expiry:     date the exception ends (YYYY-MM-DD) - every exception expires
+# owner:      the role accountable for the exception, such as "Service owner, <service>"
+# decision:   optional link to the decision record
+#
+# Example:
+#
+#   - id: EX-2026-001
+#     guardrail: GR-HOST-01
+#     service: Example service
+#     approved: 2026-11-01
+#     expiry: 2027-05-01
+#     owner: Service owner, Example service
+#     decision: https://github.com/DEFRA/example/blob/main/docs/adr/0004-hosting.md
+
+exceptions: []

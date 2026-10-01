@@ -1,4 +1,5 @@
 ---
+applicability: tbc
 principles: [GR-PRIN-03, GR-PRIN-07]
 # Metadata for every guardrail on this page. See the contribution guide for the fields.
 guardrail_defaults:

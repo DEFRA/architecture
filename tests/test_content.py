@@ -35,6 +35,8 @@ nfrs = load_hook("nfrs")
 traceability = load_hook("traceability")
 delivery = load_hook("delivery")
 patterns = load_hook("patterns")
+releases = load_hook("releases")
+registers = load_hook("registers")
 
 
 # --- Capability model --------------------------------------------------------
@@ -107,6 +109,7 @@ def test_supplier_ai_guardrail_is_a_draft_should():
 
 
 GOOD_PAGE = """---
+applicability: tbc
 guardrail_defaults:
   status: draft
   owner: Architecture team
@@ -282,7 +285,71 @@ def test_pattern_with_unknown_guardrail_fails(tmp_path):
         patterns.parse(str(tmp_path), {})
 
 
+# --- Releases and registers -----------------------------------------------------
+
+
+def test_changelog_is_valid():
+    with open(os.path.join(ROOT, "CHANGELOG.md"), encoding="utf-8") as handle:
+        sections = releases.parse(handle.read())
+    assert releases.latest(sections)["version"]
+
+
+def test_changelog_versions_must_be_newest_first():
+    text = "## [Unreleased]\n\n## [0.1.0] - 2026-01-01\n\n## [0.2.0] - 2026-02-01\n"
+    with pytest.raises(Exception, match="newest first"):
+        releases.parse(text)
+
+
+def test_registers_are_valid():
+    found = {g["id"]: g for g in guardrails.parse(DOCS)}
+    approvals = load_yaml("registers", "approvals.yaml")
+    data = registers.load(DOCS, approvals, load_yaml("registers", "exceptions.yaml"), found)
+    assert data["sections"]
+
+
+def test_exception_needs_known_guardrail_and_expiry_after_approval():
+    found = {g["id"]: g for g in guardrails.parse(DOCS)}
+    bad = {
+        "exceptions": [
+            {
+                "id": "EX-2026-001",
+                "guardrail": "GR-NOPE-01",
+                "service": "x",
+                "owner": "y",
+                "approved": "2026-06-01",
+                "expiry": "2026-01-01",
+            }
+        ]
+    }
+    with pytest.raises(Exception) as err:
+        registers.load(DOCS, {"sections": []}, bad, found)
+    assert "unknown guardrail GR-NOPE-01" in str(err.value)
+    assert "expiry must be after" in str(err.value)
+
+
+def test_every_guardrail_page_says_who_it_applies_to():
+    folder = os.path.join(DOCS, "guardrails")
+    for name in os.listdir(folder):
+        if name.endswith(".md") and name not in ("index.md", "library.md"):
+            with open(os.path.join(folder, name), encoding="utf-8") as handle:
+                assert "\napplicability:" in handle.read().split("\n---\n")[0], name
+
+
 # --- Pages ---------------------------------------------------------------------
+
+
+REPO_LINK = re.compile(r"https://github\.com/howellsr/architecture/(?:blob|tree)/main/([^)\s\"'#>]+)")
+
+
+def test_links_to_files_in_this_repository_exist():
+    """The link checker skips these links, because they 404 until a pull request is merged."""
+    missing = []
+    for path in glob.glob(os.path.join(DOCS, "**", "*.md"), recursive=True) + [os.path.join(ROOT, "README.md")]:
+        with open(path, encoding="utf-8") as handle:
+            for target in REPO_LINK.findall(handle.read()):
+                if not os.path.exists(os.path.join(ROOT, target.rstrip("/"))):
+                    missing.append(f"{os.path.relpath(path, ROOT)} -> {target}")
+    assert not missing, "Links to files that do not exist: " + ", ".join(missing)
 
 
 MERMAID = re.compile(r"```mermaid\n(.*?)```", re.S)

@@ -48,6 +48,7 @@ import datetime
 import html
 import json
 import os
+import posixpath
 import re
 from collections import Counter
 
@@ -205,6 +206,8 @@ def parse(docs_dir: str) -> list[dict]:
             text = handle.read()
         front = _front_matter(text)
         defaults = front.get("guardrail_defaults") or {}
+        if section == "guardrails" and not front.get("applicability"):
+            errors.append(f"{name}: add 'applicability:' to the front matter (who the guardrails apply to, or tbc)")
         metadata = front.get("guardrails") or {}
         match = FRONT_MATTER.match(text)
         text = text[match.end() :] if match else text
@@ -214,11 +217,12 @@ def parse(docs_dir: str) -> list[dict]:
         for gid in sorted(set(metadata) - seen):
             errors.append(f"{name}: metadata for {gid}, which has no heading on this page")
         page_doctrines = sorted({d for pid in front.get("principles") or [] for d in doctrines_for.get(pid, [])})
-        for i, match in enumerate(matches):
+        for match in matches:
             gid, title, anchor = match.groups()
             if anchor != gid.lower():
                 errors.append(f"{name}: {gid} has anchor #{anchor}, expected #{gid.lower()}")
-            end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+            nxt = SECTION.search(text, match.end())
+            end = nxt.start() if nxt else len(text)
             body = text[match.end() : end]
             level = LEVEL.search(body)
             if not level:
@@ -254,6 +258,7 @@ def parse(docs_dir: str) -> list[dict]:
                     "last_reviewed": last.isoformat() if isinstance(last, datetime.date) else last,
                     "since_version": str(meta.get("since_version")),
                     "replaced_by": meta.get("replaced_by"),
+                    "body": body.strip(),
                 }
             )
     ids = [g["id"] for g in found]
@@ -308,12 +313,17 @@ def on_page_markdown(markdown, page, config, files):
     marker = "<!-- guardrails:library -->"
     if marker in markdown:
         markdown = markdown.replace(marker, _library(page, files))
+    marker = "<!-- guardrails:print -->"
+    if marker in markdown:
+        markdown = markdown.replace(marker, _print(page, config))
     marker = "<!-- guardrails:musts -->"
     if marker in markdown:
         markdown = markdown.replace(marker, _musts(page, files))
     on_page = [g for g in _guardrails if g["page"] == page.file.src_uri]
     if on_page:
         markdown = _add_panels(markdown, on_page, page, files)
+        if page.file.src_uri.startswith("guardrails/"):
+            markdown = _add_applicability(markdown, page.meta.get("applicability"), on_page[0]["area"])
     return markdown
 
 
@@ -321,13 +331,31 @@ def on_post_build(config):
     out = {
         "description": "Defra architecture guardrails and principles with their metadata",
         "source": "https://github.com/howellsr/architecture",
-        "guardrails": _guardrails,
+        "guardrails": [{k: v for k, v in g.items() if k != "body"} for g in _guardrails],
     }
     with open(os.path.join(config["site_dir"], "guardrails.json"), "w", encoding="utf-8") as handle:
         json.dump(out, handle, indent=2)
 
 
 # --- Renderers ---------------------------------------------------------------
+
+
+def _add_applicability(markdown: str, applicability, area: str) -> str:
+    """Say who an area's guardrails apply to, after the page's lead paragraph."""
+    if not applicability or applicability == "tbc":
+        box = (
+            '!!! warning "To be confirmed"\n'
+            f"    **TODO:** whether the {area.lower()} guardrails apply to Defra's arm's length bodies "
+            "as well as the core department, and any differences.\n"
+        )
+    else:
+        box = f'!!! info "Who these guardrails apply to"\n    {applicability}\n'
+    lines = markdown.split("\n")
+    anchor = next((i for i, line in enumerate(lines) if line.startswith('<p class="lead">')), None)
+    if anchor is None:
+        anchor = next(i for i, line in enumerate(lines) if line.startswith("# "))
+    lines.insert(anchor + 1, "\n" + box)
+    return "\n".join(lines)
 
 
 def _href(g: dict, page, files) -> str:
@@ -390,6 +418,42 @@ def _add_panels(markdown: str, on_page: list[dict], page, files) -> str:
         )
     out.append(markdown[last:])
     return "".join(out)
+
+
+MD_LINK = re.compile(r"\]\((?!https?://|#|mailto:)([^)]+)\)")
+
+
+def _print(page, config) -> str:
+    """Every guardrail in full, on one page, for the release PDF."""
+    here = posixpath.dirname(page.file.src_uri)
+    extra = config["extra"]
+    out = [
+        f"**Version {extra.get('version_in_force')}**, released {extra.get('version_date')}. "
+        f"{_stats['guardrails']} guardrails and {_stats['principles']} principles.",
+        "",
+    ]
+    area = None
+    for g in _guardrails:
+        if g["area"] != area:
+            area = g["area"]
+            out += [f"## {area}", ""]
+        source = posixpath.dirname(g["page"])
+
+        def relink(m, source=source):
+            target = posixpath.normpath(posixpath.join(source, m.group(1)))
+            return f"]({posixpath.relpath(target, here)})"
+
+        out += [f"### {g['id']} {g['title']} {{#{g['id'].lower()}}}", "", MD_LINK.sub(relink, g["body"]), ""]
+        if g["level"] != "principle":
+            check = "Manual" if g["automated_check"] == "manual" else g["automated_check"]
+            out += [
+                f"*Status:* {STATUSES[g['status']]} · *Phases:* {', '.join(PHASES[p] for p in g['phases'])} · "
+                f"*Since:* {g['since_version']}  ",
+                f"*Evidence:* {g['evidence'] or '-'}  ",
+                f"*Automated check:* {check}",
+                "",
+            ]
+    return "\n".join(out) + "\n"
 
 
 def _musts(page, files) -> str:

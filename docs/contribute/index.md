@@ -30,6 +30,9 @@ Most changes are to Markdown in `docs/` or to the YAML data files. You rarely ne
 | `docs/guardrails/*.md` | Guardrails. The guardrail library is built from these and the principles. | Architects |
 | `capabilities/*.yaml` | Business and technology capability models | Business and enterprise architects |
 | `nfrs/*.yaml` | Service tiers and the NFR catalogue | Solution architects |
+| `registers/*.yaml` | Approval status of each section and the exception register | Architecture team |
+| `CHANGELOG.md` | Releases and their version numbers | Site maintainers |
+| `scripts/` | Release PDF, release notes and the redirect generator for moving the site | Site maintainers |
 | `delivery/*.yaml` | The delivery lifecycle (artefacts and governance for each phase) and the platforms teams can use | Architects and platform teams |
 | `mkdocs.yml` | Site settings and the navigation | Site maintainers |
 | `hooks/` | Small Python scripts that check the data and build tables from it | Site maintainers |
@@ -112,6 +115,18 @@ The doctrine is in `docs/principles/doctrine.md` and the principles in `docs/pri
 
 Every guardrail page lists the principles it puts into practice in its front matter, for example `principles: [GR-PRIN-05, GR-PRIN-06]`. Which principles apply each doctrine is set in the `applies:` front matter of `docs/principles/doctrine.md`. The site builds the breadcrumbs and coverage table from these, and the build fails if a page is not linked.
 
+### Release a version
+
+Move the entries under `## [Unreleased]` in `CHANGELOG.md` to a new `## [X.Y.Z] - YYYY-MM-DD` section, choosing the number with the [versioning policy](../partners/contracting.md#versioning-policy), and leave an empty `## [Unreleased]` above it. When the change is merged, the release workflow tags the commit, builds the site and attaches a PDF of every guardrail to a GitHub release. Also update [what's new](../about/changelog.md).
+
+### Record an approval or an exception
+
+Update `registers/approvals.yaml` when a section is endorsed, or add an approved exception to `registers/exceptions.yaml`. The [approval status](../about/approval-status.md), [exception register](../governance/exception-register.md) and [guardrails health](../governance/guardrails-health.md) pages are built from them, and the build checks ids, dates and guardrails.
+
+### Say who guardrails apply to
+
+Every guardrail page has `applicability:` in its front matter - who the guardrails apply to, such as the core department and arm's length bodies. Write `tbc` until it is agreed: the page then shows a "To be confirmed" box.
+
 ### Mark a page as draft
 
 Add `status: draft` to the page's front matter. The page shows a "Draft - to be confirmed" banner and a marker in the navigation. Remove the line once the content is agreed. To list draft pages, run `grep -rl "status: draft" docs`.
@@ -165,7 +180,7 @@ Every pull request runs these checks. You can run them locally before you push:
 
 | Check | Command | What it catches |
 | --- | --- | --- |
-| Lint | `ruff check hooks tests`, `ruff format --check hooks tests` and `npm run lint` | Python and JavaScript style, following the [Defra software development standards](https://defra.github.io/software-development-standards/) |
+| Lint | `ruff check hooks tests scripts`, `ruff format --check hooks tests scripts` and `npm run lint` | Python and JavaScript style, following the [Defra software development standards](https://defra.github.io/software-development-standards/) |
 | Content | `pytest` | Broken references between doctrine, principles, guardrails, capabilities and NFRs; diagrams without text alternatives |
 | Build | `mkdocs build --strict` | Broken links and anchors, invalid data, missing pages |
 | Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |
