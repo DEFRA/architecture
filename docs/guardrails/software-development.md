@@ -1,8 +1,10 @@
+---
+principles: [GR-PRIN-01, GR-PRIN-03]
+---
+
 # Software development
 
 <p class="lead">How we write, test and ship code so that any Defra team, or any partner, can pick it up and run with it.</p>
-
-Supports principles [GR-PRIN-01](../principles/architecture-principles.md#gr-prin-01) and [GR-PRIN-03](../principles/architecture-principles.md#gr-prin-03).
 
 !!! tip "Looking for detailed coding guidance?"
     These guardrails set the boundaries. The [Defra software development standards](https://defra.github.io/software-development-standards/) are the detailed, practical guide to languages, coding style, testing, source control, versioning and release - follow them for day-to-day engineering.

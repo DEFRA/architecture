@@ -29,7 +29,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Invest in automation and standardised environments.
 - Keep services loosely coupled to allow incremental changes and isolated deployments.
 
-**Put into practice by:** [governance](../governance/index.md), the [decision check](../governance/decision-check.md), [software development](../guardrails/software-development.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [observability and operations](../guardrails/observability-and-operations.md).
+<!-- trace:principle GR-PRIN-01 -->
+
+**See also:** [governance](../governance/index.md), the [decision check](../governance/decision-check.md), [software development](../guardrails/software-development.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [observability and operations](../guardrails/observability-and-operations.md).
 
 ## GR-PRIN-02 Design for users {#gr-prin-02}
 
@@ -44,7 +46,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Assess off-the-shelf systems against Defra user interface standards to maximise compliance.
 - Reuse existing processes for similar user-facing tasks across Defra and its arm's length bodies - issuing permits, managing customer cases - so they feel familiar to users.
 
-**Put into practice by:** [front end and accessibility](../guardrails/front-end-and-accessibility.md), [identity and access](../guardrails/identity-and-access.md), the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual).
+<!-- trace:principle GR-PRIN-02 -->
+
+**See also:** [front end and accessibility](../guardrails/front-end-and-accessibility.md), [identity and access](../guardrails/identity-and-access.md), the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual).
 
 ## GR-PRIN-03 Maximise value, minimise waste {#gr-prin-03}
 
@@ -61,7 +65,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Discourage one-off solutions and use patterns that minimise technical debt.
 - Include reuse checks in architecture reviews, and require justification for duplicating a capability.
 
-**Put into practice by:** [choosing technology](../guardrails/choosing-technology.md), the [handrail](../handrail/index.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [open source](../guardrails/open-source.md), [sustainability](../guardrails/sustainability.md).
+<!-- trace:principle GR-PRIN-03 -->
+
+**See also:** [choosing technology](../guardrails/choosing-technology.md), the [handrail](../handrail/index.md), [hosting and platforms](../guardrails/hosting-and-platforms.md), [open source](../guardrails/open-source.md), [sustainability](../guardrails/sustainability.md).
 
 ## GR-PRIN-04 Clean data, clear decisions {#gr-prin-04}
 
@@ -79,7 +85,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Provide secure, scalable data platforms and APIs for easy, governed access.
 - Treat data quality as a prerequisite for analytical and operational decisions.
 
-**Put into practice by:** [data guardrails](../guardrails/data.md), [Defra on a page](../data/defra-on-a-page.md), [data standards](../data/data-standards.md), [artificial intelligence](../guardrails/ai.md).
+<!-- trace:principle GR-PRIN-04 -->
+
+**See also:** [data guardrails](../guardrails/data.md), [Defra on a page](../data/defra-on-a-page.md), [data standards](../data/data-standards.md), [artificial intelligence](../guardrails/ai.md).
 
 ## GR-PRIN-05 Connect and collaborate {#gr-prin-05}
 
@@ -97,7 +105,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Enable single sign-on and consistent identity management across services.
 - Share clean, consistent, context-rich data while respecting privacy, ethics and compliance.
 
-**Put into practice by:** [APIs and integration](../guardrails/apis-and-integration.md), [identity and access](../guardrails/identity-and-access.md), [data guardrails](../guardrails/data.md).
+<!-- trace:principle GR-PRIN-05 -->
+
+**See also:** [APIs and integration](../guardrails/apis-and-integration.md), [identity and access](../guardrails/identity-and-access.md), [data guardrails](../guardrails/data.md).
 
 ## GR-PRIN-06 Secure today, safe tomorrow {#gr-prin-06}
 
@@ -111,7 +121,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Follow the Defra group Security (DgS) strategy and recommendations.
 - Use role-based access control to manage access to system functions and data.
 
-**Put into practice by:** [security guardrails](../guardrails/security.md), [Secure by Design in Defra](../security/secure-by-design.md), [threat modelling](../security/threat-modelling.md).
+<!-- trace:principle GR-PRIN-06 -->
+
+**See also:** [security guardrails](../guardrails/security.md), [Secure by Design in Defra](../security/secure-by-design.md), [threat modelling](../security/threat-modelling.md).
 
 ## GR-PRIN-07 Empower to innovate {#gr-prin-07}
 
@@ -129,7 +141,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Bring architects, technologists and business units together to act on innovation opportunities aligned to outcomes.
 - Track innovation by value, scalability and learning - not just technical novelty.
 
-**Put into practice by:** [artificial intelligence](../guardrails/ai.md), the [decision check](../governance/decision-check.md), [open source and working in the open](../guardrails/open-source.md).
+<!-- trace:principle GR-PRIN-07 -->
+
+**See also:** [artificial intelligence](../guardrails/ai.md), the [decision check](../governance/decision-check.md), [open source and working in the open](../guardrails/open-source.md).
 
 ## GR-PRIN-08 Right tools, right place {#gr-prin-08}
 
@@ -146,7 +160,9 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 - Design IT support for diverse contexts: self-service, remote diagnostics and on-site support.
 - Keep devices easy to replace or upgrade as needs change.
 
-**Put into practice by:** [front end and accessibility](../guardrails/front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](../guardrails/identity-and-access.md#gr-iam-02).
+<!-- trace:principle GR-PRIN-08 -->
+
+**See also:** [front end and accessibility](../guardrails/front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](../guardrails/identity-and-access.md#gr-iam-02).
 
 ---
 

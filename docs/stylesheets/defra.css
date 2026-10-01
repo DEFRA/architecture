@@ -1706,3 +1706,20 @@ body {
 @media screen and (max-width: 59.9375em) {
   .md-typeset .da-roadmap { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Doctrine -> principle breadcrumb on guardrail pages */
+.md-typeset .da-trace {
+  margin: 0 0 1.2rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.75rem;
+  background: var(--da-paper);
+  border-left: 4px solid var(--da-navy);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .da-trace {
+  border-left-color: #6fa8d6;
+}
+
+.md-typeset .da-trace p {
+  margin: 0;
+}

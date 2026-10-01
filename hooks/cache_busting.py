@@ -31,7 +31,7 @@ def on_post_page(output, page, config):
         # Matches the relative or absolute reference MkDocs writes for this file.
         output = re.sub(
             r'((?:href|src)="[^"]*' + re.escape(path) + r')"',
-            lambda m: f'{m.group(1)}?v={version}"',
+            lambda m, v=version: f'{m.group(1)}?v={v}"',
             output,
         )
     return output

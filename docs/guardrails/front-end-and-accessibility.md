@@ -1,3 +1,7 @@
+---
+principles: [GR-PRIN-02, GR-PRIN-08]
+---
+
 # Front end and accessibility
 
 <p class="lead">Defra services should look like government, work for everyone and work on any device.</p>

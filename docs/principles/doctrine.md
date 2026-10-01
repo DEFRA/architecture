@@ -1,6 +1,16 @@
 ---
 title: DDTS doctrine
 status: draft
+# Which architecture principles apply each doctrine. The site uses this to
+# link doctrine -> principles -> guardrails; see hooks/traceability.py.
+applies:
+  ddts-01: [GR-PRIN-01, GR-PRIN-03]
+  ddts-02: [GR-PRIN-01, GR-PRIN-06]
+  ddts-03: [GR-PRIN-03]
+  ddts-04: [GR-PRIN-04, GR-PRIN-05]
+  ddts-05: [GR-PRIN-07, GR-PRIN-04]
+  ddts-06: [GR-PRIN-02, GR-PRIN-05]
+  ddts-07: [GR-PRIN-02, GR-PRIN-08]
 status_note: This is the CDIO's initial draft. It will be refined, challenged and improved with colleagues across DDTS over the coming months.
 ---
 

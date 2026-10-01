@@ -1,8 +1,12 @@
+---
+principles: [GR-PRIN-03, GR-PRIN-01]
+---
+
 # Hosting and platforms
 
 <p class="lead">Where and how services run. Use the paved road so your team can focus on users rather than infrastructure.</p>
 
-Supports principle [GR-PRIN-03](../principles/architecture-principles.md#gr-prin-03). Technology capability [TC21 Application hosting and delivery platform](../handrail/technology-capabilities.md#tc21).
+Technology capability [TC21 Application hosting and delivery platform](../handrail/technology-capabilities.md#tc21).
 
 ## GR-HOST-01 Use Defra's strategic delivery platform by default {#gr-host-01}
 

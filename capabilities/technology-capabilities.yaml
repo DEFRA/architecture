@@ -224,7 +224,7 @@ capabilities:
       - name: Defra Data Services Platform
         url: https://environment.data.gov.uk/
       - name: Ordnance Survey data via the Public Sector Geospatial Agreement
-        url: https://www.ordnancesurvey.co.uk/customers/public-sector/public-sector-geospatial-agreement
+        url: https://www.ordnancesurvey.co.uk/customers/public-sector
     guardrail: guardrails/data.md
 
   - id: TC16

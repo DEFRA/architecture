@@ -1,3 +1,7 @@
+---
+principles: [GR-PRIN-07, GR-PRIN-04]
+---
+
 # Artificial intelligence
 
 <p class="lead">AI can help Defra do more with less - from classifying species in images to drafting responses. These guardrails help teams use it safely, lawfully and transparently.</p>

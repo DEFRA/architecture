@@ -4,6 +4,13 @@
 
 ## October 2026
 
+### Traceability, guardrail backlog and standards
+
+- **Doctrine to guardrails:** every guardrail page now shows the doctrine and principles it applies, and the [Principles](../principles/index.md#how-the-doctrine-principles-and-guardrails-line-up) page shows coverage, including where guardrails are thin.
+- **[Guardrail backlog](roadmap.md#guardrail-backlog):** guardrails we know we are missing, including the agreed Defra on a page.
+- Fixed broken links to the Data Standards Authority, UK GEMINI and the Public Sector Geospatial Agreement. Links are now checked weekly.
+- The repository now follows the [Defra software development standards](https://defra.github.io/software-development-standards/): pinned GitHub Actions, dependency review, grouped Dependabot updates, exact dependency versions, Ruff and neostandard linting.
+
 ### Alpha and roadmap
 
 - The site is now marked as **alpha**, with a phase banner on every page.

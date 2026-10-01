@@ -1,3 +1,7 @@
+---
+principles: [GR-PRIN-05, GR-PRIN-06]
+---
+
 # Identity and access
 
 <p class="lead">Who users are and what they are allowed to do. Getting this right once, centrally, is safer and simpler for everyone.</p>

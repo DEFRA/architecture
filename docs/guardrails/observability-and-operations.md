@@ -1,8 +1,12 @@
+---
+principles: [GR-PRIN-01]
+---
+
 # Observability and operations
 
 <p class="lead">Services live for years. These guardrails make sure they can be run, supported and improved by people who did not build them.</p>
 
-Supports principle [GR-PRIN-01](../principles/architecture-principles.md#gr-prin-01). Technology capability [TC23 Observability and security monitoring](../handrail/technology-capabilities.md#tc23).
+Technology capability [TC23 Observability and security monitoring](../handrail/technology-capabilities.md#tc23).
 
 ## GR-OPS-01 Use the platform's observability tooling {#gr-ops-01}
 

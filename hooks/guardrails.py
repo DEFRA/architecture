@@ -77,7 +77,7 @@ def parse(docs_dir: str) -> list[dict]:
             if anchor != gid.lower():
                 errors.append(f"{name}: {gid} has anchor #{anchor}, expected #{gid.lower()}")
             end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
-            body = text[match.end():end]
+            body = text[match.end() : end]
             level = LEVEL.search(body)
             if not level:
                 errors.append(f"{name}: {gid} has no Principle/Must/Should/Could badge")
@@ -157,17 +157,19 @@ def _library(page, files) -> str:
             f'<div class="gl-card__meta"><span class="rfc rfc--{g["level"]}">{LEVELS[g["level"]]}</span>'
             f'<code>{g["id"]}</code><span class="gl-card__area">{e(g["area"])}</span></div>'
             f'<h3 class="gl-card__title"><a href="{href}">{e(g["title"])}</a></h3>'
-            f'<p>{e(g["statement"])}</p></article>'
+            f"<p>{e(g['statement'])}</p></article>"
         )
     return (
         '<div class="gl" data-guardrail-library>\n'
         '<div class="gl-tools" role="search">'
         '<label class="gl-field"><span>Search</span>'
         '<input type="search" id="gl-search" placeholder="e.g. secrets, hosting, GR-API-02" autocomplete="off"></label>'
-        f'<label class="gl-field"><span>Area</span><select id="gl-area"><option value="">All areas</option>{options}</select></label>'
+        '<label class="gl-field"><span>Area</span><select id="gl-area">'
+        f'<option value="">All areas</option>{options}</select></label>'
         f'<fieldset class="gl-levels"><legend>Level</legend>{chips}</fieldset>'
         "</div>\n"
-        f'<p class="gl-count" aria-live="polite">Showing <strong id="gl-shown">{len(_guardrails)}</strong> of {len(_guardrails)} guardrails</p>\n'
+        f'<p class="gl-count" aria-live="polite">Showing <strong id="gl-shown">{len(_guardrails)}</strong> '
+        f"of {len(_guardrails)} guardrails</p>\n"
         f'<div class="gl-grid">{"".join(cards)}</div>\n'
         '<p class="gl-empty" hidden>No guardrails match. Try a different word, or clear the filters.</p>\n'
         "</div>\n"

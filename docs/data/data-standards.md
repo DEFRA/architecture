@@ -2,7 +2,7 @@
 
 <p class="lead">The standards that make Defra data consistent, joinable and reusable. Use these by default - see guardrail <a href="../../guardrails/data/#gr-data-03">GR-DATA-03</a>.</p>
 
-We adopt cross-government standards from the [Data Standards Authority](https://www.gov.uk/government/collections/data-standards-for-government) wherever they exist, and add Defra-specific standards only where needed.
+We adopt cross-government standards from the [Data Standards Authority](https://www.gov.uk/government/collections/data-standards-authority) wherever they exist, and add Defra-specific standards only where needed.
 
 ## Cross-government standards
 
@@ -27,9 +27,9 @@ Much of Defra's data is about places. Geospatial data should follow these standa
 | --- | --- |
 | Coordinate reference system (GB) | British National Grid, EPSG:27700, for storage and analysis |
 | Coordinate reference system (web) | WGS 84 (EPSG:4326) or Web Mercator (EPSG:3857) for web display and exchange |
-| Geospatial metadata | [UK GEMINI](https://www.agi.org.uk/uk-gemini/) |
+| Geospatial metadata | [UK GEMINI](https://www.agi.org.uk/why-uk-gemini/) |
 | Data exchange | OGC API - Features, GeoJSON, GeoPackage; WMS/WMTS for map services |
-| Base mapping and addresses | Ordnance Survey data under the [Public Sector Geospatial Agreement](https://www.ordnancesurvey.co.uk/customers/public-sector/public-sector-geospatial-agreement) |
+| Base mapping and addresses | Ordnance Survey data under the [Public Sector Geospatial Agreement](https://www.ordnancesurvey.co.uk/customers/public-sector) |
 
 ## Defra identifiers
 
@@ -46,4 +46,4 @@ These identifiers are widely used across Defra group. Use them, and validate the
 
 ## Proposing a new standard
 
-If you need a standard that is not listed, check the [Data Standards Authority](https://www.gov.uk/government/collections/data-standards-for-government) first. If there is still a gap, raise an issue in this repository - the data architecture team will review it with the [TDA](../governance/tda.md).
+If you need a standard that is not listed, check the [Data Standards Authority](https://www.gov.uk/government/collections/data-standards-authority) first. If there is still a gap, raise an issue in this repository - the data architecture team will review it with the [TDA](../governance/tda.md).

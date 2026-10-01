@@ -52,6 +52,28 @@ hide:
 
 </div>
 
+## Guardrail backlog {#guardrail-backlog}
+
+Guardrails we know we are missing, found by tracing each [doctrine and principle](../principles/index.md#how-the-doctrine-principles-and-guardrails-line-up) to the guardrails that put it into practice. Priorities are a starting point for discussion.
+
+| Priority | Proposed guardrails | The gap | Doctrine and principle |
+| --- | --- | --- | --- |
+| High | **Agreed Defra on a page** | Publish the agreed enterprise data model to replace the draft [Defra on a page](../data/defra-on-a-page.md), with the authoritative source for each entity confirmed | [4. Data is an enterprise asset](../principles/doctrine.md#ddts-04) · [Principle 4](../principles/architecture-principles.md#gr-prin-04) |
+| High | **Products and platforms** | Nothing yet says how to build as products: long-lived product teams, product ownership, contributing back to shared platforms, and retiring products | [1. Platforms before projects](../principles/doctrine.md#ddts-01) · [Principles 1 and 3](../principles/architecture-principles.md#gr-prin-03) |
+| High | **Digital first and end-to-end services** | No guardrail asks teams to challenge paper processes, design across organisational boundaries or provide assisted digital routes | [6. Outcomes over structures](../principles/doctrine.md#ddts-06), [7. Digital first](../principles/doctrine.md#ddts-07) · [Principle 2](../principles/architecture-principles.md#gr-prin-02) |
+| High | **Field working and end-user devices** | Principle 8 has almost no guardrails: devices suited to the job, offline-first working, connectivity in remote areas and device security | [7. Digital first](../principles/doctrine.md#ddts-07) · [Principle 8](../principles/architecture-principles.md#gr-prin-08) |
+| High | **Agentic AI** | AI agents that take actions need extra controls: least-privilege tool access, human approval for consequential actions, audit trails and protection from prompt injection | [5. Assume AI](../principles/doctrine.md#ddts-05) · [Principles 6 and 7](../principles/architecture-principles.md#gr-prin-07) |
+| Medium | **Experimentation and sandboxes** | How to experiment safely and quickly: sandbox environments, synthetic data, time-boxed prototypes and the route from experiment to production | [5. Assume AI](../principles/doctrine.md#ddts-05) · [Principle 7](../principles/architecture-principles.md#gr-prin-07) |
+| Medium | **Low-code and Power Platform** | Environment strategy, application lifecycle, data loss prevention and support for low-code solutions built outside delivery teams | [3. Reuse before buy](../principles/doctrine.md#ddts-03) · [Principle 3](../principles/architecture-principles.md#gr-prin-03) |
+| Medium | **Resilience and continuity** | Business continuity and disaster recovery beyond hosting: dependency mapping, exercising and recovery testing by [service tier](../nfrs/service-tiers.md) | [2. Standards before exceptions](../principles/doctrine.md#ddts-02) · [Principles 1 and 6](../principles/architecture-principles.md#gr-prin-06) |
+| Medium | **Cost management (FinOps)** | Tagging, budgets and alerts, showing cost per service and per business capability | [3. Reuse before buy](../principles/doctrine.md#ddts-03) · [Principle 3](../principles/architecture-principles.md#gr-prin-03) |
+| Medium | **Legacy and technical debt** | A debt register, time-bound exceptions for legacy, and plans to retire systems and archive their data | [1. Platforms before projects](../principles/doctrine.md#ddts-01) · [Principle 3](../principles/architecture-principles.md#gr-prin-03) |
+| Medium | **Domains, email and web security** | GOV.UK domain rules, email security (DMARC), cookies and privacy notices | [2. Standards before exceptions](../principles/doctrine.md#ddts-02) · [Principle 6](../principles/architecture-principles.md#gr-prin-06) |
+| Low | **Networks and zero trust** | Connectivity between Defra group bodies, partners and clouds, moving to zero trust access | [2. Standards before exceptions](../principles/doctrine.md#ddts-02) · [Principle 6](../principles/architecture-principles.md#gr-prin-06) |
+| Low | **Mobile apps** | When a native app is justified rather than a responsive web service | [7. Digital first](../principles/doctrine.md#ddts-07) · [Principle 2](../principles/architecture-principles.md#gr-prin-02) |
+
+Want to take one on, or think something is missing? [Propose a guardrail](https://github.com/howellsr/architecture/issues/new?template=guardrail-change.yml).
+
 ## Shape the roadmap
 
 Tell us what would help you most. [Open an issue](https://github.com/howellsr/architecture/issues), comment on an existing one, or raise it with your solution design authority. Significant changes are recorded in [what's new](changelog.md).

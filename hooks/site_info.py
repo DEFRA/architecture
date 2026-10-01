@@ -15,7 +15,9 @@ def on_config(config):
     try:
         stamp = subprocess.run(
             ["git", "log", "-1", "--format=%cs"],
-            capture_output=True, text=True, check=True,
+            capture_output=True,
+            text=True,
+            check=True,
         ).stdout.strip()
         day = datetime.date.fromisoformat(stamp)
     except (OSError, ValueError, subprocess.CalledProcessError):

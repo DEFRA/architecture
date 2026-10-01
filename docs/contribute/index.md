@@ -72,6 +72,10 @@ Edit `capabilities/business-capabilities.yaml` or `capabilities/technology-capab
 
 The doctrine is in `docs/principles/doctrine.md` and the principles in `docs/principles/architecture-principles.md`. Keep the heading shapes (`## 1. Title {#ddts-01}` and `## GR-PRIN-01 Title {#gr-prin-01}`) - the tests and home page figures rely on them. Changes need TGB approval.
 
+### Link a guardrail page to the principles
+
+Every guardrail page lists the principles it puts into practice in its front matter, for example `principles: [GR-PRIN-05, GR-PRIN-06]`. Which principles apply each doctrine is set in the `applies:` front matter of `docs/principles/doctrine.md`. The site builds the breadcrumbs and coverage table from these, and the build fails if a page is not linked.
+
 ### Mark a page as draft
 
 Add `status: draft` to the page's front matter. The page shows a "Draft - to be confirmed" banner and a marker in the navigation. Remove the line once the content is agreed. To list draft pages, run `grep -rl "status: draft" docs`.
@@ -95,15 +99,16 @@ Then open <http://127.0.0.1:8000>. Pages reload as you edit.
 
 ## Checks
 
-Every pull request runs three checks. You can run them locally before you push:
+Every pull request runs these checks. You can run them locally before you push:
 
 | Check | Command | What it catches |
 | --- | --- | --- |
-| Content | `pytest` | Broken references between capabilities, guardrails and NFRs; diagrams without text alternatives |
+| Lint | `ruff check hooks tests`, `ruff format --check hooks tests` and `npm run lint` | Python and JavaScript style, following the [Defra software development standards](https://defra.github.io/software-development-standards/) |
+| Content | `pytest` | Broken references between doctrine, principles, guardrails, capabilities and NFRs; diagrams without text alternatives |
 | Build | `mkdocs build --strict` | Broken links and anchors, invalid data, missing pages |
 | Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |
 
-Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/) once all three pass.
+Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/) once all checks pass. A separate weekly job checks every external link and opens an issue if any are broken.
 
 ## What not to publish
 

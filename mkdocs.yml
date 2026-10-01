@@ -71,6 +71,7 @@ extra_javascript:
 hooks:
   - hooks/capabilities.py
   - hooks/guardrails.py
+  - hooks/traceability.py
   - hooks/nfrs.py
   - hooks/page_status.py
   - hooks/cache_busting.py

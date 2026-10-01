@@ -1,0 +1,41 @@
+name: links
+
+# Checks every link on the built site, including external ones, so broken
+# references to GOV.UK and other guidance are caught quickly. Runs weekly as
+# well as on pull requests, because external pages move without warning.
+on:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: mkdocs build --strict
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: --config .lychee.toml --root-dir "${{ github.workspace }}/site" 'site/**/*.html'
+          fail: ${{ github.event_name == 'pull_request' }}
+      # On the weekly run, raise an issue rather than failing silently.
+      - name: Open an issue for broken links
+        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710 # v6.0.0
+        with:
+          title: Broken links found on the site
+          content-filepath: ./lychee/out.md
+          labels: content

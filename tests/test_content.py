@@ -32,6 +32,7 @@ def load_yaml(*parts):
 capabilities = load_hook("capabilities")
 guardrails = load_hook("guardrails")
 nfrs = load_hook("nfrs")
+traceability = load_hook("traceability")
 
 
 # --- Capability model --------------------------------------------------------
@@ -93,6 +94,31 @@ def test_guardrail_ids_match_anchors(tmp_path):
     )
     with pytest.raises(Exception, match="expected #gr-exm-01"):
         guardrails.parse(str(tmp_path))
+
+
+# --- Doctrine -> principles -> guardrails ------------------------------------
+
+
+def test_every_doctrine_and_guardrail_page_is_in_the_chain():
+    chain = traceability.build(DOCS)
+    assert len(chain["doctrines"]) == 7
+    assert all(d["principles"] for d in chain["doctrines"])
+    assert all(a["principles"] for a in chain["areas"])
+
+
+def test_every_principle_applies_a_doctrine():
+    chain = traceability.build(DOCS)
+    assert all(chain["doctrines_for"][pid] for pid in chain["principles"])
+
+
+def test_guardrail_page_without_principles_fails(tmp_path):
+    import shutil
+
+    shutil.copytree(DOCS, tmp_path / "docs")
+    page = tmp_path / "docs" / "guardrails" / "data.md"
+    page.write_text(re.sub(r"\A---\n.*?\n---\n", "", page.read_text(), flags=re.S))
+    with pytest.raises(Exception, match="guardrails/data.md: add 'principles"):
+        traceability.build(str(tmp_path / "docs"))
 
 
 # --- NFRs ----------------------------------------------------------------------

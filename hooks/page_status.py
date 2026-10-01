@@ -29,8 +29,8 @@ def on_page_markdown(markdown, page, config, files):
     banner = f'!!! warning "Draft - to be confirmed"\n    {note}\n\n'
     lines = markdown.split("\n")
     # Place the banner after the lead paragraph, or after the title if there is none.
-    anchor = next((i for i, l in enumerate(lines) if l.startswith('<p class="lead">')), None)
+    anchor = next((i for i, line in enumerate(lines) if line.startswith('<p class="lead">')), None)
     if anchor is None:
-        anchor = next((i for i, l in enumerate(lines) if l.startswith("# ")), -1)
+        anchor = next((i for i, line in enumerate(lines) if line.startswith("# ")), -1)
     lines.insert(anchor + 1, "\n" + banner)
     return "\n".join(lines)

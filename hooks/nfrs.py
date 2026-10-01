@@ -86,7 +86,7 @@ def validate(tiers: dict, catalogue: dict, guardrails: dict[str, str]) -> list[s
             for field in ("title", "requirement", "verify"):
                 if not req.get(field):
                     errors.append(f"{rid} has no {field}")
-            for tier in (req.get("targets") or {}):
+            for tier in req.get("targets") or {}:
                 if tier not in tier_ids:
                     errors.append(f"{rid} has a target for unknown tier {tier}")
             for gid in req.get("guardrails", []):
@@ -173,7 +173,8 @@ def _categories(link) -> str:
     rows = ["| Category | What it covers | Requirements |", "| --- | --- | --- |"]
     for c in _data["catalogue"]["categories"]:
         anchor = "nfr-" + c["id"].lower()
-        rows.append(f"| [{c['name']}]({link(CATALOGUE_PAGE + '#' + anchor)}) | {_cell(c['description'])} | {len(c['requirements'])} |")
+        name = f"[{c['name']}]({link(CATALOGUE_PAGE + '#' + anchor)})"
+        rows.append(f"| {name} | {_cell(c['description'])} | {len(c['requirements'])} |")
     return "\n".join(rows) + "\n"
 
 
@@ -189,11 +190,12 @@ def _catalogue(link) -> str:
             targets = r.get("targets")
             target = (
                 "<br>".join(f"**{t}:** {_cell(targets[t])}" for t in tier_ids if t in targets)
-                if targets else "All tiers"
+                if targets
+                else "All tiers"
             )
-            related = ", ".join(
-                f"[`{g}`]({link(guardrails[g] + '#' + g.lower())})" for g in r.get("guardrails", [])
-            ) or "-"
+            related = (
+                ", ".join(f"[`{g}`]({link(guardrails[g] + '#' + g.lower())})" for g in r.get("guardrails", [])) or "-"
+            )
             out.append(
                 f"| `{r['id']}` | **{_cell(r['title'])}**<br>{_cell(r['requirement'])} | "
                 f"{_cell(r['verify'])} | {target} | {related} |"

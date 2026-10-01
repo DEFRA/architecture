@@ -1,8 +1,12 @@
+---
+principles: [GR-PRIN-03, GR-PRIN-07]
+---
+
 # Open source and working in the open
 
 <p class="lead">We code in the open and share what we learn. It improves quality, makes reuse easy and lets partners see how we work before they work with us.</p>
 
-Supports principle [GR-PRIN-03](../principles/architecture-principles.md#gr-prin-03), Service Standard point 12 and TCoP point 3.
+Relates to Service Standard point 12 and TCoP point 3.
 
 ## GR-OPEN-01 Code in the open {#gr-open-01}
 

@@ -1,8 +1,12 @@
+---
+principles: [GR-PRIN-04]
+---
+
 # Data
 
 <p class="lead">Defra's science, regulation and payments all depend on trusted data. These guardrails make sure the data each service creates is an asset for the whole department.</p>
 
-Supports principle [GR-PRIN-04](../principles/architecture-principles.md#gr-prin-04). See also [enterprise data architecture](../data/index.md).
+See also [enterprise data architecture](../data/index.md).
 
 ## GR-DATA-01 Every data set has an owner {#gr-data-01}
 
@@ -26,7 +30,7 @@ Supports principle [GR-PRIN-04](../principles/architecture-principles.md#gr-prin
 
 ## GR-DATA-05 Describe your data {#gr-data-05}
 
-<span class="rfc rfc--should">Should</span> Publish metadata for data sets so they can be found and understood - [UK GEMINI](https://www.agi.org.uk/uk-gemini/) for geospatial data and DCAT for other data sets.
+<span class="rfc rfc--should">Should</span> Publish metadata for data sets so they can be found and understood - [UK GEMINI](https://www.agi.org.uk/why-uk-gemini/) for geospatial data and DCAT for other data sets.
 
 ## GR-DATA-06 Protect personal data by design {#gr-data-06}
 

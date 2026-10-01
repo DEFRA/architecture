@@ -203,9 +203,7 @@ def _business_map(url_to, md_to=None) -> str:
 
 
 def _attributes(url_to, md_to=None) -> str:
-    rows = "\n".join(
-        f"| **{a['name']}** | {a['description']} |" for a in _model["business"]["attributes"]
-    )
+    rows = "\n".join(f"| **{a['name']}** | {a['description']} |" for a in _model["business"]["attributes"])
     return "| Attribute | What it means |\n| --- | --- |\n" + rows + "\n"
 
 
@@ -222,20 +220,17 @@ def _business_detail(_url_to, url_to) -> str:
             current_type = cap["type"]
             out.append(f"## {current_type.capitalize()} capabilities\n")
         # The id is in the heading so searching "BC05" finds this section first.
-        out.append(f'### {cap["number"]} {cap["name"]} ({cap["id"]}) {{#{cap["id"].lower()}}}\n')
-        out.append(f'{cap["description"]}\n')
+        out.append(f"### {cap['number']} {cap['name']} ({cap['id']}) {{#{cap['id'].lower()}}}\n")
+        out.append(f"{cap['description']}\n")
         out.append('<div class="grid" markdown>\n')
-        out.append('<div markdown>\n\n**Outcomes**\n')
+        out.append("<div markdown>\n\n**Outcomes**\n")
         out.extend(f"- {o}" for o in cap.get("outcomes", []))
         out.append("\n**Level 2 capabilities** <small>(draft)</small>\n")
         out.extend(f"- {l2}" for l2 in cap.get("level2", []))
         out.append("\n</div>\n<div markdown>\n\n**Enabled by technology capabilities**\n")
         for ref in cap.get("technology", []):
             t = tech[ref]
-            out.append(
-                f'- [{ref} {t["name"]}]({url_to(TECHNOLOGY_PAGE, ref.lower())}) '
-                f'{_status_badge(t["status"])}'
-            )
+            out.append(f"- [{ref} {t['name']}]({url_to(TECHNOLOGY_PAGE, ref.lower())}) {_status_badge(t['status'])}")
         out.append("\n</div>\n</div>\n")
     return "\n".join(out) + "\n"
 
@@ -281,21 +276,19 @@ def _technology_catalogue(_url_to, url_to) -> str:
     levels = {lvl["id"]: lvl["name"] for lvl in _model["technology"]["government_model_levels"]}
     out = []
     for domain in _model["technology"]["domains"]:
-        out.append(f'## {domain["name"]}\n\n{domain["description"]}\n')
+        out.append(f"## {domain['name']}\n\n{domain['description']}\n")
         for cap in (c for c in _model["technology"]["capabilities"] if c["domain"] == domain["id"]):
-            out.append(f'### {cap["id"]} {cap["name"]} {{#{cap["id"].lower()}}}\n')
-            out.append(f'{_status_badge(cap["status"])} {cap["description"]}\n')
-            out.append(
-                f'<small>Government capability model: {e(levels[cap["government_model"]])}</small>\n'
-            )
+            out.append(f"### {cap['id']} {cap['name']} {{#{cap['id'].lower()}}}\n")
+            out.append(f"{_status_badge(cap['status'])} {cap['description']}\n")
+            out.append(f"<small>Government capability model: {e(levels[cap['government_model']])}</small>\n")
             options = cap.get("options", [])
             if options:
                 out.append("**Use first**\n")
                 for opt in options:
                     if opt.get("url"):
-                        out.append(f'- [{opt["name"]}]({url_to(opt["url"])})')
+                        out.append(f"- [{opt['name']}]({url_to(opt['url'])})")
                     else:
-                        out.append(f'- {opt["name"]}')
+                        out.append(f"- {opt['name']}")
                 out.append("")
             else:
                 out.append(
@@ -304,9 +297,9 @@ def _technology_catalogue(_url_to, url_to) -> str:
                     "so we solve it once.\n"
                 )
             if cap.get("guardrail"):
-                out.append(f'**Guardrails:** [{_page_title(cap["guardrail"])}]({url_to(cap["guardrail"])})\n')
+                out.append(f"**Guardrails:** [{_page_title(cap['guardrail'])}]({url_to(cap['guardrail'])})\n")
             supported = ", ".join(
-                f'[{bus[b]["number"]} {bus[b]["name"]}]({url_to(BUSINESS_PAGE, b.lower())})'
+                f"[{bus[b]['number']} {bus[b]['name']}]({url_to(BUSINESS_PAGE, b.lower())})"
                 for b in _model["supports"][cap["id"]]
             )
             out.append(f"**Supports:** {supported}\n")
@@ -330,7 +323,7 @@ def _matrix(url_to, md_to=None) -> str:
     head_caps = "".join(
         f'<th scope="col" class="cap-matrix__tech cap-matrix__tech--{t["status"]}">'
         f'<a href="{url_to(TECHNOLOGY_PAGE, t["id"].lower())}" title="{e(t["name"])}">'
-        f'<span>{e(t["name"])}</span></a></th>'
+        f"<span>{e(t['name'])}</span></a></th>"
         for t in ordered
     )
     rows = []
@@ -347,14 +340,12 @@ def _matrix(url_to, md_to=None) -> str:
             f'<tr><th scope="row"><a href="{url_to(BUSINESS_PAGE, cap["id"].lower())}">'
             f'<span class="cap-matrix__num">{e(cap["number"])}</span> {e(cap["name"])}</a></th>{cells}</tr>'
         )
-    reuse = "".join(
-        f'<td class="cap-matrix__total">{len(_model["supports"][t["id"]])}</td>' for t in ordered
-    )
+    reuse = "".join(f'<td class="cap-matrix__total">{len(_model["supports"][t["id"]])}</td>' for t in ordered)
     rows.append(f'<tr class="cap-matrix__totals"><th scope="row">Business capabilities supported</th>{reuse}</tr>')
     return (
         '<div class="cap-matrix-wrapper" tabindex="0" role="region" aria-label="Capability mapping matrix">\n'
         '<table class="cap-matrix">\n'
         f'<thead><tr><td rowspan="2"></td>{head_domains}</tr><tr>{head_caps}</tr></thead>\n'
-        f'<tbody>{"".join(rows)}</tbody>\n'
+        f"<tbody>{''.join(rows)}</tbody>\n"
         "</table>\n</div>\n"
     )
