@@ -26,6 +26,7 @@ Each phase has a printable **assessment evidence checklist**, built from the sam
 ## Before you start
 
 - [Getting onto Defra platforms](platforms.md): what the shared platforms give you, and how to get access.
+- [Check your repository automatically](guardrail-check.md) against the guardrails a tool can check.
 - [Check a decision](../governance/decision-check.md) to find your governance route.
 - [Reference architectures](../handrail/reference-architectures/index.md) to start from a known-good shape.
 - [Service tiers](../nfrs/service-tiers.md) and the [NFR catalogue](../nfrs/catalogue.md) to set your quality targets.

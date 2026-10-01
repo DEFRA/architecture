@@ -33,6 +33,7 @@ Set up:
 
 - the service repository, with a README, a LICENCE file, a `docs/adr` folder and branch protection ([GR-DEV-08](../guardrails/software-development.md#gr-dev-08), [GR-OPEN-02](../guardrails/open-source.md#gr-open-02), [GR-DEV-03](../guardrails/software-development.md#gr-dev-03))
 - secret scanning, push protection and automated dependency updates ([GR-OPEN-03](../guardrails/open-source.md#gr-open-03), [GR-DEV-06](../guardrails/software-development.md#gr-dev-06))
+- the [guardrail check](../deliver/guardrail-check.md) in your pipeline, so gaps show up from the first pull request
 - your first ADR, recording the options you will explore
 - a date for your first [decision check](../governance/decision-check.md) and self-assurance against the [guardrails for your phase](../deliver/index.md)
 

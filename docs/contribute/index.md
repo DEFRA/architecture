@@ -180,7 +180,7 @@ Every pull request runs these checks. You can run them locally before you push:
 
 | Check | Command | What it catches |
 | --- | --- | --- |
-| Lint | `ruff check hooks tests scripts`, `ruff format --check hooks tests scripts` and `npm run lint` | Python and JavaScript style, following the [Defra software development standards](https://defra.github.io/software-development-standards/) |
+| Lint | `ruff check hooks tests scripts tools`, `ruff format --check hooks tests scripts tools` and `npm run lint` | Python and JavaScript style, following the [Defra software development standards](https://defra.github.io/software-development-standards/) |
 | Content | `pytest` | Broken references between doctrine, principles, guardrails, capabilities and NFRs; diagrams without text alternatives |
 | Build | `mkdocs build --strict` | Broken links and anchors, invalid data, missing pages |
 | Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |

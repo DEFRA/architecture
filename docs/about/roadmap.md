@@ -17,6 +17,9 @@ hide:
 - Confirm the content marked **Draft - to be confirmed**, starting with governance, the [NFR targets](../nfrs/catalogue.md) and [service tiers](../nfrs/service-tiers.md)
 - Embed the guardrails in [solution design authorities](../governance/solution-design-authorities.md) and the [TDA](../governance/tda.md), so reviews start from the same defaults
 - Refine the [DDTS doctrine](../principles/doctrine.md) with colleagues across DDTS
+- Answer the [open questions](open-questions.md) - names, lead times, approvals and contacts we have not yet confirmed
+- Take the draft guardrails and the [approval status](approval-status.md) of each section to the TDA and TGB, and cut the first citable [release](releases.md)
+- Move the site to a [Defra GitHub organisation](moving-to-defra.md), with redirects so existing links keep working
 
 </section>
 
@@ -40,17 +43,27 @@ hide:
 
 <h2 id="roadmap-later"><span class="da-roadmap__tag">Later</span> Proposed</h2>
 
-- Add [reference architectures](../handrail/reference-architectures/index.md) for the capability gaps: field inspection, incident response, grants
-- Build a library of reusable patterns, linked to the [Secure by Design artefact library](https://github.com/co-cddo/SbD)
+- Develop the proposed [reference architectures](../handrail/reference-architectures/index.md) for field inspection, incident response and grants with the teams who own those capabilities
+- Grow the [patterns](../patterns/index.md) library, starting with infrastructure patterns
 - Measure how quickly teams get to a decision, and publish the results
 - **AI tools:** an assistant that answers architecture questions from this site, suggests which guardrails and capabilities apply to a design, and drafts decision records for teams to check
-- **Architecture review automation:** check guardrails automatically in delivery pipelines - for example hosting, secrets, dependencies and API specifications - so reviews focus on judgement rather than checklists
+- **Architecture review automation:** extend the [guardrail check](../deliver/guardrail-check.md) beyond its first seven guardrails - for example hosting and infrastructure as code - so reviews focus on judgement rather than checklists
 - Assess our architecture practice with the cross-government [maturity self-assessment](https://architecture.cddo.cabinetoffice.gov.uk/Tools/index.html), and publish what we will improve
-- Move to beta, and to the Defra GitHub organisation
+- Move to beta
 
 </section>
 
 </div>
+
+## Done recently
+
+- Structured metadata for every guardrail, with phase and status filters in the [guardrail library](../guardrails/library.md)
+- [Deliver a service](../deliver/index.md): what each phase needs, with evidence checklists and [getting onto Defra platforms](../deliver/platforms.md)
+- [Patterns](../patterns/index.md), a [worked example](../patterns/worked-example/index.md) and proposed reference architectures for the capability gaps
+- [Delivery partners](delivery-partners.md): contracting, mobilisation, handover and working with other suppliers
+- [Releases](releases.md), [approval status](approval-status.md), the [exception register](../governance/exception-register.md) and [guardrails health](../governance/guardrails-health.md)
+- The first automated [guardrail check](../deliver/guardrail-check.md) for repositories
+
 
 ## Guardrail backlog {#guardrail-backlog}
 

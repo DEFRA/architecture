@@ -17,6 +17,7 @@ guardrails:
   GR-API-02:
     phases: [alpha, beta, live]
     evidence: OpenAPI 3 or AsyncAPI documents in the service repository that match the running API
+    automated_check: "Guardrail check (tools/guardrail-check): OpenAPI 3 and AsyncAPI documents present and well formed"
     service_standard_points: [13]
     tcop_points: [4, 9]
   GR-API-03:

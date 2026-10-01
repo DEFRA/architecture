@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Automated guardrail checks
+
+- **[Check your repository automatically](../deliver/guardrail-check.md):** a GitHub Action that checks a repository against GR-OPEN-02, GR-DEV-08, GR-API-02, GR-OPEN-03, GR-DEV-03, GR-DEV-06 and GR-DEV-09, and writes a report naming each guardrail. Each of those guardrails now names the check as its automated check.
+- **[Decisions about this site](../adr/index.md):** this site now records its own architecture decisions, following GR-DEV-09.
+
 ### For the CDIO: versions, approvals and health
 
 - **Versioned releases.** The site now has [releases](releases.md) with semantic version numbers, recorded in `CHANGELOG.md`. Each release is tagged and has a PDF of every guardrail attached, to cite in contracts. The banner on every page shows the version in force.

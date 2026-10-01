@@ -55,13 +55,17 @@ Run the same checks as CI before you raise a pull request:
 
 | Check | Command |
 | --- | --- |
-| Python lint and format (Ruff) | `ruff check hooks tests scripts && ruff format --check hooks tests scripts` |
+| Python lint and format (Ruff) | `ruff check hooks tests scripts tools && ruff format --check hooks tests scripts tools` |
 | JavaScript lint (neostandard) | `npm run lint` |
 | Content checks | `pytest` |
 | Build, links and anchors | `mkdocs build --strict` |
 | Accessibility, WCAG 2.2 AA, light and dark mode (after a build) | `npx playwright install chromium && npm test` |
 
 External links are checked weekly, and on pull requests, by the `links` workflow.
+
+## Architecture decisions
+
+Significant decisions about this site are recorded as architecture decision records in [`docs/adr`](docs/adr/), and published under [Contribute](https://howellsr.github.io/architecture/adr/).
 
 ## Branching policy
 

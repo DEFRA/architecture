@@ -17,12 +17,13 @@ guardrails:
   GR-OPEN-02:
     phases: [alpha, beta, live]
     evidence: LICENCE file with the Open Government Licence or MIT licence in every repository
+    automated_check: "Guardrail check (tools/guardrail-check): LICENCE file with the Open Government Licence or MIT"
     service_standard_points: [12]
     tcop_points: [3]
   GR-OPEN-03:
     phases: [alpha, beta, live]
     evidence: Secret scanning and push protection enabled on every repository
-    automated_check: GitHub secret scanning with push protection
+    automated_check: "Guardrail check (tools/guardrail-check): secret scanning and push protection turned on, with a token that can read security settings"
     service_standard_points: [12]
     tcop_points: [3, 6]
     sbd_principles: [7]

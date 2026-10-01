@@ -152,6 +152,7 @@ nav:
   - Deliver a service:
       - deliver/index.md
       - Getting onto Defra platforms: deliver/platforms.md
+      - Check your repository automatically: deliver/guardrail-check.md
       - Discovery: deliver/discovery.md
       - Alpha: deliver/alpha.md
       - Beta: deliver/beta.md
@@ -244,4 +245,10 @@ nav:
       - Threat modelling: security/threat-modelling.md
       - Managing security exceptions: security/managing-exceptions.md
   - Standards and links: standards/index.md
-  - Contribute: contribute/index.md
+  - Contribute:
+      - contribute/index.md
+      - Decisions about this site:
+          - adr/index.md
+          - "0001 MkDocs Material with hooks": adr/0001-mkdocs-material-with-hooks.md
+          - "0002 Guardrail metadata in front matter": adr/0002-guardrail-metadata-in-front-matter.md
+          - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md

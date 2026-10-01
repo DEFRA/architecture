@@ -20,6 +20,7 @@ guardrails:
   GR-DEV-03:
     phases: [alpha, beta, live]
     evidence: Branch protection on the main branch requiring a review and passing checks
+    automated_check: "Guardrail check (tools/guardrail-check): default branch protected by branch protection or a ruleset"
     sbd_principles: [10]
   GR-DEV-04:
     phases: [alpha, beta, live]
@@ -32,7 +33,7 @@ guardrails:
   GR-DEV-06:
     phases: [alpha, beta, live]
     evidence: Dependabot or Renovate configuration and runtimes on supported versions
-    automated_check: Dependabot or Renovate updates and software composition analysis in the pipeline
+    automated_check: "Guardrail check (tools/guardrail-check): Dependabot or Renovate configured"
   GR-DEV-07:
     phases: [alpha, beta, live]
     evidence: Linting and formatting checks in the pipeline
@@ -40,9 +41,11 @@ guardrails:
   GR-DEV-08:
     phases: [alpha, beta, live]
     evidence: README explaining what the service does and how to run, test and deploy it, with links to its ADRs
+    automated_check: "Guardrail check (tools/guardrail-check): README sections on running, testing and deploying, and a link to ADRs"
   GR-DEV-09:
     phases: [discovery, alpha, beta, live]
     evidence: ADR log in the repository or linked from its README
+    automated_check: "Guardrail check (tools/guardrail-check): ADRs in docs/adr"
     since_version: 0.2.0
 ---
 
