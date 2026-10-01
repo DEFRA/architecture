@@ -14,6 +14,8 @@
 
 ```mermaid
 flowchart TB
+    accTitle: Three-tier governance model
+    accDescr: The Technology Governance Board delegates to the Technical Design Authority, which delegates to solution design authorities, which support delivery teams. Teams escalate to their SDA, SDAs to the TDA and the TDA to the TGB.
     TGB["<b>Technology Governance Board</b><br/>Approves strategy, standards and guardrails<br/><i>Monthly</i>"]
     TDA["<b>Technical Design Authority</b><br/>Reviews cross-cutting, novel and high-risk designs<br/>and exceptions to guardrails<br/><i>Fortnightly</i>"]
     SDA["<b>Solution design authorities</b><br/>Delegated design assurance within delivery groups<br/><i>As needed by the teams they serve</i>"]

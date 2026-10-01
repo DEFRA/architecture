@@ -1,0 +1,33 @@
+name: Guardrail, principle or NFR change
+description: Propose a new guardrail, NFR or service tier, or a change to an existing one
+labels: [guardrail-change]
+body:
+  - type: input
+    id: ids
+    attributes:
+      label: Guardrail or NFR ids affected
+      placeholder: e.g. GR-HOST-01, NFR-AVL-01, or "new"
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The problem this solves. Mention any exceptions teams have needed.
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: You are
+      options:
+        - Defra delivery team
+        - Defra architect
+        - Delivery partner
+        - Other

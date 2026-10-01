@@ -4,29 +4,30 @@
 
 ## If you are...
 
-=== "Starting a new service"
+### Starting a new service
 
-    1. Map your service to the [business capabilities](../handrail/business-capabilities.md).
-    2. Check the [technology capabilities](../handrail/technology-capabilities.md) for what to reuse.
-    3. Start from a [reference architecture](../handrail/reference-architectures/index.md) if one fits.
-    4. Read the [guardrails](../guardrails/index.md) and run the 10-minute self-assurance checklist.
-    5. Use [triage](../governance/triage.md) to find your governance route.
+1. Map your service to the [business capabilities](../handrail/business-capabilities.md).
+2. Check the [technology capabilities](../handrail/technology-capabilities.md) for what to reuse.
+3. Start from a [reference architecture](../handrail/reference-architectures/index.md) if one fits.
+4. Agree your [service tier](../nfrs/service-tiers.md) and pick your [non-functional requirements](../nfrs/catalogue.md).
+5. Read the [guardrails](../guardrails/index.md) and run the 10-minute self-assurance checklist.
+6. Use the [decision check](../governance/decision-check.md) to find your governance route.
 
-=== "A delivery partner"
+### A delivery partner
 
-    Read [working with us as a delivery partner](delivery-partners.md), then the [guardrails](../guardrails/index.md). They describe what we expect from any team building for Defra.
+Read [working with us as a delivery partner](delivery-partners.md), then the [guardrails](../guardrails/index.md). They describe what we expect from any team building for Defra.
 
-=== "Making a design decision"
+### Making a design decision
 
-    Check the relevant [guardrail](../guardrails/index.md), then record your decision as an [ADR](../governance/architecture-decision-records.md). If you cannot meet a guardrail, see [exceptions](../governance/exceptions.md).
+Check the relevant [guardrail](../guardrails/index.md), then record your decision as an [ADR](../governance/architecture-decision-records.md). If you cannot meet a guardrail, see [exceptions](../governance/exceptions.md).
 
-=== "Preparing for an assessment"
+### Preparing for an assessment
 
-    Gather your ADR log, architecture diagrams and [threat model](../security/threat-modelling.md), and check the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for assessment guidance.
+Gather your ADR log, architecture diagrams and [threat model](../security/threat-modelling.md), and check the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for assessment guidance.
 
-=== "Planning a portfolio"
+### Planning a portfolio
 
-    Use [capability mapping](../handrail/capability-mapping.md) to find duplication and gaps, and talk to the [architecture team](team.md).
+Use [capability mapping](../handrail/capability-mapping.md) to find duplication and gaps, and talk to the [architecture team](team.md).
 
 ## Must, should and could
 

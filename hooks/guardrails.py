@@ -6,6 +6,8 @@ Guardrails are written by hand in ``docs/guardrails/*.md`` using a fixed shape:
 
     <span class="rfc rfc--must">Must</span> New digital services are hosted on ...
 
+Principles use the same shape with a ``rfc--principle`` badge.
+
 This hook reads those pages so the library, the home page figures and the
 guardrail pages can never drift apart. It:
 
@@ -29,7 +31,7 @@ from mkdocs.utils import get_relative_url
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 HEADING = re.compile(r"^## (GR-[A-Z]+-\d{2}) (.+?) \{#([a-z0-9-]+)\}\s*$", re.M)
-LEVEL = re.compile(r'<span class="rfc rfc--(must|should|could)">\w+</span>\s*(.+)')
+LEVEL = re.compile(r'<span class="rfc rfc--(principle|must|should|could)">\w+</span>\s*(.+)')
 TITLE = re.compile(r"^# (.+)$", re.M)
 LINK = re.compile(r"\[([^\]]+)\]\([^)]*\)")
 
@@ -63,14 +65,10 @@ def parse(docs_dir: str) -> list[dict]:
             end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
             body = text[match.end():end]
             level = LEVEL.search(body)
-            if level:
-                kind, statement = level.group(1), level.group(2)
-            elif name == "principles.md":
-                # Principles have no level: use their first paragraph.
-                kind, statement = "principle", body.strip().split("\n\n")[0]
-            else:
-                errors.append(f"{name}: {gid} has no Must/Should/Could level")
+            if not level:
+                errors.append(f"{name}: {gid} has no Principle/Must/Should/Could badge")
                 continue
+            kind, statement = level.group(1), level.group(2)
             found.append(
                 {
                     "id": gid,
@@ -99,10 +97,11 @@ def on_config(config):
     tech = load("technology-capabilities.yaml")
     _stats.clear()
     _stats.update(
-        guardrails=len(_guardrails),
+        guardrails=sum(1 for g in _guardrails if g["level"] != "principle"),
         must=levels["must"],
         should=levels["should"],
         could=levels["could"],
+        principles=levels["principle"],
         business=len(load("business-capabilities.yaml")),
         technology=len(tech),
         strategic=sum(1 for t in tech if t["status"] == "strategic"),

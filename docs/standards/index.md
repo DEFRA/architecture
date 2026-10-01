@@ -34,7 +34,7 @@ How the 13 points of the [Technology Code of Practice](https://www.gov.uk/guidan
 
 | TCoP point | Defra guidance |
 | --- | --- |
-| 1. Define user needs | [GR-PRIN-01](../guardrails/principles.md#gr-prin-01); [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) |
+| 1. Define user needs | [GR-PRIN-02](../guardrails/principles.md#gr-prin-02); [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) |
 | 2. Make things accessible and inclusive | [Front end and accessibility](../guardrails/front-end-and-accessibility.md) |
 | 3. Be open and use open source | [Open source and working in the open](../guardrails/open-source.md) |
 | 4. Make use of open standards | [GR-TECH-05](../guardrails/choosing-technology.md#gr-tech-05), [data standards](../data/data-standards.md) |

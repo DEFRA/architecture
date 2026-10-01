@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # Solution design authorities (SDAs)
 
 <p class="lead">SDAs are where most architecture decisions are assured. They sit close to delivery, within delivery groups or portfolios, with authority delegated from the TDA.</p>

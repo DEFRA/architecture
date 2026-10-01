@@ -35,8 +35,12 @@ Copy the [ADR template](templates/adr.md).
 
 ## Lifecycle
 
+An ADR starts as **Proposed**. It becomes **Accepted** when the team, SDA or TDA agrees it, or **Rejected**. An accepted ADR is later **Superseded** by a newer ADR, or **Deprecated** when it no longer applies.
+
 ```mermaid
 stateDiagram-v2
+    accTitle: Architecture decision record lifecycle
+    accDescr: An ADR is proposed, then accepted or rejected. An accepted ADR can later be superseded or deprecated.
     direction LR
     [*] --> Proposed
     Proposed --> Accepted: agreed by team / SDA / TDA

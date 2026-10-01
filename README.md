@@ -6,36 +6,34 @@ Source for the Defra architecture site at [https://howellsr.github.io/architectu
 
 | Path | Contents |
 | --- | --- |
-| `docs/` | Site content in Markdown |
-| `capabilities/` | Business and technology capability models (YAML) - the single source for the handrail |
-| `hooks/capabilities.py` | MkDocs hook that validates the capability models, renders the capability map, catalogue and matrix, and publishes `capabilities.json` |
-| `hooks/guardrails.py` | MkDocs hook that checks every guardrail (id, anchor, level) and builds the searchable guardrail library and home page figures |
-| `overrides/home.html` | Home page hero (search and figures) layered on the Material theme |
-| `docs/javascripts/site.js` | Guardrail library filter and the interactive decision check |
-| `docs/stylesheets/defra.css` | Site theme and components |
-| `includes/` | Shared snippets such as abbreviations |
-| `.github/workflows/ci.yml` | Strict build on every pull request; publish to GitHub Pages on merge to `main` |
+| `docs/` | Site content in Markdown, one folder per section |
+| `capabilities/` | Business and technology capability models (YAML) |
+| `nfrs/` | Service tiers and the non-functional requirements catalogue (YAML) |
+| `hooks/` | Build-time scripts that validate the data and generate the capability map, guardrail library, NFR tables and draft banners |
+| `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, theme, decision check and library filter |
+| `tests/` | Content checks (`pytest`) and the WCAG 2.2 AA accessibility check (`npm test`) |
+| `.github/` | CI workflow, pull request and issue templates, Dependabot |
 
 ## Run locally
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 mkdocs serve
 ```
 
-Open http://127.0.0.1:8000. Run `mkdocs build --strict` before raising a pull request - broken links, missing anchors and an invalid capability model all fail the build.
+Open http://127.0.0.1:8000. Before raising a pull request run `pytest` and `mkdocs build --strict`. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add guardrails, NFRs and capabilities.
 
 ## Publishing
 
 The site is published with GitHub Pages at <https://howellsr.github.io/architecture/>.
 
-- Every push to `main` runs `.github/workflows/ci.yml`, which builds the site with `mkdocs build --strict` and then runs `mkdocs gh-deploy` to push the built site to the `gh-pages` branch.
+- Every push to `main` runs `.github/workflows/ci.yml`: content tests, a strict build and an accessibility check. If all pass, `mkdocs gh-deploy` pushes the built site to the `gh-pages` branch.
 - GitHub Pages serves the `gh-pages` branch. One-off setup (repository admin): **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)` → Save**.
 - If the site shows this README instead of the home page, Pages is serving `main`. Change the branch to `gh-pages` as above.
 - To republish without a code change, run the **ci** workflow manually from the **Actions** tab (**Run workflow** on `main`).
-- Pull requests run the build only; they never publish.
+- Pull requests run the same checks but never publish.
 
 If the site moves to another organisation or custom domain, update `site_url`, `repo_url` and `repo_name` in `mkdocs.yml` and the links in this README.
 

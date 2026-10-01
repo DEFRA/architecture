@@ -65,9 +65,13 @@ extra_javascript:
 hooks:
   - hooks/capabilities.py
   - hooks/guardrails.py
+  - hooks/nfrs.py
+  - hooks/page_status.py
 
 extra:
   generator: false
+  status:
+    draft: Draft - to be confirmed
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DEFRA
@@ -134,6 +138,11 @@ nav:
       - Artificial intelligence: guardrails/ai.md
       - Sustainability: guardrails/sustainability.md
       - Software development standards: https://defra.github.io/software-development-standards/
+  - NFRs:
+      - nfrs/index.md
+      - Service tiers: nfrs/service-tiers.md
+      - NFR catalogue: nfrs/catalogue.md
+      - Writing good NFRs: nfrs/writing-nfrs.md
   - Handrail:
       - handrail/index.md
       - Business capabilities: handrail/business-capabilities.md

@@ -1,83 +1,153 @@
 # Architecture principles
 
-<p class="lead">Ten principles that guide every architecture decision in Defra. Each guardrail traces back to at least one of them, and each builds on the <a href="https://www.gov.uk/service-manual/service-standard">Service Standard</a> and the <a href="https://www.gov.uk/guidance/the-technology-code-of-practice">Technology Code of Practice</a>.</p>
+<p class="lead">Defra's eight Strategic Architecture Principles. They make decisions consistent, reduce complexity and stop change fragmenting across services. Use them to govern technology change across Defra so that it supports Defra's strategic goals.</p>
 
-Principles help when the guardrails do not give a direct answer. When in doubt, ask: *which option best fits these principles?*
+Every guardrail on this site puts one or more of these principles into practice. When a guardrail does not give you a direct answer, ask: *which option best fits these principles?*
 
-## GR-PRIN-01 Start with user and business outcomes {#gr-prin-01}
+| # | Principle | In short |
+| --- | --- | --- |
+| 1 | [Delivery-focused architecture](#gr-prin-01) | Architecture is a service to delivery teams |
+| 2 | [Design for users](#gr-prin-02) | Intuitive, accessible, consistent solutions |
+| 3 | [Maximise value, minimise waste](#gr-prin-03) | Reuse common capabilities; build less, deliver more |
+| 4 | [Clean data, clear decisions](#gr-prin-04) | Data that is accurate, timely and accessible |
+| 5 | [Connect and collaborate](#gr-prin-05) | Interoperable services, APIs and seamless data flows |
+| 6 | [Secure today, safe tomorrow](#gr-prin-06) | Security proportionate to risk, built in from the start |
+| 7 | [Empower to innovate](#gr-prin-07) | Safe spaces and tools to experiment |
+| 8 | [Right tools, right place](#gr-prin-08) | Fit-for-purpose tools for every working context |
 
-Design around the needs of users and the [business capability](../handrail/business-capabilities.md) being delivered, not around existing systems or organisational boundaries.
+## GR-PRIN-01 Delivery-focused architecture {#gr-prin-01}
 
-- **Rationale:** Services that follow organisational structure are harder to use and harder to change.
-- **Implications:** Every service can say which business capabilities it supports and what outcome it improves.
-- **Relates to:** Service Standard points 1-4, TCoP point 1.
+<span class="rfc rfc--principle">Principle</span> Architecture is a service to delivery teams. Architecture principles will support seamless delivery pipelines, enabling rapid, low-risk releases.
 
-## GR-PRIN-02 Reuse, then buy, then build {#gr-prin-02}
+**Rationale:** The core purpose of these principles is to support Defra's ability to deliver value continuously and reliably. Without delivery-focused principles, architecture can become a bottleneck rather than a business enabler. Streamlining change with predictable, low-risk releases improves user satisfaction and business responsiveness.
 
-Use what Defra or government already has. If nothing fits, buy commodity products. Build only what makes Defra different.
+**How to follow it:**
 
-- **Rationale:** Every bespoke component is something we must secure, patch and pay for for years.
-- **Implications:** Check the [technology capabilities](../handrail/technology-capabilities.md) and cross-government components such as GOV.UK Notify, Pay and One Login first. See [choosing technology](choosing-technology.md).
-- **Relates to:** TCoP points 8 and 11.
+- Keep architectural governance lightweight and built into delivery workflows - automated guardrails over manual reviews.
+- Give timely, context-aware guidance aligned with product and delivery cadences.
+- Design services for observability so teams can learn quickly and roll back when needed.
+- Invest in automation and standardised environments.
+- Keep services loosely coupled to allow incremental changes and isolated deployments.
 
-## GR-PRIN-03 Cloud and platform first {#gr-prin-03}
+**Put into practice by:** [governance](../governance/index.md), the [decision check](../governance/decision-check.md), [software development](software-development.md), [hosting and platforms](hosting-and-platforms.md), [observability and operations](observability-and-operations.md).
 
-Use public cloud, and use Defra's strategic delivery platforms so teams spend their time on user value rather than infrastructure.
+## GR-PRIN-02 Design for users {#gr-prin-02}
 
-- **Rationale:** Platforms give us security, resilience and observability once, for everyone.
-- **Implications:** See [hosting and platforms](hosting-and-platforms.md).
-- **Relates to:** TCoP point 5, the government Cloud First policy.
+<span class="rfc rfc--principle">Principle</span> Create intuitive, accessible, user-friendly and consistent solutions that simplify access and improve user experience.
 
-## GR-PRIN-04 API first and open standards {#gr-prin-04}
+**Rationale:** Technology should serve the needs of the people using it. Services that are not accessible or fail to meet users' needs introduce friction, reduce adoption and create inequality. Designing with empathy, grounded in research and aligned with accessibility standards, makes solutions inclusive, usable and effective. Use user-centred design methods from inception through delivery.
 
-Expose capabilities through well-documented APIs and events built on open standards, so they can be reused and replaced independently.
+**How to follow it:**
 
-- **Rationale:** Point-to-point and database-level integration makes change slow and risky.
-- **Implications:** See [APIs and integration](apis-and-integration.md).
-- **Relates to:** TCoP points 4 and 9.
+- Use the common user interface standards and design templates agreed across Defra group, based on government (GDS) standards.
+- Design every solution around the customer, colleague and partner experience, to meet agreed service levels.
+- Assess off-the-shelf systems against Defra user interface standards to maximise compliance.
+- Reuse existing processes for similar user-facing tasks across Defra and its arm's length bodies - issuing permits, managing customer cases - so they feel familiar to users.
 
-## GR-PRIN-05 Data is a shared asset {#gr-prin-05}
+**Put into practice by:** [front end and accessibility](front-end-and-accessibility.md), [identity and access](identity-and-access.md), the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual).
 
-Collect data once, from the right source, and make it findable, accessible, interoperable and reusable, with clear ownership and protection.
+## GR-PRIN-03 Maximise value, minimise waste {#gr-prin-03}
 
-- **Rationale:** Defra's evidence, regulation and payments all depend on trusted data.
-- **Implications:** See the [data guardrails](data.md) and [Defra on a page](../data/defra-on-a-page.md).
-- **Relates to:** TCoP point 10, the Government Data Quality Framework.
+<span class="rfc rfc--principle">Principle</span> Focus on delivering greater value to customers and citizens through reuse of common capabilities and effective technology management.
 
-## GR-PRIN-06 Secure by design {#gr-prin-06}
+**Rationale:** Architecture should guide Defra towards the most value with the least effort and risk. Reusing existing, compliant capabilities reduces duplication, gets services live faster and keeps them consistent and compliant. Minimising waste - of time, budget, technology and effort - supports strategic alignment, efficiency and sustainability. Architecture should help teams "build less and deliver more".
 
-Treat security as a continuous part of delivery, proportionate to risk and owned by the service team.
+**How to follow it:**
 
-- **Rationale:** Security added late is expensive and often ineffective.
-- **Implications:** See [Secure by Design in Defra](../security/secure-by-design.md) and the [security guardrails](security.md).
-- **Relates to:** TCoP points 6 and 7, Service Standard point 9.
+- Evaluate and prioritise reuse of existing platforms, APIs, components and services before starting custom development.
+- Maintain an up-to-date catalogue of approved, reusable capabilities - see [technology capabilities](../handrail/technology-capabilities.md).
+- Make the health, compliance and ownership of reusable components visible, so teams can make informed reuse decisions.
+- Include cost-benefit analysis in architectural decisions to find high-impact, low-effort options.
+- Discourage one-off solutions and use patterns that minimise technical debt.
+- Include reuse checks in architecture reviews, and require justification for duplicating a capability.
 
-## GR-PRIN-07 Design for change {#gr-prin-07}
+**Put into practice by:** [choosing technology](choosing-technology.md), the [handrail](../handrail/index.md), [hosting and platforms](hosting-and-platforms.md), [open source](open-source.md), [sustainability](sustainability.md).
 
-Prefer small, loosely coupled components with clear boundaries, automated tests and automated deployment, so they can evolve as policy and needs change.
+## GR-PRIN-04 Clean data, clear decisions {#gr-prin-04}
 
-- **Rationale:** Policy changes often. Systems that cannot keep up become legacy quickly.
-- **Implications:** Make it cheap to change and cheap to replace. Avoid lock-in that is not a deliberate, recorded choice.
+<span class="rfc rfc--principle">Principle</span> Ensure data is clean, accurate, consistent, timely and accessible, using AI to enhance data quality, integration and insights.
 
-## GR-PRIN-08 Operable and observable by default {#gr-prin-08}
+**Rationale:** High-quality data is the foundation of good decisions and operational excellence. Inaccurate or unavailable data undermines trust, leads to poor outcomes and increases risk. Services must protect data integrity and accessibility so insight and action can be timely. AI and automation can improve data quality, streamline integration and generate deeper insight.
 
-Build services that tell you how they are doing, recover from failure and can be supported by someone who did not build them.
+**How to follow it:**
 
-- **Rationale:** Most cost and risk sits in the years of running a service, not in building it.
-- **Implications:** See [observability and operations](observability-and-operations.md).
-- **Relates to:** Service Standard points 10 and 14.
+- Set clear ownership, accountability and policies to maintain data quality standards.
+- Automate detecting and correcting data errors at ingestion and throughout the data lifecycle.
+- Align data definitions and formats across services and platforms.
+- Design for timely data updates and low-latency access.
+- Use AI for anomaly detection, predictive data quality, intelligent integration and richer analytics.
+- Provide secure, scalable data platforms and APIs for easy, governed access.
+- Treat data quality as a prerequisite for analytical and operational decisions.
 
-## GR-PRIN-09 Open and sustainable by default {#gr-prin-09}
+**Put into practice by:** [data guardrails](data.md), [Defra on a page](../data/defra-on-a-page.md), [data standards](../data/data-standards.md), [artificial intelligence](ai.md).
 
-Work in the open, share what we learn, and design for the lowest environmental impact that meets user need.
+## GR-PRIN-05 Connect and collaborate {#gr-prin-05}
 
-- **Rationale:** Openness improves quality and reuse. Defra leads government's [Greening Government ICT](https://www.gov.uk/government/publications/greening-government-ict-and-digital-services-strategy-2020-2025) strategy and should model it.
-- **Implications:** See [open source](open-source.md) and [sustainability](sustainability.md).
-- **Relates to:** TCoP points 3 and 12, Service Standard points 12 and 13.
+<span class="rfc rfc--principle">Principle</span> Create a flexible, connected and interoperable ecosystem through integration, automation and AI, to give streamlined user journeys and seamless data flows.
 
-## GR-PRIN-10 Proportionate, transparent decisions {#gr-prin-10}
+**Rationale:** Defra relies on a network of systems, services and partner organisations. Services designed in isolation fragment journeys and duplicate effort. Services must be interoperable - able to exchange data, trigger actions and adapt across systems - using APIs, integration patterns, automation and orchestration, so Defra can scale and evolve as needs change.
 
-Make decisions at the lowest sensible level, proportionate to risk, and record significant ones as [architecture decision records](../governance/architecture-decision-records.md).
+**How to follow it:**
 
-- **Rationale:** Decisions that are written down can be reviewed, reused and revisited. Decisions made close to the work are faster and better informed.
-- **Implications:** See [governance](../governance/index.md).
+- Expose well-documented, secure, reusable APIs by default.
+- Consider how each service fits into wider workflows, data flows and [business capabilities](../handrail/business-capabilities.md).
+- Use industry standards to maximise compatibility and future-proofing.
+- Invest in a robust integration platform for real-time and batch processing.
+- Support event-driven architecture and intelligent automation.
+- Enable single sign-on and consistent identity management across services.
+- Share clean, consistent, context-rich data while respecting privacy, ethics and compliance.
+
+**Put into practice by:** [APIs and integration](apis-and-integration.md), [identity and access](identity-and-access.md), [data guardrails](data.md).
+
+## GR-PRIN-06 Secure today, safe tomorrow {#gr-prin-06}
+
+<span class="rfc rfc--principle">Principle</span> Implement robust security measures to protect data and systems and maintain a secure environment.
+
+**Rationale:** Security must be part of the architecture, not an afterthought. As threats become more sophisticated, building security in from the outset protects users, safeguards data and keeps Defra compliant. Secure-by-design approaches reduce vulnerabilities early, cut the cost of rework and build trust.
+
+**How to follow it:**
+
+- Manage security in proportion to risk - for example, balancing data security with the need to share data.
+- Follow the Defra group Security (DgS) strategy and recommendations.
+- Use role-based access control to manage access to system functions and data.
+
+**Put into practice by:** [security guardrails](security.md), [Secure by Design in Defra](../security/secure-by-design.md), [threat modelling](../security/threat-modelling.md).
+
+## GR-PRIN-07 Empower to innovate {#gr-prin-07}
+
+<span class="rfc rfc--principle">Principle</span> Give the business the knowledge and tools to use its creativity to deliver innovative change.
+
+**Rationale:** Innovation keeps Defra resilient and adaptive. It only happens when it is enabled by intentional structures, culture and support: people need the right tools, spaces to experiment and the knowledge to decide well. Architecture should guide technology exploration, lower barriers to experimentation and build innovation into delivery.
+
+**How to follow it:**
+
+- Provide reusable frameworks, playbooks and technology sandboxes for low-friction experimentation.
+- Use lightweight governance and automated controls so teams can explore safely within defined boundaries.
+- Promote communities of practice, design patterns and internal case studies.
+- Encourage experimentation with emerging technologies (such as AI, low-code and digital twins) through pilots.
+- Provide non-production environments where teams can test bold ideas safely.
+- Bring architects, technologists and business units together to act on innovation opportunities aligned to outcomes.
+- Track innovation by value, scalability and learning - not just technical novelty.
+
+**Put into practice by:** [artificial intelligence](ai.md), the [decision check](../governance/decision-check.md), [open source and working in the open](open-source.md).
+
+## GR-PRIN-08 Right tools, right place {#gr-prin-08}
+
+<span class="rfc rfc--principle">Principle</span> Equip staff with the tools and devices they need to communicate and operate effectively in all conditions.
+
+**Rationale:** One-size-fits-all solutions fail people working in laboratories, in the field or in remote areas with limited connectivity. Architecture must support flexible, secure, context-aware device strategies - rugged hardware, offline working, reliable connectivity - so staff can work productively and safely anywhere. Fit-for-purpose equipment directly affects service quality, resilience and user satisfaction.
+
+**How to follow it:**
+
+- Guide the procurement and support of devices suited to the user's context - rugged tablets for fieldwork, secure laptops for remote access, specialist laboratory equipment.
+- Support offline-first working and resilient syncing where connectivity is unreliable or absent.
+- Provide portable connectivity, mobile data access and satellite support where infrastructure is lacking.
+- Extend security policies and controls to every device type and location, with remote updates, encryption and endpoint protection.
+- Design IT support for diverse contexts: self-service, remote diagnostics and on-site support.
+- Keep devices easy to replace or upgrade as needs change.
+
+**Put into practice by:** [front end and accessibility](front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](identity-and-access.md#gr-iam-02).
+
+---
+
+<small>Source: Defra Strategic Architecture Principles, owned by the Strategic Architecture team. Changes to these principles are approved by the [Technology Governance Board](../governance/tgb.md).</small>

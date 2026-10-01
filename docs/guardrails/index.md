@@ -49,16 +49,16 @@ Search them all in the [guardrail library](library.md), or browse by area:
 
 Use this checklist at the end of discovery, at each phase gate and before any significant change. If you can tick every box you are **inside the guardrails** and can proceed with your [solution design authority](../governance/solution-design-authorities.md).
 
-- [ ] The service maps to one or more [business capabilities](../handrail/business-capabilities.md) and we have checked the [technology capabilities](../handrail/technology-capabilities.md) for something to reuse
-- [ ] We are hosting on a strategic platform (`GR-HOST-01`) or have an agreed exception
-- [ ] Code is in a Defra GitHub organisation and public unless there is a recorded reason (`GR-OPEN-01`)
-- [ ] We use the strategic identity services for customers and staff (`GR-IAM-01`, `GR-IAM-02`)
-- [ ] Our APIs are documented with OpenAPI or AsyncAPI (`GR-API-02`)
-- [ ] We know who owns each data set we create or use, and we use authoritative sources (`GR-DATA-01`, `GR-DATA-02`)
-- [ ] We have a current threat model (`GR-SEC-02`) and a DPIA where personal data is involved (`GR-DATA-06`)
-- [ ] Logs, metrics and alerts flow to the platform's observability tooling (`GR-OPS-01`)
-- [ ] The service meets WCAG 2.2 AA and uses the GOV.UK Design System (`GR-FE-01`, `GR-FE-02`)
-- [ ] Significant decisions are recorded as ADRs (`GR-PRIN-10`)
+- The service maps to one or more [business capabilities](../handrail/business-capabilities.md) and we have checked the [technology capabilities](../handrail/technology-capabilities.md) for something to reuse
+- We are hosting on a strategic platform (`GR-HOST-01`) or have an agreed exception
+- Code is in a Defra GitHub organisation and public unless there is a recorded reason (`GR-OPEN-01`)
+- We use the strategic identity services for customers and staff (`GR-IAM-01`, `GR-IAM-02`)
+- Our APIs are documented with OpenAPI or AsyncAPI (`GR-API-02`)
+- We know who owns each data set we create or use, and we use authoritative sources (`GR-DATA-01`, `GR-DATA-02`)
+- We have a current threat model (`GR-SEC-02`) and a DPIA where personal data is involved (`GR-DATA-06`)
+- Logs, metrics and alerts flow to the platform's observability tooling (`GR-OPS-01`)
+- The service meets WCAG 2.2 AA and uses the GOV.UK Design System (`GR-FE-01`, `GR-FE-02`)
+- Significant decisions are recorded as ADRs (`GR-PRIN-01`)
 
 Ticked every box? Great - carry on, and record it. Not sure, or found a gap? Use the [decision check](../governance/decision-check.md) to find the right route.
 

@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # Defra on a page
 
 <p class="lead">A single conceptual view of the things Defra cares about and how they relate. Use it to find where authoritative data lives and to use a common language across services.</p>
@@ -9,6 +13,8 @@
 
 ```mermaid
 flowchart TB
+    accTitle: Defra on a page conceptual data model
+    accDescr: Parties (people and organisations) manage holdings and land parcels and make applications, which result in licences and permits. Inspections assess permits and may lead to enforcement. Organisations enter agreements that generate payments. Incidents affect holdings, animals and plants. Observations and samples relate to species, water bodies and animals and feed data sets.
     subgraph Parties["Parties - who"]
         PER["Person"]
         ORG["Organisation<br/>(business, charity,<br/>public body)"]

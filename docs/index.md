@@ -6,8 +6,6 @@ hide:
   - toc
 ---
 
-<h1 class="visually-hidden">Defra architecture</h1>
-
 <section class="da-section" aria-labelledby="start" markdown>
 <p class="da-kicker da-kicker--dark">Start here</p>
 <h2 id="start" class="da-h2">What do you need to do?</h2>
@@ -76,7 +74,7 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 <ol class="da-flow">
 <li><span>01</span><strong>Map</strong>Find the business capability your service supports</li>
 <li><span>02</span><strong>Reuse</strong>Use the strategic technology options first</li>
-<li><span>03</span><strong>Check</strong>Test the design against the guardrails</li>
+<li><span>03</span><strong>Check</strong>Test the design against the guardrails and NFRs</li>
 <li><span>04</span><strong>Decide</strong>Your team, your SDA or the TDA, by risk</li>
 <li><span>05</span><strong>Record</strong>Write an ADR in the open so others can reuse it</li>
 </ol>
@@ -130,6 +128,7 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 - [Technology capabilities](handrail/technology-capabilities.md)
 - [Hosting and platforms](guardrails/hosting-and-platforms.md)
 - [Choosing technology](guardrails/choosing-technology.md)
+- [Non-functional requirements](nfrs/index.md)
 
 </div>
 

@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # The architecture team
 
 <p class="lead">We help Defra make good technology decisions quickly. We set direction, publish guardrails and handrails, run governance, and work alongside delivery teams.</p>

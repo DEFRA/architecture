@@ -19,15 +19,61 @@ We follow the [GOV.UK style guide](https://www.gov.uk/guidance/style-guide). In 
 - name capabilities and products consistently with the [handrail](../handrail/index.md)
 - avoid acronyms, or explain them the first time
 
-## Guardrail format
+## How the repository is organised
 
-Each guardrail has:
+Most changes are to Markdown in `docs/` or to the YAML data files. You rarely need to touch the code.
 
-- a stable id - `GR-<AREA>-<NN>` - which is never reused
-- a heading anchor matching the id, for example `{#gr-host-01}`
-- a level: <span class="rfc rfc--must">Must</span>, <span class="rfc rfc--should">Should</span> or <span class="rfc rfc--could">Could</span>
-- **Why** - the rationale
-- **How to meet it** - practical, ideally self-service, steps
+| Path | What it holds | Who usually edits it |
+| --- | --- | --- |
+| `docs/` | Every page, in Markdown. The folder structure matches the site sections. | Anyone |
+| `docs/guardrails/*.md` | Principles and guardrails. The guardrail library is built from these. | Architects |
+| `capabilities/*.yaml` | Business and technology capability models | Business and enterprise architects |
+| `nfrs/*.yaml` | Service tiers and the NFR catalogue | Solution architects |
+| `mkdocs.yml` | Site settings and the navigation | Site maintainers |
+| `hooks/` | Small Python scripts that check the data and build tables from it | Site maintainers |
+| `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, theme, decision check and library filter | Site maintainers |
+| `tests/` | Content checks (`pytest`) and the accessibility check (`npm test`) | Site maintainers |
+| `.github/` | CI workflow, pull request and issue templates | Site maintainers |
+
+## Common tasks
+
+### Edit a page
+
+Select **Edit this page** on the site, or edit the file in `docs/` directly. If you add a page, add it to `nav` in `mkdocs.yml`.
+
+### Add or change a guardrail
+
+Add a section to the right page in `docs/guardrails/` using exactly this shape:
+
+```markdown
+## GR-HOST-08 Short, active title {#gr-host-08}
+
+<span class="rfc rfc--should">Should</span> One-sentence statement of what teams do.
+
+**Why:** the reason.
+
+**How to meet it:** practical, ideally self-service, steps.
+```
+
+- Use the next unused number for that area, and never reuse or renumber an id.
+- The level is `rfc--must`, `rfc--should` or `rfc--could`.
+- The guardrail library, home page figures and NFR links update automatically. The build fails if the id and anchor do not match or the badge is missing.
+
+### Add or change an NFR or service tier
+
+Edit `nfrs/catalogue.yaml` or `nfrs/service-tiers.yaml`. Comments at the top of each file explain every field. The build checks that ids are unique, that targets use real tiers and that linked guardrails exist.
+
+### Change the capability model
+
+Edit `capabilities/business-capabilities.yaml` or `capabilities/technology-capabilities.yaml`. The map, catalogue and mapping matrix are generated from them.
+
+### Mark a page as draft
+
+Add `status: draft` to the page's front matter. The page shows a "Draft - to be confirmed" banner and a marker in the navigation. Remove the line once the content is agreed. To list draft pages, run `grep -rl "status: draft" docs`.
+
+### Add a diagram
+
+Use a `mermaid` code block. Every diagram needs an `accTitle` and an `accDescr` line describing what it shows, for people using screen readers. The tests fail without them.
 
 ## Running the site locally
 
@@ -36,19 +82,23 @@ You need Python 3.10 or later.
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 mkdocs serve
 ```
 
 Then open <http://127.0.0.1:8000>. Pages reload as you edit.
 
-Before opening a pull request, check the site builds cleanly:
+## Checks
 
-```bash
-mkdocs build --strict
-```
+Every pull request runs three checks. You can run them locally before you push:
 
-The same check runs automatically on every pull request. Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/).
+| Check | Command | What it catches |
+| --- | --- | --- |
+| Content | `pytest` | Broken references between capabilities, guardrails and NFRs; diagrams without text alternatives |
+| Build | `mkdocs build --strict` | Broken links and anchors, invalid data, missing pages |
+| Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |
+
+Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/) once all three pass.
 
 ## What not to publish
 

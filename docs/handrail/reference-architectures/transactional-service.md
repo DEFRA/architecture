@@ -12,6 +12,8 @@ Most Defra services follow the same pattern: a user signs in, tells us something
 
 ```mermaid
 flowchart LR
+    accTitle: Transactional digital service reference architecture
+    accDescr: A user reaches a server-rendered front end on the Core Delivery Platform, which calls a service backend API and data store. The service uses customer identity, reference and geospatial data, payments and notifications, and hands submissions to case management and the data platform through messaging. Logs and metrics go to observability.
     U(["User or agent"]) --> FE
 
     subgraph CDP["Core Delivery Platform (TC21)"]

@@ -34,8 +34,12 @@
 
 ## How layers connect
 
+Outcomes are delivered by business capabilities. Business capabilities are enabled by technology capabilities, which are provided by products and platforms. Those products and platforms are assembled into the services users see.
+
 ```mermaid
 flowchart TB
+    accTitle: How the handrail layers connect
+    accDescr: Outcomes lead to business capabilities, which need technology capabilities, which are provided by products and platforms, which make up the services users see. Services deliver the outcomes.
     O["Outcomes<br/>(Environmental Improvement Plan, priority outcomes)"] --> BC["Business capabilities<br/>what Defra does"]
     BC --> TC["Technology capabilities<br/>what technology must do"]
     TC --> P["Products and platforms<br/>Defra ID, CDP, GOV.UK Notify..."]

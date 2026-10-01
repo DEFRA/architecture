@@ -12,6 +12,8 @@ Defra is one of government's most data-intensive departments: environmental moni
 
 ```mermaid
 flowchart LR
+    accTitle: Data and analytics reference architecture
+    accDescr: Data from services, sensors, research and external sources lands in raw storage on the data platform, is curated and quality checked, and becomes data products used for analysis and AI, dashboards and statistics, open data and APIs, and geospatial services. Cataloguing, lineage, access control and quality apply across the platform.
     subgraph Sources
         S1["Services and casework"]
         S2["Sensors, gauges and IoT<br/>TC18"]

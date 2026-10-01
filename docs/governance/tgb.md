@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # Technology Governance Board (TGB)
 
 <p class="lead">The TGB sets Defra's technology direction. It approves strategies, standards and guardrails, and the investment that shapes Defra's technology estate.</p>

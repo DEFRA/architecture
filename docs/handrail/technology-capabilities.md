@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # Technology capabilities
 
 <p class="lead">Technology capabilities describe what technology must do to enable Defra's business capabilities, and the strategic option to use first for each.</p>

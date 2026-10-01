@@ -268,7 +268,21 @@
     render();
   }
 
+  /* ---------------- Home page search button ---------------- */
+
+  function initSearchButton() {
+    document.querySelectorAll("[data-open-search]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var toggle = document.getElementById("__search");
+        var input = document.querySelector(".md-search__input");
+        if (toggle) toggle.checked = true;
+        if (input) setTimeout(function () { input.focus(); }, 50);
+      });
+    });
+  }
+
   onPage(function () {
+    initSearchButton();
     initLibrary();
     initDecisionCheck();
   });

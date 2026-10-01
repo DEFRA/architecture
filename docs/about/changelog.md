@@ -4,6 +4,13 @@
 
 ## October 2026
 
+### Principles, NFRs and accessibility
+
+- **[Architecture principles](../guardrails/principles.md)** now use Defra's eight agreed Strategic Architecture Principles, each linked to the guardrails that put it into practice.
+- **[Non-functional requirements](../nfrs/index.md):** new section with service tiers, an NFR catalogue and guidance on writing good NFRs. Targets are draft until confirmed.
+- **Accessibility:** every page is now checked against WCAG 2.2 AA in light and dark mode on each change. Fixed colour contrast, keyboard access to the home page search, touch target sizes and diagram text alternatives.
+- **Draft markers:** pages awaiting confirmation now show a "Draft - to be confirmed" banner.
+
 ### Front door and tools
 
 - **New home page** with search, "What do you need to do?" routes, the governance flow, the capability map and links to detailed guidance.

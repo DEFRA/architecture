@@ -1,3 +1,7 @@
+---
+status: draft
+---
+
 # Managing security exceptions
 
 <p class="lead">Sometimes a security control cannot be met - because of a legacy dependency, a supplier constraint or a delivery deadline. That is a risk decision, and it must be made explicitly, by the right person, for a limited time.</p>
@@ -8,6 +12,8 @@ Required by guardrail [GR-SEC-09](../guardrails/security.md#gr-sec-09).
 
 ```mermaid
 flowchart LR
+    accTitle: Security exception process
+    accDescr: Identify the gap, assess the risk, mitigate what you can, record and request acceptance. Risks within the owner's appetite are accepted by the service owner, otherwise escalated to the SIRO or CISO. Accepted risks are tracked, reviewed and closed.
     I["Identify<br/>the gap"] --> A["Assess<br/>the risk"]
     A --> M["Mitigate what<br/>you can"]
     M --> R["Record and<br/>request acceptance"]

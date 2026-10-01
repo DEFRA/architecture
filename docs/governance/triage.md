@@ -7,6 +7,8 @@
 
 ```mermaid
 flowchart TD
+    accTitle: Governance triage decision tree
+    accDescr: Changes to strategy or strategic platforms go to the Technology Governance Board. Exceptions to Must guardrails, and novel or cross-cutting work, go to the Technical Design Authority. Departures from Should guardrails, phase gates and significant changes go to the solution design authority. Everything else is self-assured and recorded in an ADR.
     A([Start]) --> Q1{"Does it change Defra<br/>technology strategy, or<br/>create or retire a<br/>strategic platform?"}
     Q1 -->|Yes| TGB["Technology<br/>Governance Board"]
     Q1 -->|No| Q2{"Do you need an exception<br/>to a <b>Must</b> guardrail?"}

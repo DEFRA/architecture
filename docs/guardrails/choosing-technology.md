@@ -2,7 +2,7 @@
 
 <p class="lead">How to decide whether to reuse, buy or build - and how to avoid being stuck with the choice.</p>
 
-Supports principles [GR-PRIN-02](principles.md#gr-prin-02) and [GR-PRIN-07](principles.md#gr-prin-07).
+Supports principles [GR-PRIN-03](principles.md#gr-prin-03) and [GR-PRIN-01](principles.md#gr-prin-01).
 
 ## GR-TECH-01 Look for something to reuse first {#gr-tech-01}
 

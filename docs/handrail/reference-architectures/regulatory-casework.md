@@ -12,6 +12,8 @@ Across Defra group, staff assess permit and licence applications, plan and carry
 
 ```mermaid
 flowchart TB
+    accTitle: Regulatory casework reference architecture
+    accDescr: Intake from transactional services and intelligence feeds case and workflow management, which uses rules and risk scoring and documents and records, sends inspection tasks to field work, uses shared reference and geospatial data, publishes public registers and sends decisions to the data platform, which improves risk models.
     subgraph Intake["Intake"]
         TS["Transactional services<br/>(see transactional reference architecture)"]
         INT["Intelligence, reports<br/>and referrals"]

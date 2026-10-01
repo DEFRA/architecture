@@ -11,7 +11,7 @@
 | **Adopt a risk-driven approach** | Understand what you are protecting and from whom, then choose proportionate controls. | [Threat modelling](threat-modelling.md) |
 | **Design usable security controls** | Security that gets in the way gets worked around. Test controls with users. | [GR-IAM-01](../guardrails/identity-and-access.md#gr-iam-01) |
 | **Build in detect and respond security** | Log what matters and send it to the SOC; plan how you will respond. | [GR-SEC-07](../guardrails/security.md#gr-sec-07), [GR-OPS-01](../guardrails/observability-and-operations.md#gr-ops-01) |
-| **Design flexible architectures** | Loosely coupled components that can be patched, replaced or isolated. | [GR-PRIN-07](../guardrails/principles.md#gr-prin-07) |
+| **Design flexible architectures** | Loosely coupled components that can be patched, replaced or isolated. | [GR-PRIN-01](../guardrails/principles.md#gr-prin-01) |
 | **Minimise the attack surface** | Expose only what is needed; remove unused features, ports, accounts and dependencies. | [GR-API-07](../guardrails/apis-and-integration.md#gr-api-07) |
 | **Defend in depth** | Layer controls so that one failure does not mean a breach. | [Security guardrails](../guardrails/security.md) |
 | **Embed continuous assurance** | Automate scanning and testing in pipelines; review the threat model as the service changes. | [GR-SEC-05](../guardrails/security.md#gr-sec-05) |
@@ -21,6 +21,8 @@
 
 ```mermaid
 flowchart LR
+    accTitle: Security through the delivery lifecycle
+    accDescr: Discovery names the risk owner and classifies information. Alpha produces the first threat model and security requirements. Beta builds and tests controls, runs an IT health check and accepts risks. Live monitors, patches and reviews the threat model, returning to alpha on significant change.
     D["<b>Discovery</b><br/>Name the risk owner<br/>Classify information<br/>Initial risk view"]
     A["<b>Alpha</b><br/>First threat model<br/>Security requirements<br/>Supplier assurance<br/>DPIA"]
     B["<b>Beta</b><br/>Controls built and tested<br/>Pipeline scanning<br/>IT health check<br/>Risks accepted"]

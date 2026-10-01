@@ -1,0 +1,21 @@
+name: Content problem or suggestion
+description: Something on the site is wrong, unclear, out of date or missing
+labels: [content]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the page, or its title
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What should it say instead?
