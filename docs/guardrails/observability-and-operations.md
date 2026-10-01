@@ -1,5 +1,42 @@
 ---
 principles: [GR-PRIN-01]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-OPS-01:
+    phases: [beta, live]
+    evidence: Dashboards and alerts in the platform's observability tooling and security events reaching the security operations centre
+    service_standard_points: [14]
+    sbd_principles: [5]
+  GR-OPS-02:
+    phases: [alpha, beta, live]
+    evidence: Sample logs showing structured fields and correlation identifiers and no secrets
+    sbd_principles: [5]
+  GR-OPS-03:
+    phases: [beta, live]
+    evidence: Agreed service level objectives with monitoring and alerts
+    service_standard_points: [14]
+  GR-OPS-04:
+    phases: [beta, live]
+    evidence: Health endpoints, timeout and retry settings, and a design for when dependencies fail
+    service_standard_points: [14]
+  GR-OPS-05:
+    phases: [beta, live]
+    evidence: Support model, on-call arrangements, runbooks, incident process, named live owner and service catalogue entry
+    service_standard_points: [14]
+  GR-OPS-06:
+    phases: [live]
+    evidence: Post-incident reviews and the actions taken
+    service_standard_points: [14]
+  GR-OPS-07:
+    phases: [beta, live]
+    evidence: Published key performance indicators and cost tags on cloud resources
+    service_standard_points: [10]
 ---
 
 # Observability and operations

@@ -1,5 +1,41 @@
 ---
 principles: [GR-PRIN-03, GR-PRIN-01]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-HOST-01:
+    phases: [discovery, alpha, beta, live]
+    evidence: The service runs on the Core Delivery Platform, or an approved exception
+    service_standard_points: [11]
+    tcop_points: [5, 8]
+  GR-HOST-02:
+    phases: [discovery, alpha, beta, live]
+    evidence: Hosting design showing a Defra-managed public cloud tenancy
+    tcop_points: [5]
+  GR-HOST-03:
+    phases: [alpha, beta, live]
+    evidence: Infrastructure, configuration and pipeline code in the repository, and drift detection results
+    service_standard_points: [14]
+    sbd_principles: [10]
+  GR-HOST-04:
+    phases: [alpha, beta]
+    evidence: Hosting design listing the managed services used
+    tcop_points: [5]
+  GR-HOST-05:
+    phases: [alpha, beta, live]
+    evidence: Environments created from the same code, and how lower environments avoid real personal data
+  GR-HOST-06:
+    phases: [alpha, beta, live]
+    evidence: Data location confirmed for every data store and backup
+  GR-HOST-07:
+    phases: [alpha, beta, live]
+    evidence: Agreed recovery time and recovery point objectives, a multi-zone design and the date of the last recovery test
+    service_standard_points: [14]
 ---
 
 # Hosting and platforms

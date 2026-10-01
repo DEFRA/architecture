@@ -1,5 +1,33 @@
 ---
 principles: [GR-PRIN-03]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-SUS-01:
+    phases: [discovery, alpha]
+    evidence: Environmental impact recorded in ADRs for hosting and technology choices
+    tcop_points: [12]
+  GR-SUS-02:
+    phases: [beta, live]
+    evidence: Autoscaling and out-of-hours schedules for non-production environments
+    tcop_points: [12]
+  GR-SUS-03:
+    phases: [alpha]
+    evidence: Region and service choice recorded with its carbon intensity
+    tcop_points: [12]
+  GR-SUS-04:
+    phases: [alpha, beta, live]
+    evidence: Data retention settings and page weight measurements
+    tcop_points: [12]
+  GR-SUS-05:
+    phases: [live]
+    evidence: Carbon footprint reported alongside cost
+    tcop_points: [12]
 ---
 
 # Sustainability

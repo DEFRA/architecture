@@ -1,5 +1,40 @@
 ---
 principles: [GR-PRIN-02, GR-PRIN-08]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-FE-01:
+    phases: [alpha, beta, live]
+    evidence: Accessibility audit, assistive technology testing results and a published accessibility statement
+    automated_check: Automated accessibility tests such as axe in the pipeline. These find some issues only; manual testing is still needed.
+    service_standard_points: [5]
+    tcop_points: [2]
+  GR-FE-02:
+    phases: [alpha, beta, live]
+    evidence: The service uses GOV.UK Frontend and design decisions record where it departs from the patterns
+    service_standard_points: [4, 13]
+    tcop_points: [2]
+  GR-FE-03:
+    phases: [alpha, beta]
+    evidence: Core journeys tested with JavaScript turned off
+    service_standard_points: [5]
+  GR-FE-04:
+    phases: [discovery, alpha]
+    evidence: ADR noting whether the forms capability was considered
+    tcop_points: [8]
+  GR-FE-05:
+    phases: [alpha, beta]
+    evidence: Page weight budget, save-progress design and testing on slow connections
+    service_standard_points: [5]
+  GR-FE-06:
+    phases: [alpha, beta, live]
+    evidence: Assessment of whether the Welsh Language Standards apply and translated content where they do
+    service_standard_points: [5]
 ---
 
 # Front end and accessibility

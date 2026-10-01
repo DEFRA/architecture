@@ -1,5 +1,60 @@
 ---
 principles: [GR-PRIN-06]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Enterprise security architecture
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-SEC-01:
+    phases: [discovery, alpha, beta, live]
+    evidence: Named risk owner and the Secure by Design activities completed for the phase
+    service_standard_points: [9]
+    tcop_points: [6]
+    sbd_principles: [1, 3]
+  GR-SEC-02:
+    phases: [alpha, beta, live]
+    evidence: Current, dated threat model, reviewed at the last significant change and at least annually
+    service_standard_points: [9]
+    tcop_points: [6]
+    sbd_principles: [3]
+  GR-SEC-03:
+    phases: [discovery, alpha]
+    evidence: Security classification and data types recorded with the controls that match them
+    tcop_points: [6]
+    sbd_principles: [3]
+  GR-SEC-04:
+    phases: [alpha, beta, live]
+    evidence: TLS configuration and encryption at rest settings for every data store
+    tcop_points: [6]
+    sbd_principles: [8]
+  GR-SEC-05:
+    phases: [alpha, beta, live]
+    evidence: Pipeline scanning results and the time taken to fix critical and high vulnerabilities
+    automated_check: Static analysis, dependency, container and infrastructure scanning in the pipeline
+    tcop_points: [6]
+    sbd_principles: [9]
+  GR-SEC-06:
+    phases: [beta, live]
+    evidence: IT health check report and remediation tracker
+    service_standard_points: [9]
+    sbd_principles: [9]
+  GR-SEC-07:
+    phases: [beta, live]
+    evidence: Security-relevant events reaching the security operations centre
+    sbd_principles: [5]
+  GR-SEC-08:
+    phases: [alpha, beta, live]
+    evidence: Supplier security assessments, pinned dependencies and a software bill of materials
+    automated_check: Dependency review and software bill of materials generation in the pipeline
+    tcop_points: [6]
+    sbd_principles: [2]
+  GR-SEC-09:
+    phases: [discovery, alpha, beta, live]
+    evidence: Risk register entries with an owner and an expiry date for every accepted risk
+    sbd_principles: [1, 3]
 ---
 
 # Security

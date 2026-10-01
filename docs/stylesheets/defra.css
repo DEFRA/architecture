@@ -1105,6 +1105,115 @@ body {
   background: var(--da-paper);
 }
 
+.md-typeset .gl-card__facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.6rem;
+  margin: 0.6rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--da-line);
+  font-size: 0.7rem;
+}
+
+.md-typeset .gl-card__facts dt {
+  font-weight: 700;
+  color: var(--da-heading);
+}
+
+.md-typeset .gl-card__facts dd {
+  margin: 0;
+  color: var(--da-muted);
+}
+
+.gl-card__replaced {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--da-muted);
+}
+
+/* Guardrail status tag (draft, endorsed, deprecated) */
+.md-typeset .gr-status {
+  display: inline-block;
+  padding: 0 0.35rem;
+  border: 1px solid currentcolor;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--da-muted);
+}
+
+.md-typeset .gr-status--endorsed {
+  color: var(--da-green);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .gr-status--endorsed {
+  color: #6fd396;
+}
+
+.md-typeset .gr-status--deprecated {
+  color: var(--da-red);
+  text-decoration: line-through;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .gr-status--deprecated {
+  color: #ff9a8f;
+}
+
+/* Metadata panel under each guardrail */
+.md-typeset details.gr-meta {
+  margin: 0.8rem 0 1.6rem;
+  border: 1px solid var(--da-line);
+  border-left: 4px solid var(--da-green);
+  border-radius: 0 4px 4px 0;
+  background: var(--da-paper);
+  box-shadow: none;
+  font-size: 0.72rem;
+}
+
+.md-typeset details.gr-meta > summary {
+  padding: 0.5rem 2rem 0.5rem 0.8rem;
+  background: transparent;
+  font-weight: 700;
+  color: var(--da-heading);
+}
+
+.md-typeset details.gr-meta > summary::before {
+  display: none;
+}
+
+.md-typeset details.gr-meta > summary::after {
+  background-color: var(--da-heading);
+}
+
+.md-typeset .gr-meta dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0 0.8rem 0.7rem;
+}
+
+.md-typeset .gr-meta dt {
+  font-weight: 700;
+}
+
+.md-typeset .gr-meta dd {
+  margin: 0;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .gr-meta dl {
+    grid-template-columns: 1fr;
+    padding-left: 0.8rem;
+  }
+
+  .md-typeset .gr-meta dd {
+    margin-bottom: 0.3rem;
+  }
+}
+
 /* =====================================================================
    Decision check
    ===================================================================== */

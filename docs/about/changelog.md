@@ -4,6 +4,15 @@
 
 ## October 2026
 
+### Guardrail metadata
+
+- **Every guardrail now has structured metadata:** status (draft, endorsed or deprecated), the phases it applies in, the evidence that shows you meet it, whether it can be checked automatically, the Service Standard, Technology Code of Practice and Secure by Design points it supports, the DDTS doctrine it applies, its owner and when it was last reviewed. Open **Phases, evidence and status** under any guardrail to see it.
+- The [guardrail library](../guardrails/library.md) can now be filtered by phase and status, and each card shows the evidence and automated check.
+- Guardrail metadata is published as `guardrails.json` for tools and dashboards.
+- New guardrail [GR-DEV-09 Record significant decisions as ADRs](../guardrails/software-development.md#gr-dev-09). The self-assurance checklist now points to it instead of a principle.
+- New [open questions](open-questions.md) page listing facts that are still to be confirmed.
+- Fixed the guardrails page describing "ten" architecture principles - there are eight.
+
 ### Traceability, guardrail backlog and standards
 
 - **Doctrine to guardrails:** every guardrail page now shows the doctrine and principles it applies, and the [Principles](../principles/index.md#how-the-doctrine-principles-and-guardrails-line-up) page shows coverage, including where guardrails are thin.

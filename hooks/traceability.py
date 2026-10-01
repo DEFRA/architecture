@@ -92,7 +92,7 @@ def build(docs_dir: str) -> dict:
         areas.append(
             {
                 "page": path,
-                "title": H1.search(text).group(1),
+                "title": H1.search(FRONT_MATTER.sub("", text, count=1)).group(1),
                 "principles": supported,
                 "count": len(GUARDRAIL_HEADING.findall(text)),
             }

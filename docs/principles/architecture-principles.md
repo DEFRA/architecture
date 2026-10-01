@@ -1,3 +1,12 @@
+---
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: endorsed
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+---
 # Architecture principles
 
 <p class="lead">Defra's eight Strategic Architecture Principles. They make decisions consistent, reduce complexity and stop change fragmenting across services. Use them to govern technology change across Defra so that it supports Defra's strategic goals.</p>

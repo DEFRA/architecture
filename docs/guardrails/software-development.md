@@ -1,5 +1,48 @@
 ---
 principles: [GR-PRIN-01, GR-PRIN-03]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-DEV-01:
+    phases: [alpha]
+    evidence: ADR recording the reason wherever the service uses a different stack
+    service_standard_points: [11]
+  GR-DEV-02:
+    phases: [alpha, beta, live]
+    evidence: All source code in a Defra-owned GitHub organisation from the first commit
+    service_standard_points: [12]
+  GR-DEV-03:
+    phases: [alpha, beta, live]
+    evidence: Branch protection on the main branch requiring a review and passing checks
+    sbd_principles: [10]
+  GR-DEV-04:
+    phases: [alpha, beta, live]
+    evidence: Pipeline definition in the repository and deployment history
+    service_standard_points: [14]
+    sbd_principles: [10]
+  GR-DEV-05:
+    phases: [alpha, beta, live]
+    evidence: Test results from the pipeline at each level
+  GR-DEV-06:
+    phases: [alpha, beta, live]
+    evidence: Dependabot or Renovate configuration and runtimes on supported versions
+    automated_check: Dependabot or Renovate updates and software composition analysis in the pipeline
+  GR-DEV-07:
+    phases: [alpha, beta, live]
+    evidence: Linting and formatting checks in the pipeline
+    automated_check: Lint and format checks in the pipeline
+  GR-DEV-08:
+    phases: [alpha, beta, live]
+    evidence: README explaining what the service does and how to run, test and deploy it, with links to its ADRs
+  GR-DEV-09:
+    phases: [discovery, alpha, beta, live]
+    evidence: ADR log in the repository or linked from its README
+    since_version: 0.2.0
 ---
 
 # Software development
@@ -55,3 +98,11 @@ principles: [GR-PRIN-01, GR-PRIN-03]
 ## GR-DEV-08 Document as you go {#gr-dev-08}
 
 <span class="rfc rfc--should">Should</span> Each repository has a README explaining what it does, how to run it locally, how to test it and how to deploy it, and links to its ADRs.
+
+## GR-DEV-09 Record significant decisions as ADRs {#gr-dev-09}
+
+<span class="rfc rfc--should">Should</span> Record significant architecture decisions as [architecture decision records](../governance/architecture-decision-records.md) (ADRs), kept with the code or linked from the repository's README.
+
+**Why:** the reasons behind a design are lost when people move on. ADRs let the next team, an assessor or a partner taking over the service understand what was decided and why, and change it safely.
+
+**How to meet it:** keep ADRs in a `docs/adr` folder in the service repository, using the [ADR template](../governance/templates/adr.md). Write one when you make a decision that is hard to reverse, departs from a guardrail, or that someone will later ask "why did we do this?".

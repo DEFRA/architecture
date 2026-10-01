@@ -1,5 +1,50 @@
 ---
 principles: [GR-PRIN-05]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-API-01:
+    phases: [alpha, beta]
+    evidence: API specification written before or alongside the user interface
+    service_standard_points: [13]
+    tcop_points: [9]
+  GR-API-02:
+    phases: [alpha, beta, live]
+    evidence: OpenAPI 3 or AsyncAPI documents in the service repository that match the running API
+    service_standard_points: [13]
+    tcop_points: [4, 9]
+  GR-API-03:
+    phases: [alpha, beta, live]
+    evidence: API design reviewed against the GDS API technical and data standards
+    service_standard_points: [13]
+    tcop_points: [4]
+  GR-API-04:
+    phases: [beta, live]
+    evidence: Published versioning policy, deprecation notices sent to consumers and retirement dates for old versions
+    tcop_points: [9]
+  GR-API-05:
+    phases: [alpha, beta, live]
+    evidence: Container diagram showing integration only through APIs, events or governed data products
+    tcop_points: [9]
+    sbd_principles: [6]
+  GR-API-06:
+    phases: [alpha, beta]
+    evidence: Event and message definitions described in AsyncAPI
+  GR-API-07:
+    phases: [alpha, beta, live]
+    evidence: Authentication and authorisation design, rate limits and input validation, covered by security testing
+    service_standard_points: [9]
+    tcop_points: [6]
+    sbd_principles: [7, 8]
+  GR-API-08:
+    phases: [beta, live]
+    evidence: Entry in the platform API catalogue
+    tcop_points: [8]
 ---
 
 # APIs and integration

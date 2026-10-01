@@ -23,7 +23,17 @@ Each guardrail has an identifier, a level, a short rationale and a way to show y
 | <span class="rfc rfc--should">Should</span> | The strong default. There may be good reasons to differ. | Record why in an [architecture decision record](../governance/architecture-decision-records.md) and share it with your solution design authority. |
 | <span class="rfc rfc--could">Could</span> | Recommended good practice. | No action needed, but we would like to know what worked better. |
 
-Identifiers (for example `GR-HOST-01`) are stable so they can be referenced in decision records, assessments, contracts and statements of work.
+Identifiers (for example `GR-HOST-01`) are stable so they can be referenced in decision records, assessments, contracts and statements of work. We never renumber, rename or delete an identifier: a guardrail that is no longer needed is marked deprecated and points to its replacement.
+
+Under each guardrail, **Phases, evidence and status** shows:
+
+- **status** - draft, endorsed by the [Technology Governance Board](../governance/tgb.md), or deprecated
+- **phases** - when it applies: discovery, alpha, beta or live
+- **evidence** - what to show an assessor or your solution design authority to prove you meet it
+- **automated check** - whether it can be checked by a tool, or needs a person
+- the Service Standard, Technology Code of Practice and Secure by Design points it helps you meet, and the DDTS doctrine it applies
+
+The same data is published as <a href="../guardrails.json"><code>guardrails.json</code></a> for tools and dashboards.
 
 ## The guardrails
 
@@ -31,7 +41,7 @@ Search them all in the [guardrail library](library.md), or browse by area:
 
 | Area | What it covers |
 | --- | --- |
-| [Architecture principles](../principles/architecture-principles.md) | The ten principles every other guardrail derives from |
+| [Architecture principles](../principles/architecture-principles.md) | The eight principles every other guardrail derives from |
 | [Choosing technology](choosing-technology.md) | Reuse, buy or build; SaaS; avoiding lock-in; exit plans |
 | [Hosting and platforms](hosting-and-platforms.md) | Cloud first, the Core Delivery Platform, environments, infrastructure as code |
 | [Software development](software-development.md) | Languages, source control, CI/CD, testing, dependencies |
@@ -58,7 +68,7 @@ Use this checklist at the end of discovery, at each phase gate and before any si
 - We have a current threat model (`GR-SEC-02`) and a DPIA where personal data is involved (`GR-DATA-06`)
 - Logs, metrics and alerts flow to the platform's observability tooling (`GR-OPS-01`)
 - The service meets WCAG 2.2 AA and uses the GOV.UK Design System (`GR-FE-01`, `GR-FE-02`)
-- Significant decisions are recorded as ADRs (`GR-PRIN-01`)
+- Significant decisions are recorded as ADRs (`GR-DEV-09`)
 
 Ticked every box? Great - carry on, and record it. Not sure, or found a gap? Use the [decision check](../governance/decision-check.md) to find the right route.
 

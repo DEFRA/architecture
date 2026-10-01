@@ -18,6 +18,10 @@ exclude = [
   # GitHub only shows the new-issue form and edit pages to signed-in users
   "^https://github\\.com/[^/]+/[^/]+/issues/new",
   "^https://github\\.com/[^/]+/[^/]+/edit/",
+  # This site's own published address (canonical links, JSON downloads). New
+  # pages are not live until after merge; internal links are checked by
+  # `mkdocs build --strict` and by lychee against the built files.
+  "^https://howellsr\\.github\\.io/architecture/",
   # security.gov.uk returns 403 to automated checkers; check these by hand
   "^https://www\\.security\\.gov\\.uk/",
 ]

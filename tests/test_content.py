@@ -78,6 +78,85 @@ def test_doctrine_has_seven_non_negotiables():
         assert len(re.findall(r"^## \d+\. .+\{#ddts-0\d\}$", handle.read(), re.M)) == 7
 
 
+def test_every_guardrail_has_metadata():
+    for g in guardrails.parse(DOCS):
+        assert g["status"] in guardrails.STATUSES, g["id"]
+        assert g["phases"] and set(g["phases"]) <= set(guardrails.PHASES), g["id"]
+        assert g["owner"] and g["automated_check"] and g["last_reviewed"], g["id"]
+        if g["level"] == "must":
+            assert g["evidence"], g["id"]
+
+
+def test_guardrails_apply_doctrine():
+    for g in guardrails.parse(DOCS):
+        assert g["doctrine"], f"{g['id']} does not trace to the DDTS doctrine"
+
+
+def test_adrs_have_their_own_guardrail():
+    with open(os.path.join(DOCS, "guardrails", "index.md"), encoding="utf-8") as handle:
+        text = handle.read()
+    assert "recorded as ADRs (`GR-DEV-09`)" in text
+    assert "ten principles" not in text
+
+
+GOOD_PAGE = """---
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-EXM-01: {{{meta}}}
+---
+# Example
+
+## GR-EXM-01 Example {{#gr-exm-01}}
+
+<span class="rfc rfc--must">Must</span> Text.
+"""
+
+
+def _example(tmp_path, meta):
+    folder = tmp_path / "guardrails"
+    folder.mkdir()
+    (folder / "example.md").write_text(GOOD_PAGE.format(meta=meta))
+    return guardrails.parse(str(tmp_path))
+
+
+def test_valid_guardrail_metadata_parses(tmp_path):
+    [g] = _example(tmp_path, "phases: [alpha], evidence: A thing, tcop_points: [5]")
+    assert g["phases"] == ["alpha"] and g["tcop_points"] == [5] and g["status"] == "draft"
+
+
+def test_must_without_evidence_fails(tmp_path):
+    with pytest.raises(Exception, match="is a Must but has no 'evidence'"):
+        _example(tmp_path, "phases: [alpha]")
+
+
+def test_unknown_phase_status_and_points_fail(tmp_path):
+    with pytest.raises(Exception) as err:
+        _example(tmp_path, "phases: [gamma], evidence: x, status: agreed, service_standard_points: [15]")
+    assert "unknown phase 'gamma'" in str(err.value)
+    assert "status 'agreed'" in str(err.value)
+    assert "Service Standard point 15" in str(err.value)
+
+
+def test_deprecated_needs_a_replacement(tmp_path):
+    with pytest.raises(Exception, match="deprecated but has no 'replaced_by'"):
+        _example(tmp_path, "phases: [alpha], evidence: x, status: deprecated")
+
+
+def test_guardrail_without_metadata_fails(tmp_path):
+    folder = tmp_path / "guardrails"
+    folder.mkdir()
+    (folder / "example.md").write_text(
+        '# Example\n\n## GR-EXM-01 Example {#gr-exm-01}\n\n<span class="rfc rfc--should">Should</span> Text.\n'
+    )
+    with pytest.raises(Exception, match="has no metadata"):
+        guardrails.parse(str(tmp_path))
+
+
 def test_guardrail_without_badge_fails(tmp_path):
     folder = tmp_path / "guardrails"
     folder.mkdir()

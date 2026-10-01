@@ -1,5 +1,39 @@
 ---
 principles: [GR-PRIN-03, GR-PRIN-07]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-OPEN-01:
+    phases: [discovery, alpha, beta, live]
+    evidence: Public repository in a Defra GitHub organisation, or a recorded reason for keeping it private
+    service_standard_points: [12]
+    tcop_points: [3]
+  GR-OPEN-02:
+    phases: [alpha, beta, live]
+    evidence: LICENCE file with the Open Government Licence or MIT licence in every repository
+    service_standard_points: [12]
+    tcop_points: [3]
+  GR-OPEN-03:
+    phases: [alpha, beta, live]
+    evidence: Secret scanning and push protection enabled on every repository
+    automated_check: GitHub secret scanning with push protection
+    service_standard_points: [12]
+    tcop_points: [3, 6]
+    sbd_principles: [7]
+  GR-OPEN-04:
+    phases: [alpha, beta, live]
+    evidence: Reuse and upstream contributions noted in ADRs and pull requests
+    service_standard_points: [13]
+    tcop_points: [3, 8]
+  GR-OPEN-05:
+    phases: [discovery, alpha, beta, live]
+    evidence: Blog posts, show and tells or contributions to this site
+    tcop_points: [8]
 ---
 
 # Open source and working in the open

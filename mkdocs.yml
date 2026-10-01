@@ -76,6 +76,7 @@ hooks:
   - hooks/page_status.py
   - hooks/cache_busting.py
   - hooks/site_info.py
+  - hooks/open_questions.py
 
 extra:
   generator: false
@@ -131,6 +132,7 @@ nav:
       - The architecture team: about/team.md
       - Roadmap: about/roadmap.md
       - What's new: about/changelog.md
+      - Open questions: about/open-questions.md
   - Principles:
       - principles/index.md
       - DDTS doctrine: principles/doctrine.md

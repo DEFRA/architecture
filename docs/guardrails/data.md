@@ -1,5 +1,50 @@
 ---
 principles: [GR-PRIN-04]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Enterprise data architecture
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-DATA-01:
+    phases: [alpha, beta, live]
+    evidence: Information asset register entries with a named owner for each data set
+    tcop_points: [10]
+  GR-DATA-02:
+    phases: [alpha, beta, live]
+    evidence: Data flow diagram naming the authoritative source for each shared entity, with refresh arrangements for any copies
+    tcop_points: [10]
+  GR-DATA-03:
+    phases: [alpha, beta]
+    evidence: Data model that uses the agreed data standards and identifiers
+    service_standard_points: [13]
+    tcop_points: [4, 10]
+  GR-DATA-04:
+    phases: [alpha, beta]
+    evidence: Journey design showing users are not asked for information Defra already holds, and data sharing agreements where required
+    tcop_points: [8, 10]
+  GR-DATA-05:
+    phases: [beta, live]
+    evidence: Published metadata records in UK GEMINI or DCAT
+    tcop_points: [10]
+  GR-DATA-06:
+    phases: [discovery, alpha, beta, live]
+    evidence: Approved DPIA, and retention and deletion built into the service
+    service_standard_points: [9]
+    tcop_points: [7]
+  GR-DATA-07:
+    phases: [beta, live]
+    evidence: Link to the published open data and its licence
+    tcop_points: [10]
+  GR-DATA-08:
+    phases: [beta, live]
+    evidence: Data quality measures and regular reports
+    tcop_points: [10]
+  GR-DATA-09:
+    phases: [beta, live]
+    evidence: Retention schedule applied and records of permanent value identified
 ---
 
 # Data

@@ -1,0 +1,14 @@
+---
+hide:
+  - toc
+---
+
+# Open questions
+
+<p class="lead">Facts this site needs but that are not yet confirmed - names, contacts, lead times and approvals. We would rather show a gap than guess.</p>
+
+Each question links to the "To be confirmed" box on the page where it is needed. If you know the answer, [open an issue](https://github.com/howellsr/architecture/issues) or select **Edit this page** on that page and replace the box with the fact.
+
+This list is built from the pages each time the site is published.
+
+<div data-open-questions></div>

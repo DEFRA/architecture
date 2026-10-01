@@ -1,5 +1,42 @@
 ---
 principles: [GR-PRIN-03, GR-PRIN-01]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-TECH-01:
+    phases: [discovery, alpha]
+    evidence: ADR listing the reuse options considered from the technology capability catalogue and cross-government components
+    service_standard_points: [13]
+    tcop_points: [8]
+  GR-TECH-02:
+    phases: [discovery, alpha]
+    evidence: Buy or build options appraisal in the ADR or business case
+    service_standard_points: [11]
+    tcop_points: [11]
+  GR-TECH-03:
+    phases: [alpha, beta, live]
+    evidence: Exit plan covering data export in open formats, contract terms and an estimate of switching cost
+    tcop_points: [11]
+  GR-TECH-04:
+    phases: [discovery, alpha]
+    evidence: Supplier security assessment, DPIA where personal data is involved, data location, accessibility and single sign-on confirmed before contract
+    service_standard_points: [9]
+    tcop_points: [6, 7, 11]
+    sbd_principles: [2]
+  GR-TECH-05:
+    phases: [alpha]
+    evidence: ADR noting the open standards used and how portable the choice is
+    service_standard_points: [13]
+    tcop_points: [4]
+  GR-TECH-06:
+    phases: [discovery]
+    evidence: Record of the conversation with the architecture team before procurement started
+    tcop_points: [11]
 ---
 
 # Choosing technology

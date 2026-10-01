@@ -1,5 +1,37 @@
 ---
 principles: [GR-PRIN-07, GR-PRIN-04]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-AI-01:
+    phases: [discovery, alpha]
+    evidence: ADR recording the AI options considered and why they were or were not used
+    service_standard_points: [11]
+  GR-AI-02:
+    phases: [discovery, alpha, beta, live]
+    evidence: List of the AI services the service uses and the Defra tenancy or enterprise agreement each runs under
+    service_standard_points: [9]
+    tcop_points: [6, 7]
+    sbd_principles: [2]
+  GR-AI-03:
+    phases: [alpha, beta, live]
+    evidence: Design of the human oversight and challenge route, tested with users
+  GR-AI-04:
+    phases: [beta, live]
+    evidence: Link to the published Algorithmic Transparency Recording Standard record and the AI notice shown to users
+  GR-AI-05:
+    phases: [alpha, beta, live]
+    evidence: Model evaluation results for accuracy, bias and safety, live monitoring, and a threat model that covers AI-specific threats
+    service_standard_points: [9]
+    sbd_principles: [3, 9]
+  GR-AI-06:
+    phases: [discovery, alpha]
+    evidence: Technical Design Authority review outcome recorded in the ADR
 ---
 
 # Artificial intelligence

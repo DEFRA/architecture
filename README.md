@@ -18,7 +18,7 @@ The site is a static site built with [MkDocs](https://www.mkdocs.org/) and [Mate
 | `docs/` | Site content in Markdown, one folder per section |
 | `capabilities/` | Business and technology capability models (YAML) |
 | `nfrs/` | Service tiers and the non-functional requirements catalogue (YAML) |
-| `hooks/` | Build-time scripts that validate the content and generate the capability map, guardrail library, NFR tables, doctrine-to-guardrail traceability and draft banners |
+| `hooks/` | Build-time scripts that validate the content and generate the capability map, guardrail library and metadata (`guardrails.json`), NFR tables, doctrine-to-guardrail traceability, draft banners and the open questions page |
 | `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, alpha banner, theme, decision check and library filter |
 | `tests/` | Content checks (`pytest`) and the WCAG 2.2 AA accessibility check (`npm test`) |
 | `.github/` | CI and link-check workflows, pull request and issue templates, Dependabot |

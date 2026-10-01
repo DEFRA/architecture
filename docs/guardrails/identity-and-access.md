@@ -1,5 +1,41 @@
 ---
 principles: [GR-PRIN-05, GR-PRIN-06]
+# Metadata for every guardrail on this page. See the contribution guide for the fields.
+guardrail_defaults:
+  status: draft
+  owner: Architecture team
+  automated_check: manual
+  last_reviewed: 2026-10-01
+  since_version: 0.1.0
+guardrails:
+  GR-IAM-01:
+    phases: [discovery, alpha, beta, live]
+    evidence: Integration with Defra ID or GOV.UK One Login and the agreed level of identity assurance
+    service_standard_points: [9, 13]
+    tcop_points: [8]
+  GR-IAM-02:
+    phases: [alpha, beta, live]
+    evidence: Single sign-on through Microsoft Entra ID with multi-factor authentication and no local staff accounts
+    service_standard_points: [9]
+    tcop_points: [6]
+  GR-IAM-03:
+    phases: [alpha, beta, live]
+    evidence: Role and group model and a record of access reviews
+    tcop_points: [6]
+    sbd_principles: [7]
+  GR-IAM-04:
+    phases: [alpha, beta]
+    evidence: Authorisation rules written down and covered by automated tests
+  GR-IAM-05:
+    phases: [alpha, beta, live]
+    evidence: Secrets held in a managed store with rotation and secret scanning enabled
+    automated_check: GitHub secret scanning with push protection
+    tcop_points: [6]
+    sbd_principles: [7]
+  GR-IAM-06:
+    phases: [beta, live]
+    evidence: Just-in-time privileged access with phishing-resistant MFA and logs reaching the security operations centre
+    sbd_principles: [5, 8]
 ---
 
 # Identity and access

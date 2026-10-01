@@ -56,9 +56,40 @@ Add a section to the right page in `docs/guardrails/` using exactly this shape:
 **How to meet it:** practical, ideally self-service, steps.
 ```
 
-- Use the next unused number for that area, and never reuse or renumber an id.
+Then add its metadata to the `guardrails:` block in the page's front matter:
+
+```yaml
+guardrails:
+  GR-HOST-08:
+    phases: [alpha, beta, live]
+    evidence: What a team shows to prove they meet it
+    automated_check: manual          # or describe the automated check
+    service_standard_points: [11]    # only where the link is clear
+    tcop_points: [5]
+    sbd_principles: []
+    since_version: 0.2.0             # the release it first appears in
+```
+
+| Field | What it holds |
+| --- | --- |
+| `status` | `draft`, `endorsed` or `deprecated`. Endorsed means approved by the [Technology Governance Board](../governance/tgb.md). |
+| `phases` | When the guardrail applies: any of `discovery`, `alpha`, `beta`, `live` |
+| `evidence` | What a team shows to prove they meet it. **Required for every Must** - the build fails without it. |
+| `automated_check` | How it can be checked automatically, or `manual` |
+| `service_standard_points` | [Service Standard](https://www.gov.uk/service-manual/service-standard) points (1 to 14) it helps meet. Leave out unless the link is clear. |
+| `tcop_points` | [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) points (1 to 13) |
+| `sbd_principles` | [Secure by Design principles](https://www.security.gov.uk/policy-and-guidance/secure-by-design/principles/) (1 to 10) |
+| `doctrine` | DDTS doctrine anchors, such as `ddts-02`. Leave out to use the doctrine the page's principles apply. |
+| `owner` | The team that maintains it |
+| `last_reviewed` | Date it was last reviewed |
+| `since_version` | Site [release](../about/changelog.md) it first appeared in |
+| `replaced_by` | For deprecated guardrails, the id that replaces it |
+
+`status`, `owner`, `automated_check`, `last_reviewed` and `since_version` usually come from `guardrail_defaults` at the top of the front matter. Set them on a guardrail only where it differs.
+
+- Use the next unused number for that area, and **never reuse, renumber, rename or delete an id** - ids are cited in contracts. To retire a guardrail, set `status: deprecated` and `replaced_by`.
 - The level is `rfc--must`, `rfc--should` or `rfc--could`.
-- The guardrail library, home page figures and NFR links update automatically. The build fails if the id and anchor do not match or the badge is missing.
+- The guardrail library, home page figures, `guardrails.json` and NFR links update automatically. The build fails if the id and anchor do not match, the badge or metadata is missing, or a Must has no evidence.
 
 ### Add or change an NFR or service tier
 
@@ -79,6 +110,17 @@ Every guardrail page lists the principles it puts into practice in its front mat
 ### Mark a page as draft
 
 Add `status: draft` to the page's front matter. The page shows a "Draft - to be confirmed" banner and a marker in the navigation. Remove the line once the content is agreed. To list draft pages, run `grep -rl "status: draft" docs`.
+
+### Flag a fact that is not confirmed
+
+Do not guess Defra facts such as names, contacts, URLs, lead times or approvals. Write a visible box instead:
+
+```markdown
+!!! warning "To be confirmed"
+    **TODO:** who approves access requests, and how long it takes.
+```
+
+Every box is listed on the [open questions](../about/open-questions.md) page. Delete the box once the fact is confirmed.
 
 ### Add a diagram
 
