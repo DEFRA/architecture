@@ -30,6 +30,7 @@ Most changes are to Markdown in `docs/` or to the YAML data files. You rarely ne
 | `docs/guardrails/*.md` | Guardrails. The guardrail library is built from these and the principles. | Architects |
 | `capabilities/*.yaml` | Business and technology capability models | Business and enterprise architects |
 | `nfrs/*.yaml` | Service tiers and the NFR catalogue | Solution architects |
+| `delivery/*.yaml` | The delivery lifecycle (artefacts and governance for each phase) and the platforms teams can use | Architects and platform teams |
 | `mkdocs.yml` | Site settings and the navigation | Site maintainers |
 | `hooks/` | Small Python scripts that check the data and build tables from it | Site maintainers |
 | `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, theme, decision check and library filter | Site maintainers |
@@ -94,6 +95,10 @@ guardrails:
 ### Add or change an NFR or service tier
 
 Edit `nfrs/catalogue.yaml` or `nfrs/service-tiers.yaml`. Comments at the top of each file explain every field. The build checks that ids are unique, that targets use real tiers and that linked guardrails exist.
+
+### Change the delivery lifecycle or platforms
+
+Edit `delivery/lifecycle.yaml` or `delivery/platforms.yaml`. Which guardrails apply in each phase comes from the guardrails' `phases` metadata, not from this file. For a platform detail that is not known yet, write `tbc` - the page then shows "To be confirmed" and adds it to the open questions.
 
 ### Change the capability model
 

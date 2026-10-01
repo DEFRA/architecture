@@ -4,6 +4,13 @@
 
 ## October 2026
 
+### Deliver a service
+
+- **New [Deliver a service](../deliver/index.md) section:** one page for each phase - discovery, alpha, beta and live - and for significant change and retiring a service. Each lists the guardrails that apply, the architecture artefacts to produce, the governance touchpoints and the evidence pack to bring to an assessment.
+- **Printable evidence checklists** for each phase, built from the guardrail metadata so they always match the guardrail library.
+- **[Getting onto Defra platforms](../deliver/platforms.md):** what the Core Delivery Platform, Defra ID, GOV.UK One Login, Defra Forms, GOV.UK Notify, GOV.UK Pay, the data platform and the API gateway give you, and how to get access. Details we have not confirmed yet are listed on the [open questions](open-questions.md) page.
+- The home page has two new routes: deliver a service, and get onto Defra platforms.
+
 ### Guardrail metadata
 
 - **Every guardrail now has structured metadata:** status (draft, endorsed or deprecated), the phases it applies in, the evidence that shows you meet it, whether it can be checked automatically, the Service Standard, Technology Code of Practice and Secure by Design points it supports, the DDTS doctrine it applies, its owner and when it was last reviewed. Open **Phases, evidence and status** under any guardrail to see it.

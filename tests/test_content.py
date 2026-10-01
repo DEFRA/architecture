@@ -33,6 +33,7 @@ capabilities = load_hook("capabilities")
 guardrails = load_hook("guardrails")
 nfrs = load_hook("nfrs")
 traceability = load_hook("traceability")
+delivery = load_hook("delivery")
 
 
 # --- Capability model --------------------------------------------------------
@@ -218,6 +219,41 @@ def test_nfr_with_unknown_tier_and_guardrail_fails():
     errors = nfrs.validate(tiers, catalogue, nfrs.guardrail_pages(DOCS))
     assert any("unknown tier T9" in e for e in errors)
     assert any("GR-NOPE-01" in e for e in errors)
+
+
+# --- Deliver a service ---------------------------------------------------------
+
+
+def test_delivery_lifecycle_is_valid():
+    data = delivery.load(DOCS)
+    phases = {p["id"]: p for p in data["phases"]}
+    assert list(phases) == ["discovery", "alpha", "beta", "live", "significant-change", "retire"]
+    for pid in ("discovery", "alpha", "beta", "live"):
+        assert phases[pid]["guardrails"], f"no guardrails apply in {pid}"
+    for p in data["phases"]:
+        assert os.path.exists(os.path.join(DOCS, "deliver", "checklists", f"{p['id']}.md")), p["id"]
+
+
+def test_phase_guardrails_come_from_metadata():
+    alpha = next(p for p in delivery.load(DOCS)["phases"] if p["id"] == "alpha")
+    expected = [g["id"] for g in guardrails.parse(DOCS) if g["level"] != "principle" and "alpha" in g["phases"]]
+    assert alpha["guardrails"] == expected
+
+
+def test_delivery_with_unknown_guardrail_fails(tmp_path, monkeypatch):
+    lifecycle = load_yaml("delivery", "lifecycle.yaml")
+    lifecycle["phases"][-1]["guardrails"].append("GR-NOPE-01")
+    path = tmp_path / "lifecycle.yaml"
+    path.write_text(yaml.safe_dump(lifecycle))
+    monkeypatch.setattr(delivery, "LIFECYCLE", str(path))
+    with pytest.raises(Exception, match="unknown guardrail GR-NOPE-01"):
+        delivery.load(DOCS)
+
+
+def test_every_platform_says_what_is_unknown():
+    for platform in load_yaml("delivery", "platforms.yaml")["platforms"]:
+        for field in ("gives", "request", "lead_time", "support", "docs"):
+            assert platform.get(field), f"{platform['id']}: set {field}, or 'tbc' if it is not known"
 
 
 # --- Pages ---------------------------------------------------------------------

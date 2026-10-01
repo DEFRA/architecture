@@ -13,6 +13,18 @@ hide:
 
 <div class="da-routes" markdown>
 
+<div class="da-route da-route--navy" markdown>
+
+<span class="da-route__tag">Deliver</span>
+
+### [Deliver a service, phase by phase](deliver/index.md){ .da-route__link }
+
+The guardrails, artefacts and evidence you need in discovery, alpha, beta and live, with printable checklists.
+
+<span class="da-route__cta" aria-hidden="true">Plan your phase</span>
+
+</div>
+
 <div class="da-route da-route--green" markdown>
 
 <span class="da-route__tag">Decide</span>
@@ -46,6 +58,18 @@ Search every Must, Should and Could by keyword, area or id, with the reason behi
 Identity, payments, hosting, geospatial and more. Check the strategic option before you buy or build.
 
 <span class="da-route__cta" aria-hidden="true">Browse capabilities</span>
+
+</div>
+
+<div class="da-route da-route--green" markdown>
+
+<span class="da-route__tag">Onboard</span>
+
+### [Get onto Defra platforms](deliver/platforms.md){ .da-route__link }
+
+What the Core Delivery Platform, Defra ID, GOV.UK Notify, Pay and others give you, and how to get access.
+
+<span class="da-route__cta" aria-hidden="true">See the platforms</span>
 
 </div>
 

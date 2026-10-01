@@ -311,8 +311,17 @@
     })
   }
 
+  /* ---------------- Print buttons on checklists ---------------- */
+
+  function initPrint () {
+    document.querySelectorAll('[data-print]').forEach(function (button) {
+      button.addEventListener('click', function () { window.print() })
+    })
+  }
+
   onPage(function () {
     initSearchButton()
+    initPrint()
     initLibrary()
     initDecisionCheck()
   })

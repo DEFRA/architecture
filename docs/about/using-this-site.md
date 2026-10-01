@@ -6,6 +6,8 @@
 
 ### Starting a new service
 
+Follow [Deliver a service](../deliver/index.md) for the guardrails, artefacts and evidence in each phase. In short:
+
 1. Map your service to the [business capabilities](../handrail/business-capabilities.md).
 2. Check the [technology capabilities](../handrail/technology-capabilities.md) for what to reuse.
 3. Start from a [reference architecture](../handrail/reference-architectures/index.md) if one fits.
@@ -23,7 +25,7 @@ Check the relevant [guardrail](../guardrails/index.md), then record your decisio
 
 ### Preparing for an assessment
 
-Gather your ADR log, architecture diagrams and [threat model](../security/threat-modelling.md), and check the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for assessment guidance.
+Use the [evidence checklist for your phase](../deliver/index.md#phases-and-events). Gather your ADR log, architecture diagrams and [threat model](../security/threat-modelling.md), and check the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for assessment guidance.
 
 ### Planning a portfolio
 

@@ -651,7 +651,7 @@ body {
 
 .md-typeset .da-routes {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
@@ -670,6 +670,8 @@ body {
 .md-typeset .da-route--blue { border-top-color: var(--da-blue); }
 .md-typeset .da-route--amber { border-top-color: var(--da-amber); }
 .md-typeset .da-route--lime { border-top-color: var(--da-lime); }
+.md-typeset .da-route--navy { border-top-color: var(--da-navy); }
+[data-md-color-scheme="slate"] .md-typeset .da-route--navy { border-top-color: #6f9bbd; }
 
 .md-typeset .da-route:hover,
 .md-typeset .da-route:focus-within {
@@ -1831,4 +1833,72 @@ body {
 
 .md-typeset .da-trace p {
   margin: 0;
+}
+
+/* =====================================================================
+   Evidence checklists
+   ===================================================================== */
+
+.md-typeset ul.dl-checklist {
+  margin-left: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.dl-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0 0 0.5rem;
+}
+
+.md-typeset ul.dl-checklist input {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: 0.1rem 0 0;
+  accent-color: var(--da-green);
+}
+
+.md-typeset ul.dl-checklist label {
+  cursor: pointer;
+}
+
+/* =====================================================================
+   Printing (evidence checklists)
+   ===================================================================== */
+
+@media print {
+  .da-phase,
+  .dl-print,
+  .md-content__button,
+  .md-source-file {
+    display: none !important;
+  }
+
+  .md-typeset ul.dl-checklist input {
+    appearance: none;
+    border: 1px solid #000;
+  }
+
+  .md-typeset a {
+    color: inherit;
+  }
+}
+
+.md-typeset .dl-print .md-button {
+  color: var(--da-navy);
+  border-color: var(--da-navy);
+}
+
+[data-md-color-scheme="slate"] .md-typeset .dl-print .md-button {
+  color: #e3ebef;
+  border-color: #e3ebef;
+}
+
+.md-typeset .dl-print .md-button:hover,
+.md-typeset .dl-print .md-button:focus {
+  color: #fff;
+  background-color: var(--da-green);
+  border-color: var(--da-green);
 }
