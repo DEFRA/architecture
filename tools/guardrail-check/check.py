@@ -24,7 +24,7 @@ from dataclasses import dataclass
 
 import yaml
 
-SITE = "https://howellsr.github.io/architecture/guardrails/"
+SITE = "https://defra.github.io/architecture/guardrails/"
 PASS, FAIL, UNKNOWN = "pass", "fail", "unknown"
 SYMBOLS = {PASS: "Pass", FAIL: "Fail", UNKNOWN: "Unknown"}
 

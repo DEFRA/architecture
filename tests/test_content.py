@@ -452,7 +452,7 @@ def test_working_with_architects_is_linked_from_home_and_deliver():
         assert "(working-with-architects.md)" in handle.read()
 
 
-REPO_LINK = re.compile(r"https://github\.com/howellsr/architecture/(?:blob|tree)/main/([^)\s\"'#>]+)")
+REPO_LINK = re.compile(r"https://github\.com/DEFRA/architecture/(?:blob|tree)/main/([^)\s\"'#>]+)")
 
 
 def test_links_to_files_in_this_repository_exist():

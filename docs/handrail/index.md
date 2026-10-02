@@ -92,8 +92,8 @@ The emerging technology radar is not a list of approved technology. Before adopt
 
 The capability models are maintained as YAML in the repository and published as JSON so other tools - portfolio management, architecture repositories, dashboards - can use them:
 
-- [`capabilities/business-capabilities.yaml`](https://github.com/howellsr/architecture/blob/main/capabilities/business-capabilities.yaml)
-- [`capabilities/technology-capabilities.yaml`](https://github.com/howellsr/architecture/blob/main/capabilities/technology-capabilities.yaml)
-- [`capabilities.json`](https://howellsr.github.io/architecture/capabilities.json) (generated at build time)
+- [`capabilities/business-capabilities.yaml`](https://github.com/DEFRA/architecture/blob/main/capabilities/business-capabilities.yaml)
+- [`capabilities/technology-capabilities.yaml`](https://github.com/DEFRA/architecture/blob/main/capabilities/technology-capabilities.yaml)
+- [`capabilities.json`](https://defra.github.io/architecture/capabilities.json) (generated at build time)
 
 The site build validates the model: unknown references or technology capabilities that support nothing will fail the build.

@@ -163,7 +163,7 @@ For practical guidance - which tools teams use, what data you can put into them,
 - Never put secrets into prompts.
 - Review AI-generated code with the same care as any other code ([GR-DEV-03](software-development.md#gr-dev-03)), including licences of any suggested code.
 
-This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/DEFRA/architecture/issues).
 
 ## Agentic AI
 

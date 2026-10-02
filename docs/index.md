@@ -223,7 +223,7 @@ Practical Must, Should and Could defaults. Stay inside them and your team decide
 <p>Everything here is public, so you know what good looks like before you bid or start. Partners follow the same guardrails as Defra teams and can contribute to them.</p>
 [What to expect from us, and what we expect from you](about/delivery-partners.md)
 <h3>Help improve this site</h3>
-<p>Spotted a gap or something wrong? <a href="https://github.com/howellsr/architecture/issues">Open an issue</a> or use the edit button on any page.</p>
+<p>Spotted a gap or something wrong? <a href="https://github.com/DEFRA/architecture/issues">Open an issue</a> or use the edit button on any page.</p>
 This site is in alpha. See the [roadmap](about/roadmap.md) and [what's new](about/changelog.md).
 </div>
 </section>

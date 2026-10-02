@@ -14,4 +14,4 @@ Pages still in draft show a "Draft - to be confirmed" banner. Individual guardra
 
 <!-- registers:approvals -->
 
-This table is built from [`registers/approvals.yaml`](https://github.com/howellsr/architecture/blob/main/registers/approvals.yaml). Changes to approval status go through the [Technology Governance Board](../governance/tgb.md).
+This table is built from [`registers/approvals.yaml`](https://github.com/DEFRA/architecture/blob/main/registers/approvals.yaml). Changes to approval status go through the [Technology Governance Board](../governance/tgb.md).

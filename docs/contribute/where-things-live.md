@@ -13,11 +13,11 @@ All guidance lives in this repository and is published as this site. Everything 
 | Place | Use it to | Who uses it |
 | --- | --- | --- |
 | **This site** | Read the guidance. It is the published version of the repository. | Everyone |
-| **[The repository](https://github.com/howellsr/architecture)** | Change the guidance through a pull request, and see who changed what and why in the history. | Contributors and maintainers |
-| **[Issues](https://github.com/howellsr/architecture/issues)** | Report a mistake, suggest a change, answer an open question, or pick up an item from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). One issue for each piece of work. | Anyone with a GitHub account |
+| **[The repository](https://github.com/DEFRA/architecture)** | Change the guidance through a pull request, and see who changed what and why in the history. | Contributors and maintainers |
+| **[Issues](https://github.com/DEFRA/architecture/issues)** | Report a mistake, suggest a change, answer an open question, or pick up an item from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). One issue for each piece of work. | Anyone with a GitHub account |
 | **GitHub Project** | See what is planned, in progress and done across all issues and pull requests. The [roadmap](../about/roadmap.md) links to it. | Maintainers, and anyone following progress |
 | **Discussions** | Ask a question or float an idea before it is ready to be an issue. | Anyone with a GitHub account |
-| **[Releases](https://github.com/howellsr/architecture/releases)** | Find a fixed version and its PDF to cite in a contract. | Commercial and delivery partners |
+| **[Releases](https://github.com/DEFRA/architecture/releases)** | Find a fixed version and its PDF to cite in a contract. | Commercial and delivery partners |
 
 !!! warning "To be confirmed"
     **TODO:** turn on Issues and Discussions for the repository, switch off the wiki, create the GitHub Project for the roadmap, and add their addresses here and on the roadmap.

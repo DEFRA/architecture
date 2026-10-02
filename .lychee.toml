@@ -21,10 +21,10 @@ exclude = [
   # This site's own published address (canonical links, JSON downloads). New
   # pages are not live until after merge; internal links are checked by
   # `mkdocs build --strict` and by lychee against the built files.
-  "^https://howellsr\\.github\\.io/architecture/",
+  "^https://defra\\.github\\.io/architecture/",
   # Files in this repository's main branch do not exist until a pull request
   # is merged. tests/test_content.py checks they exist in the checkout instead.
-  "^https://github\\.com/howellsr/architecture/(blob|tree)/main/",
+  "^https://github\\.com/DEFRA/architecture/(blob|tree)/main/",
   # Defra internal tools that need a Defra network and sign-in (handrail radars)
   "^https://eaflood\\.atlassian\\.net/",
   "^https://defrati-my\\.sharepoint\\.com/",

@@ -33,7 +33,7 @@ guardrails:
 Applies the DDTS doctrines [outcomes over structures](../principles/doctrine.md#ddts-06) and [digital first](../principles/doctrine.md#ddts-07). See the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for design and research guidance.
 
 !!! info "Draft guardrails"
-    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/howellsr/architecture/issues).
+    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/DEFRA/architecture/issues).
 
 ## GR-DIG-01 Challenge paper and manual processes {#gr-dig-01}
 

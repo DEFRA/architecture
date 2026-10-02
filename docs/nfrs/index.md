@@ -66,4 +66,4 @@ flowchart LR
 
 ## Machine-readable catalogue
 
-The tiers and catalogue are maintained as YAML in [`nfrs/`](https://github.com/howellsr/architecture/tree/main/nfrs) and published as [`nfrs.json`](https://howellsr.github.io/architecture/nfrs.json), so teams can import them into backlogs and test tooling.
+The tiers and catalogue are maintained as YAML in [`nfrs/`](https://github.com/DEFRA/architecture/tree/main/nfrs) and published as [`nfrs.json`](https://defra.github.io/architecture/nfrs.json), so teams can import them into backlogs and test tooling.

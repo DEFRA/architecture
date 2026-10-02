@@ -119,4 +119,4 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 - For work that is processed later, show a status and a realistic time, as in the [asynchronous submission](../patterns/async-submission.md#content-to-design) pattern.
 - Test these messages with users in alpha, and test the real failures in beta by switching dependencies off.
 
-This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/DEFRA/architecture/issues).

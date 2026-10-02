@@ -103,4 +103,4 @@ Developers often call a running piece of software - a microservice, an API or a 
 
 - **When you start a piece of work**, say which whole service and service it is part of, which products it changes, which [business capabilities](business-capabilities.md) it supports and which components it uses. The [discovery](../deliver/discovery.md) page asks for this.
 - **In ADRs and assessments**, use capability ids (for example `BC05`) and say whether you mean a service, a product or a component.
-- **If a definition does not work in your context**, say how you are using the word, and [tell us](https://github.com/howellsr/architecture/issues) so we can improve this page with the service design community.
+- **If a definition does not work in your context**, say how you are using the word, and [tell us](https://github.com/DEFRA/architecture/issues) so we can improve this page with the service design community.

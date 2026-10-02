@@ -41,7 +41,7 @@ guardrails:
 Puts architecture principle [8. Right tools, right place](../principles/architecture-principles.md#gr-prin-08) into practice. See also the proposed [field inspection](../handrail/reference-architectures/field-inspection.md) reference architecture.
 
 !!! info "Draft guardrails"
-    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/howellsr/architecture/issues).
+    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/DEFRA/architecture/issues).
 
 ## GR-FIELD-01 Choose devices that suit the job {#gr-field-01}
 

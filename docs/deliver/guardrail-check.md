@@ -38,15 +38,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@<commit SHA> # v7.0.1
-      - uses: howellsr/architecture/tools/guardrail-check@<commit SHA> # v0.2.0
+      - uses: DEFRA/architecture/tools/guardrail-check@<commit SHA> # v0.3.0
         with:
           fail-on-error: "false"
 ```
 
 Pin both actions to a full commit SHA, as the [Defra software development standards](https://defra.github.io/software-development-standards/) ask. Start with `fail-on-error: "false"` to see the report without blocking pull requests, then remove it once the gaps are fixed.
 
-The README in `tools/guardrail-check` in the [repository](https://github.com/howellsr/architecture) lists every input and explains how to run the check on your own computer.
+The README in `tools/guardrail-check` in the [repository](https://github.com/DEFRA/architecture) lists every input and explains how to run the check on your own computer.
 
 ## Ideas for more checks
 
-Tell us which guardrails you would like checked next by [opening an issue](https://github.com/howellsr/architecture/issues). Checks need to be reliable from the repository alone, or from settings a token can read.
+Tell us which guardrails you would like checked next by [opening an issue](https://github.com/DEFRA/architecture/issues). Checks need to be reliable from the repository alone, or from settings a token can read.

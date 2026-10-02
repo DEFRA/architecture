@@ -23,4 +23,4 @@ For smaller, recurring problems inside a service - such as accepting submissions
 
 ## Coming next
 
-We plan to add a reference architecture for public registers. Tell us which you need most by [opening an issue](https://github.com/howellsr/architecture/issues).
+We plan to add a reference architecture for public registers. Tell us which you need most by [opening an issue](https://github.com/DEFRA/architecture/issues).

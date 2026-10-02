@@ -11,4 +11,4 @@ The register never includes security vulnerabilities or anything else that would
 
 <!-- registers:exceptions -->
 
-The register is maintained in [`registers/exceptions.yaml`](https://github.com/howellsr/architecture/blob/main/registers/exceptions.yaml). Add an approved exception there by pull request.
+The register is maintained in [`registers/exceptions.yaml`](https://github.com/DEFRA/architecture/blob/main/registers/exceptions.yaml). Add an approved exception there by pull request.

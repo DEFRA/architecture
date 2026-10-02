@@ -2,9 +2,9 @@ site_name: Defra architecture
 site_description: >-
   Architecture handrails, guardrails and governance for Defra digital, data and
   technology - for internal product and platform teams and delivery partners.
-site_url: https://howellsr.github.io/architecture/
-repo_url: https://github.com/howellsr/architecture
-repo_name: howellsr/architecture
+site_url: https://defra.github.io/architecture/
+repo_url: https://github.com/DEFRA/architecture
+repo_name: DEFRA/architecture
 edit_uri: edit/main/docs/
 remote_branch: gh-pages
 
@@ -149,7 +149,7 @@ nav:
       - What's new: about/changelog.md
       - Releases and versions: about/releases.md
       - Approval status: about/approval-status.md
-      - Moving to a Defra GitHub organisation: about/moving-to-defra.md
+      - Moving to the DEFRA GitHub organisation: about/moving-to-defra.md
       - Open questions: about/open-questions.md
   - Deliver a service:
       - deliver/index.md
@@ -274,3 +274,4 @@ nav:
           - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md
           - "0004 Musts only where required": adr/0004-musts-only-where-required.md
           - "0005 Enterprise decisions in SharePoint": adr/0005-enterprise-decisions-in-sharepoint.md
+          - "0006 Move to DEFRA/architecture": adr/0006-move-to-defra-github.md

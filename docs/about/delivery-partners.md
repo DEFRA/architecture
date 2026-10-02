@@ -52,4 +52,4 @@ Commercial teams may reference this site in statements of requirements and state
 
 ## Help us improve
 
-Partners see many organisations. If something here makes it harder than it needs to be to deliver for Defra, tell us - [open an issue](https://github.com/howellsr/architecture/issues) or propose a change.
+Partners see many organisations. If something here makes it harder than it needs to be to deliver for Defra, tell us - [open an issue](https://github.com/DEFRA/architecture/issues) or propose a change.

@@ -38,7 +38,7 @@ guardrails:
 Applies the DDTS doctrine [platforms before projects](../principles/doctrine.md#ddts-01).
 
 !!! info "Draft guardrails"
-    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/howellsr/architecture/issues).
+    These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/DEFRA/architecture/issues).
 
 ## GR-PROD-01 Fund and run products, not projects {#gr-prod-01}
 

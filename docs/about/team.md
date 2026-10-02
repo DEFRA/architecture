@@ -35,7 +35,7 @@ See [developing architecture at Defra](architecture-profession.md) for the three
 
 ## How to reach us
 
-- **Questions and suggestions about this site:** [open an issue](https://github.com/howellsr/architecture/issues)
+- **Questions and suggestions about this site:** [open an issue](https://github.com/DEFRA/architecture/issues)
 - **Help designing your service:** the Delivery Architecture team at [delivery.architecture@defra.gov.uk](mailto:delivery.architecture@defra.gov.uk). They help you architect your service, explain governance requirements and tell you the principal architect for your delivery group - see [architecture](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual
 - **Defra staff:** use the architecture channel on Defra's collaboration tools, or ask your delivery lead to put you in touch
 - **Delivery partners:** contact the architecture team through your Defra engagement lead

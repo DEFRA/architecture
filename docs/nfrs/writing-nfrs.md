@@ -46,7 +46,7 @@ Write each NFR as a statement anyone can check:
 
 The catalogue changes through pull requests, like the rest of this site:
 
-1. Propose a new NFR or a change to a target by editing [`nfrs/catalogue.yaml`](https://github.com/howellsr/architecture/blob/main/nfrs/catalogue.yaml), or [open an issue](https://github.com/howellsr/architecture/issues) if you prefer.
+1. Propose a new NFR or a change to a target by editing [`nfrs/catalogue.yaml`](https://github.com/DEFRA/architecture/blob/main/nfrs/catalogue.yaml), or [open an issue](https://github.com/DEFRA/architecture/issues) if you prefer.
 2. The architecture team reviews it. Changes to tier values or to targets that affect many services go to the [Technical Design Authority](../governance/tda.md).
 3. Once merged, the change is published here and recorded in [what's new](../about/changelog.md).
 

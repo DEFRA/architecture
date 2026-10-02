@@ -1,16 +1,16 @@
 # Guardrail check
 
-A GitHub Action that checks a repository against the [Defra architecture guardrails](https://howellsr.github.io/architecture/guardrails/library/) that can be checked automatically, and writes a Markdown report to the job summary.
+A GitHub Action that checks a repository against the [Defra architecture guardrails](https://defra.github.io/architecture/guardrails/library/) that can be checked automatically, and writes a Markdown report to the job summary.
 
 | Guardrail | What is checked |
 | --- | --- |
-| [GR-OPEN-02](https://howellsr.github.io/architecture/guardrails/open-source/#gr-open-02) | A `LICENCE` or `LICENSE` file with the Open Government Licence or MIT licence |
-| [GR-DEV-08](https://howellsr.github.io/architecture/guardrails/software-development/#gr-dev-08) | The README has sections on running, testing and deploying, and mentions its ADRs |
-| [GR-API-02](https://howellsr.github.io/architecture/guardrails/apis-and-integration/#gr-api-02) | OpenAPI 3 and AsyncAPI documents in the repository parse and have the basic required fields |
-| [GR-OPEN-03](https://howellsr.github.io/architecture/guardrails/open-source/#gr-open-03) | Secret scanning and push protection are on (needs a token that can read security settings) |
-| [GR-DEV-03](https://howellsr.github.io/architecture/guardrails/software-development/#gr-dev-03) | The default branch is protected by branch protection or a ruleset |
-| [GR-DEV-06](https://howellsr.github.io/architecture/guardrails/software-development/#gr-dev-06) | Dependabot or Renovate is configured |
-| [GR-DEV-09](https://howellsr.github.io/architecture/guardrails/software-development/#gr-dev-09) | A `docs/adr` folder with at least one decision record |
+| [GR-OPEN-02](https://defra.github.io/architecture/guardrails/open-source/#gr-open-02) | A `LICENCE` or `LICENSE` file with the Open Government Licence or MIT licence |
+| [GR-DEV-08](https://defra.github.io/architecture/guardrails/software-development/#gr-dev-08) | The README has sections on running, testing and deploying, and mentions its ADRs |
+| [GR-API-02](https://defra.github.io/architecture/guardrails/apis-and-integration/#gr-api-02) | OpenAPI 3 and AsyncAPI documents in the repository parse and have the basic required fields |
+| [GR-OPEN-03](https://defra.github.io/architecture/guardrails/open-source/#gr-open-03) | Secret scanning and push protection are on (needs a token that can read security settings) |
+| [GR-DEV-03](https://defra.github.io/architecture/guardrails/software-development/#gr-dev-03) | The default branch is protected by branch protection or a ruleset |
+| [GR-DEV-06](https://defra.github.io/architecture/guardrails/software-development/#gr-dev-06) | Dependabot or Renovate is configured |
+| [GR-DEV-09](https://defra.github.io/architecture/guardrails/software-development/#gr-dev-09) | A `docs/adr` folder with at least one decision record |
 
 Each check **passes**, **fails** or is **unknown** - for example when the token cannot read a setting, or no API specification exists. Only failures fail the step. Passing these checks does not mean a service meets the guardrails: most guardrails need a person to judge them.
 
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@<commit SHA> # v7.0.1
-      - uses: howellsr/architecture/tools/guardrail-check@<commit SHA> # v0.2.0
+      - uses: DEFRA/architecture/tools/guardrail-check@<commit SHA> # v0.3.0
         with:
           fail-on-error: "false"   # report only, while you fix the gaps
 ```

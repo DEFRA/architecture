@@ -9,5 +9,6 @@
 | [0003](0003-no-versioned-urls.md) | Release versions as tags and PDFs, not versioned URLs | Accepted |
 | [0004](0004-musts-only-where-required.md) | Keep Must guardrails to what is required | Accepted |
 | [0005](0005-enterprise-decisions-in-sharepoint.md) | Record enterprise decisions in a SharePoint register, not in this repository | Accepted |
+| [0006](0006-move-to-defra-github.md) | Move the site to DEFRA/architecture | Accepted |
 
 New decisions use the [ADR template](../governance/templates/adr.md).

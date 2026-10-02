@@ -7,8 +7,8 @@ The live site always shows the latest content, including changes that are not ye
 ## How releases work
 
 - Each release has a [semantic version](https://semver.org/), such as `0.2.0`. See the [versioning policy](../partners/contracting.md#versioning-policy) for what each kind of change means.
-- Releases are recorded in [`CHANGELOG.md`](https://github.com/howellsr/architecture/blob/main/CHANGELOG.md) in the repository, which this page is built from.
-- When a release is made, the commit is tagged `vX.Y.Z` and a [GitHub release](https://github.com/howellsr/architecture/releases) is created with a **PDF of every guardrail** attached. The PDF is the archived copy to cite.
+- Releases are recorded in [`CHANGELOG.md`](https://github.com/DEFRA/architecture/blob/main/CHANGELOG.md) in the repository, which this page is built from.
+- When a release is made, the commit is tagged `vX.Y.Z` and a [GitHub release](https://github.com/DEFRA/architecture/releases) is created with a **PDF of every guardrail** attached. The PDF is the archived copy to cite.
 - The banner at the top of every page shows the version in force.
 
 To cite a version, see [contracting with this site](../partners/contracting.md#cite-a-fixed-version).

@@ -89,8 +89,8 @@ Guardrails we know we are missing, found by tracing each [doctrine and principle
 | Low | **Networks and zero trust** | Connectivity between Defra group bodies, partners and clouds, moving to zero trust access | [2. Standards before exceptions](../principles/doctrine.md#ddts-02) · [Principle 6](../principles/architecture-principles.md#gr-prin-06) |
 | Low | **Mobile apps** | When a native app is justified rather than a responsive web service | [7. Digital first](../principles/doctrine.md#ddts-07) · [Principle 2](../principles/architecture-principles.md#gr-prin-02) |
 
-Want to take one on, or think something is missing? [Propose a guardrail](https://github.com/howellsr/architecture/issues/new?template=guardrail-change.yml).
+Want to take one on, or think something is missing? [Propose a guardrail](https://github.com/DEFRA/architecture/issues/new?template=guardrail-change.yml).
 
 ## Shape the roadmap
 
-Tell us what would help you most. [Open an issue](https://github.com/howellsr/architecture/issues), comment on an existing one, or raise it with your solution design authority. Significant changes are recorded in [what's new](changelog.md).
+Tell us what would help you most. [Open an issue](https://github.com/DEFRA/architecture/issues), comment on an existing one, or raise it with your solution design authority. Significant changes are recorded in [what's new](changelog.md).

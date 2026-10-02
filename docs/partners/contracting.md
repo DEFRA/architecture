@@ -14,13 +14,15 @@ The site changes often. A contract should point to a **fixed version**, so both 
 Each release of the site is:
 
 - numbered using [semantic versioning](https://semver.org/), for example `0.2.0`
-- tagged in the [repository](https://github.com/howellsr/architecture/tags) as `v0.2.0`
-- published as a [GitHub release](https://github.com/howellsr/architecture/releases) with a PDF of every guardrail attached, as an archived copy
+- tagged in the [repository](https://github.com/DEFRA/architecture/tags), for example as `v0.3.0`
+- published as a [GitHub release](https://github.com/DEFRA/architecture/releases) with a PDF of every guardrail attached, as an archived copy
 - listed in [what's new](../about/changelog.md)
 
 Cite it like this:
 
-> Defra architecture guardrails, version 0.2.0, as published at https://github.com/howellsr/architecture/releases/tag/v0.2.0, including the archived PDF attached to that release.
+> Defra architecture guardrails, version 0.3.0, as published at https://github.com/DEFRA/architecture/releases/tag/v0.3.0, including the archived PDF attached to that release.
+
+Version 0.2.0 was released before the site moved to the DEFRA GitHub organisation. It stays at <https://github.com/howellsr/architecture/releases/tag/v0.2.0>, so contracts that cite it remain valid.
 
 Guardrail ids, such as `GR-HOST-01`, never change meaning and are never reused. A guardrail that is no longer needed is marked **deprecated** and points to its replacement, so a reference in an older contract can always be traced.
 

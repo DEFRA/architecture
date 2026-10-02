@@ -91,4 +91,4 @@ We challenge manual and paper-based processes by default, and design digital ser
 
 ## Help shape the doctrine
 
-The doctrine is not being developed behind closed doors. Over the coming months it will be refined, challenged and improved with colleagues from across DDTS, and it will evolve as we learn. Tell us how it works in practice by [opening an issue](https://github.com/howellsr/architecture/issues) or talking to your head of profession.
+The doctrine is not being developed behind closed doors. Over the coming months it will be refined, challenged and improved with colleagues from across DDTS, and it will evolve as we learn. Tell us how it works in practice by [opening an issue](https://github.com/DEFRA/architecture/issues) or talking to your head of profession.

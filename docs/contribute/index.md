@@ -5,9 +5,9 @@
 ## Ways to contribute
 
 - **Spotted a mistake or something unclear?** Select **Edit this page** (the pencil icon at the top of each page) to propose a change on GitHub.
-- **Have a question or an idea?** [Open an issue](https://github.com/howellsr/architecture/issues). There are forms to report a content error, propose a guardrail change or an architecture pattern, answer an open question, and give feedback on how the site works for your role.
+- **Have a question or an idea?** [Open an issue](https://github.com/DEFRA/architecture/issues). There are forms to report a content error, propose a guardrail change or an architecture pattern, answer an open question, and give feedback on how the site works for your role.
 - **Want to change a guardrail?** Open a pull request explaining what and why. See [how guardrails change](../guardrails/index.md#how-guardrails-change).
-- **Improving the capability model?** Edit the YAML in [`capabilities/`](https://github.com/howellsr/architecture/tree/main/capabilities). The site build checks your change.
+- **Improving the capability model?** Edit the YAML in [`capabilities/`](https://github.com/DEFRA/architecture/tree/main/capabilities). The site build checks your change.
 
 ## Writing style
 
@@ -39,7 +39,7 @@ Most changes are to Markdown in `docs/` or to the YAML data files. You rarely ne
 | `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, theme, decision check and library filter | Site maintainers |
 | `tests/` | Content checks (`pytest`) and the accessibility check (`npm test`) | Site maintainers |
 | `.github/` | CI workflows, pull request and issue templates, code owners and labels | Site maintainers |
-| [`MAINTAINERS.md`](https://github.com/howellsr/architecture/blob/main/MAINTAINERS.md) | Roles, triage, labels, the route for changing a Must, releases and review cadence | Site maintainers |
+| [`MAINTAINERS.md`](https://github.com/DEFRA/architecture/blob/main/MAINTAINERS.md) | Roles, triage, labels, the route for changing a Must, releases and review cadence | Site maintainers |
 
 ## Common tasks
 
@@ -201,7 +201,7 @@ Every pull request runs these checks. You can run them locally before you push:
 | Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |
 | Prose (warnings only) | `vale docs` and `python scripts/heading_case.py` | Words to avoid, filler words, exclamation marks and headings not in sentence case - see [prose checks](content-style.md#prose-checks) |
 
-Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/) once all checks pass. A separate weekly job checks every external link and opens an issue if any are broken.
+Merges to `main` are published to [defra.github.io/architecture](https://defra.github.io/architecture/) once all checks pass. A separate weekly job checks every external link and opens an issue if any are broken.
 
 ## What not to publish
 

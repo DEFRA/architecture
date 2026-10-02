@@ -376,7 +376,7 @@ def on_page_markdown(markdown, page, config, files):
 def on_post_build(config):
     out = {
         "description": "Defra architecture guardrails and principles with their metadata",
-        "source": "https://github.com/howellsr/architecture",
+        "source": "https://github.com/DEFRA/architecture",
         "guardrails": [{k: v for k, v in g.items() if k != "body"} for g in _guardrails],
     }
     with open(os.path.join(config["site_dir"], "guardrails.json"), "w", encoding="utf-8") as handle:

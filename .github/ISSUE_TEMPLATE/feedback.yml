@@ -10,7 +10,7 @@ body:
     id: role
     attributes:
       label: Your role
-      description: The roles match the [guardrails by role](https://howellsr.github.io/architecture/deliver/roles/) pages.
+      description: The roles match the [guardrails by role](https://defra.github.io/architecture/deliver/roles/) pages.
       options:
         - Product manager
         - Delivery manager

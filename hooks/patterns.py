@@ -215,7 +215,7 @@ def _catalogue(link) -> str:
         out += [f"## {name} {{#{key}}}", ""]
         if not items:
             out += [
-                "No patterns yet. [Propose one](https://github.com/howellsr/architecture/issues) "
+                "No patterns yet. [Propose one](https://github.com/DEFRA/architecture/issues) "
                 "if your team has solved a problem others will meet.",
                 "",
             ]

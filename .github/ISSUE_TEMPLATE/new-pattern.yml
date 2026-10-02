@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Architecture patterns are proven technical solutions - see the [pattern catalogue](https://howellsr.github.io/architecture/patterns/). For screen and journey design patterns, use the [Defra Digital Service Manual](https://digital.defra.gov.uk/design/components-and-patterns) instead.
+        Architecture patterns are proven technical solutions - see the [pattern catalogue](https://defra.github.io/architecture/patterns/). For screen and journey design patterns, use the [Defra Digital Service Manual](https://digital.defra.gov.uk/design/components-and-patterns) instead.
   - type: input
     id: name
     attributes:

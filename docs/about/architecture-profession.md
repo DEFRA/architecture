@@ -42,4 +42,4 @@ You do not need to be an architect to take part. Designers, developers, analysts
 
 ## Contribute to this site
 
-Writing and improving guidance is a good way to develop. You can suggest a change to any page, or [open an issue](https://github.com/howellsr/architecture/issues) with an idea. See [contribute](../contribute/index.md).
+Writing and improving guidance is a good way to develop. You can suggest a change to any page, or [open an issue](https://github.com/DEFRA/architecture/issues) with an idea. See [contribute](../contribute/index.md).

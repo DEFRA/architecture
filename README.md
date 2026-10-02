@@ -1,15 +1,15 @@
 # Defra architecture
 
-[![ci](https://github.com/howellsr/architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/howellsr/architecture/actions/workflows/ci.yml)
-[![links](https://github.com/howellsr/architecture/actions/workflows/links.yml/badge.svg)](https://github.com/howellsr/architecture/actions/workflows/links.yml)
+[![ci](https://github.com/DEFRA/architecture/actions/workflows/ci.yml/badge.svg)](https://github.com/DEFRA/architecture/actions/workflows/ci.yml)
+[![links](https://github.com/DEFRA/architecture/actions/workflows/links.yml/badge.svg)](https://github.com/DEFRA/architecture/actions/workflows/links.yml)
 [![Accessibility: WCAG 2.2 AA tested](https://img.shields.io/badge/accessibility-WCAG%202.2%20AA%20tested-00703c)](tests/accessibility.js)
-[![Status: alpha](https://img.shields.io/badge/status-alpha-bbd4ea)](https://howellsr.github.io/architecture/about/roadmap/)
+[![Status: alpha](https://img.shields.io/badge/status-alpha-bbd4ea)](https://defra.github.io/architecture/about/roadmap/)
 [![Licence: OGL v3](https://img.shields.io/badge/licence-OGL%20v3-12324a)](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 [![Built with Material for MkDocs](https://img.shields.io/badge/built%20with-Material%20for%20MkDocs-526cfe)](https://squidfunk.github.io/mkdocs-material/)
 
-Source for the Defra architecture site at **<https://howellsr.github.io/architecture/>**: the DDTS doctrine, architecture principles, guardrails, non-functional requirements, the business-to-technology capability handrail, governance, and enterprise data and security architecture. It is written for Defra product and platform teams and the delivery partners who work with us.
+Source for the Defra architecture site at **<https://defra.github.io/architecture/>**: the DDTS doctrine, architecture principles, guardrails, non-functional requirements, the business-to-technology capability handrail, governance, and enterprise data and security architecture. It is written for Defra product and platform teams and the delivery partners who work with us.
 
-The site is a static site built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). It is in **alpha** - see the [roadmap](https://howellsr.github.io/architecture/about/roadmap/).
+The site is a static site built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). It is in **alpha** - see the [roadmap](https://defra.github.io/architecture/about/roadmap/).
 
 ## How it fits together
 
@@ -25,7 +25,7 @@ The site is a static site built with [MkDocs](https://www.mkdocs.org/) and [Mate
 | `tests/` | Content checks (`pytest`) and the WCAG 2.2 AA accessibility check (`npm test`) |
 | `.github/` | CI and link-check workflows, pull request and issue templates, Dependabot |
 
-The [contribution guide](https://howellsr.github.io/architecture/contribute/) explains how to add a guardrail, NFR or capability, and how the content is validated.
+The [contribution guide](https://defra.github.io/architecture/contribute/) explains how to add a guardrail, NFR or capability, and how the content is validated.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ External links are checked weekly, and on pull requests, by the `links` workflow
 
 ## Architecture decisions
 
-Significant decisions about this site are recorded as architecture decision records in [`docs/adr`](docs/adr/), and published under [Contribute](https://howellsr.github.io/architecture/adr/).
+Significant decisions about this site are recorded as architecture decision records in [`docs/adr`](docs/adr/), and published under [Contribute](https://defra.github.io/architecture/adr/).
 
 ## Branching policy
 
@@ -73,7 +73,7 @@ We use [GitHub flow](https://docs.github.com/en/get-started/using-github/github-
 
 ## Publishing
 
-The site is published with GitHub Pages at <https://howellsr.github.io/architecture/>.
+The site is published with GitHub Pages at <https://defra.github.io/architecture/>.
 
 - Every push to `main` runs `.github/workflows/ci.yml`: lint, content tests, a strict build and an accessibility check. If all pass, `mkdocs gh-deploy` pushes the built site to the `gh-pages` branch.
 - GitHub Pages serves the `gh-pages` branch. One-off setup (repository admin): **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)` → Save**.

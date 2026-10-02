@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Every "To be confirmed" box is listed on the [open questions](https://howellsr.github.io/architecture/about/open-questions/) page. Only give facts you can stand behind - say where the answer comes from so we can check it. This is a public repository: do not include personal data, internal hostnames or security detail.
+        Every "To be confirmed" box is listed on the [open questions](https://defra.github.io/architecture/about/open-questions/) page. Only give facts you can stand behind - say where the answer comes from so we can check it. This is a public repository: do not include personal data, internal hostnames or security detail.
   - type: input
     id: page
     attributes:

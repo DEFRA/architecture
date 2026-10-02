@@ -6,7 +6,7 @@ All notable changes to the Defra architecture site are recorded here. The format
 - **minor** - new Should or Could guardrails, new guidance or new pages
 - **patch** - clearer wording that does not change what is required, and fixes
 
-A plain-English summary is on the site's [what's new](https://howellsr.github.io/architecture/about/changelog/) page. See [contracting with this site](https://howellsr.github.io/architecture/partners/contracting/) for how to cite a version.
+A plain-English summary is on the site's [what's new](https://defra.github.io/architecture/about/changelog/) page. See [contracting with this site](https://defra.github.io/architecture/partners/contracting/) for how to cite a version.
 
 To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and add a new empty `## [Unreleased]` section above it. When that change reaches `main`, the release workflow tags the commit `vX.Y.Z`, builds the site and attaches a PDF of every guardrail to a GitHub release. It does nothing while the `Unreleased` section has entries, because `main` then holds changes that are not in the latest version.
 
@@ -26,6 +26,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- The site moved to the DEFRA GitHub organisation: source at `DEFRA/architecture`, published at https://defra.github.io/architecture/. Every link, the issue forms, the guardrail check and the link-check settings point to the new address. Version 0.2.0 stays at https://github.com/howellsr/architecture/releases/tag/v0.2.0. See ADR 0006.
 - Architecture decisions for review are emailed to StrategicEnterpriseArchitecture@defra.gov.uk, replacing the alpha holding address noreply@defra.gov.uk.
 
 ### Fixed

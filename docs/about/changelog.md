@@ -1,8 +1,13 @@
 # What's new
 
-<p class="lead">Significant changes to guardrails, capabilities and governance. Minor wording changes are visible in the <a href="https://github.com/howellsr/architecture/commits/main">commit history</a>.</p>
+<p class="lead">Significant changes to guardrails, capabilities and governance. Minor wording changes are visible in the <a href="https://github.com/DEFRA/architecture/commits/main">commit history</a>.</p>
 
 ## October 2026
+
+### The site has moved to the DEFRA GitHub organisation
+
+- **The site is now at [defra.github.io/architecture](https://defra.github.io/architecture/)**, and its source at [DEFRA/architecture](https://github.com/DEFRA/architecture). Old addresses redirect to the same page, including guardrail anchors. See [moving to the DEFRA GitHub organisation](moving-to-defra.md) and [ADR 0006](../adr/0006-move-to-defra-github.md).
+- Version 0.2.0 and its PDF stay at their original address, so contracts that cite them remain valid. New contracts should cite releases from DEFRA/architecture.
 
 ### Content style and site design
 
@@ -12,7 +17,7 @@
 
 ### How the site is maintained
 
-- **[`MAINTAINERS.md`](https://github.com/howellsr/architecture/blob/main/MAINTAINERS.md)** sets out the roles (names to be confirmed), the two-week triage target, labels, the route for changing a Must (TDA review, then TGB approval), deprecation, releases, a monthly and quarterly review cadence, and the move to the DEFRA GitHub organisation.
+- **[`MAINTAINERS.md`](https://github.com/DEFRA/architecture/blob/main/MAINTAINERS.md)** sets out the roles (names to be confirmed), the two-week triage target, labels, the route for changing a Must (TDA review, then TGB approval), deprecation, releases, a monthly and quarterly review cadence, and the move to the DEFRA GitHub organisation.
 - Code owners are requested for review automatically, and CI now warns about any guardrail not reviewed for more than 12 months.
 
 ### Services and capabilities

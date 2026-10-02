@@ -166,7 +166,7 @@ User research often collects personal data: recordings, notes, contact details a
 - Screen the research for a DPIA ([GR-DATA-06](#gr-data-06)), especially for new tools, sensitive topics or recordings of people's homes or farms.
 - Do not put recordings or transcripts into AI tools except as the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit/guidance/keeping-data-safe) allows.
 
-This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/DEFRA/architecture/issues).
 
 ## GR-DATA-11 No real personal data in prototypes {#gr-data-11}
 
@@ -176,4 +176,4 @@ This guardrail is a **draft** proposal. Comment on it by [opening an issue](http
 
 **How to meet it:** make up realistic names, addresses, holdings and reference numbers. Tell participants not to enter their own real details into a prototype unless the research plan allows it and the data is handled under [GR-DATA-10](#gr-data-10). If a test genuinely needs real data, agree it through a DPIA first.
 
-This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/DEFRA/architecture/issues).

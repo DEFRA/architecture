@@ -2,7 +2,7 @@
 
 Thank you for helping improve the Defra architecture site. Defra staff and delivery partners are equally welcome.
 
-The full guide - repository layout, how to add a guardrail, NFR or capability, writing style and the checks that run - is on the site: **<https://howellsr.github.io/architecture/contribute/>** (source: [`docs/contribute/index.md`](docs/contribute/index.md)).
+The full guide - repository layout, how to add a guardrail, NFR or capability, writing style and the checks that run - is on the site: **<https://defra.github.io/architecture/contribute/>** (source: [`docs/contribute/index.md`](docs/contribute/index.md)).
 
 Quick start:
 
@@ -22,6 +22,6 @@ mkdocs build --strict  # the same build CI runs
 - **Questions and early ideas** go in Discussions.
 - **How to do the job and who to contact** belong in the [Defra Digital Service Manual](https://digital.defra.gov.uk/), not here.
 
-See [where things live](https://howellsr.github.io/architecture/contribute/where-things-live/) for the full picture.
+See [where things live](https://defra.github.io/architecture/contribute/where-things-live/) for the full picture.
 
 This is a public repository. Never commit secrets, internal hostnames, personal data or detailed security weaknesses.
