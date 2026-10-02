@@ -1,0 +1,68 @@
+# Defra service tiers
+#
+# A service tier sets the level of availability, recovery and support a service
+# needs. Non-functional requirements in catalogue.yaml can set a different
+# target for each tier.
+#
+# STATUS: DRAFT. The values below are placeholders for discussion. Replace them
+# with the values agreed by the architecture team before relying on them.
+#
+# This file is validated and rendered by hooks/nfrs.py at build time.
+
+status: draft
+
+tiers:
+  - id: T1
+    name: Critical
+    summary: >-
+      Failure puts life, animal or plant health, the environment or national
+      infrastructure at risk, or stops a statutory duty with no workaround.
+    examples: Flood warnings, animal disease control, payments at statutory deadlines
+    availability: "99.9%"
+    support_hours: 24 hours a day, 7 days a week
+    rto: 4 hours
+    rpo: 15 minutes
+    dr_test: Every 6 months
+
+  - id: T2
+    name: Important
+    summary: >-
+      Failure causes significant harm to users, revenue or reputation, but a
+      short outage can be managed with a workaround.
+    examples: Licensing and permitting services, grant applications
+    availability: "99.5%"
+    support_hours: 7am to 8pm, Monday to Saturday
+    rto: 24 hours
+    rpo: 1 hour
+    dr_test: Every year
+
+  - id: T3
+    name: Standard
+    summary: >-
+      Failure is an inconvenience. Users can wait or use another channel until
+      the service returns.
+    examples: Information services, most internal staff tools
+    availability: "99%"
+    support_hours: 8am to 6pm, Monday to Friday
+    rto: 3 working days
+    rpo: 24 hours
+    dr_test: Every year
+
+  - id: T4
+    name: Low
+    summary: >-
+      Short-lived, experimental or low-use services where failure has little
+      impact.
+    examples: Prototypes, private beta, internal reporting
+    availability: Best effort
+    support_hours: 9am to 5pm, Monday to Friday
+    rto: 5 working days
+    rpo: 24 hours
+    dr_test: Restore from backup tested once
+
+questions:
+  - Could a failure put people, animals, plants or the environment at risk?
+  - Does the service support a statutory duty or legal deadline?
+  - How much money flows through it, and what happens if payments are late?
+  - How many users depend on it, and is there another channel they could use?
+  - Would an outage be reported in the media or raised in Parliament?

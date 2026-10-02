@@ -1,18 +1,277 @@
 site_name: Defra architecture
-site_url: https://defra.github.io/architecture
-theme: 
-  name: material
-  logo: img/code-white.png
-  favicon: img/code-black.png
-  palette:
-    primary: teal
-  font:
-    text: 'Arial'
-    code: 'Roboto Mono'
+site_description: >-
+  Architecture handrails, guardrails and governance for Defra digital, data and
+  technology - for internal product and platform teams and delivery partners.
+site_url: https://defra.github.io/architecture/
 repo_url: https://github.com/DEFRA/architecture
+repo_name: DEFRA/architecture
+edit_uri: edit/main/docs/
 remote_branch: gh-pages
 
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+copyright: >-
+  Contains public sector information licensed under the
+  <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: img/code-white.png
+  favicon: img/code-black.png
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - content.action.edit
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  # Keep hyphenated ids such as GR-HOST-01, NFR-AVL-01 and DDTS-01 as single
+  # search terms, so searching for an id finds that guardrail first.
+  - search:
+      separator: '[\s,:!=\[\]()"/]+|\.(?!\d)'
+
+extra_css:
+  - stylesheets/defra.css
+
+extra_javascript:
+  - javascripts/site.js
+
+hooks:
+  - hooks/capabilities.py
+  - hooks/guardrails.py
+  - hooks/traceability.py
+  - hooks/nfrs.py
+  - hooks/delivery.py
+  - hooks/patterns.py
+  - hooks/registers.py
+  - hooks/page_status.py
+  - hooks/cache_busting.py
+  - hooks/site_info.py
+  - hooks/releases.py
+  - hooks/open_questions.py
+  - hooks/abbreviations.py
+
+extra:
+  generator: false
+  status:
+    draft: Draft - to be confirmed
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/DEFRA
+      name: Defra on GitHub
+    - icon: fontawesome/solid/code
+      link: https://defra.github.io/software-development-standards/
+      name: Defra software development standards
+    - icon: fontawesome/solid/book
+      link: https://digital.defra.gov.uk/service-manual
+      name: Defra Digital Service Manual
+    - icon: fontawesome/solid/blog
+      link: https://defradigital.blog.gov.uk/
+      name: Defra Digital blog
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# Pages built but deliberately left out of the navigation.
+not_in_nav: |
+  /print/
+
 nav:
-  Home: index.md
-  Guardrails:
-    Placeholder: placeholder/guardails.md
+  - Home:
+      - index.md
+      - Using this site: about/using-this-site.md
+      - Delivery partners:
+          - about/delivery-partners.md
+          - Contracting with this site: partners/contracting.md
+          - Mobilisation checklist: partners/mobilisation.md
+          - Handover and exit: partners/handover-and-exit.md
+          - Working with other suppliers: partners/multi-supplier.md
+      - The architecture team: about/team.md
+      - Developing architecture at Defra: about/architecture-profession.md
+      - Roadmap: about/roadmap.md
+      - What's new: about/changelog.md
+      - Releases and versions: about/releases.md
+      - Approval status: about/approval-status.md
+      - Moving to the DEFRA GitHub organisation: about/moving-to-defra.md
+      - Open questions: about/open-questions.md
+  - Deliver a service:
+      - deliver/index.md
+      - Working with architects: deliver/working-with-architects.md
+      - Getting onto Defra platforms: deliver/platforms.md
+      - Check your repository automatically: deliver/guardrail-check.md
+      - Discovery: deliver/discovery.md
+      - Alpha: deliver/alpha.md
+      - Beta: deliver/beta.md
+      - Live: deliver/live.md
+      - Significant change: deliver/significant-change.md
+      - Retire a service: deliver/retire.md
+      - By role:
+          - deliver/roles/index.md
+          - Product manager: deliver/roles/product-manager.md
+          - Delivery manager: deliver/roles/delivery-manager.md
+          - Service designer: deliver/roles/service-designer.md
+          - Interaction designer: deliver/roles/interaction-designer.md
+          - Content designer: deliver/roles/content-designer.md
+          - User researcher: deliver/roles/user-researcher.md
+          - Developer: deliver/roles/developer.md
+          - Technical architect: deliver/roles/technical-architect.md
+          - Security architect: deliver/roles/security-architect.md
+          - Data architect: deliver/roles/data-architect.md
+          - Performance analyst: deliver/roles/performance-analyst.md
+      - Evidence checklists:
+          - Discovery: deliver/checklists/discovery.md
+          - Alpha: deliver/checklists/alpha.md
+          - Beta: deliver/checklists/beta.md
+          - Live: deliver/checklists/live.md
+          - Significant change: deliver/checklists/significant-change.md
+          - Retirement: deliver/checklists/retire.md
+  - Principles:
+      - principles/index.md
+      - DDTS doctrine: principles/doctrine.md
+      - Architecture principles: principles/architecture-principles.md
+  - Guardrails:
+      - guardrails/index.md
+      - Guardrail library: guardrails/library.md
+      - Choosing technology: guardrails/choosing-technology.md
+      - Hosting and platforms: guardrails/hosting-and-platforms.md
+      - Software development: guardrails/software-development.md
+      - APIs and integration: guardrails/apis-and-integration.md
+      - Identity and access: guardrails/identity-and-access.md
+      - Data: guardrails/data.md
+      - Security: guardrails/security.md
+      - Observability and operations: guardrails/observability-and-operations.md
+      - Front end and accessibility: guardrails/front-end-and-accessibility.md
+      - Open source and working in the open: guardrails/open-source.md
+      - Artificial intelligence: guardrails/ai.md
+      - Sustainability: guardrails/sustainability.md
+      - Products and platforms (draft): guardrails/products-and-platforms.md
+      - Digital first (draft): guardrails/digital-first.md
+      - Field working and devices (draft): guardrails/field-working-and-devices.md
+      - Software development standards: https://defra.github.io/software-development-standards/
+  - NFRs:
+      - nfrs/index.md
+      - Service tiers: nfrs/service-tiers.md
+      - NFR catalogue: nfrs/catalogue.md
+      - Writing good NFRs: nfrs/writing-nfrs.md
+  - Handrail:
+      - handrail/index.md
+      - Services and capabilities: handrail/services-and-capabilities.md
+      - Business capabilities: handrail/business-capabilities.md
+      - Technology capabilities: handrail/technology-capabilities.md
+      - Capability mapping: handrail/capability-mapping.md
+      - Reference architectures:
+          - handrail/reference-architectures/index.md
+          - Transactional digital service: handrail/reference-architectures/transactional-service.md
+          - Regulatory casework: handrail/reference-architectures/regulatory-casework.md
+          - Data and analytics: handrail/reference-architectures/data-and-analytics.md
+          - Field inspection (proposed): handrail/reference-architectures/field-inspection.md
+          - Incident response (proposed): handrail/reference-architectures/incident-response.md
+          - Grants and schemes (proposed): handrail/reference-architectures/grants.md
+  - Patterns:
+      - patterns/index.md
+      - Asynchronous submission: patterns/async-submission.md
+      - Acting on behalf: patterns/acting-on-behalf.md
+      - File upload and scanning: patterns/file-upload.md
+      - Authoritative source: patterns/authoritative-source.md
+      - Publishing open data: patterns/open-data-publishing.md
+      - "Worked example: apply for a licence":
+          - patterns/worked-example/index.md
+          - Sample ADRs: patterns/worked-example/adrs.md
+          - Threat model excerpt: patterns/worked-example/threat-model.md
+  - Governance:
+      - governance/index.md
+      - Check a decision: governance/decision-check.md
+      - Which route do I take?: governance/triage.md
+      - Technology Governance Board: governance/tgb.md
+      - Technical Design Authority: governance/tda.md
+      - Solution design authorities: governance/solution-design-authorities.md
+      - Architecture decision records: governance/architecture-decision-records.md
+      - Exceptions to guardrails: governance/exceptions.md
+      - Exception register: governance/exception-register.md
+      - Guardrails health: governance/guardrails-health.md
+      - Templates:
+          - governance/templates/index.md
+          - Architecture decision record: governance/templates/adr.md
+          - TDA submission: governance/templates/tda-submission.md
+          - Guardrail exception request: governance/templates/exception-request.md
+          - Threat model: governance/templates/threat-model.md
+  - Data:
+      - data/index.md
+      - Defra on a page: data/defra-on-a-page.md
+      - Data standards: data/data-standards.md
+  - Security:
+      - security/index.md
+      - Secure by Design: security/secure-by-design.md
+      - Threat modelling: security/threat-modelling.md
+      - Managing security exceptions: security/managing-exceptions.md
+  - Standards and links: standards/index.md
+  - Contribute:
+      - contribute/index.md
+      - Content style: contribute/content-style.md
+      - Site design: contribute/site-design.md
+      - Where things live: contribute/where-things-live.md
+      - Decisions about this site:
+          - adr/index.md
+          - "0001 MkDocs Material with hooks": adr/0001-mkdocs-material-with-hooks.md
+          - "0002 Guardrail metadata in front matter": adr/0002-guardrail-metadata-in-front-matter.md
+          - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md
+          - "0004 Musts only where required": adr/0004-musts-only-where-required.md
+          - "0005 Enterprise decisions in SharePoint": adr/0005-enterprise-decisions-in-sharepoint.md
+          - "0006 Move to DEFRA/architecture": adr/0006-move-to-defra-github.md

@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+
+{#- Home page: a "front door" hero above the tabs, then the page's Markdown. -#}
+
+{% block hero %}
+<section class="da-hero" aria-labelledby="da-hero-title">
+  <div class="da-hero__inner md-grid">
+    <div class="da-hero__main">
+      <p class="da-kicker">Defra architecture &middot; working in the open</p>
+      <h1 id="da-hero-title" class="da-hero__title">Make your next technology decision with confidence.</h1>
+      <p class="da-hero__lead">
+        Guardrails, reusable capabilities and light-touch governance for Defra product and platform teams
+        and the delivery partners who work with us. Start with the job in front of you.
+      </p>
+      <button type="button" class="da-search" data-open-search aria-label="Search the architecture site">
+        <span class="da-search__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        </span>
+        <span class="da-search__text">Search guardrails, capabilities, platforms or ids such as GR-HOST-01</span>
+        <span class="da-search__key" aria-hidden="true">/</span>
+      </button>
+    </div>
+    <aside class="da-hero__aside" aria-label="How we decide">
+      {%- set stats = page.meta.get("stats", {}) %}
+      <dl class="da-stats">
+        <div><dt><a href="{{ 'principles/doctrine/' | url }}">DDTS doctrine</a></dt><dd class="da-stats__n">{{ stats.get("doctrines", "") }}</dd><dd class="da-stats__sub">{{ page.meta.get("doctrine_label", "draft non-negotiables, awaiting endorsement") }}</dd></div>
+        <div><dt><a href="{{ 'principles/architecture-principles/' | url }}">Architecture principles</a></dt><dd class="da-stats__n">{{ stats.get("principles", "") }}</dd><dd class="da-stats__sub">how architecture applies the doctrine</dd></div>
+        <div><dt><a href="{{ 'guardrails/library/' | url }}">Guardrails</a></dt><dd class="da-stats__n">{{ stats.get("guardrails", "") }}</dd><dd class="da-stats__sub">{{ stats.get("must", "") }} must &middot; {{ stats.get("should", "") }} should &middot; {{ stats.get("could", "") }} could</dd></div>
+      </dl>
+      <p class="da-hero__principle"><strong>Guided, not blocked.</strong> Stay inside the guardrails and your team decides.</p>
+    </aside>
+  </div>
+</section>
+{% endblock %}
+
+{#- The hero carries the page's only <h1>, so render the content without adding another. -#}
+{% block content %}
+  {{ page.content }}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{#- GOV.UK-style phase banner under the navigation on every page. -#}
+{% block tabs %}
+  {{ super() }}
+  <div class="da-phase" role="region" aria-label="Site status">
+    <div class="md-grid da-phase__inner">
+      <strong class="da-phase__tag">Alpha</strong>
+      <div class="da-phase__body">
+        <p class="da-phase__text">
+          This site is an alpha version and is still being developed in the open -
+          your <a href="{{ config.repo_url }}/issues">feedback</a> will help us improve it.
+          See the <a href="{{ 'about/roadmap/' | url }}">roadmap</a>.
+          Last updated: <strong>{{ config.extra.last_updated }}</strong>.
+        </p>
+        <p class="da-phase__text da-phase__version">
+          Version in force:
+          <a href="{{ 'about/releases/' | url }}"><strong>{{ config.extra.version_in_force }}</strong></a>
+          ({{ config.extra.version_date }}).
+          {%- if config.extra.version_unreleased %} This site also shows changes not yet released.{% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

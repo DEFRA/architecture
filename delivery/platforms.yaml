@@ -1,0 +1,86 @@
+# Defra and cross-government platforms a delivery team is likely to need.
+#
+# Rendered on docs/deliver/platforms.md by hooks/delivery.py. Anything we do
+# not know yet is left as `tbc` and shown as "To be confirmed" - do not guess.
+#
+# name:        platform or service name
+# capability:  technology capability id (see capabilities/technology-capabilities.yaml)
+# gives:       what a team gets from it
+# request:     how to request access (Markdown, links relative to docs/)
+# lead_time:   how long access usually takes, or tbc
+# support:     where to get help (Markdown), or tbc
+# docs:        URL of the documentation, or tbc
+# docs_note:   optional, for example when the documentation needs a Defra network
+# service_manual: optional, the page about it in the Defra Digital Service Manual
+
+platforms:
+  - id: cdp
+    name: Defra Core Delivery Platform (CDP)
+    capability: TC21
+    gives: Defra's internal development platform, with build pipelines, hosting, logging and monitoring already in place for new digital services.
+    request: Work with the Delivery Architecture team to decide whether CDP is right for your service - the expectation is that it will be ([GR-HOST-01](guardrails/hosting-and-platforms.md#gr-host-01)). Then read the [onboarding considerations](https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md), [architectural overview](https://portal.cdp-int.defra.cloud/documentation/architecture/architectural-overview.md) and [how-to documentation](https://portal.cdp-int.defra.cloud/documentation/how-to/how-to.md).
+    lead_time: tbc
+    support: The cdp-support channel in the Defra Digital Team Slack
+    docs: https://portal.cdp-int.defra.cloud/documentation/onboarding/onboarding-considerations.md
+    docs_note: Needs a Defra device or the Defra VPN.
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform
+  - id: defra-id
+    name: Defra Customer Identity (also known as Defra ID or IDMv2)
+    capability: TC01
+    gives: Sign-in once to many Defra services for external users and the organisations they act for. It uses GOV.UK One Login and HMRC's Government Gateway as identity providers, offers invitation-only access for trusted third parties, and stores users' contact details, organisation accounts and the relationships between them centrally. Defra services get GOV.UK One Login through Customer Identity rather than integrating with it directly.
+    request: Talk to the Delivery Architecture team in discovery about the level of identity assurance you need and how users act for organisations ([GR-IAM-01](guardrails/identity-and-access.md#gr-iam-01)).
+    lead_time: tbc
+    support: The Customer Identity team - contact details are in the Defra Digital Service Manual
+    docs: https://defra.sharepoint.com/sites/Community3868/SitePages/Customer%20Identity.aspx
+    docs_note: Defra SharePoint - needs a Defra account.
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity
+  - id: defra-forms
+    name: Defra Forms
+    capability: TC03
+    gives: Accessible online forms that meet GOV.UK standards, through a form builder for simple forms or a plugin for custom forms in your service ([GR-FE-04](guardrails/front-end-and-accessibility.md#gr-fe-04)).
+    request: tbc
+    lead_time: tbc
+    support: The Defra Forms team - contact details are in the Defra Digital Service Manual
+    docs: https://forms.defra.gov.uk/
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-forms
+  - id: interactive-map
+    name: Defra Interactive Map
+    capability: TC15
+    gives: An open-source, accessible mapping component for government services. It is in beta and not yet stable.
+    request: Use the component from its open-source repository.
+    lead_time: Not needed - it is open source
+    support: The interactive-map channel in the Defra Digital Team Slack. The Defra Digital Service Manual says documentation and support are not yet available while the map is in beta.
+    docs: https://defra.github.io/interactive-map/
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-accessible-maps
+  - id: notify
+    name: GOV.UK Notify
+    capability: TC04
+    gives: Emails, text messages and letters to users, through an API or a web interface.
+    request: Create an account on [GOV.UK Notify](https://www.notifications.service.gov.uk/) with your government email address. New services start in trial mode; request to go live from your service's settings.
+    lead_time: tbc
+    support: "[GOV.UK Notify support](https://www.notifications.service.gov.uk/support)"
+    docs: https://docs.notifications.service.gov.uk/
+  - id: pay
+    name: GOV.UK Pay
+    capability: TC05
+    gives: Online card and digital wallet payments, with refunds and reporting.
+    request: Create a test account on [GOV.UK Pay](https://www.payments.service.gov.uk/). Going live needs Defra's finance arrangements in place.
+    lead_time: tbc
+    support: "[GOV.UK Pay support](https://www.payments.service.gov.uk/support/)"
+    docs: https://docs.payments.service.gov.uk/
+  - id: data-platform
+    name: Defra strategic data platform
+    capability: TC16
+    gives: Shared storage, processing and analytics for Defra data, and governed data products for sharing between services. The capability is emerging.
+    request: tbc
+    lead_time: tbc
+    support: tbc
+    docs: tbc
+  - id: api-gateway
+    name: Platform API gateway and messaging
+    capability: TC22
+    gives: Publishing, securing and managing APIs, and asynchronous messaging between services, on the Core Delivery Platform.
+    request: Through the Core Delivery Platform team.
+    lead_time: tbc
+    support: tbc
+    docs: tbc

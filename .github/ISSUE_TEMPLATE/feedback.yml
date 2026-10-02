@@ -1,0 +1,50 @@
+name: Feedback on the site
+description: Tell us how well the site works for your role
+labels: [feedback, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to tell us how the site works for you. Do not include personal data or anything about a live service's security.
+  - type: dropdown
+    id: role
+    attributes:
+      label: Your role
+      description: The roles match the [guardrails by role](https://defra.github.io/architecture/deliver/roles/) pages.
+      options:
+        - Product manager
+        - Delivery manager
+        - Service designer
+        - Interaction designer
+        - Content designer
+        - User researcher
+        - Developer
+        - Technical architect
+        - Security architect
+        - Data architect
+        - Performance analyst
+        - Delivery partner
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: What were you trying to do?
+      placeholder: For example, find what my team needs to show at an alpha assessment
+    validations:
+      required: true
+  - type: dropdown
+    id: success
+    attributes:
+      label: Were you able to do it?
+      options:
+        - "Yes"
+        - Partly
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: better
+    attributes:
+      label: What would have made it easier?

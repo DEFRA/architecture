@@ -1,0 +1,43 @@
+name: Defra guardrail check
+description: Check a repository against the Defra architecture guardrails that can be automated, and write a Markdown report.
+
+inputs:
+  path:
+    description: Folder of the checked-out repository to check
+    default: "."
+  repository:
+    description: owner/name of the repository, for settings checks
+    default: ${{ github.repository }}
+  token:
+    description: Token for reading repository settings. Settings checks are reported as unknown without enough access.
+    default: ${{ github.token }}
+  fail-on-error:
+    description: Fail the step when a check fails ("true" or "false")
+    default: "true"
+
+outputs:
+  report:
+    description: Path of the Markdown report
+    value: ${{ steps.check.outputs.report }}
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      shell: bash
+      run: python3 -m pip install --quiet pyyaml==6.0.3
+
+    - name: Run the guardrail check
+      id: check
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        CHECK_PATH: ${{ inputs.path }}
+        CHECK_REPO: ${{ inputs.repository }}
+        FAIL_ON_ERROR: ${{ inputs.fail-on-error }}
+      run: |
+        report="$RUNNER_TEMP/guardrail-check.md"
+        args=(--path "$CHECK_PATH" --repo "$CHECK_REPO" --report "$report")
+        if [ "$FAIL_ON_ERROR" != "true" ]; then args+=(--no-fail); fi
+        echo "report=$report" >> "$GITHUB_OUTPUT"
+        python3 "$GITHUB_ACTION_PATH/check.py" "${args[@]}"

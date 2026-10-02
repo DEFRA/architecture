@@ -1,0 +1,158 @@
+# The delivery lifecycle: what architecture needs in each phase.
+#
+# The "Deliver a service" pages are generated from this file and from the
+# guardrail metadata (docs/guardrails/*.md front matter). See hooks/delivery.py.
+#
+# artefacts:   architecture artefacts a team produces. `guide` and `template`
+#              are paths under docs/ or full URLs. `guardrails` are the ids
+#              the artefact helps evidence.
+# phases:      each phase or lifecycle event.
+#   guardrails:  for discovery, alpha, beta and live, leave this out - the
+#                guardrails come from each guardrail's `phases` metadata. For
+#                significant change and retirement, list the ids that apply.
+#   artefacts:   the artefacts to work on in this phase and what to do.
+#   governance:  touchpoints with governance and assurance, in Markdown.
+#                Links are relative to the docs/ folder.
+
+artefacts:
+  - id: adr-log
+    name: Architecture decision record (ADR) log
+    what: The significant decisions, the options considered and why.
+    guide: governance/architecture-decision-records.md
+    template: governance/templates/adr.md
+    guardrails: [GR-DEV-09, GR-TECH-01, GR-TECH-02]
+  - id: c4-context
+    name: C4 system context diagram
+    what: The service, its users and the systems it depends on, on one page.
+    guide: https://c4model.com/
+    guardrails: [GR-DATA-02, GR-API-05]
+  - id: c4-container
+    name: C4 container diagram
+    what: The applications, data stores and integrations inside the service, and the platforms they run on.
+    guide: https://c4model.com/
+    guardrails: [GR-HOST-01, GR-API-05, GR-IAM-01]
+  - id: threat-model
+    name: Threat model
+    what: What can go wrong, what you are doing about it and the risks you accept.
+    guide: security/threat-modelling.md
+    template: governance/templates/threat-model.md
+    guardrails: [GR-SEC-02, GR-AI-05]
+  - id: dpia
+    name: Data protection impact assessment (DPIA)
+    what: How the service processes personal data lawfully and minimises risk to people.
+    guide: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/
+    guardrails: [GR-DATA-06]
+  - id: service-tier
+    name: Service tier
+    what: How critical the service is, which sets its availability, recovery and support targets.
+    guide: nfrs/service-tiers.md
+    guardrails: [GR-HOST-07, GR-OPS-03]
+  - id: nfrs
+    name: Non-functional requirements (NFRs)
+    what: Measurable targets for performance, availability, security and other qualities, taken from the catalogue for your tier.
+    guide: nfrs/catalogue.md
+    guardrails: [GR-HOST-07, GR-OPS-03]
+  - id: exit-plan
+    name: Exit plan
+    what: How Defra would move off each product, platform or supplier, including data export and switching cost.
+    guide: guardrails/choosing-technology.md#gr-tech-03
+    guardrails: [GR-TECH-03]
+  - id: runbooks
+    name: Runbooks and support model
+    what: How to operate, support and recover the service, and who does it.
+    guide: guardrails/observability-and-operations.md#gr-ops-05
+    guardrails: [GR-OPS-05, GR-HOST-07]
+
+phases:
+  - id: discovery
+    name: Discovery
+    page: deliver/discovery.md
+    service_manual: https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works
+    artefacts:
+      adr-log: Start the log. Record the reuse options you considered.
+      c4-context: Sketch the context - users, Defra systems and partners involved.
+      service-tier: Propose a tier with the service owner.
+      dpia: Screen for personal data and decide whether you need a full DPIA.
+    governance:
+      - Map the service to [business capabilities](handrail/business-capabilities.md) and check [technology capabilities](handrail/technology-capabilities.md) for something to reuse.
+      - Use the [decision check](governance/decision-check.md) to agree your governance route and [solution design authority](governance/solution-design-authorities.md).
+      - Talk to the architecture team before any procurement starts, and record spend as described in [spend control](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/assurance/spend-control) ([GR-TECH-06](guardrails/choosing-technology.md#gr-tech-06)).
+      - Name the security risk owner ([GR-SEC-01](guardrails/security.md#gr-sec-01)).
+  - id: alpha
+    name: Alpha
+    page: deliver/alpha.md
+    service_manual: https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works
+    artefacts:
+      adr-log: Record hosting, identity, integration and data decisions.
+      c4-context: Confirm the context.
+      c4-container: Draw the containers for the options you are testing.
+      threat-model: Run the first collaborative threat model.
+      dpia: Complete the DPIA if you process personal data.
+      service-tier: Agree the tier with the service owner.
+      nfrs: Choose NFRs from the catalogue for your tier.
+      exit-plan: Draft an exit plan for each new product or supplier.
+    governance:
+      - Share your architecture, ADR log and threat model with your solution design authority before the alpha assessment.
+      - Take novel or cross-cutting designs, and any exception to a Must, to the [Technical Design Authority](governance/tda.md).
+      - Engage the platform teams - see [getting onto Defra platforms](deliver/platforms.md).
+  - id: beta
+    name: Beta
+    page: deliver/beta.md
+    service_manual: https://www.gov.uk/service-manual/agile-delivery/how-the-beta-phase-works
+    artefacts:
+      adr-log: Keep it current as the design changes.
+      c4-container: Update it to match what you built.
+      threat-model: Review it as controls are built and tested.
+      dpia: Update it for anything that has changed.
+      nfrs: Test against them and record the results.
+      exit-plan: Confirm contracts give Defra its data and the right to export it.
+      runbooks: Write them and agree the support model before public beta.
+    governance:
+      - Go through the operational service design review board at the start of beta - see [operational service readiness](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness) in the Defra Digital Service Manual.
+      - Commission an IT health check before go-live ([GR-SEC-06](guardrails/security.md#gr-sec-06)).
+      - Get residual security risks accepted through the [security exception process](security/managing-exceptions.md).
+      - Share the updated evidence pack with your solution design authority before the beta assessment.
+  - id: live
+    name: Live
+    page: deliver/live.md
+    service_manual: https://www.gov.uk/service-manual/agile-delivery/how-the-live-phase-works
+    artefacts:
+      adr-log: Keep recording decisions. Supersede ADRs rather than deleting them.
+      c4-container: Keep it current.
+      threat-model: Review it at least once a year.
+      runbooks: Test them and keep them current.
+      exit-plan: Review it at contract renewal.
+    governance:
+      - Share your evidence pack with your solution design authority before the live assessment.
+      - Review exceptions before they expire - see [exceptions to guardrails](governance/exceptions.md).
+      - Treat significant changes as their own small delivery - see [significant change](deliver/significant-change.md).
+  - id: significant-change
+    name: Significant change
+    page: deliver/significant-change.md
+    guardrails: [GR-SEC-01, GR-SEC-02, GR-SEC-06, GR-DATA-06, GR-API-04, GR-DEV-09, GR-TECH-01, GR-TECH-03, GR-TECH-06, GR-AI-06, GR-HOST-07, GR-OPS-05]
+    artefacts:
+      adr-log: Record the change, the options and why.
+      c4-container: Update it before you build.
+      threat-model: Revisit it for the change.
+      dpia: Update it if personal data processing changes.
+      nfrs: Check the change does not breach them, or agree new ones.
+      exit-plan: Update it if you add a product or supplier.
+      runbooks: Update them before the change goes live.
+    governance:
+      - Use the [decision check](governance/decision-check.md) - most changes stay with the team or the solution design authority.
+      - Share the ADR and updated threat model with your solution design authority before you start.
+      - Re-test security after the change where it is significant ([GR-SEC-06](guardrails/security.md#gr-sec-06)).
+  - id: retire
+    name: Retire a service
+    page: deliver/retire.md
+    service_manual: https://www.gov.uk/service-manual/agile-delivery/retiring-your-service
+    guardrails: [GR-DATA-09, GR-DATA-06, GR-DATA-01, GR-API-04, GR-TECH-03, GR-IAM-03, GR-IAM-05, GR-SUS-02, GR-OPEN-01]
+    artefacts:
+      adr-log: Record the decision to retire and what replaces the service.
+      exit-plan: Carry it out - export data in open formats and end contracts.
+      runbooks: Write the decommissioning runbook and keep it with the archived code.
+      dpia: Confirm personal data is deleted or transferred lawfully.
+    governance:
+      - Tell API and data consumers in advance, with a retirement date ([GR-API-04](guardrails/apis-and-integration.md#gr-api-04)).
+      - Agree with the information asset owner which records are kept, transferred to The National Archives or destroyed ([GR-DATA-09](guardrails/data.md#gr-data-09)).
+      - Update the information asset register and the technology capability catalogue.

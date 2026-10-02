@@ -1,0 +1,18 @@
+# Words the GOV.UK style guide asks us to avoid, and filler words.
+# https://www.gov.uk/guidance/style-guide/a-to-z-of-gov-uk-style#words-to-avoid
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: warning
+ignorecase: true
+swap:
+  leverage: use
+  utilise: use
+  utilize: use
+  facilitate: help
+  going forward: from now on
+  in order to: to
+  streamline: simplify
+  robust: (say what you mean, such as reliable or tested)
+  click here: (descriptive link text)
+  e\.g\.: for example
+  i\.e\.: that is

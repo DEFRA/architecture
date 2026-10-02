@@ -1,0 +1,56 @@
+# Link checker settings, used by .github/workflows/links.yml
+# https://lychee.cli.rs/
+
+max_concurrency = 8
+max_retries = 3
+retry_wait_time = 5
+timeout = 30
+accept = ["200..=299", "429"]
+
+exclude = [
+  # Local preview addresses and XML namespaces
+  "^http://127\\.0\\.0\\.1",
+  "^http://localhost",
+  "^http://www\\.w3\\.org/2000/svg",
+  # Font and diagram CDNs used by the theme
+  "^https://fonts\\.(googleapis|gstatic)\\.com",
+  "^https://unpkg\\.com",
+  # GitHub only shows the new-issue form and edit pages to signed-in users
+  "^https://github\\.com/[^/]+/[^/]+/issues/new",
+  "^https://github\\.com/[^/]+/[^/]+/edit/",
+  # This site's own published address (canonical links, JSON downloads). New
+  # pages are not live until after merge; internal links are checked by
+  # `mkdocs build --strict` and by lychee against the built files.
+  "^https://defra\\.github\\.io/architecture/",
+  # Files in this repository's main branch do not exist until a pull request
+  # is merged. tests/test_content.py checks they exist in the checkout instead.
+  "^https://github\\.com/DEFRA/architecture/(blob|tree)/main/",
+  # This repository's own releases page and tags, which the release workflow
+  # creates after merge, so a new release cannot be checked before it exists.
+  "^https://github\\.com/DEFRA/architecture/releases",
+  # GitHub's folder view often answers automated checkers with 503 for the
+  # cross-government Secure by Design library, and folders have no raw address.
+  # Files in it are checked through the remap below; check folders by hand.
+  "^https://github\\.com/co-cddo/SbD/tree/",
+  # security.gov.uk returns 403 to automated checkers; check these by hand
+  "^https://www\\.security\\.gov\\.uk/",
+  # Defra internal sites that need a Defra device, VPN or sign-in: the CDP
+  # portal, Jira (tools radar), and SharePoint and OneDrive, including personal
+  # sites such as defrati-my.sharepoint.com. tests/test_content.py checks every
+  # such link on the site is excluded here.
+  "^https://portal\\.cdp-int\\.defra\\.cloud/",
+  "^https://eaflood\\.atlassian\\.net/",
+  "^https://[a-z0-9-]+\\.sharepoint\\.com/",
+]
+
+# GitHub's file viewer often answers automated checkers with 503 for the large
+# files in the cross-government Secure by Design library. Check those files at
+# their raw address instead, which serves the same file reliably. Readers still
+# get the normal github.com link.
+remap = [
+  "^https://github\\.com/co-cddo/SbD/blob/(.+)$ https://raw.githubusercontent.com/co-cddo/SbD/$1",
+]
+
+# MkDocs builds 404.html with absolute links so it works at any URL; they
+# cannot be resolved from the site folder.
+exclude_path = ["site/404\\.html"]

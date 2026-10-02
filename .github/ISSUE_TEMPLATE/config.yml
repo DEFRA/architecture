@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Defra Digital Service Manual
+    url: https://digital.defra.gov.uk/service-manual
+    about: Questions about designing and delivering services
+  - name: Defra software development standards
+    url: https://defra.github.io/software-development-standards/
+    about: Detailed coding and engineering practice

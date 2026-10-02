@@ -1,0 +1,24 @@
+name: guardrail-check
+
+# Checks this repository against the Defra architecture guardrails that can be
+# automated, using the action in tools/guardrail-check. Other repositories use
+# the same action - see tools/guardrail-check/README.md.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Guardrail check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: ./tools/guardrail-check
+        with:
+          # Report only until branch protection is turned on for main (GR-DEV-03).
+          # Then remove this line so failures block the pull request.
+          fail-on-error: "false"

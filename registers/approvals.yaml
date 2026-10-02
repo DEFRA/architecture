@@ -1,0 +1,72 @@
+# Approval status of each section of the site.
+#
+# Rendered on docs/about/approval-status.md by hooks/registers.py.
+#
+# status:   draft or endorsed. Endorsed means approved by the named board.
+# board:    the board that approved it, or tbc
+# date:     date approved (YYYY-MM-DD), or tbc
+# pages:    the docs/ folder or page the section covers
+# link:     optional, the page to link to when the folder has no index.md
+# note:     optional, Markdown with links relative to docs/
+
+sections:
+  - name: DDTS doctrine
+    pages: principles/doctrine.md
+    status: draft
+    board: tbc
+    date: tbc
+    note: Waiting for confirmation that the doctrine can be published in this form.
+  - name: Architecture principles
+    pages: principles/architecture-principles.md
+    status: endorsed
+    board: tbc
+    date: tbc
+    note: Described as Defra's agreed Strategic Architecture Principles. The approving board and date are still to be recorded.
+  - name: Guardrails
+    pages: guardrails/
+    status: draft
+    board: tbc
+    date: tbc
+    note: Each guardrail has its own status in the [guardrail library](guardrails/library.md).
+  - name: Non-functional requirements
+    pages: nfrs/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Handrail
+    pages: handrail/
+    status: draft
+    board: tbc
+    date: tbc
+    note: Level 1 business capabilities are described as agreed; level 2 capabilities are draft.
+  - name: Patterns
+    pages: patterns/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Deliver a service
+    pages: deliver/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Governance
+    pages: governance/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Data
+    pages: data/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Security
+    pages: security/
+    status: draft
+    board: tbc
+    date: tbc
+  - name: Delivery partners
+    pages: partners/
+    link: about/delivery-partners.md
+    status: draft
+    board: tbc
+    date: tbc

@@ -1,0 +1,4 @@
+# Site build. Exact versions, as the Defra standards require; Dependabot raises
+# pull requests to update them. Stay on MkDocs 1.x - Material does not support 2.0.
+mkdocs==1.6.1
+mkdocs-material==9.7.7

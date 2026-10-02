@@ -1,0 +1,13 @@
+# Python tooling settings. Python here is only build tooling for the site
+# (MkDocs hooks and content tests), linted with Ruff as the Defra Python
+# standards recommend.
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
