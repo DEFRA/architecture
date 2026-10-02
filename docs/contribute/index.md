@@ -167,6 +167,10 @@ Do not guess Defra facts such as names, contacts, URLs, lead times or approvals.
 
 Every box is listed on the [open questions](../about/open-questions.md) page. Delete the box once the fact is confirmed.
 
+### Add an abbreviation
+
+Add it to `includes/abbreviations.md` as `*[TDA]: Technical Design Authority`. Every page then shows the expansion as a tooltip. Still write the expansion in full the first time you use an abbreviation on a page, for example "Technical Design Authority (TDA)". The build removes the tooltip there, so screen readers do not hear it twice, and inside guardrail ids such as GR-API-05. It fails if either is left.
+
 ### Add a diagram
 
 Use a `mermaid` code block. Every diagram needs an `accTitle` and an `accDescr` line describing what it shows, for people using screen readers. The tests fail without them.

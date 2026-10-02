@@ -610,3 +610,30 @@ def test_ux_state_must_match_the_sections():
 def test_worked_example_has_the_ux_sections():
     with open(os.path.join(DOCS, "patterns", "worked-example", "index.md"), encoding="utf-8") as handle:
         assert patterns.ux_problems(handle.read(), "written") == []
+
+
+# --- Abbreviation tooltips -------------------------------------------------------
+
+abbreviations = load_hook("abbreviations")
+API = '<abbr title="Application programming interface">API</abbr>'
+TDA = '<abbr title="Technical Design Authority">TDA</abbr>'
+
+
+def test_no_tooltip_inside_guardrail_ids():
+    page = f"<p>See GR-{API}-05 and {API}-08, and the {API} itself.</p>"
+    assert abbreviations.tidy(page) == f"<p>See GR-API-05 and API-08, and the {API} itself.</p>"
+
+
+def test_no_doubled_expansion_for_screen_readers():
+    before = f"<p>Ask the Technical Design Authority ({TDA}) first.</p>"
+    after = f"<p>Ask the {TDA} (Technical Design Authority) first.</p>"
+    assert abbreviations.tidy(before) == "<p>Ask the Technical Design Authority (TDA) first.</p>"
+    assert abbreviations.tidy(after) == "<p>Ask the TDA (Technical Design Authority) first.</p>"
+    # Elsewhere the tooltip is the only expansion, so it stays.
+    assert abbreviations.tidy(f"<p>Ask the {TDA}.</p>") == f"<p>Ask the {TDA}.</p>"
+
+
+def test_expansion_match_ignores_markup_and_case():
+    page = f"<p><strong>technical design authority</strong> ({TDA})</p>"
+    assert abbreviations.problems(page) == ["TDA next to its expansion"]
+    assert abbreviations.problems(abbreviations.tidy(page)) == []

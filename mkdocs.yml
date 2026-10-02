@@ -81,6 +81,7 @@ hooks:
   - hooks/site_info.py
   - hooks/releases.py
   - hooks/open_questions.py
+  - hooks/abbreviations.py
 
 extra:
   generator: false

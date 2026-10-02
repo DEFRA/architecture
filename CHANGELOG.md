@@ -23,6 +23,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Fixed
 
+- Abbreviation tooltips appeared inside guardrail ids such as GR-API-05, and next to their own expansion, where screen readers could announce it twice. The build now removes them and fails if any are left.
 - The open questions page asked whether the guardrails apply to arm's length bodies 15 times, once for each area. It is now one question on the guardrails overview.
 - Getting onto Defra platforms links GOV.UK Pay's support page instead of "To be confirmed".
 

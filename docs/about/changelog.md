@@ -22,6 +22,7 @@ All three have evidence for each phase and are in the [guardrail backlog](roadma
 
 ### Smaller changes
 
+- Abbreviation tooltips no longer appear inside guardrail ids such as GR-API-05, or next to their own expansion such as "Technical Design Authority (TDA)", where screen readers could read the expansion twice.
 - [Raise a decision for review](../governance/architecture-decision-records.md#raise-a-decision-for-review) now uses the StrategicEnterpriseArchitecture@defra.gov.uk mailbox instead of the alpha holding address.
 - The question of whether the guardrails apply to Defra's arm's length bodies is now asked once, on the [guardrails overview](../guardrails/index.md#arms-length-bodies), instead of on each of the 15 area pages. The [open questions](open-questions.md) page lists it once.
 - [Getting onto Defra platforms](../deliver/platforms.md#pay) now links GOV.UK Pay's public support page.
