@@ -12,12 +12,20 @@ guardrails:
   GR-FE-01:
     phases: [alpha, beta, live]
     evidence: Accessibility audit, assistive technology testing results and a published accessibility statement
+    evidence_by_phase:
+      alpha: Prototypes built with accessible components, and a plan for an accessibility audit and assistive technology testing
+      beta: Accessibility audit and assistive technology testing completed, issues fixed, and an accessibility statement published
+      live: Accessibility statement kept current, and accessibility re-tested after significant change
     automated_check: Automated accessibility tests such as axe in the pipeline. These find some issues only; manual testing is still needed.
     service_standard_points: [5]
     tcop_points: [2]
   GR-FE-02:
     phases: [alpha, beta, live]
     evidence: The service uses GOV.UK Frontend and design decisions record where it departs from the patterns
+    evidence_by_phase:
+      alpha: Prototypes built with the GOV.UK Design System, with departures recorded and researched
+      beta: The service uses GOV.UK Frontend, with design decisions recording any departures
+      live: GOV.UK Frontend kept up to date
     service_standard_points: [4, 13]
     tcop_points: [2]
   GR-FE-03:
@@ -35,6 +43,10 @@ guardrails:
   GR-FE-06:
     phases: [alpha, beta, live]
     evidence: Assessment of whether the Welsh Language Standards apply and translated content where they do
+    evidence_by_phase:
+      alpha: Whether the Welsh Language Standards apply decided, and the service designed for translation
+      beta: Welsh content and journeys built and tested where the standards apply
+      live: Welsh content kept in step with English content
     service_standard_points: [5]
 ---
 

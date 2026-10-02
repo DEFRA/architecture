@@ -19,6 +19,10 @@ guardrails:
   GR-FIELD-03:
     phases: [alpha, beta, live]
     evidence: Devices enrolled in Defra device management, with encryption, patching and remote wipe confirmed
+    evidence_by_phase:
+      alpha: Device management approach agreed for the devices the service will use
+      beta: Devices enrolled in Defra device management, with encryption, patching, screen lock and remote wipe confirmed
+      live: Device compliance monitored, and lost devices wiped
     tcop_points: [6]
     sbd_principles: [7, 8]
   GR-FIELD-04:

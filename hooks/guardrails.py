@@ -70,6 +70,8 @@ SECTION = re.compile(r"^## ", re.M)
 LEVELS = {"principle": "Principle", "must": "Must", "should": "Should", "could": "Could"}
 STATUSES = {"draft": "Draft", "endorsed": "Endorsed", "deprecated": "Deprecated"}
 PHASES = {"discovery": "Discovery", "alpha": "Alpha", "beta": "Beta", "live": "Live"}
+# Phases plus the lifecycle events that have their own page in Deliver a service.
+LIFECYCLE = {**PHASES, "significant-change": "Significant change", "retire": "Retire"}
 
 # Reference lists the metadata points to. Names are from the published sources.
 SERVICE_STANDARD = {
@@ -129,7 +131,7 @@ REFERENCES = {
     ),
 }
 REQUIRED = ("status", "phases", "automated_check", "owner", "last_reviewed", "since_version")
-FIELDS = set(REQUIRED) | set(REFERENCES) | {"evidence", "doctrine", "replaced_by"}
+FIELDS = set(REQUIRED) | set(REFERENCES) | {"evidence", "evidence_by_phase", "doctrine", "replaced_by"}
 
 _guardrails: list[dict] = []
 _stats: dict = {}
@@ -188,6 +190,21 @@ def _check(gid: str, level: str, meta: dict, where: str) -> list[str]:
         for point in meta.get(field) or []:
             if point not in points:
                 errors.append(f"{where}: {gid} refers to {name} point {point}, which does not exist")
+    by_phase = meta.get("evidence_by_phase") or {}
+    if not isinstance(by_phase, dict):
+        errors.append(f"{where}: {gid} evidence_by_phase must map phases to evidence")
+        by_phase = {}
+    for phase, text in by_phase.items():
+        if phase not in LIFECYCLE:
+            errors.append(f"{where}: {gid} has evidence for unknown phase '{phase}'")
+        elif not str(text or "").strip():
+            errors.append(f"{where}: {gid} has empty evidence for {phase}")
+        elif phase in PHASES and phase not in (meta.get("phases") or []):
+            errors.append(f"{where}: {gid} has evidence for {phase} but does not apply in {phase}")
+    if level == "must":
+        for phase in meta.get("phases") or []:
+            if phase in PHASES and phase not in by_phase:
+                errors.append(f"{where}: {gid} is a Must in {phase} but has no evidence_by_phase for {phase}")
     if level == "must" and not str(meta.get("evidence") or "").strip():
         errors.append(f"{where}: {gid} is a Must but has no 'evidence' - say how a team shows they meet it")
     if meta.get("status") == "deprecated" and not meta.get("replaced_by"):
@@ -237,6 +254,7 @@ def parse(docs_dir: str) -> list[dict]:
                 meta.setdefault("doctrine", doctrines_for.get(gid, []))
             meta.setdefault("doctrine", page_doctrines)
             errors += _check(gid, kind, meta, name)
+            by_phase = meta.get("evidence_by_phase") if isinstance(meta.get("evidence_by_phase"), dict) else {}
             last = meta.get("last_reviewed")
             found.append(
                 {
@@ -249,6 +267,9 @@ def parse(docs_dir: str) -> list[dict]:
                     "status": meta.get("status"),
                     "phases": meta.get("phases") or [],
                     "evidence": str(meta.get("evidence") or "").strip(),
+                    "evidence_by_phase": {
+                        k: str(by_phase[k]).strip() for k in LIFECYCLE if by_phase.get(k) is not None
+                    },
                     "automated_check": meta.get("automated_check"),
                     "service_standard_points": meta.get("service_standard_points") or [],
                     "tcop_points": meta.get("tcop_points") or [],
@@ -269,6 +290,11 @@ def parse(docs_dir: str) -> list[dict]:
     if errors:
         raise PluginError("Guardrails are invalid:\n  - " + "\n  - ".join(errors))
     return found
+
+
+def evidence_for(g: dict, phase: str) -> str:
+    """What to show for a guardrail in a phase, falling back to its general evidence."""
+    return g["evidence_by_phase"].get(phase) or g["evidence"]
 
 
 def guardrails() -> list[dict]:
@@ -358,6 +384,14 @@ def _add_applicability(markdown: str, applicability, area: str) -> str:
     return "\n".join(lines)
 
 
+def _evidence_html(g: dict) -> str:
+    e = html.escape
+    if not g["evidence_by_phase"]:
+        return e(g["evidence"]) or "-"
+    items = "".join(f"<li><strong>{LIFECYCLE[k]}:</strong> {e(v)}</li>" for k, v in g["evidence_by_phase"].items())
+    return f'<ul class="gr-meta__phases">{items}</ul>'
+
+
 def _href(g: dict, page, files) -> str:
     target = files.get_file_from_path(g["page"])
     return get_relative_url(target.url, page.url) + "#" + g["id"].lower()
@@ -397,7 +431,7 @@ def _add_panels(markdown: str, on_page: list[dict], page, files) -> str:
         rows = [
             ("Status", f'<span class="gr-status gr-status--{g["status"]}">{STATUSES[g["status"]]}</span>'),
             ("Phases", ", ".join(PHASES[p] for p in g["phases"])),
-            ("Evidence", e(g["evidence"]) or "-"),
+            ("Evidence", _evidence_html(g)),
             ("Automated check", "Manual" if g["automated_check"] == "manual" else e(g["automated_check"])),
         ]
         refs = _references(g)
@@ -449,7 +483,10 @@ def _print(page, config) -> str:
             out += [
                 f"*Status:* {STATUSES[g['status']]} · *Phases:* {', '.join(PHASES[p] for p in g['phases'])} · "
                 f"*Since:* {g['since_version']}  ",
-                f"*Evidence:* {g['evidence'] or '-'}  ",
+                *(
+                    [f"*Evidence in {LIFECYCLE[k].lower()}:* {v}  " for k, v in g["evidence_by_phase"].items()]
+                    or [f"*Evidence:* {g['evidence'] or '-'}  "]
+                ),
                 f"*Automated check:* {check}",
                 "",
             ]

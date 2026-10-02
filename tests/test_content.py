@@ -135,7 +135,8 @@ def _example(tmp_path, meta):
 
 
 def test_valid_guardrail_metadata_parses(tmp_path):
-    [g] = _example(tmp_path, "phases: [alpha], evidence: A thing, tcop_points: [5]")
+    meta = "phases: [alpha], evidence: A thing, evidence_by_phase: {alpha: Designed}, tcop_points: [5]"
+    [g] = _example(tmp_path, meta)
     assert g["phases"] == ["alpha"] and g["tcop_points"] == [5] and g["status"] == "draft"
 
 
@@ -150,6 +151,26 @@ def test_unknown_phase_status_and_points_fail(tmp_path):
     assert "unknown phase 'gamma'" in str(err.value)
     assert "status 'agreed'" in str(err.value)
     assert "Service Standard point 15" in str(err.value)
+
+
+def test_must_needs_evidence_for_each_of_its_phases(tmp_path):
+    with pytest.raises(Exception, match="is a Must in beta but has no evidence_by_phase for beta"):
+        _example(tmp_path, "phases: [alpha, beta], evidence: x, evidence_by_phase: {alpha: y}")
+
+
+def test_evidence_by_phase_checks_its_phases(tmp_path):
+    with pytest.raises(Exception) as err:
+        _example(tmp_path, "phases: [alpha], evidence: x, evidence_by_phase: {alpha: y, gamma: z, live: w}")
+    assert "unknown phase 'gamma'" in str(err.value)
+    assert "has evidence for live but does not apply in live" in str(err.value)
+
+
+def test_evidence_by_phase_parses_and_falls_back(tmp_path):
+    meta = "phases: [alpha], evidence: general, evidence_by_phase: {alpha: designed, retire: removed}"
+    [g] = _example(tmp_path, meta)
+    assert g["evidence_by_phase"] == {"alpha": "designed", "retire": "removed"}
+    assert guardrails.evidence_for(g, "alpha") == "designed"
+    assert guardrails.evidence_for(g, "significant-change") == "general"
 
 
 def test_deprecated_needs_a_replacement(tmp_path):
@@ -257,6 +278,18 @@ def test_delivery_with_unknown_guardrail_fails(tmp_path, monkeypatch):
     monkeypatch.setattr(delivery, "LIFECYCLE", str(path))
     with pytest.raises(Exception, match="unknown guardrail GR-NOPE-01"):
         delivery.load(DOCS)
+
+
+def test_every_must_shown_in_a_phase_has_evidence_for_that_phase():
+    """Phase pages and checklists show phase-specific evidence, so every Must needs it."""
+    missing = []
+    data = delivery.load(DOCS)
+    for phase in data["phases"]:
+        for gid in phase["guardrails"]:
+            g = data["guardrails"][gid]
+            if g["level"] == "must" and not g["evidence_by_phase"].get(phase["id"]):
+                missing.append(f"{gid} in {phase['id']}")
+    assert not missing, "Musts with no evidence for a phase they appear in: " + ", ".join(missing)
 
 
 def test_every_platform_says_what_is_unknown():

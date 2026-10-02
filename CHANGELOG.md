@@ -22,9 +22,14 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 - Delivery partners section: contracting, mobilisation, handover and exit, and working with other suppliers.
 - Draft guardrails: `GR-DEV-09` (ADRs), `GR-AI-07` (supplier AI coding assistants), `GR-AI-08` to `GR-AI-11` (agentic AI), `GR-PROD-01` to `GR-PROD-04` (products and platforms), `GR-DIG-01` to `GR-DIG-03` (digital first) and `GR-FIELD-01` to `GR-FIELD-04` (field working and devices).
 - New Must guardrails, all in draft: `GR-AI-08`, `GR-AI-09`, `GR-AI-10`, `GR-AI-11` and `GR-FIELD-03`.
+- `evidence_by_phase` guardrail metadata, with phase-specific evidence for every Must, used on phase pages and checklists.
 - A GitHub Action, `tools/guardrail-check`, that checks a repository against GR-OPEN-02, GR-DEV-08, GR-API-02, GR-OPEN-03, GR-DEV-03, GR-DEV-06 and GR-DEV-09.
 - Architecture decision records for this site in `docs/adr`.
 - Versioned releases with a PDF of every guardrail, a "version in force" banner, approval status, the exception register, guardrails health and applicability notes for each guardrail area.
+
+### Changed
+
+- When Must guardrails apply: `GR-DATA-02` now also applies in discovery; `GR-HOST-02`, `GR-OPEN-01` and `GR-SEC-09` no longer apply in discovery; `GR-HOST-03`, `GR-IAM-02`, `GR-IAM-03`, `GR-OPS-02`, `GR-SEC-04`, `GR-SEC-05`, `GR-DEV-04` and `GR-DEV-06` no longer apply in alpha.
 
 ### Fixed
 

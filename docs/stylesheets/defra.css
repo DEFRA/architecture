@@ -1914,3 +1914,14 @@ body {
   position: static;
   box-shadow: none;
 }
+
+.md-typeset ul.gr-meta__phases {
+  margin: 0 !important;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.gr-meta__phases li {
+  margin-left: 0;
+  margin: 0 0 0.2rem;
+}

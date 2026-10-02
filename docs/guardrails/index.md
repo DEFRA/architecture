@@ -29,7 +29,7 @@ Under each guardrail, **Phases, evidence and status** shows:
 
 - **status** - draft, endorsed by the [Technology Governance Board](../governance/tgb.md), or deprecated
 - **phases** - when it applies: discovery, alpha, beta or live
-- **evidence** - what to show an assessor or your solution design authority to prove you meet it
+- **evidence** - what to show an assessor or your solution design authority to prove you meet it, phase by phase: in discovery the intent or constraint you identified, in alpha the design or plan, in beta what you built and tested, and in live how you operate and review it
 - **automated check** - whether it can be checked by a tool, or needs a person
 - the Service Standard, Technology Code of Practice and Secure by Design points it helps you meet, and the DDTS doctrine it applies
 

@@ -12,49 +12,84 @@ guardrails:
   GR-SEC-01:
     phases: [discovery, alpha, beta, live]
     evidence: Named risk owner and the Secure by Design activities completed for the phase
+    evidence_by_phase:
+      discovery: Named risk owner, and the information and threats the service is likely to face identified
+      alpha: Secure by Design activities for alpha completed, including security requirements in the backlog
+      beta: Secure by Design activities for beta completed, including controls built and tested
+      live: Secure by Design activities for live continuing, including monitoring and review
+      significant-change: Secure by Design activities repeated for the change, with the risk owner involved
     service_standard_points: [9]
     tcop_points: [6]
     sbd_principles: [1, 3]
   GR-SEC-02:
     phases: [alpha, beta, live]
     evidence: Current, dated threat model, reviewed at the last significant change and at least annually
+    evidence_by_phase:
+      alpha: First threat model, created by the team
+      beta: Threat model updated as controls are built and tested
+      live: Threat model reviewed at least once a year, with the date of the last review
+      significant-change: Threat model revisited for the change before it is built
     service_standard_points: [9]
     tcop_points: [6]
     sbd_principles: [3]
   GR-SEC-03:
     phases: [discovery, alpha]
     evidence: Security classification and data types recorded with the controls that match them
+    evidence_by_phase:
+      discovery: Security classification and the types of data the service will handle identified
+      alpha: Controls in the design that match the classification
     tcop_points: [6]
     sbd_principles: [3]
   GR-SEC-04:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: TLS configuration and encryption at rest settings for every data store
+    evidence_by_phase:
+      beta: TLS 1.2 or higher for all traffic and encryption at rest for every data store, confirmed as built
+      live: Encryption settings checked when new stores or connections are added
     tcop_points: [6]
     sbd_principles: [8]
   GR-SEC-05:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: Pipeline scanning results and the time taken to fix critical and high vulnerabilities
+    evidence_by_phase:
+      beta: Static analysis, dependency, container and infrastructure scanning running in the pipeline
+      live: Time taken to fix critical and high vulnerabilities, within 14 and 30 days, or a recorded risk decision
     automated_check: Static analysis, dependency, container and infrastructure scanning in the pipeline
     tcop_points: [6]
     sbd_principles: [9]
   GR-SEC-06:
     phases: [beta, live]
     evidence: IT health check report and remediation tracker
+    evidence_by_phase:
+      beta: IT health check before go-live, and a remediation tracker
+      live: IT health check after significant change, with remediation tracked
+      significant-change: IT health check scoped and booked for the change where it is significant
     service_standard_points: [9]
     sbd_principles: [9]
   GR-SEC-07:
     phases: [beta, live]
     evidence: Security-relevant events reaching the security operations centre
+    evidence_by_phase:
+      beta: Authentication, authorisation failures, administrative actions and data exports sent to the security operations centre, and tested
+      live: Security events reviewed and alerts acted on
     sbd_principles: [5]
   GR-SEC-08:
     phases: [alpha, beta, live]
     evidence: Supplier security assessments, pinned dependencies and a software bill of materials
+    evidence_by_phase:
+      alpha: Security assessment of suppliers and third-party products in the design
+      beta: Dependencies pinned and verified, and a software bill of materials produced in the pipeline
+      live: Software bill of materials kept current, and supplier assessments reviewed at renewal
     automated_check: Dependency review and software bill of materials generation in the pipeline
     tcop_points: [6]
     sbd_principles: [2]
   GR-SEC-09:
-    phases: [discovery, alpha, beta, live]
+    phases: [alpha, beta, live]
     evidence: Risk register entries with an owner and an expiry date for every accepted risk
+    evidence_by_phase:
+      alpha: Risks from controls that cannot be met recorded, with an owner
+      beta: Residual risks accepted by the right owner through the security exception process, each with an expiry date
+      live: Accepted risks reviewed before they expire
     sbd_principles: [1, 3]
 ---
 

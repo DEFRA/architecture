@@ -67,6 +67,10 @@ guardrails:
   GR-HOST-08:
     phases: [alpha, beta, live]
     evidence: What a team shows to prove they meet it
+    evidence_by_phase:               # required for a Must, for every phase it applies in
+      alpha: The design or plan that shows it
+      beta: What was built and tested
+      live: How it is operated and reviewed
     automated_check: manual          # or describe the automated check
     service_standard_points: [11]    # only where the link is clear
     tcop_points: [5]
@@ -78,7 +82,8 @@ guardrails:
 | --- | --- |
 | `status` | `draft`, `endorsed` or `deprecated`. Endorsed means approved by the [Technology Governance Board](../governance/tgb.md). |
 | `phases` | When the guardrail applies: any of `discovery`, `alpha`, `beta`, `live` |
-| `evidence` | What a team shows to prove they meet it. **Required for every Must** - the build fails without it. |
+| `evidence` | What a team shows to prove they meet it, in general. **Required for every Must** - the build fails without it. Used wherever no phase-specific evidence is given. |
+| `evidence_by_phase` | What to show in each phase or lifecycle event: `discovery` (intent or constraint identified), `alpha` (design or plan), `beta` (built and tested), `live` (operated and reviewed), `significant-change` and `retire`. **A Must needs an entry for every phase it applies in**, and for `significant-change` or `retire` if it is listed for them in `delivery/lifecycle.yaml`. Only list a phase in `phases` if a team can do or show something for the guardrail in that phase. |
 | `automated_check` | How it can be checked automatically, or `manual` |
 | `service_standard_points` | [Service Standard](https://www.gov.uk/service-manual/service-standard) points (1 to 14) it helps meet. Leave out unless the link is clear. |
 | `tcop_points` | [Technology Code of Practice](https://www.gov.uk/guidance/the-technology-code-of-practice) points (1 to 13) |

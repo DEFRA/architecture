@@ -63,7 +63,8 @@ def load(docs_dir: str) -> dict:
         lifecycle = yaml.safe_load(handle)
     with open(PLATFORMS, encoding="utf-8") as handle:
         platforms = yaml.safe_load(handle)["platforms"]
-    guardrails = [g for g in _load_guardrails_hook().parse(docs_dir) if g["level"] != "principle"]
+    hook = _load_guardrails_hook()
+    guardrails = [g for g in hook.parse(docs_dir) if g["level"] != "principle"]
     by_id = {g["id"]: g for g in guardrails}
     artefacts = {a["id"]: a for a in lifecycle["artefacts"]}
 
@@ -116,6 +117,7 @@ def load(docs_dir: str) -> dict:
         "artefacts": artefacts,
         "platforms": platforms,
         "guardrails": by_id,
+        "evidence_for": hook.evidence_for,
     }
 
 
@@ -201,7 +203,10 @@ def _phase(phase: dict, link, relink) -> str:
         if not items:
             continue
         rows = ["| Guardrail | What to show |", "| --- | --- |"]
-        rows += [f"| {_guardrail_link(g, link)} {g['title']} | {g['evidence'] or '-'} |" for g in items]
+        rows += [
+            f"| {_guardrail_link(g, link)} {g['title']} | {_data['evidence_for'](g, phase['id']) or '-'} |"
+            for g in items
+        ]
         if level == "must":
             out += [f"### {LEVEL_NAMES[level]} ({len(items)})", "", *rows, ""]
         else:
@@ -268,7 +273,8 @@ def _checklist(phase: dict, link, url) -> str:
             continue
         out += [f"## {LEVEL_NAMES[level]} guardrails", "", '<ul class="dl-checklist">']
         for g in groups[level]:
-            evidence = f" - {e(g['evidence'])}" if g["evidence"] else ""
+            text = _data["evidence_for"](g, phase["id"])
+            evidence = f" - {e(text)}" if text else ""
             href = url(g["page"] + "#" + g["id"].lower())
             out.append(item(f'<a href="{href}">{g["id"]}</a> <strong>{e(g["title"])}</strong>{evidence}'))
         out += ["</ul>", ""]

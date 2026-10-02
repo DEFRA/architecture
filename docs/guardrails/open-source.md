@@ -10,19 +10,32 @@ guardrail_defaults:
   since_version: 0.1.0
 guardrails:
   GR-OPEN-01:
-    phases: [discovery, alpha, beta, live]
+    phases: [alpha, beta, live]
     evidence: Public repository in a Defra GitHub organisation, or a recorded reason for keeping it private
+    evidence_by_phase:
+      alpha: Code public in a Defra GitHub organisation from the first commit, or a recorded reason for keeping a repository private
+      beta: Repositories public, or the reasons for keeping them private reviewed
+      live: Repositories still public, or private for a recorded reason
+      retire: Repositories archived, not deleted, so the code and decisions stay available
     service_standard_points: [12]
     tcop_points: [3]
   GR-OPEN-02:
     phases: [alpha, beta, live]
     evidence: LICENCE file with the Open Government Licence or MIT licence in every repository
+    evidence_by_phase:
+      alpha: LICENCE file in every repository from the start
+      beta: LICENCE file with the Open Government Licence or MIT licence in every repository
+      live: LICENCE file in every new repository
     automated_check: "Guardrail check (tools/guardrail-check): LICENCE file with the Open Government Licence or MIT"
     service_standard_points: [12]
     tcop_points: [3]
   GR-OPEN-03:
     phases: [alpha, beta, live]
     evidence: Secret scanning and push protection enabled on every repository
+    evidence_by_phase:
+      alpha: Secret scanning and push protection on for every repository from the first commit
+      beta: Secret scanning and push protection on for every repository
+      live: Secret scanning alerts dealt with promptly
     automated_check: "Guardrail check (tools/guardrail-check): secret scanning and push protection turned on, with a token that can read security settings"
     service_standard_points: [12]
     tcop_points: [3, 6]

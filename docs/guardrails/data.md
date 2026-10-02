@@ -12,14 +12,27 @@ guardrails:
   GR-DATA-01:
     phases: [alpha, beta, live]
     evidence: Information asset register entries with a named owner for each data set
+    evidence_by_phase:
+      alpha: Each data set the service will create or hold identified, with a proposed information asset owner
+      beta: Information asset register entries with a named owner for each data set
+      live: Register entries and owners kept current
+      retire: Information asset register updated to show what happened to each data set
     tcop_points: [10]
   GR-DATA-02:
-    phases: [alpha, beta, live]
+    phases: [discovery, alpha, beta, live]
     evidence: Data flow diagram naming the authoritative source for each shared entity, with refresh arrangements for any copies
+    evidence_by_phase:
+      discovery: Shared entities the service needs identified, with their authoritative sources
+      alpha: Data flow diagram naming the authoritative source for each shared entity, and how any copies are refreshed
+      beta: The service reads from the authoritative sources as designed, tested with the source owners
+      live: Copies and refresh arrangements reviewed when sources change
     tcop_points: [10]
   GR-DATA-03:
     phases: [alpha, beta]
     evidence: Data model that uses the agreed data standards and identifiers
+    evidence_by_phase:
+      alpha: Data model using the agreed data standards and identifiers
+      beta: Data stored and exchanged using the agreed standards, checked in testing
     service_standard_points: [13]
     tcop_points: [4, 10]
   GR-DATA-04:
@@ -33,6 +46,13 @@ guardrails:
   GR-DATA-06:
     phases: [discovery, alpha, beta, live]
     evidence: Approved DPIA, and retention and deletion built into the service
+    evidence_by_phase:
+      discovery: DPIA screening completed, showing whether personal data is involved
+      alpha: Draft DPIA, with data minimisation and retention designed in
+      beta: Approved DPIA, and retention and deletion built and tested
+      live: DPIA reviewed when processing changes, and deletion running as designed
+      significant-change: DPIA updated for any change in how personal data is processed
+      retire: Personal data deleted or transferred lawfully, as set out in the DPIA
     service_standard_points: [9]
     tcop_points: [7]
   GR-DATA-07:
@@ -46,6 +66,10 @@ guardrails:
   GR-DATA-09:
     phases: [beta, live]
     evidence: Retention schedule applied and records of permanent value identified
+    evidence_by_phase:
+      beta: Retention schedule identified for each type of record, and disposal built in
+      live: Retention applied and records of permanent value identified for The National Archives
+      retire: Records kept, transferred to The National Archives or destroyed, as agreed with the information asset owner
 ---
 
 # Data

@@ -12,16 +12,28 @@ guardrails:
   GR-IAM-01:
     phases: [discovery, alpha, beta, live]
     evidence: Integration with Defra ID or GOV.UK One Login and the agreed level of identity assurance
+    evidence_by_phase:
+      discovery: Identity team engaged about the level of identity assurance needed and how users act for organisations
+      alpha: Sign-in designed with Defra ID or GOV.UK One Login, and tested with users
+      beta: Integration with Defra ID or GOV.UK One Login built and tested
+      live: No other sign-in introduced
     service_standard_points: [9, 13]
     tcop_points: [8]
   GR-IAM-02:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: Single sign-on through Microsoft Entra ID with multi-factor authentication and no local staff accounts
+    evidence_by_phase:
+      beta: Staff sign in through Microsoft Entra ID with multi-factor authentication, and there are no local staff accounts
+      live: Staff access reviewed regularly through Entra ID groups
     service_standard_points: [9]
     tcop_points: [6]
   GR-IAM-03:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: Role and group model and a record of access reviews
+    evidence_by_phase:
+      beta: Role and group model built, with users, services and pipelines given only the permissions they need
+      live: Record of regular access reviews
+      retire: All access to the service's systems and data removed
     tcop_points: [6]
     sbd_principles: [7]
   GR-IAM-04:
@@ -30,12 +42,20 @@ guardrails:
   GR-IAM-05:
     phases: [alpha, beta, live]
     evidence: Secrets held in a managed store with rotation and secret scanning enabled
+    evidence_by_phase:
+      alpha: Secret scanning on from the first commit, and secrets held in a managed store from the start
+      beta: All secrets in a managed store with rotation, using workload identity where possible
+      live: Secrets rotated, and secret scanning alerts dealt with
+      retire: Secrets, keys and credentials revoked
     automated_check: GitHub secret scanning with push protection
     tcop_points: [6]
     sbd_principles: [7]
   GR-IAM-06:
     phases: [beta, live]
     evidence: Just-in-time privileged access with phishing-resistant MFA and logs reaching the security operations centre
+    evidence_by_phase:
+      beta: Just-in-time privileged access with phishing-resistant MFA configured, and logged to the security operations centre
+      live: Privileged access reviewed regularly
     sbd_principles: [5, 8]
 ---
 

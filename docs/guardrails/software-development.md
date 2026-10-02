@@ -16,23 +16,37 @@ guardrails:
   GR-DEV-02:
     phases: [alpha, beta, live]
     evidence: All source code in a Defra-owned GitHub organisation from the first commit
+    evidence_by_phase:
+      alpha: All code, including prototypes and infrastructure code written by suppliers, in a Defra-owned GitHub organisation from the first commit
+      beta: All source, infrastructure and pipeline code in the Defra GitHub organisation, with nothing held only by a supplier
+      live: All changes made in the Defra GitHub organisation
     service_standard_points: [12]
   GR-DEV-03:
     phases: [alpha, beta, live]
     evidence: Branch protection on the main branch requiring a review and passing checks
+    evidence_by_phase:
+      alpha: Main branch protected from the start, with changes through reviewed pull requests
+      beta: Branch protection requiring at least one review and passing checks
+      live: Branch protection still in place on every repository
     automated_check: "Guardrail check (tools/guardrail-check): default branch protected by branch protection or a ruleset"
     sbd_principles: [10]
   GR-DEV-04:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: Pipeline definition in the repository and deployment history
+    evidence_by_phase:
+      beta: Every change built, tested, scanned and deployed by an automated pipeline, with rollback tested
+      live: Deployment history showing small, frequent, reversible releases
     service_standard_points: [14]
     sbd_principles: [10]
   GR-DEV-05:
     phases: [alpha, beta, live]
     evidence: Test results from the pipeline at each level
   GR-DEV-06:
-    phases: [alpha, beta, live]
+    phases: [beta, live]
     evidence: Dependabot or Renovate configuration and runtimes on supported versions
+    evidence_by_phase:
+      beta: Dependabot or Renovate configured, software composition analysis in the pipeline, and runtimes on supported versions
+      live: Dependency updates merged promptly and runtimes upgraded before they go out of support
     automated_check: "Guardrail check (tools/guardrail-check): Dependabot or Renovate configured"
   GR-DEV-07:
     phases: [alpha, beta, live]

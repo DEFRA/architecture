@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Evidence that matches the phase
+
+- **Every Must guardrail now says what to show in each phase**: in discovery the intent or constraint identified, in alpha the design or plan, in beta what was built and tested, and in live how it is operated and reviewed - plus what to show for a significant change or when retiring a service. The [phase pages](../deliver/index.md) and evidence checklists show the evidence for that phase, so alpha no longer asks for a published accessibility statement or the date of the last recovery test.
+- **Fewer, better-placed Musts per phase.** We re-checked when each Must applies. Discovery now lists 11 Musts (was 13) and alpha 37 (was 45). Beta (50) and live (49) are unchanged.
+
 ### Automated guardrail checks
 
 - **[Check your repository automatically](../deliver/guardrail-check.md):** a GitHub Action that checks a repository against GR-OPEN-02, GR-DEV-08, GR-API-02, GR-OPEN-03, GR-DEV-03, GR-DEV-06 and GR-DEV-09, and writes a report naming each guardrail. Each of those guardrails now names the check as its automated check.
