@@ -212,6 +212,7 @@ nav:
       - Writing good NFRs: nfrs/writing-nfrs.md
   - Handrail:
       - handrail/index.md
+      - Services and capabilities: handrail/services-and-capabilities.md
       - Business capabilities: handrail/business-capabilities.md
       - Technology capabilities: handrail/technology-capabilities.md
       - Capability mapping: handrail/capability-mapping.md

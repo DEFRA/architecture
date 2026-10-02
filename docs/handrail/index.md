@@ -6,6 +6,12 @@
 
 <div class="grid cards" markdown>
 
+-   **[Services and capabilities](services-and-capabilities.md)**
+
+    ---
+
+    Defra's service taxonomy - outcomes, services, products, capabilities, components and data - and how the handrail fits into it. Draft.
+
 -   **[Business capabilities](business-capabilities.md)**
 
     ---
@@ -46,6 +52,8 @@ flowchart TB
     P --> S["Services<br/>what users see"]
     S -.->|"deliver"| O
 ```
+
+These layers line up with Defra's service taxonomy - see [services and capabilities](services-and-capabilities.md) for definitions and how they connect.
 
 Business capabilities change slowly. Products and services change quickly. Mapping one to the other lets us:
 

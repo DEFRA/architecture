@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Services and capabilities
+
+- **New draft page: [services and capabilities](../handrail/services-and-capabilities.md).** It uses the definitions from Defra's six-level service taxonomy - outcomes, whole services and services, products, common business capabilities, components and data - and shows where the business capability model, technology capabilities and Defra on a page fit into it. It also explains where architecture uses words such as capability, platform and "service" differently. Definitions are context-specific and we will keep iterating them with service design and product colleagues.
+
 ### Draft guardrails for research data and for failures
 
 Three new draft guardrails, for comment. They are Shoulds, so the number of Musts does not change.
