@@ -21,6 +21,9 @@ concurrency:
 jobs:
   release:
     name: Tag and release
+    # Only DEFRA/architecture releases, so a fork never tags or publishes a
+    # version that contracts could cite by mistake.
+    if: github.repository == 'DEFRA/architecture'
     runs-on: ubuntu-latest
     permissions:
       contents: write

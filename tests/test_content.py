@@ -806,3 +806,16 @@ def test_sign_in_only_links_are_not_link_checked():
     assert found, "no sign-in-only links found - has the pattern changed?"
     unchecked = [url for url in found if not any(p.match(url) for p in excludes)]
     assert not unchecked, "Exclude these from .lychee.toml: " + ", ".join(sorted(unchecked))
+
+
+def test_only_defra_publishes():
+    """Forks run the checks but never deploy, release or raise link-check issues, so they cannot overwrite anything."""
+    guard = "github.repository == 'DEFRA/architecture'"
+    workflows = os.path.join(ROOT, ".github", "workflows")
+    for name, job in [("ci.yml", "deploy"), ("release.yml", "release"), ("links.yml", "links")]:
+        with open(os.path.join(workflows, name), encoding="utf-8") as handle:
+            text = handle.read()
+        block = re.search(rf"^  {job}:\n((?:    .*\n|\s*\n)+)", text, re.M)
+        assert block, f"{name} has no {job} job"
+        condition = re.search(r"^    if: (.+)$", block.group(1), re.M)
+        assert condition and guard in condition.group(1), f"the {job} job in {name} must only run in DEFRA/architecture"

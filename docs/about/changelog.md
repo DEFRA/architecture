@@ -8,6 +8,7 @@
 
 - **The site is now at [defra.github.io/architecture](https://defra.github.io/architecture/)**, and its source at [DEFRA/architecture](https://github.com/DEFRA/architecture). Old addresses redirect to the same page, including guardrail anchors. See [moving to the DEFRA GitHub organisation](moving-to-defra.md) and [ADR 0006](../adr/0006-move-to-defra-github.md).
 - Version 0.2.0 and its PDF stay at their original address, so contracts that cite them remain valid. New contracts should cite releases from DEFRA/architecture.
+- Changes can still be prepared in a fork and proposed to DEFRA/architecture. Only DEFRA/architecture publishes the site and makes releases.
 
 ### Content style and site design
 
