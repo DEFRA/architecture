@@ -639,6 +639,14 @@ def test_expansion_match_ignores_markup_and_case():
     assert abbreviations.problems(abbreviations.tidy(page)) == []
 
 
+def test_claude_md_stays_short_and_keeps_the_ground_rules():
+    with open(os.path.join(ROOT, "CLAUDE.md"), encoding="utf-8") as handle:
+        text = handle.read()
+    assert len(text.splitlines()) <= 80, "Keep CLAUDE.md under 80 lines - link to the contribute pages instead"
+    for rule in ("Guardrail ids are stable", "Never invent Defra facts", "never in the GitHub wiki", "gets a test"):
+        assert rule in text, f"CLAUDE.md is missing the ground rule: {rule}"
+
+
 # --- Issue and pull request templates ------------------------------------------------
 
 
