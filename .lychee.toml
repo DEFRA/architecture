@@ -25,6 +25,13 @@ exclude = [
   # Files in this repository's main branch do not exist until a pull request
   # is merged. tests/test_content.py checks they exist in the checkout instead.
   "^https://github\\.com/DEFRA/architecture/(blob|tree)/main/",
+  # This repository's own releases page and tags, which the release workflow
+  # creates after merge, so a new release cannot be checked before it exists.
+  "^https://github\\.com/DEFRA/architecture/releases",
+  # GitHub's folder view often answers automated checkers with 503 for the
+  # cross-government Secure by Design library, and folders have no raw address.
+  # Files in it are checked through the remap below; check folders by hand.
+  "^https://github\\.com/co-cddo/SbD/tree/",
   # security.gov.uk returns 403 to automated checkers; check these by hand
   "^https://www\\.security\\.gov\\.uk/",
   # Defra internal sites that need a Defra device, VPN or sign-in: the CDP

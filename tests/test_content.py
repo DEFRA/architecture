@@ -763,16 +763,28 @@ def test_guidance_does_not_live_in_the_wiki():
 
 
 def test_link_check_remaps_secure_by_design_files():
-    """GitHub's file viewer returns 503 to link checkers for large SbD files, so they are checked at raw addresses."""
+    """GitHub returns 503 to link checkers for SbD files and folders: check files at raw addresses, skip folders."""
     with open(os.path.join(ROOT, ".lychee.toml"), encoding="utf-8") as handle:
         config = handle.read()
     pattern = re.search(r'"(\^https://github\\\\\.com/co-cddo/SbD/blob/[^ ]+) ', config)
     assert pattern, ".lychee.toml must remap co-cddo/SbD blob links to raw.githubusercontent.com"
     regex = re.compile(pattern.group(1).replace("\\\\", "\\"))
+    excludes = [re.compile(p.replace("\\\\", "\\")) for p in re.findall(r'^\s*"(\^[^"]+)"', config, re.M)]
     for path in patterns.SBD_ARTEFACTS.values():
         url = f"{patterns.SBD_BASE}/{path[1] if isinstance(path, tuple) else path}"
         if "/blob/" in url:
             assert regex.match(url), f"not covered by the remap: {url}"
+        else:
+            assert any(e.match(url) for e in excludes), f"SbD folder link not excluded from the link check: {url}"
+
+
+def test_manual_link_check_only_checks_the_manual():
+    """lychee checks every link no exclude matches, so the manual-only step must exclude everything else."""
+    with open(os.path.join(ROOT, ".github", "workflows", "links.yml"), encoding="utf-8") as handle:
+        workflow = handle.read()
+    step = re.search(r"--include '\^https://digital\\\.defra\\\.gov\\\.uk/'([^\n]*)", workflow)
+    assert step, "links.yml must check Defra Digital Service Manual links in their own step"
+    assert "--exclude '.*'" in step.group(1), "the manual-only step must add --exclude '.*' after --include"
 
 
 SIGN_IN_ONLY = re.compile(

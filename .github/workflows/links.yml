@@ -27,12 +27,15 @@ jobs:
       - run: mkdocs build --strict
       # The matching links in docs/contribute/where-things-live.md depend on
       # these pages existing, so check them on their own and always fail.
+      # --include alone does not narrow the check: lychee still checks every
+      # link that no exclude matches. Excluding everything else does, because
+      # an include takes precedence over an exclude.
       - name: Check Defra Digital Service Manual links
         # On the weekly run, the step below still reports these in an issue.
         continue-on-error: ${{ github.event_name == 'schedule' }}
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
-          args: --config .lychee.toml --include '^https://digital\.defra\.gov\.uk/' --root-dir "${{ github.workspace }}/site" 'site/**/*.html'
+          args: --config .lychee.toml --include '^https://digital\.defra\.gov\.uk/' --exclude '.*' --root-dir "${{ github.workspace }}/site" 'site/**/*.html'
           output: ./lychee/manual.md
           fail: true
       - name: Check links
