@@ -39,13 +39,13 @@ Decisions taken by the TDA and TGB are recorded in the architecture decision reg
 If your decision needs the TDA or TGB, send it to them by email. You do not need a GitHub account or access to the SharePoint site.
 
 1. Write the decision using the [ADR template](templates/adr.md), with status **Proposed**. For a TDA item, also complete the [TDA submission template](templates/tda-submission.md).
-2. Email it to [noreply@defra.gov.uk](mailto:noreply@defra.gov.uk), with "ADR:" and the decision title as the subject.
+2. Email it to [StrategicEnterpriseArchitecture@defra.gov.uk](mailto:StrategicEnterpriseArchitecture@defra.gov.uk), with "ADR:" and the decision title as the subject.
 3. An automated flow adds it to the register as **Proposed** and tells the architecture team.
 4. An architect triages it: it goes to the TDA, to the TGB, or back to your team or SDA if it does not need either.
 5. When the decision is made, the register is updated to **Accepted** or **Rejected**, with the date and any conditions, and you are told the outcome. Copy the outcome into your own repository's ADR if you keep one.
 
 !!! warning "To be confirmed"
-    **TODO:** noreply@defra.gov.uk is a holding address for alpha and is not monitored. Confirm the corporate mailbox for decisions, the Power Automate flow that adds them to the register and who owns it, and how long triage takes.
+    **TODO:** the Power Automate flow that adds emailed decisions to the register, who owns it, and how long triage takes.
 
 ```mermaid
 flowchart LR

@@ -22,5 +22,6 @@ Team and solution design authority decisions stay as ADRs in each service reposi
 ## Consequences
 
 - People can raise a decision without a GitHub account.
-- The register's address, the corporate mailbox and the owner of the flow are still to be confirmed. During alpha, the site shows noreply@defra.gov.uk as a holding address.
+- The register's address and the owner of the flow are still to be confirmed. Until then, the site showed a holding address.
+- Update, 2 October 2026: decisions are emailed to StrategicEnterpriseArchitecture@defra.gov.uk.
 - This repository's own ADRs, in `docs/adr`, are about this site and stay here.

@@ -484,7 +484,7 @@ def test_diagrams_have_text_alternatives(path):
 # not yet known goes in a "To be confirmed" box instead.
 KNOWN_EMAILS = {
     "delivery.architecture@defra.gov.uk",  # Defra Digital Service Manual, architecture page
-    "noreply@defra.gov.uk",  # holding address for alpha, agreed by the site owner
+    "strategicenterprisearchitecture@defra.gov.uk",  # architecture decisions mailbox, given by the site owner
 }
 EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}")
 
