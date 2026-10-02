@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- Developing architecture at Defra page: roles and skills, the Architecture Community and All Architecture meetups.
 - Structured metadata for every guardrail: status, phases, evidence, automated check, Service Standard, Technology Code of Practice and Secure by Design mappings, doctrine, owner, last reviewed and version introduced. The build fails if a Must has no evidence.
 - Guardrail library filters for phase and status, and `guardrails.json`.
 - Open questions page, generated from "To be confirmed" boxes.

@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Developing architecture at Defra
+
+- **New page: [developing architecture at Defra](architecture-profession.md)** - architecture roles and skills, the Architecture Community and its All Architecture meetups, and how to get involved. Linked from the home page and the architecture team page.
+
 ### Where architecture decisions are kept
 
 - **[Architecture decision records](../governance/architecture-decision-records.md#where-to-keep-them)** now separate team decisions, kept in each service repository, from Technical Design Authority (TDA) and Technology Governance Board (TGB) decisions, kept in an architecture decision register on the Defra architecture SharePoint site.
