@@ -16,6 +16,7 @@ const { chromium } = require('playwright')
 
 const SITE = path.resolve(__dirname, '..', 'site')
 const AXE = require.resolve('axe-core/axe.min.js')
+const WORKERS = Number(process.env.A11Y_WORKERS) || 6
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml' }
 
@@ -48,11 +49,24 @@ function serve () {
   const urls = pages(SITE).filter((u) => u !== '/search/')
   let failures = 0
 
-  for (const scheme of ['light', 'dark']) {
-    const page = await browser.newPage({ colorScheme: scheme, viewport: { width: 1280, height: 900 } })
-    // Mermaid diagrams load from a CDN; block third-party requests so results are repeatable.
-    await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort())
-    for (const url of urls) {
+  // Check pages in parallel: one queue of (scheme, page) jobs shared by several
+  // browser tabs. Output is collected per job and printed in order, so results
+  // read the same as a sequential run.
+  const jobs = ['light', 'dark'].flatMap((scheme) => urls.map((url) => ({ scheme, url })))
+  const results = new Array(jobs.length)
+  let next = 0
+  async function worker () {
+    const contexts = {}
+    while (next < jobs.length) {
+      const i = next++
+      const { scheme, url } = jobs[i]
+      if (!contexts[scheme]) {
+        const page = await browser.newPage({ colorScheme: scheme, viewport: { width: 1280, height: 900 } })
+        // Mermaid diagrams load from a CDN; block third-party requests so results are repeatable.
+        await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, (route) => route.abort())
+        contexts[scheme] = page
+      }
+      const page = contexts[scheme]
       await page.goto(origin + url, { waitUntil: 'load' })
       await page.addScriptTag({ path: AXE })
       const { violations } = await page.evaluate((tags) =>
@@ -60,13 +74,18 @@ function serve () {
         // The unrendered source is left in a bare <pre>; skip it. Every diagram
         // carries accTitle/accDescr, checked by tests/test_content.py.
         window.axe.run({ exclude: [['.mermaid'], ['pre[class=""]']] }, { runOnly: { type: 'tag', values: tags } }), TAGS)
-      for (const v of violations) {
-        failures += v.nodes.length
-        console.log(`\n[${scheme}] ${url}\n  ${v.id} (${v.impact}): ${v.help}`)
-        v.nodes.slice(0, 5).forEach((n) => console.log(`    ${n.target.join(' ')}\n      ${n.failureSummary.split('\n').slice(1, 2).join(' ').trim()}`))
-      }
+      results[i] = { scheme, url, violations }
     }
-    await page.close()
+    await Promise.all(Object.values(contexts).map((page) => page.close()))
+  }
+  await Promise.all(Array.from({ length: WORKERS }, worker))
+
+  for (const { scheme, url, violations } of results) {
+    for (const v of violations) {
+      failures += v.nodes.length
+      console.log(`\n[${scheme}] ${url}\n  ${v.id} (${v.impact}): ${v.help}`)
+      v.nodes.slice(0, 5).forEach((n) => console.log(`    ${n.target.join(' ')}\n      ${n.failureSummary.split('\n').slice(1, 2).join(' ').trim()}`))
+    }
   }
 
   await browser.close()
