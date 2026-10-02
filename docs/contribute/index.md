@@ -140,7 +140,7 @@ Add `status: draft` to the page's front matter. The page shows a "Draft - to be 
 
 ### Add a pattern
 
-Copy an existing page in `docs/patterns/` and keep its sections: context, solution (with a diagram), guardrails it helps you meet, related Secure by Design artefacts, and when not to use it. Set the front matter:
+Copy an existing page in `docs/patterns/` and keep its sections: context, solution (with a diagram), what users see, content to design, what to test with users, guardrails it helps you meet, related Secure by Design artefacts, and when not to use it. Set the front matter:
 
 ```yaml
 pattern:
@@ -149,7 +149,10 @@ pattern:
   summary: One sentence saying when to use it.
   guardrails: [GR-API-05, GR-API-06]
   sbd: [stride-template]     # artefact keys listed in hooks/patterns.py
+  user_experience: written   # written, or tbc while the user experience sections are unwritten
 ```
+
+Write the three user experience sections with a designer, a content designer and a user researcher, and link to [GOV.UK Design System](https://design-system.service.gov.uk/) patterns where they exist. If they are not written yet, set `user_experience: tbc`, put one "To be confirmed" box in "What users see", and write "To be written - see the box above." in the other two. The build fails if a section is missing, out of order or empty, or if `user_experience` does not match the sections.
 
 Keep the `<!-- patterns:guardrails -->` and `<!-- patterns:sbd -->` markers where those sections go. The build fills them in, adds the pattern to the [catalogue](../patterns/index.md), and fails if a guardrail id is unknown. Add the page to `nav` in `mkdocs.yml`.
 

@@ -30,6 +30,10 @@ We model this section on the [Department for Education's architecture patterns](
 | Draft | Written and usable, but not yet reviewed by the [Technical Design Authority](../governance/tda.md). |
 | Endorsed | Reviewed by the TDA. Following it is a straightforward way to meet the guardrails it lists. |
 
+## User experience
+
+Every pattern has three sections for designers and researchers: **what users see**, **content to design** and **what to test with users**. They link to [GOV.UK Design System](https://design-system.service.gov.uk/) patterns and components where they exist. The catalogue shows whether a pattern's sections are written or still to be confirmed.
+
 ## Contribute a pattern
 
 If your team has solved a problem others will meet, write it up. Copy an existing pattern page, keep the same sections, and set its front matter. The [contribution guide](../contribute/index.md#add-a-pattern) explains how.

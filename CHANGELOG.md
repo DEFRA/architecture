@@ -12,6 +12,10 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ## [Unreleased]
 
+### Added
+
+- "What users see", "Content to design" and "What to test with users" sections in every pattern and the worked example, with `user_experience` pattern metadata (`written` or `tbc`) checked by the build and shown in the pattern catalogue.
+
 ### Fixed
 
 - The open questions page asked whether the guardrails apply to arm's length bodies 15 times, once for each area. It is now one question on the guardrails overview.

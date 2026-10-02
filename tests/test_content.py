@@ -567,3 +567,46 @@ def test_unconfirmed_applicability_is_one_open_question():
     assert "To be confirmed" not in out and "index.md#arms-length-bodies" in out
     with open(os.path.join(DOCS, "guardrails", "index.md"), encoding="utf-8") as handle:
         assert "{#arms-length-bodies}" in handle.read()
+
+
+# --- Pattern user experience sections ---------------------------------------------
+
+UX_BODY = (
+    "## Context\n\nText.\n\n## What users see\n\n{a}\n\n"
+    "## Content to design\n\n{b}\n\n## What to test with users\n\n{c}\n"
+)
+TBC = '!!! warning "To be confirmed"\n    **TODO:** something.'
+
+
+def test_every_pattern_states_its_user_experience():
+    found = patterns.parse(DOCS, {g["id"]: g for g in guardrails.parse(DOCS)})
+    assert all(p["user_experience"] in patterns.UX_STATES for p in found)
+    written = {p["src"] for p in found if p["user_experience"] == "written"}
+    assert {"patterns/async-submission.md", "patterns/file-upload.md", "patterns/acting-on-behalf.md"} <= written
+
+
+def test_ux_sections_must_be_present_and_in_order():
+    assert patterns.ux_problems("## Context\n\nText.\n", "written")
+    swapped = (
+        UX_BODY.format(a="a", b="b", c="c")
+        .replace("## Content to design", "## X")
+        .replace("## What users see", "## Content to design")
+        .replace("## X", "## What users see")
+    )
+    assert any("order" in p for p in patterns.ux_problems(swapped, "written"))
+
+
+def test_ux_state_must_match_the_sections():
+    written = UX_BODY.format(a="Users see a page.", b="Messages.", c="Questions.")
+    assert patterns.ux_problems(written, "written") == []
+    assert patterns.ux_problems(written, "tbc"), "tbc needs a To be confirmed box"
+    unfinished = UX_BODY.format(a=TBC, b="See above.", c="See above.")
+    assert patterns.ux_problems(unfinished, "tbc") == []
+    assert patterns.ux_problems(unfinished, "written"), "written must not keep a To be confirmed box"
+    empty = UX_BODY.format(a="Users see a page.", b="", c="Questions.")
+    assert any("Content to design" in p for p in patterns.ux_problems(empty, "written"))
+
+
+def test_worked_example_has_the_ux_sections():
+    with open(os.path.join(DOCS, "patterns", "worked-example", "index.md"), encoding="utf-8") as handle:
+        assert patterns.ux_problems(handle.read(), "written") == []

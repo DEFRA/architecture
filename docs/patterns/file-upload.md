@@ -5,6 +5,7 @@ pattern:
   summary: Users upload documents or images, and the files must be scanned and stored safely before anyone opens them.
   guardrails: [GR-SEC-04, GR-SEC-07, GR-HOST-06, GR-DATA-06, GR-DATA-09, GR-OPS-04]
   sbd: [security-patterns, dlp-strategy, stride-template]
+  user_experience: written
 ---
 
 # File upload with malware scanning
@@ -40,6 +41,38 @@ How it works:
 3. Scan it. Until the scan finishes, show the user that the file is being checked, and do not let them submit until it has passed - or let them submit and tell staff a file is pending.
 4. Move clean files to the clean store and record the result. Delete or hold infected files, raise a security event and ask the user to upload a different file.
 5. Encrypt both stores, keep them in the UK and apply the retention period for the submission to its files.
+
+## What users see
+
+- **The limits before they start.** Above the upload control, say which file types you accept and the largest size, so users do not find out by failing. Use the GOV.UK Design System [file upload](https://design-system.service.gov.uk/components/file-upload/) component.
+- **A short wait while the file is checked.** After upload, show that the file is being checked, for example "Checking your file". Most scans take seconds, but the wait must be visible and must not look like the page has frozen.
+- **The result for each file.** Show each file's name with its status, such as "Uploaded" or "There is a problem with this file", and let users remove a file or add another.
+- **What happens if they carry on before the check finishes.** Either they cannot continue until every file has passed, or they can continue and are told a file is still being checked. Choose one with the team, and test it.
+
+What users do not see: the quarantine and clean stores, or the scanner. They see only whether each file was accepted.
+
+## Content to design
+
+| Situation | What to tell users |
+| --- | --- |
+| **Before upload** | The accepted file types in words people know ("PDF, JPG or PNG"), the maximum size ("up to 10MB"), and what the file should show. Use the limits the scanner and storage are actually configured with. |
+| **File too big** | Use an [error message](https://design-system.service.gov.uk/components/error-message/), such as "The selected file must be smaller than 10MB". |
+| **Wrong file type** | For example, "The selected file must be a PDF, JPG or PNG". Check the content, not just the name, so a renamed file gets this message too. |
+| **File being checked** | For example, "Checking your file - this usually takes a few seconds". |
+| **Infected or rejected file** | Do not accuse the user or show technical detail. For example, "This file could not be uploaded. Try a different file, or contact us if this keeps happening." Do not say "virus", and do not show the file back to them. |
+| **Scanning is unavailable** | Say uploads are not available right now and when to try again, and whether they can save their progress and come back. |
+| **Empty or unreadable file** | For example, "The selected file is empty". |
+
+The sizes and types above are examples. Agree the real limits with the developers, and use the GOV.UK Design System [error message](https://design-system.service.gov.uk/components/error-message/) and [error summary](https://design-system.service.gov.uk/components/error-summary/) wording conventions.
+
+## What to test with users
+
+- Do users **notice the limits** before choosing a file, and do they have files that meet them? For example, photos from phones are often larger than expected.
+- Do users **understand the wait** while a file is checked, or do they think it has frozen and upload again?
+- When a file is **rejected**, do they understand what to do next without being alarmed?
+- Can users with **assistive technology** hear the upload status change, and reach the remove and add buttons?
+- On a **slow or rural connection**, how long do uploads take, and what happens if the connection drops ([GR-FE-05](../guardrails/front-end-and-accessibility.md#gr-fe-05))?
+- Do agents and businesses uploading **several files** keep track of which ones they have added?
 
 ## Guardrails it helps you meet
 

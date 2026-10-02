@@ -74,6 +74,41 @@ flowchart LR
     CDP -.->|"logs, metrics, traces"| OBS["Observability and SOC"]
 ```
 
+## What users see
+
+The journey follows the patterns it uses, from a user's point of view:
+
+1. **Sign in** with Defra Customer Identity. An agent then chooses which landowner they are applying for; a landowner applying for themselves goes straight on ([acting on behalf](../acting-on-behalf.md#what-users-see)).
+2. **Answer questions about the works and the site**, one thing per page, saving as they go so they can come back.
+3. **Upload a site plan and photos**, with the accepted types and sizes stated up front and each file's status shown while it is checked ([file upload](../file-upload.md#what-users-see)).
+4. **Check their answers and pay the fee** with GOV.UK Pay.
+5. **See a confirmation page** with a reference number and how long a decision takes, and get the same in an email ([asynchronous submission](../async-submission.md#what-users-see)). Agents also see the landowner's name.
+6. **Come back to check the status**, and get an email when a decision is made.
+
+Assessing staff see the application, its files and its status in case management, and only files that have passed the malware scan.
+
+## Content to design
+
+The team's content designer worked with the developers and the licensing team on:
+
+- **The confirmation page and email:** the reference number, who applied for whom, and the assessment time the licensing team agreed to - not a guess.
+- **File upload messages:** the accepted types and sizes, the "checking your file" message, and what to say when a file is rejected, without alarming users.
+- **Agent and owner wording:** "your land" for owners, the landowner's name for agents, on every page and in every email.
+- **Payment problems:** what happens to the application if payment fails or the user leaves before paying.
+- **Delays in spring:** how the status page and emails explain a longer wait when applications peak.
+
+## What to test with users
+
+In alpha, the team tested with landowners, farmers, contractors and agents, including some on poor rural connections:
+
+- whether agents could find and choose the right landowner, and noticed who they were applying for
+- how long uploading a site plan and photos from a phone took in the field, and what users did while files were checked
+- whether users kept their reference number and understood when to expect a decision
+- what users did when told a file could not be uploaded
+- whether the fee and what it pays for were clear before they started
+
+These findings shaped [ADR 0003](adrs.md#adr-0003), which uses the authoritative relationships so agents only see landowners they act for.
+
 ## Decisions
 
 The team recorded its significant decisions as ADRs ([GR-DEV-09](../../guardrails/software-development.md#gr-dev-09)). Three are shown in full on the [sample ADRs](adrs.md) page:

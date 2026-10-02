@@ -5,6 +5,7 @@ pattern:
   summary: You hold non-personal data that others could use, and want to publish it so it can be found, trusted and reused.
   guardrails: [GR-DATA-07, GR-DATA-05, GR-DATA-03, GR-DATA-08, GR-DATA-01, GR-SEC-03]
   sbd: [dlp-strategy]
+  user_experience: tbc
 ---
 
 # Publishing open data with metadata
@@ -40,6 +41,19 @@ How it works:
 4. Publish in open formats (such as CSV, GeoJSON or GeoPackage) under the [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 5. Publish metadata in [UK GEMINI](https://www.agi.org.uk/why-uk-gemini/) for geospatial data or DCAT for other data, including quality, lineage, update frequency and contact.
 6. Keep stable URLs for each data set and version, so people can cite them.
+
+## What users see
+
+!!! warning "To be confirmed"
+    **TODO:** what users of the published data see, such as the dataset page, licence and update dates, the content for them, and what to test with users. Write these three sections with a designer and a user researcher.
+
+## Content to design
+
+To be written - see the box above.
+
+## What to test with users
+
+To be written - see the box above.
 
 ## Guardrails it helps you meet
 

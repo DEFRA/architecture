@@ -10,6 +10,10 @@ Secure by Design (SbD) artefacts relate to it:
       summary: One sentence for the catalogue.
       guardrails: [GR-API-05, GR-API-06]
       sbd: [stride-template]         # keys of SBD_ARTEFACTS below
+      user_experience: written       # written, or tbc while the sections are still to be written
+
+Every pattern also has three sections, in this order: What users see, Content
+to design, and What to test with users.
 
 This hook validates that front matter and replaces:
 
@@ -40,6 +44,40 @@ CATEGORIES = {
     "data": "Data",
 }
 STATUSES = {"proposed": "Proposed", "draft": "Draft", "endorsed": "Endorsed"}
+# Sections every pattern has about the user experience, in this order.
+UX_SECTIONS = ("What users see", "Content to design", "What to test with users")
+UX_STATES = {"written": "Written", "tbc": "To be confirmed"}
+TBC_BOX = '!!! warning "To be confirmed"'
+SECTION = re.compile(r"^## (.+?)\s*$", re.M)
+
+
+def ux_problems(text: str, state: str) -> list[str]:
+    """Check the user experience sections are present, in order, and match the stated state."""
+    headings = [m.group(1) for m in SECTION.finditer(text)]
+    problems = [f"add a '## {name}' section" for name in UX_SECTIONS if name not in headings]
+    if problems:
+        return problems
+    order = [headings.index(name) for name in UX_SECTIONS]
+    if order != sorted(order):
+        return ["put the user experience sections in the order: " + ", ".join(UX_SECTIONS)]
+    bodies = []
+    for name in UX_SECTIONS:
+        start = text.index(f"## {name}")
+        nxt = SECTION.search(text, start + 3)
+        bodies.append(text[start : nxt.start() if nxt else len(text)])
+    tbc_boxes = sum(body.count(TBC_BOX) for body in bodies)
+    # One box per pattern is enough while the sections are unwritten, so the
+    # open questions page lists the gap once rather than three times.
+    if state == "tbc" and not tbc_boxes:
+        problems.append("add a To be confirmed box to the user experience sections while user_experience is tbc")
+    if state == "written" and tbc_boxes:
+        problems.append("the user experience sections still have a To be confirmed box - set user_experience: tbc")
+    if state == "written":
+        for name, body in zip(UX_SECTIONS, bodies, strict=True):
+            if not body.split("\n", 1)[1].strip():
+                problems.append(f"write the '{name}' section")
+    return problems
+
 
 # Artefacts in the cross-government Secure by Design artefact library.
 SBD_BASE = "https://github.com/co-cddo/SbD"
@@ -121,6 +159,11 @@ def parse(docs_dir: str, guardrails: dict[str, dict]) -> list[dict]:
                 errors.append(f"{src}: list the 'guardrails' the pattern helps meet")
             errors += [f"{src}: unknown guardrail {g}" for g in meta.get("guardrails", []) if g not in guardrails]
             errors += [f"{src}: unknown SbD artefact '{a}'" for a in meta.get("sbd", []) if a not in SBD_ARTEFACTS]
+            state = meta.get("user_experience")
+            if state not in UX_STATES:
+                errors.append(f"{src}: user_experience must be one of {', '.join(UX_STATES)}")
+            else:
+                errors += [f"{src}: {p}" for p in ux_problems(text, state)]
             for marker in ("<!-- patterns:guardrails -->", "<!-- patterns:sbd -->"):
                 if marker not in text:
                     errors.append(f"{src}: add a {marker} section")
@@ -177,9 +220,15 @@ def _catalogue(link) -> str:
                 "",
             ]
             continue
-        out += ["| Pattern | Use it when | Status | Guardrails |", "| --- | --- | --- | --- |"]
+        out += [
+            "| Pattern | Use it when | Status | User experience | Guardrails |",
+            "| --- | --- | --- | --- | --- |",
+        ]
         for p in items:
             ids = ", ".join(f"`{g}`" for g in p["guardrails"])
-            out.append(f"| [{p['title']}]({link(p['src'])}) | {p['summary']} | {STATUSES[p['status']]} | {ids} |")
+            out.append(
+                f"| [{p['title']}]({link(p['src'])}) | {p['summary']} | {STATUSES[p['status']]} | "
+                f"{UX_STATES[p['user_experience']]} | {ids} |"
+            )
         out.append("")
     return "\n".join(out) + "\n"

@@ -5,6 +5,7 @@ pattern:
   summary: A service needs shared data - customers, organisations, holdings, locations or species - that another part of Defra owns.
   guardrails: [GR-DATA-02, GR-DATA-03, GR-DATA-04, GR-API-05, GR-API-07, GR-OPS-04]
   sbd: [security-requirements, stride-template]
+  user_experience: tbc
 ---
 
 # Reading from an authoritative source
@@ -41,6 +42,19 @@ How it works:
 4. Cache only for a short time, and design for the source being unavailable: show what you can, and let users carry on where it is safe to.
 5. If a decision depends on the data at a point in time - such as the land area a payment was calculated on - keep a **snapshot** with the decision, saying where and when it came from.
 6. If the source publishes change events, subscribe, rather than polling.
+
+## What users see
+
+!!! warning "To be confirmed"
+    **TODO:** what users see when data from the authoritative source is out of date or unavailable, the content for those situations, and what to test with users. Write these three sections with a designer and a user researcher.
+
+## Content to design
+
+To be written - see the box above.
+
+## What to test with users
+
+To be written - see the box above.
 
 ## Guardrails it helps you meet
 
