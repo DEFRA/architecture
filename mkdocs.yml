@@ -262,6 +262,7 @@ nav:
   - Standards and links: standards/index.md
   - Contribute:
       - contribute/index.md
+      - Where things live: contribute/where-things-live.md
       - Decisions about this site:
           - adr/index.md
           - "0001 MkDocs Material with hooks": adr/0001-mkdocs-material-with-hooks.md

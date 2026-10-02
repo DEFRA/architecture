@@ -68,9 +68,13 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 
 **Why:** It is the law (Public Sector Bodies Accessibility Regulations 2018) and Service Standard point 5.
 
+**In the Defra Digital Service Manual:** [make sure everyone can use the service](https://digital.defra.gov.uk/accessibility), including the assistive technologies Defra staff use and when exemptions apply, [manage accessibility in your project](https://digital.defra.gov.uk/accessibility/manage-accessibility) and [test for accessibility](https://digital.defra.gov.uk/accessibility/test-for-accessibility).
+
 ## GR-FE-02 Use the GOV.UK Design System {#gr-fe-02}
 
 <span class="rfc rfc--must">Must</span> Public-facing services use [GOV.UK Frontend](https://design-system.service.gov.uk/) and patterns. Staff-facing services should use them too.
+
+**In the Defra Digital Service Manual:** [components and patterns](https://digital.defra.gov.uk/design/components-and-patterns).
 
 ## GR-FE-03 Progressive enhancement {#gr-fe-03}
 
@@ -80,6 +84,8 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 
 <span class="rfc rfc--should">Should</span> For form-based services, consider the forms capability ([TC03](../handrail/technology-capabilities.md#tc03)) before building a bespoke front end.
 
+**In the Defra Digital Service Manual:** [Defra Forms](https://digital.defra.gov.uk/architecture-and-software-development/defra-forms).
+
 ## GR-FE-05 Design for low bandwidth and rural users {#gr-fe-05}
 
 <span class="rfc rfc--should">Should</span> Many Defra users - farmers, land managers, field staff - work in places with poor connectivity. Keep pages light, support saving progress, and consider offline working for field tools.
@@ -87,3 +93,5 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 ## GR-FE-06 Support Welsh where required {#gr-fe-06}
 
 <span class="rfc rfc--must">Must</span> Services used in Wales meet the Welsh Language Standards where they apply. Design for translation from the start.
+
+**In the Defra Digital Service Manual:** [Welsh language translation](https://digital.defra.gov.uk/content/welsh-language-translation).

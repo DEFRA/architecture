@@ -15,6 +15,13 @@ status: draft
 | A **Must** guardrail | The [Technical Design Authority](tda.md) | An [exception request](templates/exception-request.md) and an ADR |
 | A **security control** | The [security exception process](../security/managing-exceptions.md), alongside the above | A security risk record |
 
+## Exceptions to the software development standards
+
+The [Defra software development standards](https://defra.github.io/software-development-standards/) are mandatory, and the Delivery Architecture team handles exceptions to them through its own governance process - see [software development](https://digital.defra.gov.uk/software-development) in the Defra Digital Service Manual. Some guardrails, such as [GR-DEV-01](../guardrails/software-development.md#gr-dev-01) and [GR-HOST-01](../guardrails/hosting-and-platforms.md#gr-host-01), cover the same ground.
+
+!!! warning "To be confirmed"
+    **TODO:** how an exception to a Must guardrail agreed at the Technical Design Authority relates to the Delivery Architecture team's exception process for the software development standards - whether one request can cover both, and which comes first.
+
 ## What a good exception request includes
 
 - The guardrail id and what you propose instead

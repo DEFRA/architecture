@@ -4,7 +4,7 @@ status: draft
 
 # Technical Design Authority (TDA)
 
-<p class="lead">The TDA reviews cross-cutting and novel work, and exceptions to the guardrails. It is a peer review that helps teams get to a good design - not an exam.</p>
+<p class="lead">The TDA is Defra's technical decision-making authority. It agrees roadmaps, grants authority to solution design authorities, and reviews cross-cutting and novel work and exceptions to the guardrails. It is a peer review that helps teams get to a good design - not an exam.</p>
 
 ## When to come to the TDA
 

@@ -79,7 +79,9 @@ Technology capability [TC21 Application hosting and delivery platform](../handra
 
 **Why:** CDP provides secure-by-default hosting, CI/CD, observability, secrets management and protective monitoring once, for everyone. Each team that builds its own platform recreates this at its own cost and risk.
 
-**How to meet it:** Engage the platform team during discovery or alpha. If CDP cannot meet a requirement (for example specialist compute, a SaaS product or a legacy migration), raise an [exception](../governance/exceptions.md) early and tell the platform team - the gap may be something they should solve for everyone.
+**How to meet it:** In discovery or alpha, work with the Delivery Architecture team to decide whether CDP is right for your service - the expectation is that it will be - and engage the platform team. If CDP cannot meet a requirement (for example specialist compute, a SaaS product or a legacy migration), raise an [exception](../governance/exceptions.md) early and tell the platform team - the gap may be something they should solve for everyone.
+
+**In the Defra Digital Service Manual:** [Core Delivery Platform](https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform). The manual says a service not on CDP is managed as an exception through the Delivery Architecture team's governance process; how that relates to exceptions on this site is [still being agreed](../governance/exceptions.md#exceptions-to-the-software-development-standards).
 
 ## GR-HOST-02 Public cloud first {#gr-host-02}
 

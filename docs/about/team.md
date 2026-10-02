@@ -31,12 +31,12 @@ Not every team has its own architect. Teams without one get support from their s
 
 ## Developing as an architect
 
-See [developing architecture at Defra](architecture-profession.md) for architecture roles and skills, the Architecture Community and its All Architecture meetups.
+See [developing architecture at Defra](architecture-profession.md) for the three areas of architecture at Defra - Delivery Architecture, Technical Architecture and Enterprise Architecture - and for architecture roles and skills, the Architecture Community and its All Architecture meetups.
 
 ## How to reach us
 
 - **Questions and suggestions about this site:** [open an issue](https://github.com/howellsr/architecture/issues)
-- **Help designing your service:** the Delivery Architecture team at [delivery.architecture@defra.gov.uk](mailto:delivery.architecture@defra.gov.uk) - see [architecture](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual
+- **Help designing your service:** the Delivery Architecture team at [delivery.architecture@defra.gov.uk](mailto:delivery.architecture@defra.gov.uk). They help you architect your service, explain governance requirements and tell you the principal architect for your delivery group - see [architecture](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual
 - **Defra staff:** use the architecture channel on Defra's collaboration tools, or ask your delivery lead to put you in touch
 - **Delivery partners:** contact the architecture team through your Defra engagement lead
 - **Drop-in sessions:** we run regular architecture clinics for any team, including partners - ask your solution design authority for details

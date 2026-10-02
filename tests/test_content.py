@@ -498,3 +498,64 @@ def test_only_known_email_addresses_are_published():
                     found |= {(m, os.path.relpath(path, ROOT)) for m in EMAIL.findall(handle.read())}
     unknown = sorted(f"{email} in {path}" for email, path in found if email.lower() not in KNOWN_EMAILS)
     assert not unknown, "Unconfirmed email addresses - use a 'To be confirmed' box: " + ", ".join(unknown)
+
+
+# --- Defra Digital Service Manual ------------------------------------------------
+
+# Pages generated from data: the manual link lives in the data, not the page.
+GENERATED_FROM = {
+    "deliver/platforms.md": os.path.join("delivery", "platforms.yaml"),
+    "handrail/technology-capabilities.md": os.path.join("capabilities", "technology-capabilities.yaml"),
+}
+MATCHING_ROW = re.compile(
+    r"^\| [^|]+ \| \[[^]]+\]\(\.\./([^)#]+)(?:#[^)]*)?\) \| \[[^]]+\]\((https://digital\.defra\.gov\.uk/[^)]*)\) \|$"
+)
+
+
+def test_where_things_live_links_match_both_ways():
+    """Every matching link on where-things-live is also on the page it names."""
+    with open(os.path.join(DOCS, "contribute", "where-things-live.md"), encoding="utf-8") as handle:
+        rows = [MATCHING_ROW.match(line) for line in handle.read().splitlines()]
+    rows = [r for r in rows if r]
+    assert len(rows) >= 10, "the matching links table on where-things-live.md was not found"
+    missing = []
+    for row in rows:
+        page, url = row.groups()
+        path = os.path.join(ROOT, GENERATED_FROM.get(page, os.path.join("docs", page)))
+        assert os.path.exists(path), f"where-things-live.md links to {page}, which does not exist"
+        with open(path, encoding="utf-8") as handle:
+            if url not in handle.read():
+                missing.append(f"{page} does not link to {url}")
+    assert not missing, "Add the manual link at the matching point: " + "; ".join(missing)
+
+
+def test_service_manual_links_have_no_tracking_parameters():
+    found = []
+    for path in glob.glob(os.path.join(ROOT, "**", "*.*"), recursive=True):
+        if "node_modules" in path or f"{os.sep}site{os.sep}" in path or not path.endswith((".md", ".yaml", ".py")):
+            continue
+        with open(path, encoding="utf-8") as handle:
+            text = handle.read()
+            for url in re.findall(r"https://(?:digital\.defra\.gov\.uk|defra\.sharepoint\.com)[^\s)\"']*", text):
+                if re.search(r"[?&](xsdata|sdata|clickparams|csf|web|e|OR|CT)=", url):
+                    found.append(f"{os.path.relpath(path, ROOT)}: {url[:80]}")
+    assert not found, "Remove tracking parameters from links: " + "; ".join(found)
+
+
+# --- Doctrine status -------------------------------------------------------------
+
+
+def test_doctrine_wording_follows_the_approvals_register():
+    hook = registers
+    draft = hook.doctrine_wording([{"pages": hook.DOCTRINE_PAGE, "status": "draft"}])
+    endorsed = hook.doctrine_wording([{"pages": hook.DOCTRINE_PAGE, "status": "endorsed"}])
+    assert "draft" in draft["label"] and "CDIO" not in draft["label"]
+    assert endorsed["label"] == "non-negotiables set by the CDIO"
+    assert hook.doctrine_wording([]) == draft, "an unlisted doctrine must read as draft"
+
+
+def test_home_page_does_not_hard_code_doctrine_status():
+    """The home page and principles overview get doctrine wording from registers/approvals.yaml."""
+    for path in ("docs/index.md", "docs/principles/index.md", "overrides/home.html"):
+        with open(os.path.join(ROOT, path), encoding="utf-8") as handle:
+            assert "set by the CDIO" not in handle.read(), f"{path}: use the registers:doctrine markers"

@@ -77,7 +77,7 @@ Technology capabilities [TC01 Customer identity and access](../handrail/technolo
 
 **Why:** Users get one account across Defra services, we manage relationships between people and organisations (including agents) once, and we avoid storing credentials.
 
-**How to meet it:** Talk to the identity team in discovery about the level of identity assurance you need and how the service will represent organisations and agents.
+**How to meet it:** Talk to the Customer Identity team in discovery about the level of identity assurance you need and how the service will represent organisations and agents.
 
 ## GR-IAM-02 Staff sign in with Microsoft Entra ID {#gr-iam-02}
 

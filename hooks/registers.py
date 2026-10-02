@@ -7,6 +7,12 @@ This hook validates it and replaces:
     <!-- registers:exceptions -->   the published exception register
     <!-- registers:health -->       guardrails health: exceptions per guardrail,
                                     exceptions expiring soon and guardrails to review
+    <!-- registers:doctrine-intro -->, <!-- registers:doctrine-lead -->,
+    <!-- registers:doctrine-by -->   wording about the DDTS doctrine that says it
+                                    is draft until the approvals register records
+                                    it as endorsed
+
+It also sets ``doctrine_label`` in page metadata for the home page template.
 
 The health page is rebuilt every time the site is published. The figures are
 reviewed each quarter.
@@ -29,6 +35,31 @@ APPROVALS = os.path.join(ROOT, "registers", "approvals.yaml")
 EXCEPTIONS = os.path.join(ROOT, "registers", "exceptions.yaml")
 
 STATUSES = {"draft": "Draft", "endorsed": "Endorsed"}
+DOCTRINE_PAGE = "principles/doctrine.md"
+
+# How the site describes the doctrine, by its status in registers/approvals.yaml.
+DOCTRINE_WORDING = {
+    "endorsed": {
+        "label": "non-negotiables set by the CDIO",
+        "intro": "One line of sight from the CDIO's non-negotiables to the decisions your team makes this week.",
+        "lead": "The non-negotiables:",
+        "by": "set by the CDIO",
+    },
+    "draft": {
+        "label": "draft non-negotiables, awaiting endorsement",
+        "intro": "One line of sight from the draft DDTS doctrine to the decisions your team makes this week.",
+        "lead": "The draft non-negotiables, awaiting endorsement:",
+        "by": "draft, awaiting endorsement",
+    },
+}
+
+
+def doctrine_wording(sections: list[dict]) -> dict:
+    """Wording for the doctrine: endorsed only when the approvals register says so."""
+    status = next((s.get("status") for s in sections if s.get("pages") == DOCTRINE_PAGE), "draft")
+    return DOCTRINE_WORDING["endorsed" if status == "endorsed" else "draft"]
+
+
 EXCEPTION_ID = re.compile(r"^EX-\d{4}-\d{3}$")
 DOCS_LINK = re.compile(r"\]\((?!https?://|#)([^)]+)\)")
 
@@ -109,8 +140,13 @@ def on_config(config):
 
 
 def on_page_markdown(markdown, page, config, files):
+    wording = doctrine_wording(_data["sections"])
+    if page.file.src_uri == "index.md":
+        page.meta["doctrine_label"] = wording["label"]
     if "<!-- registers:" not in markdown:
         return markdown
+    for key in ("intro", "lead", "by"):
+        markdown = markdown.replace(f"<!-- registers:doctrine-{key} -->", wording[key])
     src = page.file.src_uri
 
     def link(target: str) -> str:

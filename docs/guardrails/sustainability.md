@@ -48,6 +48,8 @@ Defra services must also meet a 15th point of the Service Standard, [deliver a s
 
 <span class="rfc rfc--should">Should</span> Include environmental impact as a factor in ADRs for hosting, architecture and technology choices.
 
+**In the Defra Digital Service Manual:** [assess risks and record sustainability actions](https://digital.defra.gov.uk/sustainability/process) - record the decisions in your sustainability statement as well as your ADRs.
+
 ## GR-SUS-02 Right-size and switch off {#gr-sus-02}
 
 <span class="rfc rfc--should">Should</span> Use autoscaling, scale non-production environments down out of hours, and delete unused resources.
@@ -63,3 +65,5 @@ Defra services must also meet a 15th point of the Service Standard, [deliver a s
 ## GR-SUS-05 Measure and report {#gr-sus-05}
 
 <span class="rfc rfc--could">Could</span> Track the carbon footprint of your service using cloud provider tooling and report it alongside cost.
+
+**In the Defra Digital Service Manual:** the [metrics for each of Defra's six objectives](https://digital.defra.gov.uk/sustainability/metrics).

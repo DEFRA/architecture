@@ -23,7 +23,7 @@
     <aside class="da-hero__aside" aria-label="How we decide">
       {%- set stats = page.meta.get("stats", {}) %}
       <dl class="da-stats">
-        <div><dt><a href="{{ 'principles/doctrine/' | url }}">DDTS doctrine</a></dt><dd class="da-stats__n">{{ stats.get("doctrines", "") }}</dd><dd class="da-stats__sub">non-negotiables set by the CDIO</dd></div>
+        <div><dt><a href="{{ 'principles/doctrine/' | url }}">DDTS doctrine</a></dt><dd class="da-stats__n">{{ stats.get("doctrines", "") }}</dd><dd class="da-stats__sub">{{ page.meta.get("doctrine_label", "draft non-negotiables, awaiting endorsement") }}</dd></div>
         <div><dt><a href="{{ 'principles/architecture-principles/' | url }}">Architecture principles</a></dt><dd class="da-stats__n">{{ stats.get("principles", "") }}</dd><dd class="da-stats__sub">how architecture applies the doctrine</dd></div>
         <div><dt><a href="{{ 'guardrails/library/' | url }}">Guardrails</a></dt><dd class="da-stats__n">{{ stats.get("guardrails", "") }}</dd><dd class="da-stats__sub">{{ stats.get("must", "") }} must &middot; {{ stats.get("should", "") }} should &middot; {{ stats.get("could", "") }} could</dd></div>
       </dl>

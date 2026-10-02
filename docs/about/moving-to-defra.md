@@ -4,8 +4,10 @@
 
 The site is published from a personal account while it is in alpha. It should move to a Defra-owned organisation before it is used widely in contracts - in line with [GR-DEV-02](../guardrails/software-development.md#gr-dev-02), which asks for all code to be in Defra source control.
 
+The Defra Digital Service Manual says code is stored in the [Defra GitHub organisation](https://github.com/DEFRA) - see [architecture](https://digital.defra.gov.uk/architecture) - so that is the expected destination.
+
 !!! warning "To be confirmed"
-    **TODO:** the target GitHub organisation and repository name, the new published address (including whether to use a custom domain), who owns the repository after the move, and when the move happens.
+    **TODO:** confirm the move is to the DEFRA GitHub organisation, and the repository name, the new published address (including whether to use a custom domain), who owns the repository after the move, and when the move happens.
 
 ## What has to keep working
 

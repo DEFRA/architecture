@@ -112,7 +112,7 @@ guardrails:
 
 Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctrine.md#ddts-05), and builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government).
 
-For practical guidance - which tools teams use, what data you can put into them, keeping data safe, working with AI agents and reporting an AI incident - use the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) in the Defra Digital Service Manual, run by the AI Capability and Enablement team (AICE). These guardrails set the architecture boundaries; the toolkit tells you how. Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
+For practical guidance - which tools teams use, what data you can put into them, keeping data safe, working with AI agents and reporting an AI incident - use the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) in the Defra Digital Service Manual, run by the AI Capability and Enablement (AICE) team. Contact details for AICE are on the toolkit's home page. These guardrails set the architecture boundaries; the toolkit tells you how. Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
 
 ## GR-AI-01 Consider AI first {#gr-ai-01}
 
@@ -122,9 +122,13 @@ For practical guidance - which tools teams use, what data you can put into them,
 
 **How to meet it:** in discovery and alpha, look for repetitive tasks, triage, summarising, classification or decision support that AI could help with. Note in your ADR what you considered and why you did or did not use AI.
 
+**In the AI digital toolkit:** start with [check if AI is right for your idea](https://digital.defra.gov.uk/ai-toolkit/triage/question-1), five questions about the problem, users, data, benefits and what you have tried.
+
 ## GR-AI-02 Use approved AI services and tenancies {#gr-ai-02}
 
 <span class="rfc rfc--must">Must</span> Services you build run their AI in Defra's cloud tenancies or under approved enterprise agreements. When anyone uses an AI tool, they put Defra data into it only as the [using data with AI](https://digital.defra.gov.uk/ai-toolkit/guidance/using-data-with-ai) rules in the AI digital toolkit allow - for example, never OFFICIAL-SENSITIVE or personal data in a public consumer tool.
+
+**In the AI digital toolkit:** [choosing a tool](https://digital.defra.gov.uk/ai-toolkit/guidance/choosing-a-tool) and [keeping data safe](https://digital.defra.gov.uk/ai-toolkit/guidance/keeping-data-safe).
 
 ## GR-AI-03 Keep a human accountable {#gr-ai-03}
 
@@ -155,6 +159,7 @@ For practical guidance - which tools teams use, what data you can put into them,
 
 - Follow [choosing a tool](https://digital.defra.gov.uk/ai-toolkit/guidance/choosing-a-tool) and [using data with AI](https://digital.defra.gov.uk/ai-toolkit/guidance/using-data-with-ai) in the AI digital toolkit: what matters is the data you put in, and privacy settings must be on.
 - Tell the Defra engagement lead which tools you use at [mobilisation](../partners/mobilisation.md), and record them in the repository.
+- Follow [AI security](https://digital.defra.gov.uk/ai-toolkit/guidance/security) in the AI digital toolkit: AI-written code clears the same Defra security gates as any other code.
 - Never put secrets into prompts.
 - Review AI-generated code with the same care as any other code ([GR-DEV-03](software-development.md#gr-dev-03)), including licences of any suggested code.
 
@@ -172,6 +177,8 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 **How to meet it:** list each agent's tools and permissions, grant them to a workload identity for the agent, and review them as you would a privileged user's.
 
+**In the AI digital toolkit:** [working with AI agents](https://digital.defra.gov.uk/ai-toolkit/guidance/working-with-agents).
+
 ## GR-AI-09 Get human approval for consequential actions {#gr-ai-09}
 
 <span class="rfc rfc--should">Should</span> An agent does not take an action with legal, financial or significant effects on people, or one that cannot easily be undone, without approval from an accountable person.
@@ -179,6 +186,8 @@ AI agents do more than answer questions: they plan steps and take actions throug
 **Why:** [GR-AI-03](#gr-ai-03) keeps a human accountable for decisions. Agents act faster than people can notice, so approval has to be designed in, not assumed.
 
 **How to meet it:** classify the agent's actions in alpha. Enforce approval in the tool layer, not only in the prompt, and test that the agent cannot bypass it.
+
+**In the AI digital toolkit:** [working with AI agents](https://digital.defra.gov.uk/ai-toolkit/guidance/working-with-agents).
 
 ## GR-AI-10 Keep an audit trail of what agents do {#gr-ai-10}
 
@@ -188,6 +197,8 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 **How to meet it:** log at the tool layer with correlation ids ([GR-OPS-02](observability-and-operations.md#gr-ops-02)), and keep records for as long as the decisions they support.
 
+**In the AI digital toolkit:** [working with AI agents](https://digital.defra.gov.uk/ai-toolkit/guidance/working-with-agents).
+
 ## GR-AI-11 Defend agents against prompt injection {#gr-ai-11}
 
 <span class="rfc rfc--should">Should</span> Treat everything an agent reads - documents, emails, web pages, tool results - as untrusted input that may try to change its instructions, and design controls that hold even if it does.
@@ -195,3 +206,5 @@ AI agents do more than answer questions: they plan steps and take actions throug
 **Why:** prompt injection is the most common way to make an agent misuse its tools or leak data.
 
 **How to meet it:** include injection through every input in your [threat model](../security/threat-modelling.md) ([GR-AI-05](#gr-ai-05)), separate untrusted content from instructions, restrict tools as in GR-AI-08 and require approval as in GR-AI-09.
+
+**In the AI digital toolkit:** [working with AI agents](https://digital.defra.gov.uk/ai-toolkit/guidance/working-with-agents).

@@ -6,7 +6,7 @@
 flowchart TB
     accTitle: From doctrine to delivery decisions
     accDescr: The DDTS doctrine sets seven non-negotiables. The eight architecture principles apply the doctrine to technology change. The guardrails turn the principles into Must, Should and Could defaults. Delivery teams use the guardrails to decide, escalating only exceptions.
-    D["<b>DDTS doctrine</b><br/>7 non-negotiables<br/><i>set by the CDIO</i>"]
+    D["<b>DDTS doctrine</b><br/>7 non-negotiables<br/><i><!-- registers:doctrine-by --></i>"]
     P["<b>Architecture principles</b><br/>8 principles<br/><i>how architecture applies the doctrine</i>"]
     G["<b>Guardrails</b><br/>Must, Should and Could defaults<br/><i>what teams do in practice</i>"]
     T["<b>Delivery decisions</b><br/>made by teams, recorded as ADRs"]

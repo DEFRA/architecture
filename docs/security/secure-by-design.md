@@ -1,6 +1,6 @@
 # Secure by Design in Defra
 
-<p class="lead"><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/">Secure by Design</a> is the government's approach to building security into digital services from the start and throughout their life. This page explains how Defra teams apply it.</p>
+<p class="lead"><a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/">Secure by Design</a> is the government's approach to building security into digital services from the start and throughout their life. This page is the architecture view of how Defra teams apply it. The Defra Security team owns Defra's security policies and the Secure by Design lifecycle requirements.</p>
 
 ## The ten principles, in practice
 
@@ -18,6 +18,11 @@
 | **Make changes securely** | Small, reviewed, automated changes through pipelines; no manual production changes. | [GR-HOST-03](../guardrails/hosting-and-platforms.md#gr-host-03), [GR-DEV-04](../guardrails/software-development.md#gr-dev-04) |
 
 ## Security through the delivery lifecycle
+
+The authoritative Secure by Design requirements for each stage of a project are on the [DDTS Portfolio Hub](https://defra.sharepoint.com/sites/def-ddts-portfoliohub/SitePages/Secure-by-Design.aspx), maintained by the Defra Security team. The Defra Digital Service Manual's [security](https://digital.defra.gov.uk/security) page links to them. What follows is the architecture view of those requirements: the design work and evidence architects help with in each phase. Where the two differ, the Portfolio Hub requirements apply.
+
+!!! warning "To be confirmed"
+    **TODO:** reconcile this phase table with the Secure by Design lifecycle requirements on the DDTS Portfolio Hub, and record any differences.
 
 ```mermaid
 flowchart LR

@@ -6,6 +6,16 @@ status: draft
 
 <p class="lead">How architects at Defra learn, connect and grow, and how anyone interested in architecture can get involved. This is an early version: we will add to it as the profession develops.</p>
 
+## Architecture at Defra
+
+Architects at Defra work in three areas.
+
+| Area | Where it sits | What it does |
+| --- | --- | --- |
+| **Delivery Architecture** | Embedded in the delivery groups | Works with delivery teams to design their services, explains governance requirements and handles exceptions to the software development standards. Each delivery group has a principal architect. See [working with architects](../deliver/working-with-architects.md). |
+| **Technical Architecture** | Group Infrastructure and Operations (GIO) | Technical architects for Defra's infrastructure and operations. |
+| **Enterprise Architecture** | The CTO Office | Writes the [architecture principles](../principles/architecture-principles.md), [guardrails](../guardrails/index.md) and [reference architectures](../handrail/reference-architectures/index.md) on this site, and supports the Architecture Community across Defra. |
+
 ## Architecture roles and skills
 
 Architecture roles in government are described in the Digital, Data and Technology (DDaT) Capability Framework. Use [understand digital and data roles and skills](https://understand-digital-data-roles-skills.service.gov.uk/) to see the architecture roles, what each does at each level and the skills they need. It helps you:

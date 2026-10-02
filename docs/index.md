@@ -91,7 +91,7 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 <section class="da-section" aria-labelledby="decide" markdown>
 <p class="da-kicker da-kicker--dark">How we decide</p>
 <h2 id="decide" class="da-h2">Doctrine, principles, guardrails</h2>
-<p class="da-intro">One line of sight from the CDIO's non-negotiables to the decisions your team makes this week.</p>
+<p class="da-intro"><!-- registers:doctrine-intro --></p>
 
 <div class="da-cascade" markdown>
 
@@ -100,7 +100,7 @@ How the TGB, the TDA and solution design authorities work, what to bring and how
 
 ### [DDTS doctrine](principles/doctrine.md)
 
-The non-negotiables: platforms before projects, standards before exceptions, reuse before buy, data as an enterprise asset, assume AI, outcomes over structures, digital first.
+<!-- registers:doctrine-lead --> platforms before projects, standards before exceptions, reuse before buy, data as an enterprise asset, assume AI, outcomes over structures, digital first.
 </div>
 
 <div class="da-cascade__step" markdown>

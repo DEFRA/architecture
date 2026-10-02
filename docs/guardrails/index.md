@@ -16,6 +16,13 @@ Guardrails are **not** a gate.
 !!! note "Not the same as business analysis guardrails"
     The [business analysis guardrails](https://digital.defra.gov.uk/business-analysis/guardrails) in the Defra Digital Service Manual are a separate quality framework for business analysis work. The guardrails on this site are architecture guardrails. They are the road with the barriers at the edge: you can drive as fast as you like in the middle.
 
+## What the guardrails apply to
+
+The guardrails apply to digital services and products that Defra builds, buys or runs. Some, such as [GR-IAM-02](identity-and-access.md#gr-iam-02), name software as a service explicitly.
+
+!!! warning "To be confirmed"
+    **TODO:** which guardrails apply to commercial off-the-shelf products and to data and reporting platforms. The [architecture guidance](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual says it may not apply to deploying commercial off-the-shelf software or building a data or reporting platform.
+
 ## How to read a guardrail
 
 Each guardrail has an identifier, a level, a short rationale and a way to show you meet it.

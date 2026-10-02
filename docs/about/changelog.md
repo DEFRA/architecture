@@ -4,6 +4,19 @@
 
 ## October 2026
 
+### Joined up with the Defra Digital Service Manual
+
+The manual covers how to do the job and who to contact; this site covers architecture rules, decisions and evidence. A new page, [where things live](../contribute/where-things-live.md), sets out the split and lists the matching links between the two, which are now checked automatically.
+
+- **AI guardrails** link to the AI digital toolkit at the matching point: GR-AI-01 to the "check if AI is right for your idea" triage, GR-AI-02 to choosing a tool and keeping data safe, GR-AI-07 to AI security, and GR-AI-08 to GR-AI-11 to working with AI agents. The toolkit's AI Capability and Enablement (AICE) team is named.
+- **Accessibility, sustainability and forms guardrails** link to the matching manual pages, and [GR-HOST-01](../guardrails/hosting-and-platforms.md#gr-host-01) to the Core Delivery Platform.
+- **[Getting onto Defra platforms](../deliver/platforms.md)** links the Core Delivery Platform onboarding documentation and names the support route for Defra Customer Identity (also known as Defra ID), Defra Forms and the Defra Interactive Map. GOV.UK One Login no longer has its own section, because Defra services use it through Defra Customer Identity.
+- **[Secure by Design](../security/secure-by-design.md)** says the authoritative lifecycle requirements are on the DDTS Portfolio Hub, owned by the Defra Security team, and presents this site's phase table as the architecture view of them.
+- **The home page** describes the DDTS doctrine as draft until the [approval status](approval-status.md) records it as endorsed.
+- **[Developing architecture at Defra](architecture-profession.md#architecture-at-defra)** now describes the three areas of architecture: Delivery Architecture in the delivery groups, Technical Architecture in Group Infrastructure and Operations (GIO), and Enterprise Architecture in the CTO Office.
+- **[Solution design authorities](../governance/solution-design-authorities.md#delivery-groups-and-principal-architects)** now say how governance fits together: the TGB agrees strategies, the TDA is the technical decision-making authority and grants authority to SDAs, and in an SDA the principal architect is accountable for decisions that align with a roadmap agreed at the TDA, follow the principles and stay within the guardrails.
+- New open questions on how Must exceptions relate to the Delivery Architecture team's exception process, and whether the guardrails apply to off-the-shelf products and data platforms.
+
 ### Developing architecture at Defra
 
 - **New page: [developing architecture at Defra](architecture-profession.md)** - architecture roles and skills, the Architecture Community and its All Architecture meetups, and how to get involved. Linked from the home page and the architecture team page.
