@@ -639,6 +639,34 @@ def test_expansion_match_ignores_markup_and_case():
     assert abbreviations.problems(abbreviations.tidy(page)) == []
 
 
+# --- Issue and pull request templates ------------------------------------------------
+
+
+def test_feedback_form_lists_every_role():
+    """The feedback form's roles match the roles the site has pages for."""
+    form = load_yaml(".github", "ISSUE_TEMPLATE", "feedback.yml")
+    role = next(item for item in form["body"] if item.get("id") == "role")
+    options = role["attributes"]["options"]
+    for r in load_yaml("delivery", "roles.yaml")["roles"]:
+        assert r["name"] in options, f"Add '{r['name']}' to the feedback form's roles"
+
+
+def test_issue_forms_are_triaged():
+    for path in glob.glob(os.path.join(ROOT, ".github", "ISSUE_TEMPLATE", "*.yml")):
+        if path.endswith("config.yml"):
+            continue
+        form = load_yaml(".github", "ISSUE_TEMPLATE", os.path.basename(path))
+        assert "needs-triage" in form.get("labels", []), f"{os.path.basename(path)}: add the needs-triage label"
+        assert form.get("name") and form.get("description") and form.get("body"), os.path.basename(path)
+
+
+def test_pull_request_checklist_covers_the_ground_rules():
+    with open(os.path.join(ROOT, ".github", "pull_request_template.md"), encoding="utf-8") as handle:
+        text = handle.read()
+    for rule in ("Guardrail ids unchanged", "Changelog updated", "All checks run", "To be confirmed"):
+        assert rule in text, f"pull request template is missing: {rule}"
+
+
 # --- Prose checks ---------------------------------------------------------------
 
 

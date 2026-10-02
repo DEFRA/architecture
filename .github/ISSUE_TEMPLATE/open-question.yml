@@ -1,0 +1,45 @@
+name: Answer an open question
+description: Give the answer to a "To be confirmed" box on the site
+labels: [open-question, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every "To be confirmed" box is listed on the [open questions](https://howellsr.github.io/architecture/about/open-questions/) page. Only give facts you can stand behind - say where the answer comes from so we can check it. This is a public repository: do not include personal data, internal hostnames or security detail.
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the page with the "To be confirmed" box
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: Copy the text of the box
+    validations:
+      required: true
+  - type: textarea
+    id: answer
+    attributes:
+      label: The answer
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Where the answer comes from
+      description: A document, decision, board or team that confirms it
+    validations:
+      required: true
+  - type: dropdown
+    id: public
+    attributes:
+      label: Can the answer be published?
+      options:
+        - "Yes"
+        - "Not sure"
+        - "No - it needs a different home"
+    validations:
+      required: true

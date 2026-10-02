@@ -5,7 +5,7 @@
 ## Ways to contribute
 
 - **Spotted a mistake or something unclear?** Select **Edit this page** (the pencil icon at the top of each page) to propose a change on GitHub.
-- **Have a question or an idea?** [Open an issue](https://github.com/howellsr/architecture/issues).
+- **Have a question or an idea?** [Open an issue](https://github.com/howellsr/architecture/issues). There are forms to report a content error, propose a guardrail change or an architecture pattern, answer an open question, and give feedback on how the site works for your role.
 - **Want to change a guardrail?** Open a pull request explaining what and why. See [how guardrails change](../guardrails/index.md#how-guardrails-change).
 - **Improving the capability model?** Edit the YAML in [`capabilities/`](https://github.com/howellsr/architecture/tree/main/capabilities). The site build checks your change.
 

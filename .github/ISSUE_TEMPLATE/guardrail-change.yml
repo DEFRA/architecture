@@ -6,7 +6,7 @@ body:
     id: ids
     attributes:
       label: Guardrail or NFR ids affected
-      placeholder: e.g. GR-HOST-01, NFR-AVL-01, or "new"
+      placeholder: For example GR-HOST-01, NFR-AVL-01, or "new"
     validations:
       required: true
   - type: textarea

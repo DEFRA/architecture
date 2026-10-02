@@ -1,0 +1,47 @@
+name: Propose an architecture pattern
+description: Suggest a proven technical solution that other Defra teams could reuse
+labels: [new-pattern, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Architecture patterns are proven technical solutions - see the [pattern catalogue](https://howellsr.github.io/architecture/patterns/). For screen and journey design patterns, use the [Defra Digital Service Manual](https://digital.defra.gov.uk/design/components-and-patterns) instead.
+  - type: input
+    id: name
+    attributes:
+      label: Pattern name
+      placeholder: For example, reading from an authoritative source
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem it solves
+      description: The context, in a Defra setting. Who meets this problem and how often?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: The solution
+      description: How it works, and where it has been used. Link to a public repository or ADR if you can.
+    validations:
+      required: true
+  - type: input
+    id: guardrails
+    attributes:
+      label: Guardrails it helps meet
+      placeholder: For example, GR-API-05, GR-OPS-04
+  - type: textarea
+    id: users
+    attributes:
+      label: What users see
+      description: Anything users notice, such as waits, messages or choices. A designer or researcher will help write this up.
+  - type: dropdown
+    id: write
+    attributes:
+      label: Can you help write it up?
+      options:
+        - "Yes"
+        - With help
+        - "No"

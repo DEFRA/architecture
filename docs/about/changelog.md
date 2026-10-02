@@ -37,6 +37,8 @@ All three have evidence for each phase and are in the [guardrail backlog](roadma
 
 ### Smaller changes
 
+- New issue forms to propose an architecture pattern, answer an open question and give feedback by role, alongside reporting a content error. The pull request checklist now asks contributors to confirm guardrail ids are unchanged, the changelog is updated, all checks have run and unconfirmed facts are marked "To be confirmed".
+
 - [Where things live](../contribute/where-things-live.md#where-to-find-and-change-things) now explains what the site, the repository, Issues, the GitHub Project, Discussions and releases are each for, and why guidance never goes in a wiki.
 - Abbreviation tooltips no longer appear inside guardrail ids such as GR-API-05, or next to their own expansion such as "Technical Design Authority (TDA)", where screen readers could read the expansion twice.
 - [Raise a decision for review](../governance/architecture-decision-records.md#raise-a-decision-for-review) now uses the StrategicEnterpriseArchitecture@defra.gov.uk mailbox instead of the alpha holding address.

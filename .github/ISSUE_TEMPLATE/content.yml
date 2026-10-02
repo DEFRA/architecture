@@ -1,4 +1,4 @@
-name: Content problem or suggestion
+name: Report a content error
 description: Something on the site is wrong, unclear, out of date or missing
 labels: [content, needs-triage]
 body:
