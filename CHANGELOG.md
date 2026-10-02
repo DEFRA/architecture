@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Fixed
 
+- The open questions page asked whether the guardrails apply to arm's length bodies 15 times, once for each area. It is now one question on the guardrails overview.
 - Getting onto Defra platforms links GOV.UK Pay's support page instead of "To be confirmed".
 
 ## [0.2.0] - 2026-10-02

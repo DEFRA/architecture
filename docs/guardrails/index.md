@@ -23,6 +23,11 @@ The guardrails apply to digital services and products that Defra builds, buys or
 !!! warning "To be confirmed"
     **TODO:** which guardrails apply to commercial off-the-shelf products and to data and reporting platforms. The [architecture guidance](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual says it may not apply to deploying commercial off-the-shelf software or building a data or reporting platform.
 
+### Arm's length bodies {#arms-length-bodies}
+
+!!! warning "To be confirmed"
+    **TODO:** whether the guardrails apply to Defra's arm's length bodies as well as the core department, and any differences by area. Each area page links here until its applicability is confirmed; record the answer in that page's `applicability` front matter.
+
 ## How to read a guardrail
 
 Each guardrail has an identifier, a level, a short rationale and a way to show you meet it.

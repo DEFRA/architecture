@@ -559,3 +559,11 @@ def test_home_page_does_not_hard_code_doctrine_status():
     for path in ("docs/index.md", "docs/principles/index.md", "overrides/home.html"):
         with open(os.path.join(ROOT, path), encoding="utf-8") as handle:
             assert "set by the CDIO" not in handle.read(), f"{path}: use the registers:doctrine markers"
+
+
+def test_unconfirmed_applicability_is_one_open_question():
+    """Area pages link to the single arm's length bodies question rather than each raising their own."""
+    out = guardrails._add_applicability('# Area\n\n<p class="lead">Lead.</p>\n', "tbc", "Security")
+    assert "To be confirmed" not in out and "index.md#arms-length-bodies" in out
+    with open(os.path.join(DOCS, "guardrails", "index.md"), encoding="utf-8") as handle:
+        assert "{#arms-length-bodies}" in handle.read()

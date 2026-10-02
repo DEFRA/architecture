@@ -394,10 +394,11 @@ def _sentence_case(text: str) -> str:
 def _add_applicability(markdown: str, applicability, area: str) -> str:
     """Say who an area's guardrails apply to, after the page's lead paragraph."""
     if not applicability or applicability == "tbc":
+        # One open question for every area, asked once on the guardrails overview.
         box = (
-            '!!! warning "To be confirmed"\n'
-            f"    **TODO:** whether the {_sentence_case(area)} guardrails apply to Defra's arm's length bodies "
-            "as well as the core department, and any differences.\n"
+            '!!! info "Who these guardrails apply to"\n'
+            f"    The core department. Whether the {_sentence_case(area)} guardrails also apply to Defra's "
+            "arm's length bodies is [still to be confirmed](index.md#arms-length-bodies).\n"
         )
     else:
         box = f'!!! info "Who these guardrails apply to"\n    {applicability}\n'

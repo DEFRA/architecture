@@ -6,6 +6,7 @@
 
 ### Smaller changes
 
+- The question of whether the guardrails apply to Defra's arm's length bodies is now asked once, on the [guardrails overview](../guardrails/index.md#arms-length-bodies), instead of on each of the 15 area pages. The [open questions](open-questions.md) page lists it once.
 - [Getting onto Defra platforms](../deliver/platforms.md#pay) now links GOV.UK Pay's public support page.
 
 ### Version 0.2.0 released
