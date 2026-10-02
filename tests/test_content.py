@@ -773,3 +773,24 @@ def test_link_check_remaps_secure_by_design_files():
         url = f"{patterns.SBD_BASE}/{path[1] if isinstance(path, tuple) else path}"
         if "/blob/" in url:
             assert regex.match(url), f"not covered by the remap: {url}"
+
+
+SIGN_IN_ONLY = re.compile(
+    r"https://(?:[a-z0-9-]+\.sharepoint\.com|portal\.cdp-int\.defra\.cloud|eaflood\.atlassian\.net)/[^\s)\"'>]*"
+)
+
+
+def test_sign_in_only_links_are_not_link_checked():
+    """Defra links that need a Defra sign-in or device are excluded from the link check, so they cannot fail it."""
+    with open(os.path.join(ROOT, ".lychee.toml"), encoding="utf-8") as handle:
+        config = handle.read()
+    excludes = [re.compile(p.replace("\\\\", "\\")) for p in re.findall(r'^\s*"(\^[^"]+)"', config, re.M)]
+    found = set()
+    for path in glob.glob(os.path.join(ROOT, "**", "*.*"), recursive=True):
+        if "node_modules" in path or f"{os.sep}site{os.sep}" in path or not path.endswith((".md", ".yaml", ".py")):
+            continue
+        with open(path, encoding="utf-8") as handle:
+            found |= set(SIGN_IN_ONLY.findall(handle.read()))
+    assert found, "no sign-in-only links found - has the pattern changed?"
+    unchecked = [url for url in found if not any(p.match(url) for p in excludes)]
+    assert not unchecked, "Exclude these from .lychee.toml: " + ", ".join(sorted(unchecked))

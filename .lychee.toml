@@ -25,16 +25,15 @@ exclude = [
   # Files in this repository's main branch do not exist until a pull request
   # is merged. tests/test_content.py checks they exist in the checkout instead.
   "^https://github\\.com/DEFRA/architecture/(blob|tree)/main/",
-  # Defra internal tools that need a Defra network and sign-in (handrail radars)
-  "^https://eaflood\\.atlassian\\.net/",
-  "^https://defrati-my\\.sharepoint\\.com/",
-  "^https://defra\\.sharepoint\\.com/",
   # security.gov.uk returns 403 to automated checkers; check these by hand
   "^https://www\\.security\\.gov\\.uk/",
-  # Defra internal sites: need a Defra device, VPN or Defra sign-in
+  # Defra internal sites that need a Defra device, VPN or sign-in: the CDP
+  # portal, Jira (tools radar), and SharePoint and OneDrive, including personal
+  # sites such as defrati-my.sharepoint.com. tests/test_content.py checks every
+  # such link on the site is excluded here.
   "^https://portal\\.cdp-int\\.defra\\.cloud/",
-  "^https://defra\\.sharepoint\\.com/",
   "^https://eaflood\\.atlassian\\.net/",
+  "^https://[a-z0-9-]+\\.sharepoint\\.com/",
 ]
 
 # GitHub's file viewer often answers automated checkers with 503 for the large
