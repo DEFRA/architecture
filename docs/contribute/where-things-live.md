@@ -34,6 +34,7 @@ At each of these points, this site links to the manual. A test checks that the p
 | Accessibility | [GR-FE-01](../guardrails/front-end-and-accessibility.md#gr-fe-01) | [Make sure everyone can use the service](https://digital.defra.gov.uk/accessibility) |
 | Sustainability | [Sustainability guardrails](../guardrails/sustainability.md) | [Deliver a sustainable service](https://digital.defra.gov.uk/sustainability) |
 | AI | [AI guardrails](../guardrails/ai.md) | [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) |
+| User research data | [GR-DATA-10](../guardrails/data.md#gr-data-10) | [User research standards and guidance](https://digital.defra.gov.uk/user-research/standards-and-guidance) |
 | Security | [Secure by Design](../security/secure-by-design.md) | [Security](https://digital.defra.gov.uk/security) |
 | Service assessments | [Deliver a service](../deliver/index.md) | [Service assessments](https://digital.defra.gov.uk/service-assessments) |
 | Delivery group governance | [Solution design authorities](../governance/solution-design-authorities.md) | [Governance model](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/governance-model) |

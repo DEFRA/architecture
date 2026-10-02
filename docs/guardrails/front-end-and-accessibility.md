@@ -54,6 +54,16 @@ guardrails:
       beta: Welsh content and journeys built and tested where the standards apply
       live: Welsh content kept in step with English content
     service_standard_points: [5]
+  GR-FE-07:
+    phases: [alpha, beta, live]
+    lead_roles: [content-designer, developer, interaction-designer]
+    evidence: "Designed and tested content for each way the service can fail or slow down, and the front end showing it"
+    evidence_by_phase:
+      alpha: Each dependency that can fail or be slow identified with the developers, and what users see in each case designed and tested in the prototype
+      beta: The front end shows the designed content when a dependency fails or is slow, tested by switching dependencies off
+      live: Failure and delay content kept accurate as dependencies and processing times change
+    service_standard_points: [5, 14]
+    since_version: 0.3.0
 ---
 
 # Front end and accessibility
@@ -95,3 +105,18 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 <span class="rfc rfc--must">Must</span> Services used in Wales meet the Welsh Language Standards where they apply. Design for translation from the start.
 
 **In the Defra Digital Service Manual:** [Welsh language translation](https://digital.defra.gov.uk/content/welsh-language-translation).
+
+## GR-FE-07 Tell users what is happening when things fail or are slow {#gr-fe-07}
+
+<span class="rfc rfc--should">Should</span> When a service is slow, a dependency fails or something is still being processed, users see a clear message saying what has happened, whether their work is saved, and what to do next - not a generic error or a page that seems to hang.
+
+**Why:** Defra services depend on platforms and back-office systems that will sometimes be slow or unavailable. Users who are not told what is happening give up, try again and create duplicates, or phone for help.
+
+**How to meet it:**
+
+- With the developers, list each dependency that can fail or be slow, and decide what users see for each. This is the user-facing side of [GR-OPS-04](observability-and-operations.md#gr-ops-04), which designs the service to degrade gracefully.
+- Use the GOV.UK Design System [problem with the service pages](https://design-system.service.gov.uk/patterns/problem-with-the-service-pages/) and [service unavailable pages](https://design-system.service.gov.uk/patterns/service-unavailable-pages/), and say whether the user's answers are saved.
+- For work that is processed later, show a status and a realistic time, as in the [asynchronous submission](../patterns/async-submission.md#content-to-design) pattern.
+- Test these messages with users in alpha, and test the real failures in beta by switching dependencies off.
+
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).

@@ -4,6 +4,16 @@
 
 ## October 2026
 
+### Draft guardrails for research data and for failures
+
+Three new draft guardrails, for comment. They are Shoulds, so the number of Musts does not change.
+
+- **[GR-DATA-10 Handle research data safely](../guardrails/data.md#gr-data-10)**, led by user researchers: consent, approved storage, deletion, approved research tools ([GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) and DPIA screening. It links to the user research standards in the Defra Digital Service Manual rather than repeating them.
+- **[GR-DATA-11 No real personal data in prototypes](../guardrails/data.md#gr-data-11)**.
+- **[GR-FE-07 Tell users what is happening when things fail or are slow](../guardrails/front-end-and-accessibility.md#gr-fe-07)**, led by content designers and developers, the user-facing side of [GR-OPS-04](../guardrails/observability-and-operations.md#gr-ops-04).
+
+All three have evidence for each phase and are in the [guardrail backlog](roadmap.md#guardrail-backlog) as drafts for comment.
+
 ### User experience in patterns
 
 - **Every [architecture pattern](../patterns/index.md) now has three sections for designers and researchers:** what users see, content to design, and what to test with users. They link to GOV.UK Design System patterns and components where they exist.

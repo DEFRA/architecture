@@ -79,6 +79,25 @@ guardrails:
       beta: Retention schedule identified for each type of record, and disposal built in
       live: Retention applied and records of permanent value identified for The National Archives
       retire: Records kept, transferred to The National Archives or destroyed, as agreed with the information asset owner
+  GR-DATA-10:
+    phases: [discovery, alpha, beta, live]
+    lead_roles: [user-researcher]
+    evidence: "Research plan showing consent, where recordings and notes are stored, when they are deleted, the approved tools used and DPIA screening"
+    evidence_by_phase:
+      discovery: Consent forms and privacy notice in use, recordings and notes stored only in approved places, and a deletion date set
+      alpha: The same for alpha research, with DPIA screening done for the research and any new research tool assessed
+      beta: Research data from earlier phases deleted on schedule, and the same controls for beta research
+      live: Research data handled the same way for ongoing research, and deletion checked
+    since_version: 0.3.0
+  GR-DATA-11:
+    phases: [discovery, alpha, beta]
+    lead_roles: [interaction-designer, user-researcher, developer]
+    evidence: Prototypes and test environments use made-up or anonymised data, never real personal data
+    evidence_by_phase:
+      discovery: Any prototype uses made-up data
+      alpha: Prototypes and research materials use made-up data, including data a participant types in during a session
+      beta: Test and research environments use synthetic or anonymised data; any exception agreed through a DPIA
+    since_version: 0.3.0
 ---
 
 # Data
@@ -128,3 +147,33 @@ See also [enterprise data architecture](../data/index.md).
 ## GR-DATA-09 Retain and dispose of records properly {#gr-data-09}
 
 <span class="rfc rfc--must">Must</span> Apply Defra's retention schedules. Records of permanent value are identified for transfer to The National Archives.
+
+## Research data
+
+User research often collects personal data: recordings, notes, contact details and what participants type into prototypes. How to do this is set out in the user research [standards and guidance](https://digital.defra.gov.uk/user-research/standards-and-guidance) (consent, participant data handling, and storage and retention) and [tools](https://digital.defra.gov.uk/user-research/tools) in the Defra Digital Service Manual. These guardrails cover the architecture side.
+
+## GR-DATA-10 Handle research data safely {#gr-data-10}
+
+<span class="rfc rfc--should">Should</span> Collect research data only with informed consent, store recordings and notes only in Defra-approved places, delete them when they are no longer needed, use only Defra-approved research tools, and screen research for a DPIA.
+
+**Why:** Research recordings and notes are personal data about real people. Keeping them in personal accounts, unapproved tools or for longer than needed puts participants at risk and breaks data protection law.
+
+**How to meet it:**
+
+- Get informed consent before each session, using the templates in the manual's [standards and guidance](https://digital.defra.gov.uk/user-research/standards-and-guidance).
+- Store recordings and notes only where the manual's participant data storage and retention guidance says, and set a deletion date when you collect them.
+- Use only the manual's [approved research tools](https://digital.defra.gov.uk/user-research/tools), and check a tool can hold the data you plan to collect. Assess any new tool before using it ([GR-TECH-04](choosing-technology.md#gr-tech-04)).
+- Screen the research for a DPIA ([GR-DATA-06](#gr-data-06)), especially for new tools, sensitive topics or recordings of people's homes or farms.
+- Do not put recordings or transcripts into AI tools except as the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit/guidance/keeping-data-safe) allows.
+
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
+
+## GR-DATA-11 No real personal data in prototypes {#gr-data-11}
+
+<span class="rfc rfc--should">Should</span> Prototypes, research materials and test environments use made-up or anonymised data, never real personal data copied from a live service or spreadsheet.
+
+**Why:** Prototypes are shared widely, hosted on less protected platforms and shown to participants. Real data in them can be seen by people who should not see it.
+
+**How to meet it:** make up realistic names, addresses, holdings and reference numbers. Tell participants not to enter their own real details into a prototype unless the research plan allows it and the data is handled under [GR-DATA-10](#gr-data-10). If a test genuinely needs real data, agree it through a DPIA first.
+
+This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
