@@ -61,7 +61,7 @@ Puts architecture principle [8. Right tools, right place](../principles/architec
 
 ## GR-FIELD-03 Manage and secure every device {#gr-field-03}
 
-<span class="rfc rfc--must">Must</span> Devices that hold or access Defra data are enrolled in Defra device management, encrypted, kept patched, protected by a screen lock and able to be wiped remotely if lost.
+<span class="rfc rfc--should">Should</span> Devices that hold or access Defra data are enrolled in Defra device management, encrypted, kept patched, protected by a screen lock and able to be wiped remotely if lost.
 
 **Why:** field devices are lost and stolen more often than office equipment, and may hold personal and sensitive data.
 

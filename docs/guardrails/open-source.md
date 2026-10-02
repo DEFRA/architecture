@@ -70,11 +70,11 @@ Relates to Service Standard point 12 and TCoP point 3.
 
 ## GR-OPEN-02 Licence clearly {#gr-open-02}
 
-<span class="rfc rfc--must">Must</span> Code is released under the [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) or the MIT licence, with a LICENCE file in every repository.
+<span class="rfc rfc--should">Should</span> Code is released under the [Open Government Licence](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) or the MIT licence, with a LICENCE file in every repository.
 
 ## GR-OPEN-03 Publish safely {#gr-open-03}
 
-<span class="rfc rfc--must">Must</span> Enable secret scanning and push protection on every repository. Keep secrets, credentials and sensitive configuration out of code.
+<span class="rfc rfc--should">Should</span> Enable secret scanning and push protection on every repository. Keep secrets, credentials and sensitive configuration out of code.
 
 ## GR-OPEN-04 Reuse and contribute back {#gr-open-04}
 

@@ -21,7 +21,6 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 - Patterns section, a worked licence example and proposed reference architectures for field inspection, incident response and grants.
 - Delivery partners section: contracting, mobilisation, handover and exit, and working with other suppliers.
 - Draft guardrails: `GR-DEV-09` (ADRs), `GR-AI-07` (supplier AI coding assistants), `GR-AI-08` to `GR-AI-11` (agentic AI), `GR-PROD-01` to `GR-PROD-04` (products and platforms), `GR-DIG-01` to `GR-DIG-03` (digital first) and `GR-FIELD-01` to `GR-FIELD-04` (field working and devices).
-- New Must guardrails, all in draft: `GR-AI-08`, `GR-AI-09`, `GR-AI-10`, `GR-AI-11` and `GR-FIELD-03`.
 - Links from the handrail to Defra's tools radar and the Emerging Technology Radar 2026.
 - Working with architects page for designers and researchers, and the architect's place in a multidisciplinary team on the team page.
 - `lead_roles` guardrail metadata naming the DDaT roles that lead each guardrail, a role filter in the library, and a page for each role under Deliver a service.
@@ -32,6 +31,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- Fewer Must guardrails: 26 Musts became Shoulds, leaving 29 Musts. A guardrail is now a Must only where law or mandatory government policy requires it, it is a baseline security control, or it puts a DDTS doctrine non-negotiable into practice. The new Shoulds are `GR-AI-05`, `GR-AI-06`, `GR-AI-08` to `GR-AI-11`, `GR-API-02`, `GR-API-04`, `GR-API-05`, `GR-TECH-03`, `GR-DATA-01` to `GR-DATA-03`, `GR-FIELD-03`, `GR-HOST-02`, `GR-HOST-03`, `GR-HOST-06`, `GR-HOST-07`, `GR-OPS-01`, `GR-OPS-02`, `GR-OPEN-02`, `GR-OPEN-03`, `GR-SEC-08`, `GR-DEV-03`, `GR-DEV-04` and `GR-DEV-06`.
 - Governance names the Portfolio Assurance Board (PAB) for spend control and InvestCo for investment approvals.
 - When Must guardrails apply: `GR-DATA-02` now also applies in discovery; `GR-HOST-02`, `GR-OPEN-01` and `GR-SEC-09` no longer apply in discovery; `GR-HOST-03`, `GR-IAM-02`, `GR-IAM-03`, `GR-OPS-02`, `GR-SEC-04`, `GR-SEC-05`, `GR-DEV-04` and `GR-DEV-06` no longer apply in alpha.
 

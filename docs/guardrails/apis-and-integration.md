@@ -86,7 +86,7 @@ Technology capability [TC22 API management and integration](../handrail/technolo
 
 ## GR-API-02 Describe APIs with open specifications {#gr-api-02}
 
-<span class="rfc rfc--must">Must</span> Synchronous APIs are described with **OpenAPI 3**, and asynchronous/event interfaces with **AsyncAPI**, kept in the same repository as the code.
+<span class="rfc rfc--should">Should</span> Synchronous APIs are described with **OpenAPI 3**, and asynchronous/event interfaces with **AsyncAPI**, kept in the same repository as the code.
 
 **Why:** Machine-readable contracts make APIs discoverable, testable and safe to change.
 
@@ -96,11 +96,11 @@ Technology capability [TC22 API management and integration](../handrail/technolo
 
 ## GR-API-04 Version and deprecate deliberately {#gr-api-04}
 
-<span class="rfc rfc--must">Must</span> Breaking changes are versioned, consumers are told in advance, and old versions have a published retirement date.
+<span class="rfc rfc--should">Should</span> Breaking changes are versioned, consumers are told in advance, and old versions have a published retirement date.
 
 ## GR-API-05 No integration through shared databases {#gr-api-05}
 
-<span class="rfc rfc--must">Must</span> Services do not read or write another service's database directly. Integrate through APIs, events or governed data products.
+<span class="rfc rfc--should">Should</span> Services do not read or write another service's database directly. Integrate through APIs, events or governed data products.
 
 **Why:** Shared databases tightly couple services and make both impossible to change safely.
 

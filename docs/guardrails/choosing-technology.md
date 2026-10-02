@@ -84,7 +84,7 @@ guardrails:
 
 ## GR-TECH-03 Plan your exit before you enter {#gr-tech-03}
 
-<span class="rfc rfc--must">Must</span> Any new product, platform or significant supplier dependency has a documented exit plan covering data export in open formats, contract terms and an estimate of switching cost.
+<span class="rfc rfc--should">Should</span> Any new product, platform or significant supplier dependency has a documented exit plan covering data export in open formats, contract terms and an estimate of switching cost.
 
 **Why:** Lock-in is sometimes a sensible trade-off, but it must be a deliberate one.
 

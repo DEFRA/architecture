@@ -109,6 +109,13 @@ def test_supplier_ai_guardrail_is_a_draft_should():
     assert (g["level"], g["status"], g["since_version"]) == ("should", "draft", "0.2.0")
 
 
+def test_musts_are_kept_few():
+    """ADR 0004: Musts only where law, policy, baseline security or doctrine require them."""
+    found = [g for g in guardrails.parse(DOCS) if g["level"] != "principle"]
+    musts = [g for g in found if g["level"] == "must"]
+    assert len(musts) <= 30, f"{len(musts)} Musts - see docs/adr/0004-musts-only-where-required.md"
+
+
 GOOD_PAGE = """---
 applicability: tbc
 guardrail_defaults:

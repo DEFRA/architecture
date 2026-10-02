@@ -89,19 +89,19 @@ See also [enterprise data architecture](../data/index.md).
 
 ## GR-DATA-01 Every data set has an owner {#gr-data-01}
 
-<span class="rfc rfc--must">Must</span> Each data set a service creates or holds has a named business owner (information asset owner) and is recorded in the information asset register.
+<span class="rfc rfc--should">Should</span> Each data set a service creates or holds has a named business owner (information asset owner) and is recorded in the information asset register.
 
 **Why:** Data without an owner is not maintained, not trusted and not deleted when it should be.
 
 ## GR-DATA-02 Use authoritative sources {#gr-data-02}
 
-<span class="rfc rfc--must">Must</span> Use the authoritative source for shared entities - customers, organisations, land parcels, holdings, locations, species - rather than creating local copies that drift. See [Defra on a page](../data/defra-on-a-page.md).
+<span class="rfc rfc--should">Should</span> Use the authoritative source for shared entities - customers, organisations, land parcels, holdings, locations, species - rather than creating local copies that drift. See [Defra on a page](../data/defra-on-a-page.md).
 
 **How to meet it:** If you must cache or replicate, record the source, refresh frequency and how you handle changes.
 
 ## GR-DATA-03 Use agreed data standards and identifiers {#gr-data-03}
 
-<span class="rfc rfc--must">Must</span> Use the [data standards](../data/data-standards.md) for dates, addresses, locations, identifiers and code lists, so data can be joined across services.
+<span class="rfc rfc--should">Should</span> Use the [data standards](../data/data-standards.md) for dates, addresses, locations, identifiers and code lists, so data can be joined across services.
 
 ## GR-DATA-04 Collect once, share safely {#gr-data-04}
 

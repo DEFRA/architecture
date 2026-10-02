@@ -19,7 +19,7 @@ Each guardrail has an identifier, a level, a short rationale and a way to show y
 
 | Level | Means | If you cannot meet it |
 | --- | --- | --- |
-| <span class="rfc rfc--must">Must</span> | A requirement, usually from law, government policy or a significant Defra risk. | You need an approved [exception](../governance/exceptions.md) from the Technical Design Authority. |
+| <span class="rfc rfc--must">Must</span> | A requirement from law or mandatory government policy, a baseline security control, or a [DDTS doctrine](../principles/doctrine.md) non-negotiable. We keep these few. | You need an approved [exception](../governance/exceptions.md) from the Technical Design Authority. |
 | <span class="rfc rfc--should">Should</span> | The strong default. There may be good reasons to differ. | Record why in an [architecture decision record](../governance/architecture-decision-records.md) and share it with your solution design authority. |
 | <span class="rfc rfc--could">Could</span> | Recommended good practice. | No action needed, but we would like to know what worked better. |
 

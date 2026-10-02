@@ -65,11 +65,11 @@ Technology capability [TC23 Observability and security monitoring](../handrail/t
 
 ## GR-OPS-01 Use the platform's observability tooling {#gr-ops-01}
 
-<span class="rfc rfc--must">Must</span> Send structured logs, metrics and traces to the platform's observability tooling, and security events to the security operations centre.
+<span class="rfc rfc--should">Should</span> Send structured logs, metrics and traces to the platform's observability tooling, and security events to the security operations centre.
 
 ## GR-OPS-02 Log in a structured, safe way {#gr-ops-02}
 
-<span class="rfc rfc--must">Must</span> Use structured (JSON) logs with correlation identifiers across service boundaries. Never log secrets, tokens or unnecessary personal data.
+<span class="rfc rfc--should">Should</span> Use structured (JSON) logs with correlation identifiers across service boundaries. Never log secrets, tokens or unnecessary personal data.
 
 ## GR-OPS-03 Define and measure service levels {#gr-ops-03}
 

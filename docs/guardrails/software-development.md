@@ -102,11 +102,11 @@ guardrails:
 
 ## GR-DEV-03 Protect the main branch {#gr-dev-03}
 
-<span class="rfc rfc--must">Must</span> Main branches are protected: changes arrive through pull requests with at least one review and passing automated checks.
+<span class="rfc rfc--should">Should</span> Main branches are protected: changes arrive through pull requests with at least one review and passing automated checks.
 
 ## GR-DEV-04 Continuous integration and delivery {#gr-dev-04}
 
-<span class="rfc rfc--must">Must</span> Every change is built, tested, scanned and deployed by an automated pipeline. Releases to production are small, frequent and reversible.
+<span class="rfc rfc--should">Should</span> Every change is built, tested, scanned and deployed by an automated pipeline. Releases to production are small, frequent and reversible.
 
 ## GR-DEV-05 Automated testing at the right levels {#gr-dev-05}
 
@@ -114,7 +114,7 @@ guardrails:
 
 ## GR-DEV-06 Manage dependencies actively {#gr-dev-06}
 
-<span class="rfc rfc--must">Must</span> Use automated dependency updates and software composition analysis, and keep runtimes on supported versions.
+<span class="rfc rfc--should">Should</span> Use automated dependency updates and software composition analysis, and keep runtimes on supported versions.
 
 **Why:** Unpatched dependencies are one of the most common ways services are compromised.
 

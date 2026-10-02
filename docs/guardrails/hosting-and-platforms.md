@@ -83,13 +83,13 @@ Technology capability [TC21 Application hosting and delivery platform](../handra
 
 ## GR-HOST-02 Public cloud first {#gr-host-02}
 
-<span class="rfc rfc--must">Must</span> Where a service cannot use a strategic platform, it is hosted in a Defra-managed public cloud tenancy. New on-premises hosting is not permitted.
+<span class="rfc rfc--should">Should</span> Where a service cannot use a strategic platform, it is hosted in a Defra-managed public cloud tenancy. New on-premises hosting is not permitted.
 
 **Why:** Government [Cloud First policy](https://www.gov.uk/guidance/government-cloud-first-policy) and Defra's data centre exit.
 
 ## GR-HOST-03 Everything as code {#gr-host-03}
 
-<span class="rfc rfc--must">Must</span> Infrastructure, configuration, pipelines and policies are defined as code, version-controlled and deployed through automated pipelines. No manual changes to production.
+<span class="rfc rfc--should">Should</span> Infrastructure, configuration, pipelines and policies are defined as code, version-controlled and deployed through automated pipelines. No manual changes to production.
 
 **Why:** Repeatable, reviewable, recoverable environments. Manual changes cause drift and incidents.
 
@@ -107,12 +107,12 @@ Technology capability [TC21 Application hosting and delivery platform](../handra
 
 ## GR-HOST-06 Host data in the UK {#gr-host-06}
 
-<span class="rfc rfc--must">Must</span> Data classified OFFICIAL is held in UK regions unless an assessed and approved exception exists.
+<span class="rfc rfc--should">Should</span> Data classified OFFICIAL is held in UK regions unless an assessed and approved exception exists.
 
 **Why:** Data protection, sovereignty and Defra's information risk appetite.
 
 ## GR-HOST-07 Design for the resilience the service needs {#gr-host-07}
 
-<span class="rfc rfc--must">Must</span> Agree recovery time and recovery point objectives with the service owner, design to them across availability zones, and test recovery at least once a year.
+<span class="rfc rfc--should">Should</span> Agree recovery time and recovery point objectives with the service owner, design to them across availability zones, and test recovery at least once a year.
 
 **Why:** Some Defra services, such as flood warnings and disease control, are critical during emergencies - exactly when infrastructure is under stress.

@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Fewer Must guardrails
+
+- **There are now 29 Must guardrails, down from 55.** A guardrail is a Must only where law or mandatory government policy requires it, it is a baseline security control, or it puts a [DDTS doctrine](../principles/doctrine.md) non-negotiable into practice. The other 26 are now Shoulds: still the strong default, but you can depart from them with a recorded reason rather than an exception. We will make guardrails Musts again where feedback and real-world experience show they need to be. See [ADR 0004](../adr/0004-musts-only-where-required.md).
+- Alpha now has 18 Musts (was 37) and beta 25 (was 50).
+
 ### Spend control, investment and technology radars
 
 - [Governance](../governance/index.md#how-this-relates-to-other-assurance) now names the Portfolio Assurance Board (PAB) for spend control and InvestCo for investment approvals.

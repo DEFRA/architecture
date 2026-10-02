@@ -134,14 +134,14 @@ Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctr
 
 ## GR-AI-05 Evaluate, monitor and threat model {#gr-ai-05}
 
-<span class="rfc rfc--must">Must</span> Evaluate models for accuracy, bias and safety before release, monitor them in live, and include AI-specific threats (prompt injection, data leakage, model abuse) in your [threat model](../security/threat-modelling.md).
+<span class="rfc rfc--should">Should</span> Evaluate models for accuracy, bias and safety before release, monitor them in live, and include AI-specific threats (prompt injection, data leakage, model abuse) in your [threat model](../security/threat-modelling.md).
 
 !!! tip "Cross-government AI tools"
     OCTO's [AI technology enablement](https://architecture.cddo.cabinetoffice.gov.uk/psai-tech/index.html) resources include an AI risk management toolkit, an AI assurance questionnaire, the public sector AI governance operating model and a service assessment questions navigator. Use them to evidence [GR-AI-03](#gr-ai-03), [GR-AI-04](#gr-ai-04) and [GR-AI-05](#gr-ai-05).
 
 ## GR-AI-06 Talk to the TDA about novel use {#gr-ai-06}
 
-<span class="rfc rfc--must">Must</span> Novel uses of AI, and any use of generative AI in decision making, are reviewed by the [Technical Design Authority](../governance/tda.md).
+<span class="rfc rfc--should">Should</span> Novel uses of AI, and any use of generative AI in decision making, are reviewed by the [Technical Design Authority](../governance/tda.md).
 
 ## GR-AI-07 Suppliers use AI coding assistants openly and safely {#gr-ai-07}
 
@@ -164,7 +164,7 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 ## GR-AI-08 Give agents the least privilege they need {#gr-ai-08}
 
-<span class="rfc rfc--must">Must</span> AI agents act under their own identity, with access only to the tools, data and actions their task needs, and never with a person's full permissions.
+<span class="rfc rfc--should">Should</span> AI agents act under their own identity, with access only to the tools, data and actions their task needs, and never with a person's full permissions.
 
 **Why:** an agent can be tricked or can simply be wrong. Limiting what it can reach limits the damage ([GR-IAM-03](identity-and-access.md#gr-iam-03)).
 
@@ -172,7 +172,7 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 ## GR-AI-09 Get human approval for consequential actions {#gr-ai-09}
 
-<span class="rfc rfc--must">Must</span> An agent does not take an action with legal, financial or significant effects on people, or one that cannot easily be undone, without approval from an accountable person.
+<span class="rfc rfc--should">Should</span> An agent does not take an action with legal, financial or significant effects on people, or one that cannot easily be undone, without approval from an accountable person.
 
 **Why:** [GR-AI-03](#gr-ai-03) keeps a human accountable for decisions. Agents act faster than people can notice, so approval has to be designed in, not assumed.
 
@@ -180,7 +180,7 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 ## GR-AI-10 Keep an audit trail of what agents do {#gr-ai-10}
 
-<span class="rfc rfc--must">Must</span> Record what each agent was asked, what it read, which tools it called with what inputs, who approved what, and the outcome - and send security-relevant events to security monitoring.
+<span class="rfc rfc--should">Should</span> Record what each agent was asked, what it read, which tools it called with what inputs, who approved what, and the outcome - and send security-relevant events to security monitoring.
 
 **Why:** without a full record, nobody can explain, challenge or reverse what an agent did.
 
@@ -188,7 +188,7 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 ## GR-AI-11 Defend agents against prompt injection {#gr-ai-11}
 
-<span class="rfc rfc--must">Must</span> Treat everything an agent reads - documents, emails, web pages, tool results - as untrusted input that may try to change its instructions, and design controls that hold even if it does.
+<span class="rfc rfc--should">Should</span> Treat everything an agent reads - documents, emails, web pages, tool results - as untrusted input that may try to change its instructions, and design controls that hold even if it does.
 
 **Why:** prompt injection is the most common way to make an agent misuse its tools or leak data.
 

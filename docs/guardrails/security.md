@@ -140,7 +140,7 @@ See also [enterprise security architecture](../security/index.md).
 
 ## GR-SEC-08 Protect the supply chain {#gr-sec-08}
 
-<span class="rfc rfc--must">Must</span> Assess suppliers and third-party products for security before use, pin and verify dependencies, and know what is in your software (keep a software bill of materials).
+<span class="rfc rfc--should">Should</span> Assess suppliers and third-party products for security before use, pin and verify dependencies, and know what is in your software (keep a software bill of materials).
 
 ## GR-SEC-09 Manage risk explicitly {#gr-sec-09}
 
