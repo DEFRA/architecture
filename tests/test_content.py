@@ -476,3 +476,25 @@ def test_diagrams_have_text_alternatives(path):
             assert "accTitle:" in diagram and "accDescr:" in diagram, (
                 f"{os.path.relpath(path, ROOT)}: add accTitle and accDescr to every mermaid diagram"
             )
+
+
+# --- Contacts ------------------------------------------------------------------
+
+# Email addresses confirmed by Defra. Add one here only with a source; anything
+# not yet known goes in a "To be confirmed" box instead.
+KNOWN_EMAILS = {
+    "delivery.architecture@defra.gov.uk",  # Defra Digital Service Manual, architecture page
+    "noreply@defra.gov.uk",  # holding address for alpha, agreed by the site owner
+}
+EMAIL = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}")
+
+
+def test_only_known_email_addresses_are_published():
+    found = set()
+    for folder in ("docs", "delivery", "capabilities", "overrides"):
+        for path in glob.glob(os.path.join(ROOT, folder, "**", "*.*"), recursive=True):
+            if path.endswith((".md", ".yaml", ".yml", ".html")):
+                with open(path, encoding="utf-8") as handle:
+                    found |= {(m, os.path.relpath(path, ROOT)) for m in EMAIL.findall(handle.read())}
+    unknown = sorted(f"{email} in {path}" for email, path in found if email.lower() not in KNOWN_EMAILS)
+    assert not unknown, "Unconfirmed email addresses - use a 'To be confirmed' box: " + ", ".join(unknown)

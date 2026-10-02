@@ -8,5 +8,6 @@
 | [0002](0002-guardrail-metadata-in-front-matter.md) | Keep guardrail metadata in each page's front matter | Accepted |
 | [0003](0003-no-versioned-urls.md) | Release versions as tags and PDFs, not versioned URLs | Accepted |
 | [0004](0004-musts-only-where-required.md) | Keep Must guardrails to what is required | Accepted |
+| [0005](0005-enterprise-decisions-in-sharepoint.md) | Record enterprise decisions in a SharePoint register, not in this repository | Accepted |
 
 New decisions use the [ADR template](../governance/templates/adr.md).

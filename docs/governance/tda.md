@@ -35,9 +35,9 @@ Chaired by the Chief Architect or a delegate, with enterprise, solution, data an
 | Step | What happens | Timing |
 | --- | --- | --- |
 | 1. Talk to us | An informal conversation with an architect to shape the submission | Any time |
-| 2. Submit | Complete the [TDA submission template](templates/tda-submission.md) and send it with any ADRs and diagrams | 5 working days before the meeting |
+| 2. Submit | Complete the [TDA submission template](templates/tda-submission.md) and email it with any ADRs and diagrams - see [raise a decision for review](architecture-decision-records.md#raise-a-decision-for-review) | 5 working days before the meeting |
 | 3. Review | 30-minute slot: 10 minutes to present, 20 minutes discussion | Fortnightly |
-| 4. Outcome | Recorded and shared within 3 working days | |
+| 4. Outcome | Recorded in the [architecture decision register](architecture-decision-records.md#enterprise-decisions-in-the-architecture-decision-register) and shared within 3 working days | |
 
 ## Outcomes
 

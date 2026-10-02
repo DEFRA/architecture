@@ -267,3 +267,4 @@ nav:
           - "0002 Guardrail metadata in front matter": adr/0002-guardrail-metadata-in-front-matter.md
           - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md
           - "0004 Musts only where required": adr/0004-musts-only-where-required.md
+          - "0005 Enterprise decisions in SharePoint": adr/0005-enterprise-decisions-in-sharepoint.md

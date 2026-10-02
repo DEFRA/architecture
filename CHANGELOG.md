@@ -31,6 +31,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- TDA and TGB decisions are recorded in an architecture decision register on the Defra architecture SharePoint site, raised by email, instead of in this repository. Team ADRs stay in service repositories. See ADR 0005.
 - Aligned with the Defra Digital Service Manual: `GR-IAM-01` names Defra Customer Identity (Defra ID); `GR-DEV-01` follows the manual's approved technologies; `GR-AI-02` follows the AI digital toolkit's data rules; Deliver a service, governance, platforms, NFRs, patterns and the security, accessibility and sustainability guardrail pages link to the manual instead of repeating it. Platforms now include the Defra Interactive Map.
 - Fewer Must guardrails: 26 Musts became Shoulds, leaving 29 Musts. A guardrail is now a Must only where law or mandatory government policy requires it, it is a baseline security control, or it puts a DDTS doctrine non-negotiable into practice. The new Shoulds are `GR-AI-05`, `GR-AI-06`, `GR-AI-08` to `GR-AI-11`, `GR-API-02`, `GR-API-04`, `GR-API-05`, `GR-TECH-03`, `GR-DATA-01` to `GR-DATA-03`, `GR-FIELD-03`, `GR-HOST-02`, `GR-HOST-03`, `GR-HOST-06`, `GR-HOST-07`, `GR-OPS-01`, `GR-OPS-02`, `GR-OPEN-02`, `GR-OPEN-03`, `GR-SEC-08`, `GR-DEV-03`, `GR-DEV-04` and `GR-DEV-06`.
 - Governance names the Portfolio Assurance Board (PAB) for spend control and InvestCo for investment approvals.
