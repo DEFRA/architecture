@@ -662,6 +662,17 @@ def test_vale_rules_are_configured():
         assert os.path.exists(os.path.join(ROOT, ".vale", "styles", "Defra", f"{rule}.yml")), rule
 
 
+def test_site_design_lists_every_hook():
+    """The site design page explains every hook the build runs."""
+    with open(os.path.join(ROOT, "mkdocs.yml"), encoding="utf-8") as handle:
+        hooks = re.findall(r"^  - hooks/(\w+\.py)$", handle.read(), re.M)
+    assert len(hooks) > 5
+    with open(os.path.join(DOCS, "contribute", "site-design.md"), encoding="utf-8") as handle:
+        page = handle.read()
+    missing = [h for h in hooks if f"`{h}`" not in page]
+    assert not missing, "Describe these hooks in docs/contribute/site-design.md: " + ", ".join(missing)
+
+
 # --- Maintenance -----------------------------------------------------------------
 
 

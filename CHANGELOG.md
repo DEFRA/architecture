@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- Site design page for maintainers: hooks, templates, theme tokens, components and interactive tools, with a test that every hook is described.
 - Content style page with house rules, how to write a guardrail and a pattern, diagrams and a glossary. A prose job on pull requests reports Vale findings and headings not in sentence case as warnings.
 - `MAINTAINERS.md`, `.github/CODEOWNERS` and `.github/labels.yml`, with tests that every label used is defined. CI warns about guardrails whose `last_reviewed` date is more than 12 months old.
 - Where things live: the site, repository, Issues, GitHub Project, Discussions and releases, and why the GitHub wiki is not used. A test fails on links to a wiki.
