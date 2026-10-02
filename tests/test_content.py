@@ -7,6 +7,7 @@ Run with:  pytest
 
 import glob
 import importlib.util
+import json
 import os
 import re
 
@@ -819,3 +820,25 @@ def test_only_defra_publishes():
         assert block, f"{name} has no {job} job"
         condition = re.search(r"^    if: (.+)$", block.group(1), re.M)
         assert condition and guard in condition.group(1), f"the {job} job in {name} must only run in DEFRA/architecture"
+
+
+def _satisfies(version: str, spec: str) -> bool:
+    """True if version meets an npm range made of ^X.Y.Z or >=X.Y.Z parts joined by ||."""
+    have = tuple(int(n) for n in version.split("-")[0].split("."))
+    for part in spec.split("||"):
+        part = part.strip()
+        want = tuple(int(n) for n in re.sub(r"^(\^|>=)", "", part).split("."))
+        if part.startswith("^") and have[0] == want[0] and have >= want:
+            return True
+        if part.startswith(">=") and have >= want:
+            return True
+    return False
+
+
+def test_lint_rules_support_the_eslint_version():
+    """neostandard only supports some ESLint versions; a newer ESLint makes npm ci, and so CI, fail."""
+    with open(os.path.join(ROOT, "package-lock.json"), encoding="utf-8") as handle:
+        packages = json.load(handle)["packages"]
+    eslint = packages["node_modules/eslint"]["version"]
+    spec = packages["node_modules/neostandard"]["peerDependencies"]["eslint"]
+    assert _satisfies(eslint, spec), f"ESLint {eslint} is outside neostandard's range {spec}; pin it in package.json"

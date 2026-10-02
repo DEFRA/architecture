@@ -32,6 +32,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Fixed
 
+- CI could not install its JavaScript tools after Dependabot moved ESLint to version 10, which the neostandard lint rules do not support yet. ESLint is back on version 9, Dependabot no longer proposes a new major version of ESLint, and a test checks the two stay compatible.
 - The link check no longer fails on GitHub errors it cannot avoid: Secure by Design library files are checked at their raw address, folders in that library and this repository's own releases page are skipped, and the Defra Digital Service Manual step checks only manual links. Tests keep these settings in place.
 - Abbreviation tooltips appeared inside guardrail ids such as GR-API-05, and next to their own expansion, where screen readers could announce it twice. The build now removes them and fails if any are left.
 - The open questions page asked whether the guardrails apply to arm's length bodies 15 times, once for each area. It is now one question on the guardrails overview.
