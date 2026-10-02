@@ -1,0 +1,8 @@
+extends: existence
+message: "Remove '%s' - it adds nothing, and can sound patronising."
+level: warning
+ignorecase: true
+tokens:
+  - please
+  - simply
+  - obviously

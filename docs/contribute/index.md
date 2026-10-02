@@ -11,7 +11,7 @@
 
 ## Writing style
 
-We follow the [GOV.UK style guide](https://www.gov.uk/guidance/style-guide). In short:
+We follow the [GOV.UK style guide](https://www.gov.uk/guidance/style-guide). The [content style](content-style.md) page has the house rules, how to write a guardrail and a pattern, diagrams and a glossary. In short:
 
 - plain English, short sentences, active voice
 - write for a busy delivery team: lead with what they need to do
@@ -199,6 +199,7 @@ Every pull request runs these checks. You can run them locally before you push:
 | Content | `pytest` | Broken references between doctrine, principles, guardrails, capabilities and NFRs; diagrams without text alternatives |
 | Build | `mkdocs build --strict` | Broken links and anchors, invalid data, missing pages |
 | Accessibility | `npm ci && npx playwright install chromium && npm test` (after a build) | WCAG 2.2 AA failures on every page in light and dark mode |
+| Prose (warnings only) | `vale docs` and `python scripts/heading_case.py` | Words to avoid, filler words, exclamation marks and headings not in sentence case - see [prose checks](content-style.md#prose-checks) |
 
 Merges to `main` are published to [howellsr.github.io/architecture](https://howellsr.github.io/architecture/) once all checks pass. A separate weekly job checks every external link and opens an issue if any are broken.
 

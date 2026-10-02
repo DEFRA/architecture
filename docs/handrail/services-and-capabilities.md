@@ -1,6 +1,6 @@
 ---
 status: draft
-status_note: "These definitions are a starting point, not settled. People use words like service, product and capability in different ways, and that is often reasonable in context. We will keep iterating them with service design, product and architecture colleagues - please tell us where they do not work for you."
+status_note: "These definitions are a starting point, not settled. People use words like service, product and capability in different ways, and that is often reasonable in context. We will keep iterating them with service design, product and architecture colleagues - tell us where they do not work for you."
 ---
 
 # Services and capabilities

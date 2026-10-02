@@ -639,6 +639,29 @@ def test_expansion_match_ignores_markup_and_case():
     assert abbreviations.problems(abbreviations.tidy(page)) == []
 
 
+# --- Prose checks ---------------------------------------------------------------
+
+
+def test_heading_case_catches_title_case():
+    spec = importlib.util.spec_from_file_location("heading_case", os.path.join(ROOT, "scripts", "heading_case.py"))
+    headings = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(headings)
+    assert "Phase" in headings.problems("Deliver a service Phase by phase")
+    assert headings.problems("GR-HOST-01 Use Defra's strategic delivery platform by default {#gr-host-01}") == []
+    assert headings.problems("Talk to the Technical Design Authority about novel use of AI") == []
+    assert headings.problems("Which route do I take?") == []
+    text = "---\n# a comment: Not A Heading\n---\n\n# Good heading\n\n```\n# Not Checked\n```\n\n## Bad Heading\n"
+    assert headings.check(text) == [("Bad Heading", ["Heading"])]
+
+
+def test_vale_rules_are_configured():
+    with open(os.path.join(ROOT, ".vale.ini"), encoding="utf-8") as handle:
+        config = handle.read()
+    assert "BasedOnStyles = Defra" in config
+    for rule in ("WordsToAvoid", "Filler", "Exclamation"):
+        assert os.path.exists(os.path.join(ROOT, ".vale", "styles", "Defra", f"{rule}.yml")), rule
+
+
 # --- Maintenance -----------------------------------------------------------------
 
 

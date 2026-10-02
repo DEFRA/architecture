@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Content style
+
+- **New page: [content style](../contribute/content-style.md)** - the house rules on top of the GOV.UK style guide, how to write a guardrail and a pattern, diagrams and a glossary of the terms this site uses.
+- Pull requests now get **prose warnings** from Vale (words to avoid, filler words and exclamation marks) and a check that headings are in sentence case. They never block a merge.
+
 ### How the site is maintained
 
 - **[`MAINTAINERS.md`](https://github.com/howellsr/architecture/blob/main/MAINTAINERS.md)** sets out the roles (names to be confirmed), the two-week triage target, labels, the route for changing a Must (TDA review, then TGB approval), deprecation, releases, a monthly and quarterly review cadence, and the move to the DEFRA GitHub organisation.

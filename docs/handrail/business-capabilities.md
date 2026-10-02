@@ -6,7 +6,7 @@
 
 <!-- capabilities:business-map -->
 
-The nine **core** capabilities are what Defra exists to do for the public and the environment. The two **supporting** capabilities are what the department needs to do in order to deliver them.
+The nine **core** capabilities are what Defra exists to do for the public and the environment. The two **supporting** capabilities are what the department needs to do to deliver them.
 
 The model is deliberately the same across the core department and Defra's arm's length bodies. The Environment Agency, Natural England, the Animal and Plant Health Agency, the Rural Payments Agency, Cefas, the Marine Management Organisation and others each deliver several of these capabilities, often for different sectors. That shared language is what lets us spot common needs.
 

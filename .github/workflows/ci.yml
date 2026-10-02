@@ -37,6 +37,29 @@ jobs:
       - run: npm ci
       - run: npm run lint
 
+  prose:
+    name: Prose (warnings only)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      # Sentence case in headings. Prints warnings; never fails.
+      - run: python scripts/heading_case.py
+      # Words to avoid, filler words and exclamation marks, from .vale.ini.
+      # Shown as warnings on the pull request; never fails the build.
+      - name: Vale
+        env:
+          VALE_VERSION: 3.24.0
+          VALE_SHA256: 867534ddb678abca7f214bc4706ead0922bd5252ffe8035fc227013f66c8b214
+        run: |
+          curl -sSL -o vale.tgz "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz"
+          echo "${VALE_SHA256}  vale.tgz" | sha256sum -c -
+          tar xzf vale.tgz vale
+          ./vale --output=line docs | sed -E 's/^([^:]+):([0-9]+):[0-9]+:(.*)$/::warning file=\1,line=\2::\3/' || true
+
   build:
     name: Build and check
     runs-on: ubuntu-latest

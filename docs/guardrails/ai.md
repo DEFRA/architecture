@@ -173,7 +173,7 @@ AI agents do more than answer questions: they plan steps and take actions throug
 
 <span class="rfc rfc--should">Should</span> AI agents act under their own identity, with access only to the tools, data and actions their task needs, and never with a person's full permissions.
 
-**Why:** an agent can be tricked or can simply be wrong. Limiting what it can reach limits the damage ([GR-IAM-03](identity-and-access.md#gr-iam-03)).
+**Why:** an agent can be tricked, or can be wrong. Limiting what it can reach limits the damage ([GR-IAM-03](identity-and-access.md#gr-iam-03)).
 
 **How to meet it:** list each agent's tools and permissions, grant them to a workload identity for the agent, and review them as you would a privileged user's.
 
