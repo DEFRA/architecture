@@ -78,7 +78,7 @@ The Emerging Technology Radar is published each year, and the 2026 edition added
 - **Sustainable digital operations and leadership** - such as energy-efficient compute, green software practice, circular IT asset management and lower-carbon cloud options
 - **Cybersecurity and operational resilience** - such as secure multiparty computation, homomorphic encryption, post-quantum cryptography and AI-supported cyber defence
 
-The radar is not a list of approved technology. Before adopting an emerging technology, check the [technology capabilities](technology-capabilities.md) and the [guardrails](../guardrails/index.md), and talk to the architecture team - novel use of AI goes to the [Technical Design Authority](../governance/tda.md) ([GR-AI-06](../guardrails/ai.md#gr-ai-06)).
+The emerging technology radar is not a list of approved technology. Before adopting an emerging technology, check the [technology capabilities](technology-capabilities.md) and the [guardrails](../guardrails/index.md), and talk to the architecture team - novel use of AI goes to the [Technical Design Authority](../governance/tda.md) ([GR-AI-06](../guardrails/ai.md#gr-ai-06)).
 
 ## Machine-readable model
 
