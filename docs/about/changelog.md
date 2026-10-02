@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Working with architects
+
+- **New page: [working with architects](../deliver/working-with-architects.md)** for service designers, interaction designers, content designers and user researchers - which design decisions are also architecture decisions, when to involve an architect in each phase, what to bring and what architects do in return. Linked from the home page and Deliver a service.
+- [The architecture team](team.md) page now explains the architect's place in a multidisciplinary team.
+
 ### Who leads each guardrail
 
 - **Every guardrail now names the roles that lead it**, using DDaT role names - for example content designers lead [Welsh language support](../guardrails/front-end-and-accessibility.md#gr-fe-06), and service designers and user researchers lead [human oversight of AI](../guardrails/ai.md#gr-ai-03).

@@ -151,6 +151,7 @@ nav:
       - Open questions: about/open-questions.md
   - Deliver a service:
       - deliver/index.md
+      - Working with architects: deliver/working-with-architects.md
       - Getting onto Defra platforms: deliver/platforms.md
       - Check your repository automatically: deliver/guardrail-check.md
       - Discovery: deliver/discovery.md

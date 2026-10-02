@@ -427,6 +427,14 @@ def test_area_names_keep_acronyms_mid_sentence():
 # --- Pages ---------------------------------------------------------------------
 
 
+def test_working_with_architects_is_linked_from_home_and_deliver():
+    assert os.path.exists(os.path.join(DOCS, "deliver", "working-with-architects.md"))
+    with open(os.path.join(DOCS, "index.md"), encoding="utf-8") as handle:
+        assert 'href="deliver/working-with-architects/"' in handle.read()
+    with open(os.path.join(DOCS, "deliver", "index.md"), encoding="utf-8") as handle:
+        assert "(working-with-architects.md)" in handle.read()
+
+
 REPO_LINK = re.compile(r"https://github\.com/howellsr/architecture/(?:blob|tree)/main/([^)\s\"'#>]+)")
 
 

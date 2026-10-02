@@ -9,7 +9,7 @@ hide:
 <section class="da-section" aria-labelledby="start" markdown>
 <p class="da-kicker da-kicker--dark">Start here</p>
 <h2 id="start" class="da-h2">What do you need to do?</h2>
-<p class="da-intro">Pick the job in front of you. Each route takes you to the smallest useful set of guidance.</p>
+<p class="da-intro">Pick the job in front of you. Each route takes you to the smallest useful set of guidance. Designer or researcher? Start with <a href="deliver/working-with-architects/">working with architects</a>.</p>
 
 <div class="da-routes" markdown>
 

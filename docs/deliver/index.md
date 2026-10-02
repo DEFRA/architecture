@@ -25,6 +25,7 @@ Each phase has a printable **assessment evidence checklist**, built from the sam
 
 ## Before you start
 
+- [Working with architects](working-with-architects.md): for designers and researchers - when to involve an architect, what to bring and what to expect.
 - [Guardrails by role](roles/index.md): the guardrails each role leads, phase by phase - for product managers, designers, researchers, developers, architects and analysts.
 - [Getting onto Defra platforms](platforms.md): what the shared platforms give you, and how to get access.
 - [Check your repository automatically](guardrail-check.md) against the guardrails a tool can check.
