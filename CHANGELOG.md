@@ -12,6 +12,10 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ## [Unreleased]
 
+### Fixed
+
+- Getting onto Defra platforms links GOV.UK Pay's support page instead of "To be confirmed".
+
 ## [0.2.0] - 2026-10-02
 
 The first release with a PDF of every guardrail attached.

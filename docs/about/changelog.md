@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Smaller changes
+
+- [Getting onto Defra platforms](../deliver/platforms.md#pay) now links GOV.UK Pay's public support page.
+
 ### Version 0.2.0 released
 
 - **[Version 0.2.0](releases.md)** is the first release with a PDF of every guardrail attached, to cite in contracts and assessments. It includes everything listed below. The banner on every page now shows 0.2.0 as the version in force.
