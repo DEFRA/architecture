@@ -86,9 +86,9 @@ flowchart TB
 Architecture governance works alongside, not instead of:
 
 - **Service assessments** against the [Service Standard](https://www.gov.uk/service-manual/service-standard) - see the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual)
-- **Spend control** under the government digital and technology spend control
+- **Spend control** under the Portfolio Assurance Board (PAB)
 - **Security assurance** through [Secure by Design](../security/secure-by-design.md)
 - **Data protection** through DPIAs and the Data Protection Officer
-- **Investment approvals** through the department's business case process
+- **Investment approvals** through the department's business case process (InvestCo)
 
 We aim to reuse evidence across these: an ADR log, threat model and architecture diagram prepared for one should satisfy the others.

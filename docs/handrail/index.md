@@ -62,6 +62,24 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 4. **Start from a reference architecture** if one fits.
 5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming capability ids (for example `BC05`, `TC08`) so decisions can be found later.
 
+## Technology radars
+
+Two radars sit alongside the handrail. Both are internal to Defra: you need to be connected to a Defra network and signed in to open them.
+
+| Radar | What it tells you | Use it to |
+| --- | --- | --- |
+| [Tools radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630?filter=&groupBy=epic) | The software tools approved for use in Defra | Check whether a tool is already approved before you buy or adopt one ([GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01), [GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) |
+| [Emerging Technology Radar 2026](https://defrati-my.sharepoint.com/personal/jan_murdoch_defrati_co_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments%2FDefra%20DDTS%20%2D%20Emerging%20Technologies%20Radar%202026%20%2Epdf&parent=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments&ga=1) | The emerging technologies Defra is watching, what is ready to use now, what is on the horizon and what still needs time to mature | Spot opportunities early, and find out whether a technology is mature enough before you build on it |
+
+The Emerging Technology Radar is published each year, and the 2026 edition added 28 technologies. It is organised around four themes that match where Defra group priorities are heading:
+
+- **Digital transformation and data-driven services** - such as AI agents, digital twins, geospatial intelligence and privacy-preserving data tools
+- **Environmental intelligence and resilience** - such as quantum sensors, edge intelligence, drones, autonomous vehicles and real-time monitoring
+- **Sustainable digital operations and leadership** - such as energy-efficient compute, green software practice, circular IT asset management and lower-carbon cloud options
+- **Cybersecurity and operational resilience** - such as secure multiparty computation, homomorphic encryption, post-quantum cryptography and AI-supported cyber defence
+
+The radar is not a list of approved technology. Before adopting an emerging technology, check the [technology capabilities](technology-capabilities.md) and the [guardrails](../guardrails/index.md), and talk to the architecture team - novel use of AI goes to the [Technical Design Authority](../governance/tda.md) ([GR-AI-06](../guardrails/ai.md#gr-ai-06)).
+
 ## Machine-readable model
 
 The capability models are maintained as YAML in the repository and published as JSON so other tools - portfolio management, architecture repositories, dashboards - can use them:

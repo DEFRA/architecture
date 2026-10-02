@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Spend control, investment and technology radars
+
+- [Governance](../governance/index.md#how-this-relates-to-other-assurance) now names the Portfolio Assurance Board (PAB) for spend control and InvestCo for investment approvals.
+- The [handrail](../handrail/index.md#technology-radars) links to Defra's tools radar of approved software tools, and to the Emerging Technology Radar 2026 and its four themes. Both need a Defra network connection and sign-in.
+
 ### Working with architects
 
 - **New page: [working with architects](../deliver/working-with-architects.md)** for service designers, interaction designers, content designers and user researchers - which design decisions are also architecture decisions, when to involve an architect in each phase, what to bring and what architects do in return. Linked from the home page and Deliver a service.
