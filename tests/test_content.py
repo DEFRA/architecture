@@ -341,6 +341,16 @@ def test_every_platform_says_what_is_unknown():
             assert platform.get(field), f"{platform['id']}: set {field}, or 'tbc' if it is not known"
 
 
+def test_platform_service_manual_links_point_to_the_manual():
+    """Platforms link to the Defra Digital Service Manual rather than repeat it."""
+    for platform in load_yaml("delivery", "platforms.yaml")["platforms"]:
+        url = platform.get("service_manual")
+        if url:
+            assert url.startswith("https://digital.defra.gov.uk/"), f"{platform['id']}: link a manual page"
+        if platform.get("docs_note"):
+            assert str(platform["docs"]).startswith("https://"), f"{platform['id']}: docs_note needs a docs link"
+
+
 # --- Patterns ------------------------------------------------------------------
 
 

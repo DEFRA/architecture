@@ -17,7 +17,7 @@ If you design or research any of these, involve an architect early. The guardrai
 
 ## When to involve an architect, and what to bring
 
-This page covers the architecture touchpoints only. For how to run each phase and do research, use the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) and the [GOV.UK Service Manual](https://www.gov.uk/service-manual).
+This page covers the architecture touchpoints only. For your own discipline, use the Defra Digital Service Manual: [design](https://digital.defra.gov.uk/design), [user research](https://digital.defra.gov.uk/user-research) and [content design](https://digital.defra.gov.uk/content), including what content designers do in [discovery](https://digital.defra.gov.uk/content/working-in-discovery), [alpha](https://digital.defra.gov.uk/content/working-in-alpha), [beta](https://digital.defra.gov.uk/content/working-in-beta) and [live](https://digital.defra.gov.uk/content/working-in-live).
 
 ### Discovery
 
@@ -63,7 +63,8 @@ Architects working with your team should:
 ## How to ask
 
 - **If your team has an architect**, talk to them first.
-- **If not**, ask your delivery manager to put you in touch with your [solution design authority](../governance/solution-design-authorities.md), or use the routes on [the architecture team](../about/team.md) page, which also describes the architecture drop-in sessions.
+- **If not**, contact the Delivery Architecture team at [delivery.architecture@defra.gov.uk](mailto:delivery.architecture@defra.gov.uk). They will tell you the principal architect for your delivery group. See [architecture](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual.
+- You can also use the routes on [the architecture team](../about/team.md) page, which describes the architecture drop-in sessions.
 
 !!! warning "To be confirmed"
-    **TODO:** when and where the architecture drop-in sessions run, how designers and researchers book them, and the channel to use to ask an architect a question.
+    **TODO:** when and where the architecture drop-in sessions run, and how designers and researchers book them.

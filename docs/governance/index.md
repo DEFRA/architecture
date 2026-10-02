@@ -85,10 +85,16 @@ flowchart TB
 
 Architecture governance works alongside, not instead of:
 
-- **Service assessments** against the [Service Standard](https://www.gov.uk/service-manual/service-standard) - see the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual)
+- **Service assessments** against the [Service Standard](https://www.gov.uk/service-manual/service-standard) - see [service assessments](https://digital.defra.gov.uk/service-assessments) in the Defra Digital Service Manual
+- **Operational service readiness**, including the operational service design review board at the start of beta - see [operational service readiness](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness)
 - **Spend control** under the Portfolio Assurance Board (PAB)
 - **Security assurance** through [Secure by Design](../security/secure-by-design.md)
 - **Data protection** through DPIAs and the Data Protection Officer
 - **Investment approvals** through the department's business case process (InvestCo)
+
+Delivery groups have their own [governance model](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/governance-model), in which principal architects set the technology guardrails for the group in line with the enterprise architecture principles. The Delivery Architecture team handles exceptions to the [Defra software development standards](https://defra.github.io/software-development-standards/) - see [architecture](https://digital.defra.gov.uk/architecture) in the Defra Digital Service Manual.
+
+!!! warning "To be confirmed"
+    **TODO:** how the Technology Governance Board, Technical Design Authority and solution design authorities on this site relate to delivery group governance and the Delivery Architecture team's exception process, so teams know which route applies.
 
 We aim to reuse evidence across these: an ADR log, threat model and architecture diagram prepared for one should satisfy the others.

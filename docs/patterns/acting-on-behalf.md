@@ -25,7 +25,7 @@ Use the strategic customer identity service to authenticate the person. Get the 
 flowchart LR
     accTitle: Acting on behalf of an organisation or holding
     accDescr: A user signs in through customer identity, which returns who they are. The service asks the authoritative source of customer and organisation relationships which organisations and holdings the user can act for, and the user picks one. An authorisation component in the service checks the user's role for that organisation against the action requested, allows or refuses it, and logs the decision for security monitoring.
-    U(["User or agent"]) -->|"sign in"| ID["Customer identity<br/>Defra ID or GOV.UK One Login"]
+    U(["User or agent"]) -->|"sign in"| ID["Defra Customer Identity<br/>(Defra ID)"]
     ID -->|"who they are"| SVC["Service"]
     SVC -->|"which organisations and<br/>holdings can they act for?"| REL["Authoritative source of<br/>customers, organisations<br/>and relationships"]
     U -->|"choose organisation<br/>or holding"| SVC
@@ -37,8 +37,8 @@ flowchart LR
 
 How it works:
 
-1. The user signs in with [Defra ID or GOV.UK One Login](../deliver/platforms.md). The service never stores passwords or builds its own sign-in.
-2. The service gets the organisations and holdings the user can act for, and their role for each, from the authoritative source - not from a local table that drifts.
+1. The user signs in with [Defra Customer Identity](../deliver/platforms.md#defra-id), which uses GOV.UK One Login and Government Gateway behind the scenes. The service never stores passwords or builds its own sign-in.
+2. The service gets the organisations and holdings the user can act for, and their role for each, from the authoritative source - not from a local table that drifts. Defra Customer Identity stores users' organisation accounts and the relationships between them centrally, so start there.
 3. If the user can act for more than one, they choose which one they are acting for now, and the service shows it on every page.
 4. Before every action, an **authorisation component** checks the role against the action - for example "an agent can submit a claim but cannot change bank details". Keep these rules in code, readable and covered by tests.
 5. Every decision, especially refusals, is logged with the user, the organisation and the action.
@@ -59,7 +59,7 @@ Threats to consider: a user changing an organisation id in a request to act for 
 - **Staff-facing services.** Staff sign in with Microsoft Entra ID ([GR-IAM-02](../guardrails/identity-and-access.md#gr-iam-02)) and get permissions through roles and groups.
 
 !!! warning "To be confirmed"
-    **TODO:** which Defra service is the authoritative source for customer, organisation and holding relationships, and how services should query it.
+    **TODO:** whether relationships to land holdings, as well as organisations, come from Defra Customer Identity, and how services should query it.
 
 ## Related
 

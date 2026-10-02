@@ -146,14 +146,19 @@ def _cell(text) -> str:
     return str(text).replace("|", "\\|").replace("\n", " ").strip()
 
 
+SERVICE_MANUAL_NFRS = "https://digital.defra.gov.uk/business-analysis/non-functional-requirements"
+
+
 def _status(link) -> str:
     if _data["tiers"].get("status") != "draft" and _data["catalogue"].get("status") != "draft":
         return ""
     return (
-        '!!! warning "Draft targets"\n'
-        "    The structure is agreed, but tier values and NFR targets are placeholders until the "
-        "architecture team confirms them. Check with your solution design authority before "
-        "putting a target in a contract.\n"
+        '!!! warning "Use the DDTS service tiers and NFR list"\n'
+        "    The authoritative service tiers, list of non-functional requirements and the Business Criticality "
+        "and Service Tier Assessment are maintained by the business analysis community - see "
+        f"[non-functional requirements]({SERVICE_MANUAL_NFRS}) in the Defra Digital Service Manual. "
+        "The tiers and targets on this site are placeholders that show how architecture uses them. "
+        "Where they differ, the DDTS lists apply.\n"
     )
 
 

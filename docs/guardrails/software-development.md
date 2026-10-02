@@ -81,18 +81,13 @@ guardrails:
 
 ## GR-DEV-01 Use the supported languages and frameworks {#gr-dev-01}
 
-<span class="rfc rfc--should">Should</span> Use Defra's supported stack for new services so that skills, libraries and support are shared.
+<span class="rfc rfc--should">Should</span> Use Defra's approved technologies and languages for new services so that skills, libraries and support are shared.
 
-| Use | Default | Also supported |
-| --- | --- | --- |
-| Web front ends and APIs | Node.js (current LTS) with hapi and Nunjucks, using GOV.UK Frontend | - |
-| Back-end services | Node.js | .NET (current LTS), where a team or product already uses it |
-| Data engineering and analysis | Python | R for analysis |
-| Infrastructure | Terraform | Platform-provided templates |
+The list, and the reasons for each choice, are in [approved technologies and languages](https://digital.defra.gov.uk/software-development#approved-technologies-and-languages) in the Defra Digital Service Manual and in the [Defra software development standards](https://defra.github.io/software-development-standards/). In short: Node.js with hapi for front-end and back-end services, GOV.UK Frontend Nunjucks templates, .NET or Python only where Node.js is not suitable, and no other front-end frameworks. Review approved technologies, and request new ones, on the [Defra Tools Radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630), which needs a Defra network and sign-in.
 
 **Why:** A small, well-supported set of technologies makes it easier to move people between teams, share components and support services for the long term.
 
-**How to meet it:** Choosing something else is fine where it is clearly the right tool. Record the reason in an ADR, including how the service will be supported after the team moves on.
+**How to meet it:** If you need something else, request it through the Tools Radar and record the reason in an ADR, including how the service will be supported after the team moves on. The Delivery Architecture team handles exceptions to the software development standards.
 
 ## GR-DEV-02 All code in Defra source control {#gr-dev-02}
 

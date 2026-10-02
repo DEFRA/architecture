@@ -106,7 +106,7 @@ guardrails:
 
 <p class="lead">Security guardrails for every Defra service. They put the government <a href="https://www.security.gov.uk/policy-and-guidance/secure-by-design/">Secure by Design</a> approach into practice.</p>
 
-See also [enterprise security architecture](../security/index.md).
+See also [enterprise security architecture](../security/index.md), and [create a secure service](https://digital.defra.gov.uk/security) in the Defra Digital Service Manual, which links to the Defra Group Security policies you must follow.
 
 ## GR-SEC-01 Follow Secure by Design {#gr-sec-01}
 

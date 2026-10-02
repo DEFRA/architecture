@@ -350,10 +350,12 @@ def _platforms(link, relink) -> str:
                 unknown.append(label.lower())
                 value = "To be confirmed"
             elif field == "docs":
-                value = f"[{value}]({value})"
+                value = f"[{value}]({value})" + (f" - {p['docs_note']}" if p.get("docs_note") else "")
             else:
                 value = relink(value)
             rows.append(f"| **{label}** | {value} |")
+        if p.get("service_manual"):
+            rows.append(f"| **Defra Digital Service Manual** | [{p['name']}]({p['service_manual']}) |")
         cap = p.get("capability")
         if cap:
             rows.append(

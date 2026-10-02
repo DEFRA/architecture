@@ -62,9 +62,8 @@ capabilities:
       Let citizens, businesses and their agents sign in, prove who they are and
       act on behalf of an organisation.
     options:
-      - name: Defra Identity (Defra ID)
-      - name: GOV.UK One Login
-        url: https://www.sign-in.service.gov.uk/
+      - name: Defra Customer Identity (Defra ID), which uses GOV.UK One Login and Government Gateway as identity providers
+        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity
     guardrail: guardrails/identity-and-access.md
 
   - id: TC02
@@ -89,6 +88,7 @@ capabilities:
       design system compliant forms without bespoke front-end builds.
     options:
       - name: Defra Forms
+        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-forms
       - name: GOV.UK Forms
         url: https://www.forms.service.gov.uk/
     guardrail: guardrails/front-end-and-accessibility.md
@@ -223,6 +223,8 @@ capabilities:
     options:
       - name: Defra Data Services Platform
         url: https://environment.data.gov.uk/
+      - name: Defra Interactive Map, an accessible mapping component (beta)
+        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-accessible-maps
       - name: Ordnance Survey data via the Public Sector Geospatial Agreement
         url: https://www.ordnancesurvey.co.uk/customers/public-sector
     guardrail: guardrails/data.md
@@ -300,6 +302,7 @@ capabilities:
       with the undifferentiated heavy lifting done once.
     options:
       - name: Defra Core Delivery Platform (CDP)
+        url: https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform
     guardrail: guardrails/hosting-and-platforms.md
 
   - id: TC22

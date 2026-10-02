@@ -43,7 +43,7 @@ flowchart LR
 | --- | --- | --- |
 | Hosting | Core Delivery Platform | [GR-HOST-01](../../guardrails/hosting-and-platforms.md#gr-host-01) |
 | Front end | Node.js, hapi, Nunjucks, GOV.UK Frontend; or the forms capability for simple form-based services | [GR-FE-02](../../guardrails/front-end-and-accessibility.md#gr-fe-02), [GR-FE-04](../../guardrails/front-end-and-accessibility.md#gr-fe-04) |
-| Sign in | Defra ID / GOV.UK One Login | [GR-IAM-01](../../guardrails/identity-and-access.md#gr-iam-01) |
+| Sign in | Defra Customer Identity (Defra ID), which uses GOV.UK One Login and Government Gateway | [GR-IAM-01](../../guardrails/identity-and-access.md#gr-iam-01) |
 | Payments | GOV.UK Pay | [TC05](../technology-capabilities.md#tc05) |
 | Notifications | GOV.UK Notify | [TC04](../technology-capabilities.md#tc04) |
 | Hand-off to back office | Publish an event or call a documented API; never share a database | [GR-API-05](../../guardrails/apis-and-integration.md#gr-api-05), [GR-API-06](../../guardrails/apis-and-integration.md#gr-api-06) |

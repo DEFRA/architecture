@@ -42,6 +42,8 @@ guardrails:
 
 Relates to TCoP point 12.
 
+Defra services must also meet a 15th point of the Service Standard, [deliver a sustainable service](https://digital.defra.gov.uk/sustainability), including a sustainability statement against the [6 objectives in Defra's digital sustainability strategy](https://digital.defra.gov.uk/sustainability/objectives). Use the Defra Digital Service Manual for how to do that. These guardrails cover the architecture decisions that contribute to it.
+
 ## GR-SUS-01 Consider sustainability in design decisions {#gr-sus-01}
 
 <span class="rfc rfc--should">Should</span> Include environmental impact as a factor in ADRs for hosting, architecture and technology choices.

@@ -12,11 +12,11 @@ guardrails:
   GR-IAM-01:
     phases: [discovery, alpha, beta, live]
     lead_roles: [technical-architect, service-designer]
-    evidence: Integration with Defra ID or GOV.UK One Login and the agreed level of identity assurance
+    evidence: Integration with Defra Customer Identity and the agreed level of identity assurance
     evidence_by_phase:
       discovery: Identity team engaged about the level of identity assurance needed and how users act for organisations
-      alpha: Sign-in designed with Defra ID or GOV.UK One Login, and tested with users
-      beta: Integration with Defra ID or GOV.UK One Login built and tested
+      alpha: Sign-in designed with Defra Customer Identity, and tested with users
+      beta: Integration with Defra Customer Identity built and tested
       live: No other sign-in introduced
     service_standard_points: [9, 13]
     tcop_points: [8]
@@ -73,7 +73,7 @@ Technology capabilities [TC01 Customer identity and access](../handrail/technolo
 
 ## GR-IAM-01 Use the strategic customer identity services {#gr-iam-01}
 
-<span class="rfc rfc--must">Must</span> Services for citizens, farmers and businesses use **Defra Identity (Defra ID)** and/or **GOV.UK One Login** for authentication. Services do not build their own sign-in.
+<span class="rfc rfc--must">Must</span> Services for citizens, farmers and businesses use **Defra Customer Identity (Defra ID)**, which uses GOV.UK One Login and Government Gateway as identity providers, for authentication. Services do not build their own sign-in. See [Defra Customer Identity](https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity) in the Defra Digital Service Manual.
 
 **Why:** Users get one account across Defra services, we manage relationships between people and organisations (including agents) once, and we avoid storing credentials.
 

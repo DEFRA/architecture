@@ -110,7 +110,9 @@ guardrails:
 
 <p class="lead">AI can help Defra do more with less - from classifying species in images to drafting responses. These guardrails help teams use it safely, lawfully and transparently.</p>
 
-Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctrine.md#ddts-05), and builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government). Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
+Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctrine.md#ddts-05), and builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government).
+
+For practical guidance - which tools teams use, what data you can put into them, keeping data safe, working with AI agents and reporting an AI incident - use the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) in the Defra Digital Service Manual, run by the AI Capability and Enablement team (AICE). These guardrails set the architecture boundaries; the toolkit tells you how. Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
 
 ## GR-AI-01 Consider AI first {#gr-ai-01}
 
@@ -122,7 +124,7 @@ Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctr
 
 ## GR-AI-02 Use approved AI services and tenancies {#gr-ai-02}
 
-<span class="rfc rfc--must">Must</span> Use AI services provisioned within Defra's cloud tenancies or approved enterprise agreements. Do not put Defra data into consumer AI tools.
+<span class="rfc rfc--must">Must</span> Services you build run their AI in Defra's cloud tenancies or under approved enterprise agreements. When anyone uses an AI tool, they put Defra data into it only as the [using data with AI](https://digital.defra.gov.uk/ai-toolkit/guidance/using-data-with-ai) rules in the AI digital toolkit allow - for example, never OFFICIAL-SENSITIVE or personal data in a public consumer tool.
 
 ## GR-AI-03 Keep a human accountable {#gr-ai-03}
 
@@ -151,16 +153,16 @@ Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctr
 
 **How to meet it:**
 
-- Agree the tools and their configuration with the Defra engagement lead at [mobilisation](../partners/mobilisation.md), and record them in the repository.
-- Use only enterprise versions that do not keep or train on Defra code or prompts, and turn off public code suggestions where the tool allows it.
-- Never put secrets, personal data or OFFICIAL-SENSITIVE information into prompts.
+- Follow [choosing a tool](https://digital.defra.gov.uk/ai-toolkit/guidance/choosing-a-tool) and [using data with AI](https://digital.defra.gov.uk/ai-toolkit/guidance/using-data-with-ai) in the AI digital toolkit: what matters is the data you put in, and privacy settings must be on.
+- Tell the Defra engagement lead which tools you use at [mobilisation](../partners/mobilisation.md), and record them in the repository.
+- Never put secrets into prompts.
 - Review AI-generated code with the same care as any other code ([GR-DEV-03](software-development.md#gr-dev-03)), including licences of any suggested code.
 
 This guardrail is a **draft** proposal. Comment on it by [opening an issue](https://github.com/howellsr/architecture/issues).
 
 ## Agentic AI
 
-AI agents do more than answer questions: they plan steps and take actions through tools, such as updating records, sending messages or calling APIs. That makes them useful, and it makes mistakes and attacks more costly. These draft guardrails come from the [guardrail backlog](../about/roadmap.md#guardrail-backlog) and apply on top of [GR-AI-02](#gr-ai-02) to [GR-AI-06](#gr-ai-06).
+AI agents do more than answer questions: they plan steps and take actions through tools, such as updating records, sending messages or calling APIs. That makes them useful, and it makes mistakes and attacks more costly. For how to build agents in Defra - identity, connecting tools, evaluations and tracing, and which platforms are ready - see [working with AI agents](https://digital.defra.gov.uk/ai-toolkit/guidance/working-with-agents) in the AI digital toolkit, and talk to AICE before you choose a platform. These draft guardrails come from the [guardrail backlog](../about/roadmap.md#guardrail-backlog) and apply on top of [GR-AI-02](#gr-ai-02) to [GR-AI-06](#gr-ai-06).
 
 ## GR-AI-08 Give agents the least privilege they need {#gr-ai-08}
 

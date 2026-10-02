@@ -11,7 +11,10 @@ Defra delivers hundreds of services across the core department and its arm's len
 - **make Defra easier to work with** - delivery partners know what we expect before they start
 - **reduce risk** by building in security, accessibility, data protection and sustainability from the start
 
-Guardrails are **not** a gate. They are the road with the barriers at the edge: you can drive as fast as you like in the middle.
+Guardrails are **not** a gate.
+
+!!! note "Not the same as business analysis guardrails"
+    The [business analysis guardrails](https://digital.defra.gov.uk/business-analysis/guardrails) in the Defra Digital Service Manual are a separate quality framework for business analysis work. The guardrails on this site are architecture guardrails. They are the road with the barriers at the edge: you can drive as fast as you like in the middle.
 
 ## How to read a guardrail
 

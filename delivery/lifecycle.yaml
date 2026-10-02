@@ -76,7 +76,7 @@ phases:
     governance:
       - Map the service to [business capabilities](handrail/business-capabilities.md) and check [technology capabilities](handrail/technology-capabilities.md) for something to reuse.
       - Use the [decision check](governance/decision-check.md) to agree your governance route and [solution design authority](governance/solution-design-authorities.md).
-      - Talk to the architecture team before any procurement starts ([GR-TECH-06](guardrails/choosing-technology.md#gr-tech-06)).
+      - Talk to the architecture team before any procurement starts, and record spend as described in [spend control](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/assurance/spend-control) ([GR-TECH-06](guardrails/choosing-technology.md#gr-tech-06)).
       - Name the security risk owner ([GR-SEC-01](guardrails/security.md#gr-sec-01)).
   - id: alpha
     name: Alpha
@@ -108,6 +108,7 @@ phases:
       exit-plan: Confirm contracts give Defra its data and the right to export it.
       runbooks: Write them and agree the support model before public beta.
     governance:
+      - Go through the operational service design review board at the start of beta - see [operational service readiness](https://digital.defra.gov.uk/delivery-groups/follow-delivery-governance/assurance/operational-service-readiness) in the Defra Digital Service Manual.
       - Commission an IT health check before go-live ([GR-SEC-06](guardrails/security.md#gr-sec-06)).
       - Get residual security risks accepted through the [security exception process](security/managing-exceptions.md).
       - Share the updated evidence pack with your solution design authority before the beta assessment.

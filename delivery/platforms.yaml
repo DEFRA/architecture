@@ -10,40 +10,56 @@
 # lead_time:   how long access usually takes, or tbc
 # support:     where to get help (Markdown), or tbc
 # docs:        URL of the documentation, or tbc
+# docs_note:   optional, for example when the documentation needs a Defra network
+# service_manual: optional, the page about it in the Defra Digital Service Manual
 
 platforms:
   - id: cdp
     name: Defra Core Delivery Platform (CDP)
     capability: TC21
-    gives: Secure-by-default hosting, CI/CD pipelines, observability, secrets management and protective monitoring for new digital services.
-    request: Engage the platform team during discovery or alpha ([GR-HOST-01](guardrails/hosting-and-platforms.md#gr-host-01)).
+    gives: Defra's internal development platform, with build pipelines, hosting, logging and monitoring already in place for new digital services.
+    request: Work with the Delivery Architecture team to decide whether CDP is right for your service - the expectation is that it will be ([GR-HOST-01](guardrails/hosting-and-platforms.md#gr-host-01)). Then read the onboarding documentation.
     lead_time: tbc
-    support: tbc
-    docs: tbc
+    support: The cdp-support channel in the Defra Digital Team Slack
+    docs: https://portal.cdp-int.defra.cloud/
+    docs_note: Needs a Defra device or the Defra VPN.
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform
   - id: defra-id
-    name: Defra Identity (Defra ID)
+    name: Defra Customer Identity (Defra ID)
     capability: TC01
-    gives: Sign-in for farmers, land managers, businesses and their agents, including acting on behalf of an organisation.
-    request: Talk to the identity team in discovery about the level of identity assurance you need and how the service will represent organisations and agents ([GR-IAM-01](guardrails/identity-and-access.md#gr-iam-01)).
+    gives: Sign-in once to many Defra services for external users and the organisations they act for. It uses GOV.UK One Login and HMRC's Government Gateway as identity providers, offers invitation-only access for trusted third parties, and stores users' contact details, organisation accounts and the relationships between them centrally.
+    request: Talk to the Delivery Architecture team in discovery about the level of identity assurance you need and how users act for organisations ([GR-IAM-01](guardrails/identity-and-access.md#gr-iam-01)).
     lead_time: tbc
     support: tbc
-    docs: tbc
+    docs: https://defra.sharepoint.com/sites/Community3868/SitePages/Customer%20Identity.aspx
+    docs_note: Defra SharePoint - needs a Defra account.
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity
   - id: one-login
     name: GOV.UK One Login
     capability: TC01
-    gives: Cross-government sign-in and identity verification for members of the public.
-    request: Talk to the Defra identity team first to agree whether your service uses Defra ID, GOV.UK One Login or both. The service then onboards with the GOV.UK One Login team.
+    gives: Cross-government sign-in and identity verification. Defra Customer Identity uses GOV.UK One Login as one of its identity providers, so most Defra services get One Login through Customer Identity rather than integrating with it directly.
+    request: Talk to the Delivery Architecture team before integrating with GOV.UK One Login directly rather than through Defra Customer Identity.
     lead_time: tbc
     support: tbc
     docs: https://docs.sign-in.service.gov.uk/
   - id: defra-forms
     name: Defra Forms
     capability: TC03
-    gives: A forms capability for form-based services, so you do not need to build a bespoke front end ([GR-FE-04](guardrails/front-end-and-accessibility.md#gr-fe-04)). The capability is emerging.
+    gives: Accessible online forms that meet GOV.UK standards, through a form builder for simple forms or a plugin for custom forms in your service ([GR-FE-04](guardrails/front-end-and-accessibility.md#gr-fe-04)).
     request: tbc
     lead_time: tbc
     support: tbc
-    docs: tbc
+    docs: https://forms.defra.gov.uk/
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-forms
+  - id: interactive-map
+    name: Defra Interactive Map
+    capability: TC15
+    gives: An open-source, accessible mapping component for government services. It is in beta and not yet stable.
+    request: Use the component from its open-source repository.
+    lead_time: Not needed - it is open source
+    support: tbc
+    docs: https://defra.github.io/interactive-map/
+    service_manual: https://digital.defra.gov.uk/architecture-and-software-development/defra-accessible-maps
   - id: notify
     name: GOV.UK Notify
     capability: TC04

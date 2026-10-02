@@ -1,6 +1,9 @@
-# Patterns
+# Architecture patterns
 
-<p class="lead">Proven solutions to problems Defra teams meet again and again. Each pattern explains the problem, a solution that stays inside the guardrails, and when not to use it.</p>
+<p class="lead">Proven technical solutions to problems Defra teams meet again and again. Each pattern explains the problem, a solution that stays inside the guardrails, and when not to use it.</p>
+
+!!! note "Looking for design patterns?"
+    These are **architecture** patterns: how to build a recurring technical solution. For design patterns - screens, components and user journeys - use the [GOV.UK Design System](https://design-system.service.gov.uk/) and [components and patterns](https://digital.defra.gov.uk/design/components-and-patterns) in the Defra Digital Service Manual.
 
 Patterns sit between the [guardrails](../guardrails/index.md), which say what good looks like, and the [reference architectures](../handrail/reference-architectures/index.md), which show the shape of a whole service. A pattern solves one recurring problem inside a service.
 

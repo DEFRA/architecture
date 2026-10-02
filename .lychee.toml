@@ -31,6 +31,10 @@ exclude = [
   "^https://defra\\.sharepoint\\.com/",
   # security.gov.uk returns 403 to automated checkers; check these by hand
   "^https://www\\.security\\.gov\\.uk/",
+  # Defra internal sites: need a Defra device, VPN or Defra sign-in
+  "^https://portal\\.cdp-int\\.defra\\.cloud/",
+  "^https://defra\\.sharepoint\\.com/",
+  "^https://eaflood\\.atlassian\\.net/",
 ]
 
 # MkDocs builds 404.html with absolute links so it works at any URL; they

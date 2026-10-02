@@ -60,7 +60,7 @@ guardrails:
 
 <p class="lead">Defra services should look like government, work for everyone and work on any device.</p>
 
-See the [Defra Digital Service Manual](https://digital.defra.gov.uk/service-manual) for design and research guidance.
+See the Defra Digital Service Manual for how to do this: [make sure everyone can use the service](https://digital.defra.gov.uk/accessibility), [components and patterns](https://digital.defra.gov.uk/design/components-and-patterns), [content design](https://digital.defra.gov.uk/content) and [Welsh language translation](https://digital.defra.gov.uk/content/welsh-language-translation). These guardrails cover the architecture choices that make it possible.
 
 ## GR-FE-01 Meet WCAG 2.2 AA {#gr-fe-01}
 
