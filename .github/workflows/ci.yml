@@ -118,7 +118,9 @@ jobs:
   deploy:
     name: Publish to GitHub Pages
     needs: [lint, build, accessibility]
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # Only DEFRA/architecture publishes the site. A fork runs the checks but
+    # never deploys, so it cannot overwrite its own gh-pages branch.
+    if: github.repository == 'DEFRA/architecture' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write

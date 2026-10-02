@@ -16,6 +16,11 @@ updates:
     groups:
       npm:
         patterns: ["*"]
+    # neostandard, the lint rules, only supports ESLint 9. Remove this when a
+    # neostandard release supports ESLint 10, or npm ci fails and so does CI.
+    ignore:
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

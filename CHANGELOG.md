@@ -26,11 +26,13 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- Only `DEFRA/architecture` deploys the site, makes releases and runs the weekly link check. A fork runs the checks but cannot overwrite its own `gh-pages` branch, which serves redirects to the new address. A test keeps these workflows limited to `DEFRA/architecture`.
 - The site moved to the DEFRA GitHub organisation: source at `DEFRA/architecture`, published at https://defra.github.io/architecture/. Every link, the issue forms, the guardrail check and the link-check settings point to the new address. Version 0.2.0 stays at https://github.com/howellsr/architecture/releases/tag/v0.2.0. See ADR 0006.
 - Architecture decisions for review are emailed to StrategicEnterpriseArchitecture@defra.gov.uk, replacing the alpha holding address noreply@defra.gov.uk.
 
 ### Fixed
 
+- CI could not install its JavaScript tools after Dependabot moved ESLint to version 10, which the neostandard lint rules do not support yet. ESLint is back on version 9, Dependabot no longer proposes a new major version of ESLint, and a test checks the two stay compatible.
 - The link check no longer fails on GitHub errors it cannot avoid: Secure by Design library files are checked at their raw address, folders in that library and this repository's own releases page are skipped, and the Defra Digital Service Manual step checks only manual links. Tests keep these settings in place.
 - Abbreviation tooltips appeared inside guardrail ids such as GR-API-05, and next to their own expansion, where screen readers could announce it twice. The build now removes them and fails if any are left.
 - The open questions page asked whether the guardrails apply to arm's length bodies 15 times, once for each area. It is now one question on the guardrails overview.

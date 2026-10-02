@@ -24,15 +24,19 @@ The site was built in a personal fork while it was in alpha. It moved to the DEF
 
 ## What keeps working
 
-- **Version 0.2.0 and its PDF** stay at [howellsr/architecture releases](https://github.com/howellsr/architecture/releases/tag/v0.2.0), so contracts that cite it remain valid. The fork is archived, not deleted.
+- **Version 0.2.0 and its PDF** stay at [howellsr/architecture releases](https://github.com/howellsr/architecture/releases/tag/v0.2.0), so contracts that cite it remain valid. The fork is kept, not deleted.
 - **Old page addresses**, including guardrail anchors such as `#gr-host-01`, redirect to the same page on the new site. Build the site, then run:
 
     ```bash
     python scripts/make_redirects.py site redirects https://defra.github.io/architecture/
     ```
 
-    Publish the `redirects` folder to the fork's `gh-pages` branch, then archive the fork. Archived repositories keep serving their GitHub Pages site.
+    Publish the `redirects` folder to the fork's `gh-pages` branch. Only `DEFRA/architecture` deploys the site, so nothing in the fork overwrites the redirects. If the fork is later archived, GitHub Pages keeps serving them.
 - **Published data**, such as `guardrails.json`, is copied once to the old address and then only updated at the new one. Tools should switch to the new address.
+
+## Changes from the fork
+
+The fork can still be used to prepare changes, which are then proposed to `DEFRA/architecture` in a pull request. Its checks run, but publishing, releases and the weekly link check only run in `DEFRA/architecture`. See [`MAINTAINERS.md`](https://github.com/DEFRA/architecture/blob/main/MAINTAINERS.md#changes-from-a-fork).
 
 ## Avoiding this next time
 

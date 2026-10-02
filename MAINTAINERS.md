@@ -65,6 +65,10 @@ Releases follow [`CHANGELOG.md`](CHANGELOG.md) and [semantic versioning](https:/
 | Quarterly | Review [guardrails health](docs/governance/guardrails-health.md) and exceptions, the [guardrail backlog](docs/about/roadmap.md#guardrail-backlog) and the roadmap |
 | Yearly | Review every guardrail. CI warns about any guardrail whose `last_reviewed` date is more than 12 months old. |
 
-## Moving to Defra
+## Changes from a fork
 
-The repository is expected to move to the DEFRA GitHub organisation as `DEFRA/architecture`. The steps, and what must keep working, are in [moving to a Defra GitHub organisation](docs/about/moving-to-defra.md). Update `.github/CODEOWNERS`, `repo_url` in `mkdocs.yml` and this file when it moves.
+Anyone can propose a change from a fork of `DEFRA/architecture`: push a branch to the fork, then open a pull request into `DEFRA/architecture`. The checks run in the fork as well, so problems show up before the pull request is opened.
+
+Only `DEFRA/architecture` publishes the site, makes releases and runs the weekly link check, so a fork can never overwrite the site, its own `gh-pages` branch or a release. Tests keep those workflows limited to `DEFRA/architecture`.
+
+The repository moved from a fork in October 2026 - see [moving to the DEFRA GitHub organisation](docs/about/moving-to-defra.md).
