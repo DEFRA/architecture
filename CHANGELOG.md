@@ -33,6 +33,8 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Fixed
 
+- The open questions page listed the example "To be confirmed" box from the contribution guide as a real question.
+- Applicability notes lower-cased acronyms in area names, such as "apis and integration".
 - The guardrails page described ten architecture principles; there are eight.
 - The self-assurance checklist mapped ADRs to a principle rather than a guardrail.
 

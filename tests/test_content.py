@@ -36,6 +36,7 @@ traceability = load_hook("traceability")
 delivery = load_hook("delivery")
 patterns = load_hook("patterns")
 releases = load_hook("releases")
+open_questions = load_hook("open_questions")
 registers = load_hook("registers")
 
 
@@ -366,6 +367,26 @@ def test_every_guardrail_page_says_who_it_applies_to():
         if name.endswith(".md") and name not in ("index.md", "library.md"):
             with open(os.path.join(folder, name), encoding="utf-8") as handle:
                 assert "\napplicability:" in handle.read().split("\n---\n")[0], name
+
+
+def test_open_questions_ignore_examples_in_code_blocks():
+    class Page:
+        class file:
+            src_uri = "example.md"
+
+    open_questions.on_config({})
+    text = (
+        '```markdown\n!!! warning "To be confirmed"\n    **TODO:** an example.\n```\n\n'
+        '!!! warning "To be confirmed"\n    **TODO:** a real question.\n'
+    )
+    open_questions.on_page_markdown(text, Page, {}, None)
+    found = [q["text"] for q in open_questions._found["example.md"]["questions"]]
+    assert found == ["a real question."]
+
+
+def test_area_names_keep_acronyms_mid_sentence():
+    assert guardrails._sentence_case("APIs and integration") == "APIs and integration"
+    assert guardrails._sentence_case("Data") == "data"
 
 
 # --- Pages ---------------------------------------------------------------------

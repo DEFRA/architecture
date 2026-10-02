@@ -366,12 +366,17 @@ def on_post_build(config):
 # --- Renderers ---------------------------------------------------------------
 
 
+def _sentence_case(text: str) -> str:
+    """Lower-case the first letter for use mid-sentence, unless it starts an acronym such as APIs."""
+    return text if len(text) > 1 and text[1].isupper() else text[:1].lower() + text[1:]
+
+
 def _add_applicability(markdown: str, applicability, area: str) -> str:
     """Say who an area's guardrails apply to, after the page's lead paragraph."""
     if not applicability or applicability == "tbc":
         box = (
             '!!! warning "To be confirmed"\n'
-            f"    **TODO:** whether the {area.lower()} guardrails apply to Defra's arm's length bodies "
+            f"    **TODO:** whether the {_sentence_case(area)} guardrails apply to Defra's arm's length bodies "
             "as well as the core department, and any differences.\n"
         )
     else:

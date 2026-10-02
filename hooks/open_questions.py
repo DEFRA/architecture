@@ -20,6 +20,7 @@ from mkdocs.utils import get_relative_url
 
 ADMONITION = re.compile(r'^!!! warning "To be confirmed"\n((?:(?: {4}.*)?\n)+)', re.M)
 MARKER = "<div data-open-questions></div>"
+FENCE = re.compile(r"(^```.*?^```[^\n]*\n)", re.M | re.S)
 LINK = re.compile(r"\[([^\]]+)\]\([^)]*\)")
 
 _found: dict[str, dict] = {}
@@ -44,7 +45,9 @@ def on_page_markdown(markdown, page, config, files):
         questions.append({"anchor": anchor, "text": _plain(match.group(1))})
         return f'<div id="{anchor}"></div>\n\n{match.group(0)}'
 
-    markdown = ADMONITION.sub(tag, markdown + "\n")
+    # Only real boxes count: skip examples inside fenced code blocks.
+    parts = FENCE.split(markdown + "\n")
+    markdown = "".join(part if i % 2 else ADMONITION.sub(tag, part) for i, part in enumerate(parts))
     if questions:
         _found[page.file.src_uri] = {"page": page, "questions": questions}
     return markdown
