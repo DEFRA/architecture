@@ -637,3 +637,15 @@ def test_expansion_match_ignores_markup_and_case():
     page = f"<p><strong>technical design authority</strong> ({TDA})</p>"
     assert abbreviations.problems(page) == ["TDA next to its expansion"]
     assert abbreviations.problems(abbreviations.tidy(page)) == []
+
+
+def test_guidance_does_not_live_in_the_wiki():
+    """All guidance lives in this repository; nothing links to a GitHub wiki."""
+    found = []
+    for path in glob.glob(os.path.join(ROOT, "**", "*.md"), recursive=True):
+        if "node_modules" in path:
+            continue
+        with open(path, encoding="utf-8") as handle:
+            if re.search(r"github\.com/[^/\s]+/[^/\s]+/wiki", handle.read()):
+                found.append(os.path.relpath(path, ROOT))
+    assert not found, "Move this guidance into the repository instead of linking to a wiki: " + ", ".join(found)

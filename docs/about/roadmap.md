@@ -67,6 +67,8 @@ hide:
 
 ## Guardrail backlog {#guardrail-backlog}
 
+Work on the roadmap and the backlog is tracked in the repository's GitHub Project - see [where things live](../contribute/where-things-live.md#where-to-find-and-change-things).
+
 Guardrails we know we are missing, found by tracing each [doctrine and principle](../principles/index.md#how-the-doctrine-principles-and-guardrails-line-up) to the guardrails that put it into practice. Priorities are a starting point for discussion.
 
 | Priority | Proposed guardrails | The gap | Doctrine and principle |
