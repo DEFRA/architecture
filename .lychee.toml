@@ -37,6 +37,14 @@ exclude = [
   "^https://eaflood\\.atlassian\\.net/",
 ]
 
+# GitHub's file viewer often answers automated checkers with 503 for the large
+# files in the cross-government Secure by Design library. Check those files at
+# their raw address instead, which serves the same file reliably. Readers still
+# get the normal github.com link.
+remap = [
+  "^https://github\\.com/co-cddo/SbD/blob/(.+)$ https://raw.githubusercontent.com/co-cddo/SbD/$1",
+]
+
 # MkDocs builds 404.html with absolute links so it works at any URL; they
 # cannot be resolved from the site folder.
 exclude_path = ["site/404\\.html"]

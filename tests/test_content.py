@@ -760,3 +760,16 @@ def test_guidance_does_not_live_in_the_wiki():
             if re.search(r"github\.com/[^/\s]+/[^/\s]+/wiki", handle.read()):
                 found.append(os.path.relpath(path, ROOT))
     assert not found, "Move this guidance into the repository instead of linking to a wiki: " + ", ".join(found)
+
+
+def test_link_check_remaps_secure_by_design_files():
+    """GitHub's file viewer returns 503 to link checkers for large SbD files, so they are checked at raw addresses."""
+    with open(os.path.join(ROOT, ".lychee.toml"), encoding="utf-8") as handle:
+        config = handle.read()
+    pattern = re.search(r'"(\^https://github\\\\\.com/co-cddo/SbD/blob/[^ ]+) ', config)
+    assert pattern, ".lychee.toml must remap co-cddo/SbD blob links to raw.githubusercontent.com"
+    regex = re.compile(pattern.group(1).replace("\\\\", "\\"))
+    for path in patterns.SBD_ARTEFACTS.values():
+        url = f"{patterns.SBD_BASE}/{path[1] if isinstance(path, tuple) else path}"
+        if "/blob/" in url:
+            assert regex.match(url), f"not covered by the remap: {url}"
