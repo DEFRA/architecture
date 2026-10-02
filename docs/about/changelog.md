@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Version 0.2.0 released
+
+- **[Version 0.2.0](releases.md)** is the first release with a PDF of every guardrail attached, to cite in contracts and assessments. It includes everything listed below. The banner on every page now shows 0.2.0 as the version in force.
+
 ### Joined up with the Defra Digital Service Manual
 
 The manual covers how to do the job and who to contact; this site covers architecture rules, decisions and evidence. A new page, [where things live](../contribute/where-things-live.md), sets out the split and lists the matching links between the two, which are now checked automatically.

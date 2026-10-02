@@ -12,6 +12,10 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-10-02
+
+The first release with a PDF of every guardrail attached.
+
 ### Added
 
 - Where things live page, setting out what belongs on this site and what belongs in the Defra Digital Service Manual, with matching links checked by a test and a link check.
