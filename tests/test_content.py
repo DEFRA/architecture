@@ -112,6 +112,7 @@ def test_supplier_ai_guardrail_is_a_draft_should():
 GOOD_PAGE = """---
 applicability: tbc
 guardrail_defaults:
+  lead_roles: [developer]
   status: draft
   owner: Architecture team
   automated_check: manual
@@ -172,6 +173,40 @@ def test_evidence_by_phase_parses_and_falls_back(tmp_path):
     assert g["evidence_by_phase"] == {"alpha": "designed", "retire": "removed"}
     assert guardrails.evidence_for(g, "alpha") == "designed"
     assert guardrails.evidence_for(g, "significant-change") == "general"
+
+
+def test_lead_roles_must_be_known_roles(tmp_path):
+    with pytest.raises(Exception, match="unknown lead role 'architect'"):
+        _example(tmp_path, "phases: [alpha], evidence: x, evidence_by_phase: {alpha: y}, lead_roles: [architect]")
+
+
+def test_every_guardrail_has_lead_roles():
+    for g in guardrails.parse(DOCS):
+        if g["level"] != "principle":
+            assert g["lead_roles"], g["id"]
+            assert set(g["lead_roles"]) <= set(guardrails.ROLES), g["id"]
+
+
+@pytest.mark.parametrize(
+    "gid, roles",
+    [
+        ("GR-FE-06", {"content-designer"}),
+        ("GR-AI-04", {"content-designer", "interaction-designer"}),
+        ("GR-DATA-04", {"service-designer"}),
+        ("GR-FE-05", {"service-designer", "user-researcher"}),
+        ("GR-AI-03", {"service-designer", "user-researcher"}),
+    ],
+)
+def test_lead_roles_for_user_facing_guardrails(gid, roles):
+    g = next(g for g in guardrails.parse(DOCS) if g["id"] == gid)
+    assert set(g["lead_roles"]) == roles
+
+
+def test_every_role_has_a_page_and_leads_something():
+    data = delivery.load(DOCS)
+    assert [r["id"] for r in data["roles"]] == list(guardrails.ROLES)
+    for r in data["roles"]:
+        assert any(r["id"] in g["lead_roles"] for g in data["guardrails"].values()), r["id"]
 
 
 def test_deprecated_needs_a_replacement(tmp_path):

@@ -1,0 +1,83 @@
+# Roles that lead guardrails, using Digital, Data and Technology (DDaT)
+# Capability Framework role names.
+#
+# Guardrails name their lead roles in `lead_roles` metadata, using these ids.
+# The build fails on any other value. Each role gets a generated page under
+# Deliver a service > By role (hooks/delivery.py).
+#
+# id:           used in guardrail metadata and page addresses
+# name:         role name, in sentence case
+# summary:      why the guardrails matter to this role (Markdown)
+# touchpoints:  when this role works with an architect (Markdown, links relative to docs/)
+
+roles:
+  - id: product-manager
+    name: Product manager
+    summary: You decide what the team builds and in what order. Many guardrails are trade-offs you prioritise - reuse, exit plans, service levels and the end of a product's life.
+    touchpoints:
+      - In discovery, agree with an architect what already exists that you could reuse, before you commit to building or buying.
+      - Before any procurement, talk to the architecture team ([GR-TECH-06](guardrails/choosing-technology.md#gr-tech-06)).
+      - Agree the service tier and the non-functional requirements that come with it in alpha - see [service tiers](nfrs/service-tiers.md).
+      - Bring decisions that are hard to reverse to your solution design authority, with an ADR.
+  - id: delivery-manager
+    name: Delivery manager
+    summary: You keep the team delivering and the governance light. You make sure evidence is gathered as the team goes, not at the end, and that the service is ready to run in live.
+    touchpoints:
+      - Book architecture and security conversations into the plan for each phase - see [Deliver a service](deliver/index.md).
+      - Use the evidence checklist for your phase before each assessment.
+      - Agree the support model and runbooks before public beta ([GR-OPS-05](guardrails/observability-and-operations.md#gr-ops-05)).
+      - Make sure suppliers know the guardrails from mobilisation - see [delivery partners](about/delivery-partners.md).
+  - id: service-designer
+    name: Service designer
+    summary: You design the whole service, across channels and organisations. Decisions about identity, acting on behalf, data Defra already holds and what happens when things go wrong shape the user experience and are architecture decisions too.
+    touchpoints:
+      - In discovery, map the current journey against the systems and data behind it with an architect.
+      - In alpha, test the riskiest assumptions on both the user and the technical side together.
+      - Record decisions that shape the user experience in ADRs, as a contributor.
+  - id: interaction-designer
+    name: Interaction designer
+    summary: You design the screens and interactions. Accessibility, the GOV.UK Design System, offline working and what users see when something is slow or fails all depend on technical choices.
+    touchpoints:
+      - Prototype on the real platforms where a technical constraint changes the interaction, such as file upload or sign-in.
+      - Design what users see when a dependency fails, with the developers and an architect, before beta.
+  - id: content-designer
+    name: Content designer
+    summary: You write what users read. Confirmation pages, status messages, error messages, Welsh content and telling users about AI depend on how the service works underneath.
+    touchpoints:
+      - Ask how long processing really takes, and what can fail, before you write confirmation and status content.
+      - Plan Welsh content early if the Welsh Language Standards apply ([GR-FE-06](guardrails/front-end-and-accessibility.md#gr-fe-06)).
+  - id: user-researcher
+    name: User researcher
+    summary: You find out what users need and test whether the service meets it. Research also tests architecture decisions - offline working, acting for others, human oversight of AI - and research data must be handled safely.
+    touchpoints:
+      - Share research findings that affect technical choices with the architect, such as connectivity, devices or who acts for whom.
+      - Invite the architect to research playbacks.
+  - id: developer
+    name: Developer
+    summary: You build and run the service. Most technical guardrails are yours day to day - code, pipelines, testing, logging, secrets and dependencies.
+    touchpoints:
+      - Add the [guardrail check](deliver/guardrail-check.md) to your repository on day one.
+      - Raise anything that would need an exception early, with an ADR.
+  - id: technical-architect
+    name: Technical architect
+    summary: You shape the design so that it stays inside the guardrails, reuses what exists and can change safely. You lead decisions on hosting, integration and technology choices, and record them.
+    touchpoints:
+      - Take novel or cross-cutting designs to the [Technical Design Authority](governance/tda.md).
+      - Keep the ADR log and C4 diagrams current through every phase.
+  - id: security-architect
+    name: Security architect
+    summary: You make sure the service is secure by design and that risks are owned. You lead threat modelling, security testing and risk acceptance.
+    touchpoints:
+      - Run the first threat model with the whole team in alpha - see [threat modelling](security/threat-modelling.md).
+      - Agree the IT health check scope before beta.
+  - id: data-architect
+    name: Data architect
+    summary: You make sure the data the service creates and uses is owned, standard, trustworthy and reusable across Defra.
+    touchpoints:
+      - Identify authoritative sources in discovery - see [Defra on a page](data/defra-on-a-page.md).
+      - Review the data model against the [data standards](data/data-standards.md) in alpha.
+  - id: performance-analyst
+    name: Performance analyst
+    summary: You measure whether the service works for users and for Defra. Service levels, cost, carbon and data quality all need measuring.
+    touchpoints:
+      - Agree what will be measured, and how, with the architect in alpha, so the data exists in beta.

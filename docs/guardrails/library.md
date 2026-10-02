@@ -6,7 +6,7 @@ hide:
 
 # Guardrail library
 
-<p class="lead">Every guardrail in one place. Search by keyword or id, filter by area, phase, status or level, and select a guardrail to read why it exists and how to meet it.</p>
+<p class="lead">Every guardrail in one place. Search by keyword or id, filter by area, phase, role, status or level, and select a guardrail to read why it exists and how to meet it.</p>
 
 <!-- guardrails:library -->
 

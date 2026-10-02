@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-IAM-01:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [technical-architect, service-designer]
     evidence: Integration with Defra ID or GOV.UK One Login and the agreed level of identity assurance
     evidence_by_phase:
       discovery: Identity team engaged about the level of identity assurance needed and how users act for organisations
@@ -21,6 +22,7 @@ guardrails:
     tcop_points: [8]
   GR-IAM-02:
     phases: [beta, live]
+    lead_roles: [technical-architect]
     evidence: Single sign-on through Microsoft Entra ID with multi-factor authentication and no local staff accounts
     evidence_by_phase:
       beta: Staff sign in through Microsoft Entra ID with multi-factor authentication, and there are no local staff accounts
@@ -29,6 +31,7 @@ guardrails:
     tcop_points: [6]
   GR-IAM-03:
     phases: [beta, live]
+    lead_roles: [security-architect, developer]
     evidence: Role and group model and a record of access reviews
     evidence_by_phase:
       beta: Role and group model built, with users, services and pipelines given only the permissions they need
@@ -38,9 +41,11 @@ guardrails:
     sbd_principles: [7]
   GR-IAM-04:
     phases: [alpha, beta]
+    lead_roles: [developer, technical-architect]
     evidence: Authorisation rules written down and covered by automated tests
   GR-IAM-05:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Secrets held in a managed store with rotation and secret scanning enabled
     evidence_by_phase:
       alpha: Secret scanning on from the first commit, and secrets held in a managed store from the start
@@ -52,6 +57,7 @@ guardrails:
     sbd_principles: [7]
   GR-IAM-06:
     phases: [beta, live]
+    lead_roles: [security-architect]
     evidence: Just-in-time privileged access with phishing-resistant MFA and logs reaching the security operations centre
     evidence_by_phase:
       beta: Just-in-time privileged access with phishing-resistant MFA configured, and logged to the security operations centre

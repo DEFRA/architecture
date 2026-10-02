@@ -22,6 +22,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 - Delivery partners section: contracting, mobilisation, handover and exit, and working with other suppliers.
 - Draft guardrails: `GR-DEV-09` (ADRs), `GR-AI-07` (supplier AI coding assistants), `GR-AI-08` to `GR-AI-11` (agentic AI), `GR-PROD-01` to `GR-PROD-04` (products and platforms), `GR-DIG-01` to `GR-DIG-03` (digital first) and `GR-FIELD-01` to `GR-FIELD-04` (field working and devices).
 - New Must guardrails, all in draft: `GR-AI-08`, `GR-AI-09`, `GR-AI-10`, `GR-AI-11` and `GR-FIELD-03`.
+- `lead_roles` guardrail metadata naming the DDaT roles that lead each guardrail, a role filter in the library, and a page for each role under Deliver a service.
 - `evidence_by_phase` guardrail metadata, with phase-specific evidence for every Must, used on phase pages and checklists.
 - A GitHub Action, `tools/guardrail-check`, that checks a repository against GR-OPEN-02, GR-DEV-08, GR-API-02, GR-OPEN-03, GR-DEV-03, GR-DEV-06 and GR-DEV-09.
 - Architecture decision records for this site in `docs/adr`.

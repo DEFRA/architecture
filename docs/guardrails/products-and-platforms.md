@@ -10,19 +10,23 @@ guardrail_defaults:
 guardrails:
   GR-PROD-01:
     phases: [alpha, beta, live]
+    lead_roles: [product-manager]
     evidence: A named, long-lived team responsible for the product, with a roadmap beyond the current funding period
     service_standard_points: [6]
   GR-PROD-02:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [product-manager, delivery-manager]
     evidence: Named product owner and service owner, recorded in the service catalogue
     service_standard_points: [6]
   GR-PROD-03:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect, product-manager]
     evidence: Requests and contributions raised with platform teams, and ADRs where the team worked around a platform
     service_standard_points: [13]
     tcop_points: [8]
   GR-PROD-04:
     phases: [live]
+    lead_roles: [product-manager]
     evidence: Product lifecycle stage recorded, with a retirement plan for products being replaced
     tcop_points: [11]
 ---

@@ -10,14 +10,17 @@ guardrail_defaults:
 guardrails:
   GR-FIELD-01:
     phases: [discovery, alpha]
+    lead_roles: [user-researcher, service-designer]
     evidence: User research on the working environment, and the device choice recorded in an ADR
     service_standard_points: [1]
   GR-FIELD-02:
     phases: [alpha, beta, live]
+    lead_roles: [interaction-designer, developer]
     evidence: Field journeys tested with no connection, including sync after reconnecting and conflict handling
     service_standard_points: [5]
   GR-FIELD-03:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect]
     evidence: Devices enrolled in Defra device management, with encryption, patching and remote wipe confirmed
     evidence_by_phase:
       alpha: Device management approach agreed for the devices the service will use
@@ -27,6 +30,7 @@ guardrails:
     sbd_principles: [7, 8]
   GR-FIELD-04:
     phases: [discovery, alpha]
+    lead_roles: [user-researcher, technical-architect]
     evidence: Connectivity in the places the service will be used checked, and the approach recorded
 ---
 

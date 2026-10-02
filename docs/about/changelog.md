@@ -4,6 +4,12 @@
 
 ## October 2026
 
+### Who leads each guardrail
+
+- **Every guardrail now names the roles that lead it**, using DDaT role names - for example content designers lead [Welsh language support](../guardrails/front-end-and-accessibility.md#gr-fe-06), and service designers and user researchers lead [human oversight of AI](../guardrails/ai.md#gr-ai-03).
+- **[Guardrails by role](../deliver/roles/index.md):** a page for each role, listing its guardrails phase by phase, the patterns that help and when to work with an architect.
+- The [guardrail library](../guardrails/library.md) can now be filtered by role.
+
 ### Evidence that matches the phase
 
 - **Every Must guardrail now says what to show in each phase**: in discovery the intent or constraint identified, in alpha the design or plan, in beta what was built and tested, and in live how it is operated and reviewed - plus what to show for a significant change or when retiring a service. The [phase pages](../deliver/index.md) and evidence checklists show the evidence for that phase, so alpha no longer asks for a published accessibility statement or the date of the last recovery test.

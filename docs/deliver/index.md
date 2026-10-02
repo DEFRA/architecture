@@ -25,6 +25,7 @@ Each phase has a printable **assessment evidence checklist**, built from the sam
 
 ## Before you start
 
+- [Guardrails by role](roles/index.md): the guardrails each role leads, phase by phase - for product managers, designers, researchers, developers, architects and analysts.
 - [Getting onto Defra platforms](platforms.md): what the shared platforms give you, and how to get access.
 - [Check your repository automatically](guardrail-check.md) against the guardrails a tool can check.
 - [Check a decision](../governance/decision-check.md) to find your governance route.

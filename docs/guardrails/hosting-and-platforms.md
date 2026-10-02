@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-HOST-01:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [technical-architect]
     evidence: The service runs on the Core Delivery Platform, or an approved exception
     evidence_by_phase:
       discovery: Platform team engaged, and any hosting needs the Core Delivery Platform might not meet identified
@@ -21,6 +22,7 @@ guardrails:
     tcop_points: [5, 8]
   GR-HOST-02:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect]
     evidence: Hosting design showing a Defra-managed public cloud tenancy
     evidence_by_phase:
       alpha: Where the platform cannot be used, the hosting design uses a Defra-managed public cloud tenancy
@@ -29,6 +31,7 @@ guardrails:
     tcop_points: [5]
   GR-HOST-03:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Infrastructure, configuration and pipeline code in the repository, and drift detection results
     evidence_by_phase:
       beta: Infrastructure, configuration and pipelines defined as code in the repository, with no manual changes to production
@@ -37,13 +40,16 @@ guardrails:
     sbd_principles: [10]
   GR-HOST-04:
     phases: [alpha, beta]
+    lead_roles: [technical-architect, developer]
     evidence: Hosting design listing the managed services used
     tcop_points: [5]
   GR-HOST-05:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Environments created from the same code, and how lower environments avoid real personal data
   GR-HOST-06:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect, security-architect]
     evidence: Data location confirmed for every data store and backup
     evidence_by_phase:
       alpha: Hosting design places every data store and backup in UK regions
@@ -51,6 +57,7 @@ guardrails:
       live: Data location checked when new stores or services are added
   GR-HOST-07:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect, product-manager]
     evidence: Agreed recovery time and recovery point objectives, a multi-zone design and the date of the last recovery test
     evidence_by_phase:
       alpha: Recovery time and recovery point objectives agreed with the service owner, and a design that meets them

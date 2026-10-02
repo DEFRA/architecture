@@ -33,8 +33,9 @@ from mkdocs.utils import get_relative_url
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIFECYCLE = os.path.join(ROOT, "delivery", "lifecycle.yaml")
 PLATFORMS = os.path.join(ROOT, "delivery", "platforms.yaml")
+ROLES = os.path.join(ROOT, "delivery", "roles.yaml")
 
-MARKER = re.compile(r"<!-- deliver:(phase|checklist|journey|platforms)(?: ([a-z-]+))? -->")
+MARKER = re.compile(r"<!-- deliver:(phase|checklist|journey|platforms|roles|role)(?: ([a-z-]+))? -->")
 DOCS_LINK = re.compile(r"\]\((?!https?://|#)([^)]+)\)")
 PHASES = ("discovery", "alpha", "beta", "live")
 LEVEL_ORDER = ("must", "should", "could")
@@ -57,12 +58,22 @@ def _load_guardrails_hook():
     return module
 
 
+def _load_patterns(docs_dir: str, by_id: dict) -> list[dict]:
+    path = os.path.join(ROOT, "hooks", "patterns.py")
+    spec = importlib.util.spec_from_file_location("_patterns_for_delivery", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.parse(docs_dir, by_id)
+
+
 def load(docs_dir: str) -> dict:
     """Read and validate the lifecycle, platforms and guardrails."""
     with open(LIFECYCLE, encoding="utf-8") as handle:
         lifecycle = yaml.safe_load(handle)
     with open(PLATFORMS, encoding="utf-8") as handle:
         platforms = yaml.safe_load(handle)["platforms"]
+    with open(ROLES, encoding="utf-8") as handle:
+        roles = yaml.safe_load(handle)["roles"]
     hook = _load_guardrails_hook()
     guardrails = [g for g in hook.parse(docs_dir) if g["level"] != "principle"]
     by_id = {g["id"]: g for g in guardrails}
@@ -110,6 +121,18 @@ def load(docs_dir: str) -> dict:
         for target in DOCS_LINK.findall(" ".join(str(p.get(f, "")) for f in ("gives", "request", "support"))):
             check_page(f"platform {p['id']}", target)
 
+    role_ids = [r["id"] for r in roles]
+    errors += [f"duplicate role id {i}" for i in sorted({i for i in role_ids if role_ids.count(i) > 1})]
+    for r in roles:
+        for field in ("name", "summary", "touchpoints"):
+            if not r.get(field):
+                errors.append(f"role {r['id']} is missing '{field}'")
+        if not os.path.exists(os.path.join(docs_dir, "deliver", "roles", f"{r['id']}.md")):
+            errors.append(f"role {r['id']} has no page at deliver/roles/{r['id']}.md")
+        for line in r.get("touchpoints", []):
+            for target in DOCS_LINK.findall(line):
+                check_page(f"role {r['id']}", target)
+
     if errors:
         raise PluginError("Delivery lifecycle data is invalid:\n  - " + "\n  - ".join(errors))
     return {
@@ -118,6 +141,8 @@ def load(docs_dir: str) -> dict:
         "platforms": platforms,
         "guardrails": by_id,
         "evidence_for": hook.evidence_for,
+        "roles": roles,
+        "patterns": _load_patterns(docs_dir, {g["id"]: g for g in hook.parse(docs_dir)}),
     }
 
 
@@ -162,6 +187,13 @@ def on_page_markdown(markdown, page, config, files):
             return _checklist(phase, link, url)
         if kind == "journey":
             return _journey(link)
+        if kind == "roles":
+            return _roles(link)
+        if kind == "role":
+            role = next((r for r in _data["roles"] if r["id"] == arg), None)
+            if not role:
+                raise PluginError(f"{src}: unknown role '{arg}' in {match.group(0)}")
+            return _role(role, link, relink, url)
         return _platforms(link, relink)
 
     return MARKER.sub(render, markdown)
@@ -331,4 +363,50 @@ def _platforms(link, relink) -> str:
         if unknown:
             listed = ", ".join(unknown[:-1]) + (" and " if len(unknown) > 1 else "") + unknown[-1]
             out += ['!!! warning "To be confirmed"', f"    **TODO:** {p['name']}: {listed}.", ""]
+    return "\n".join(out) + "\n"
+
+
+def _roles(link) -> str:
+    rows = ["| Role | Guardrails you lead | Must |", "| --- | ---: | ---: |"]
+    for r in _data["roles"]:
+        led = [g for g in _data["guardrails"].values() if r["id"] in g["lead_roles"]]
+        musts = sum(1 for g in led if g["level"] == "must")
+        rows.append(f"| [{r['name']}]({link('deliver/roles/' + r['id'] + '.md')}) | {len(led)} | {musts} |")
+    return "\n".join(rows) + "\n"
+
+
+def _role(role: dict, link, relink, url) -> str:
+    led = {gid: g for gid, g in _data["guardrails"].items() if role["id"] in g["lead_roles"]}
+    library = url("guardrails/library.md").split("#")[0] + "#role=" + role["id"]
+    out = [
+        relink(role["summary"]),
+        "",
+        f"You lead **{len(led)} guardrails**, often with other roles. Leading means making sure the team meets them "
+        "and can show it, not doing all the work. "
+        f'See them all in the <a href="{library}">guardrail library, filtered to your role</a>.',
+        "",
+        "## Your guardrails, phase by phase",
+        "",
+    ]
+    for phase in _data["phases"]:
+        mine = [led[gid] for gid in phase["guardrails"] if gid in led]
+        if not mine:
+            continue
+        out += [f"### {phase['name']}", ""]
+        out += ["| Guardrail | Level | What to show |", "| --- | --- | --- |"]
+        for level in LEVEL_ORDER:
+            for g in (g for g in mine if g["level"] == level):
+                shown = _data["evidence_for"](g, phase["id"]) or "-"
+                out.append(f"| {_guardrail_link(g, link)} {g['title']} | {LEVEL_NAMES[level]} | {shown} |")
+        out += ["", f"More on the [{phase['name'].lower()} page]({link(phase['page'])}).", ""]
+
+    patterns = [p for p in _data["patterns"] if set(p["guardrails"]) & set(led)]
+    out += ["## Patterns that help", ""]
+    if patterns:
+        out += [f"- [{p['title']}]({link(p['src'])}) - {p['summary']}" for p in patterns]
+    else:
+        out.append("No patterns yet. See the [patterns](" + link("patterns/index.md") + ") section.")
+    out += ["", "## Working with architects", ""]
+    out += [f"- {relink(line)}" for line in role["touchpoints"]]
+    out.append("")
     return "\n".join(out) + "\n"

@@ -30,6 +30,7 @@
     const area = root.querySelector('#gl-area')
     const phase = root.querySelector('#gl-phase')
     const status = root.querySelector('#gl-status')
+    const role = root.querySelector('#gl-role')
     const levels = root.querySelectorAll('input[name="gl-level"]')
     const cards = root.querySelectorAll('.gl-card')
     const shown = root.querySelector('#gl-shown')
@@ -46,6 +47,7 @@
           (!area.value || card.dataset.area === area.value) &&
           (!phase.value || card.dataset.phases.split(' ').indexOf(phase.value) !== -1) &&
           (!status.value || card.dataset.status === status.value) &&
+          (!role.value || card.dataset.roles.split(' ').indexOf(role.value) !== -1) &&
           terms.every(function (t) { return text.indexOf(t) !== -1 })
         card.hidden = !match
         if (match) count++
@@ -58,9 +60,12 @@
     area.addEventListener('change', apply)
     phase.addEventListener('change', apply)
     status.addEventListener('change', apply)
+    role.addEventListener('change', apply)
     levels.forEach(function (box) { box.addEventListener('change', apply) })
     const hash = decodeURIComponent((window.location.hash || '').slice(1))
     if (/^gr-/i.test(hash)) search.value = hash.toUpperCase()
+    const wantedRole = /^role=(.+)$/.exec(hash)
+    if (wantedRole && role.querySelector('option[value="' + wantedRole[1] + '"]')) role.value = wantedRole[1]
     apply()
   }
 

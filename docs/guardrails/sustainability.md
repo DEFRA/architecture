@@ -11,22 +11,27 @@ guardrail_defaults:
 guardrails:
   GR-SUS-01:
     phases: [discovery, alpha]
+    lead_roles: [technical-architect]
     evidence: Environmental impact recorded in ADRs for hosting and technology choices
     tcop_points: [12]
   GR-SUS-02:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Autoscaling and out-of-hours schedules for non-production environments
     tcop_points: [12]
   GR-SUS-03:
     phases: [alpha]
+    lead_roles: [technical-architect]
     evidence: Region and service choice recorded with its carbon intensity
     tcop_points: [12]
   GR-SUS-04:
     phases: [alpha, beta, live]
+    lead_roles: [developer, interaction-designer]
     evidence: Data retention settings and page weight measurements
     tcop_points: [12]
   GR-SUS-05:
     phases: [live]
+    lead_roles: [performance-analyst, technical-architect]
     evidence: Carbon footprint reported alongside cost
     tcop_points: [12]
 ---

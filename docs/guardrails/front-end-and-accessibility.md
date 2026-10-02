@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-FE-01:
     phases: [alpha, beta, live]
+    lead_roles: [interaction-designer, developer]
     evidence: Accessibility audit, assistive technology testing results and a published accessibility statement
     evidence_by_phase:
       alpha: Prototypes built with accessible components, and a plan for an accessibility audit and assistive technology testing
@@ -21,6 +22,7 @@ guardrails:
     tcop_points: [2]
   GR-FE-02:
     phases: [alpha, beta, live]
+    lead_roles: [interaction-designer, developer]
     evidence: The service uses GOV.UK Frontend and design decisions record where it departs from the patterns
     evidence_by_phase:
       alpha: Prototypes built with the GOV.UK Design System, with departures recorded and researched
@@ -30,18 +32,22 @@ guardrails:
     tcop_points: [2]
   GR-FE-03:
     phases: [alpha, beta]
+    lead_roles: [developer, interaction-designer]
     evidence: Core journeys tested with JavaScript turned off
     service_standard_points: [5]
   GR-FE-04:
     phases: [discovery, alpha]
+    lead_roles: [service-designer, technical-architect]
     evidence: ADR noting whether the forms capability was considered
     tcop_points: [8]
   GR-FE-05:
     phases: [alpha, beta]
+    lead_roles: [service-designer, user-researcher]
     evidence: Page weight budget, save-progress design and testing on slow connections
     service_standard_points: [5]
   GR-FE-06:
     phases: [alpha, beta, live]
+    lead_roles: [content-designer]
     evidence: Assessment of whether the Welsh Language Standards apply and translated content where they do
     evidence_by_phase:
       alpha: Whether the Welsh Language Standards apply decided, and the service designed for translation

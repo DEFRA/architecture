@@ -11,11 +11,13 @@ guardrail_defaults:
 guardrails:
   GR-API-01:
     phases: [alpha, beta]
+    lead_roles: [technical-architect]
     evidence: API specification written before or alongside the user interface
     service_standard_points: [13]
     tcop_points: [9]
   GR-API-02:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: OpenAPI 3 or AsyncAPI documents in the service repository that match the running API
     evidence_by_phase:
       alpha: Draft OpenAPI 3 or AsyncAPI documents for the interfaces you are prototyping
@@ -26,11 +28,13 @@ guardrails:
     tcop_points: [4, 9]
   GR-API-03:
     phases: [alpha, beta, live]
+    lead_roles: [developer, technical-architect]
     evidence: API design reviewed against the GDS API technical and data standards
     service_standard_points: [13]
     tcop_points: [4]
   GR-API-04:
     phases: [beta, live]
+    lead_roles: [technical-architect, product-manager]
     evidence: Published versioning policy, deprecation notices sent to consumers and retirement dates for old versions
     evidence_by_phase:
       beta: Versioning approach published for each API and event
@@ -40,6 +44,7 @@ guardrails:
     tcop_points: [9]
   GR-API-05:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect]
     evidence: Container diagram showing integration only through APIs, events or governed data products
     evidence_by_phase:
       alpha: Container diagram showing integration only through APIs, events or governed data products
@@ -49,9 +54,11 @@ guardrails:
     sbd_principles: [6]
   GR-API-06:
     phases: [alpha, beta]
+    lead_roles: [technical-architect, developer]
     evidence: Event and message definitions described in AsyncAPI
   GR-API-07:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect, developer]
     evidence: Authentication and authorisation design, rate limits and input validation, covered by security testing
     evidence_by_phase:
       alpha: Authentication, authorisation, input validation and rate limiting designed for each API
@@ -62,6 +69,7 @@ guardrails:
     sbd_principles: [7, 8]
   GR-API-08:
     phases: [beta, live]
+    lead_roles: [technical-architect]
     evidence: Entry in the platform API catalogue
     tcop_points: [8]
 ---

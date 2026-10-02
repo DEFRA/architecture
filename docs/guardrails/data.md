@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-DATA-01:
     phases: [alpha, beta, live]
+    lead_roles: [data-architect, product-manager]
     evidence: Information asset register entries with a named owner for each data set
     evidence_by_phase:
       alpha: Each data set the service will create or hold identified, with a proposed information asset owner
@@ -20,6 +21,7 @@ guardrails:
     tcop_points: [10]
   GR-DATA-02:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [data-architect]
     evidence: Data flow diagram naming the authoritative source for each shared entity, with refresh arrangements for any copies
     evidence_by_phase:
       discovery: Shared entities the service needs identified, with their authoritative sources
@@ -29,6 +31,7 @@ guardrails:
     tcop_points: [10]
   GR-DATA-03:
     phases: [alpha, beta]
+    lead_roles: [data-architect]
     evidence: Data model that uses the agreed data standards and identifiers
     evidence_by_phase:
       alpha: Data model using the agreed data standards and identifiers
@@ -37,14 +40,17 @@ guardrails:
     tcop_points: [4, 10]
   GR-DATA-04:
     phases: [alpha, beta]
+    lead_roles: [service-designer]
     evidence: Journey design showing users are not asked for information Defra already holds, and data sharing agreements where required
     tcop_points: [8, 10]
   GR-DATA-05:
     phases: [beta, live]
+    lead_roles: [data-architect]
     evidence: Published metadata records in UK GEMINI or DCAT
     tcop_points: [10]
   GR-DATA-06:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [data-architect, product-manager]
     evidence: Approved DPIA, and retention and deletion built into the service
     evidence_by_phase:
       discovery: DPIA screening completed, showing whether personal data is involved
@@ -57,14 +63,17 @@ guardrails:
     tcop_points: [7]
   GR-DATA-07:
     phases: [beta, live]
+    lead_roles: [data-architect, product-manager]
     evidence: Link to the published open data and its licence
     tcop_points: [10]
   GR-DATA-08:
     phases: [beta, live]
+    lead_roles: [data-architect, performance-analyst]
     evidence: Data quality measures and regular reports
     tcop_points: [10]
   GR-DATA-09:
     phases: [beta, live]
+    lead_roles: [data-architect]
     evidence: Retention schedule applied and records of permanent value identified
     evidence_by_phase:
       beta: Retention schedule identified for each type of record, and disposal built in

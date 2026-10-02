@@ -10,14 +10,17 @@ guardrail_defaults:
 guardrails:
   GR-DIG-01:
     phases: [discovery, alpha]
+    lead_roles: [service-designer, user-researcher]
     evidence: Discovery findings showing paper, email and manual steps in the current process and how the new design removes or justifies each one
     service_standard_points: [2]
   GR-DIG-02:
     phases: [discovery, alpha, beta]
+    lead_roles: [service-designer]
     evidence: A map of the whole service, including the parts other teams and organisations deliver, and agreed hand-offs between them
     service_standard_points: [2, 3]
   GR-DIG-03:
     phases: [alpha, beta, live]
+    lead_roles: [service-designer, user-researcher]
     evidence: Assisted digital and offline routes designed and tested with users who need them
     service_standard_points: [3, 5]
     tcop_points: [2]

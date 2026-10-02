@@ -159,6 +159,19 @@ nav:
       - Live: deliver/live.md
       - Significant change: deliver/significant-change.md
       - Retire a service: deliver/retire.md
+      - By role:
+          - deliver/roles/index.md
+          - Product manager: deliver/roles/product-manager.md
+          - Delivery manager: deliver/roles/delivery-manager.md
+          - Service designer: deliver/roles/service-designer.md
+          - Interaction designer: deliver/roles/interaction-designer.md
+          - Content designer: deliver/roles/content-designer.md
+          - User researcher: deliver/roles/user-researcher.md
+          - Developer: deliver/roles/developer.md
+          - Technical architect: deliver/roles/technical-architect.md
+          - Security architect: deliver/roles/security-architect.md
+          - Data architect: deliver/roles/data-architect.md
+          - Performance analyst: deliver/roles/performance-analyst.md
       - Evidence checklists:
           - Discovery: deliver/checklists/discovery.md
           - Alpha: deliver/checklists/alpha.md

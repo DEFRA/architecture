@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-OPEN-01:
     phases: [alpha, beta, live]
+    lead_roles: [developer, delivery-manager]
     evidence: Public repository in a Defra GitHub organisation, or a recorded reason for keeping it private
     evidence_by_phase:
       alpha: Code public in a Defra GitHub organisation from the first commit, or a recorded reason for keeping a repository private
@@ -21,6 +22,7 @@ guardrails:
     tcop_points: [3]
   GR-OPEN-02:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: LICENCE file with the Open Government Licence or MIT licence in every repository
     evidence_by_phase:
       alpha: LICENCE file in every repository from the start
@@ -31,6 +33,7 @@ guardrails:
     tcop_points: [3]
   GR-OPEN-03:
     phases: [alpha, beta, live]
+    lead_roles: [developer, security-architect]
     evidence: Secret scanning and push protection enabled on every repository
     evidence_by_phase:
       alpha: Secret scanning and push protection on for every repository from the first commit
@@ -42,11 +45,13 @@ guardrails:
     sbd_principles: [7]
   GR-OPEN-04:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Reuse and upstream contributions noted in ADRs and pull requests
     service_standard_points: [13]
     tcop_points: [3, 8]
   GR-OPEN-05:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [delivery-manager]
     evidence: Blog posts, show and tells or contributions to this site
     tcop_points: [8]
 ---

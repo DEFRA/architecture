@@ -11,10 +11,12 @@ guardrail_defaults:
 guardrails:
   GR-AI-01:
     phases: [discovery, alpha]
+    lead_roles: [product-manager, service-designer]
     evidence: ADR recording the AI options considered and why they were or were not used
     service_standard_points: [11]
   GR-AI-02:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [technical-architect, security-architect]
     evidence: List of the AI services the service uses and the Defra tenancy or enterprise agreement each runs under
     evidence_by_phase:
       discovery: Any AI services you are exploring identified, with the Defra tenancy or enterprise agreement they would run under
@@ -26,6 +28,7 @@ guardrails:
     sbd_principles: [2]
   GR-AI-03:
     phases: [alpha, beta, live]
+    lead_roles: [service-designer, user-researcher]
     evidence: Design of the human oversight and challenge route, tested with users
     evidence_by_phase:
       alpha: Design of the human oversight and challenge route for decisions with significant effects, tested with users in prototypes
@@ -33,12 +36,14 @@ guardrails:
       live: Records of human review, challenges raised and their outcomes, reviewed regularly
   GR-AI-04:
     phases: [beta, live]
+    lead_roles: [content-designer, interaction-designer]
     evidence: Link to the published Algorithmic Transparency Recording Standard record and the AI notice shown to users
     evidence_by_phase:
       beta: Draft Algorithmic Transparency Recording Standard record, and the notice telling users about AI tested with them
       live: Link to the published Algorithmic Transparency Recording Standard record, kept current
   GR-AI-05:
     phases: [alpha, beta, live]
+    lead_roles: [data-architect, security-architect]
     evidence: Model evaluation results for accuracy, bias and safety, live monitoring, and a threat model that covers AI-specific threats
     evidence_by_phase:
       alpha: Evaluation plan for accuracy, bias and safety, and AI-specific threats in the threat model
@@ -48,6 +53,7 @@ guardrails:
     sbd_principles: [3, 9]
   GR-AI-06:
     phases: [discovery, alpha]
+    lead_roles: [technical-architect]
     evidence: Technical Design Authority review outcome recorded in the ADR
     evidence_by_phase:
       discovery: Novel or generative AI use in decision making identified, and a conversation with the Technical Design Authority booked
@@ -55,11 +61,13 @@ guardrails:
       significant-change: Technical Design Authority review of any new AI use introduced by the change
   GR-AI-07:
     phases: [alpha, beta, live]
+    lead_roles: [delivery-manager, developer]
     evidence: "Supplier's agreed list of AI coding assistants and how each runs within Defra-approved terms, the review process for generated code, and disclosure in pull requests or delivery reports"
     since_version: 0.2.0
     sbd_principles: [2, 10]
   GR-AI-08:
     phases: [alpha, beta, live]
+    lead_roles: [technical-architect, security-architect]
     evidence: List of each agent's tools and permissions, granted to the agent's own identity and reviewed
     evidence_by_phase:
       alpha: Each agent's tools and permissions listed in the design, with a workload identity for the agent
@@ -69,6 +77,7 @@ guardrails:
     sbd_principles: [7]
   GR-AI-09:
     phases: [alpha, beta, live]
+    lead_roles: [service-designer, technical-architect]
     evidence: Design showing which agent actions need human approval, and tests proving they cannot happen without it
     evidence_by_phase:
       alpha: Agent actions classified, and the actions that need human approval identified in the design
@@ -78,6 +87,7 @@ guardrails:
     sbd_principles: [4]
   GR-AI-10:
     phases: [beta, live]
+    lead_roles: [developer, security-architect]
     evidence: Audit records of agent inputs, tool calls, approvals and outcomes, sent to security monitoring
     evidence_by_phase:
       beta: Audit records of agent inputs, tool calls, approvals and outcomes produced and sent to security monitoring
@@ -86,6 +96,7 @@ guardrails:
     sbd_principles: [5]
   GR-AI-11:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect, developer]
     evidence: Threat model covering prompt injection through every input the agent reads, with tested mitigations
     evidence_by_phase:
       alpha: Threat model covering prompt injection through every input the agent reads

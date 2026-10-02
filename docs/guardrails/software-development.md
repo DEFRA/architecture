@@ -11,10 +11,12 @@ guardrail_defaults:
 guardrails:
   GR-DEV-01:
     phases: [alpha]
+    lead_roles: [technical-architect, developer]
     evidence: ADR recording the reason wherever the service uses a different stack
     service_standard_points: [11]
   GR-DEV-02:
     phases: [alpha, beta, live]
+    lead_roles: [developer, delivery-manager]
     evidence: All source code in a Defra-owned GitHub organisation from the first commit
     evidence_by_phase:
       alpha: All code, including prototypes and infrastructure code written by suppliers, in a Defra-owned GitHub organisation from the first commit
@@ -23,6 +25,7 @@ guardrails:
     service_standard_points: [12]
   GR-DEV-03:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Branch protection on the main branch requiring a review and passing checks
     evidence_by_phase:
       alpha: Main branch protected from the start, with changes through reviewed pull requests
@@ -32,6 +35,7 @@ guardrails:
     sbd_principles: [10]
   GR-DEV-04:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Pipeline definition in the repository and deployment history
     evidence_by_phase:
       beta: Every change built, tested, scanned and deployed by an automated pipeline, with rollback tested
@@ -40,9 +44,11 @@ guardrails:
     sbd_principles: [10]
   GR-DEV-05:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Test results from the pipeline at each level
   GR-DEV-06:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Dependabot or Renovate configuration and runtimes on supported versions
     evidence_by_phase:
       beta: Dependabot or Renovate configured, software composition analysis in the pipeline, and runtimes on supported versions
@@ -50,14 +56,17 @@ guardrails:
     automated_check: "Guardrail check (tools/guardrail-check): Dependabot or Renovate configured"
   GR-DEV-07:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: Linting and formatting checks in the pipeline
     automated_check: Lint and format checks in the pipeline
   GR-DEV-08:
     phases: [alpha, beta, live]
+    lead_roles: [developer]
     evidence: README explaining what the service does and how to run, test and deploy it, with links to its ADRs
     automated_check: "Guardrail check (tools/guardrail-check): README sections on running, testing and deploying, and a link to ADRs"
   GR-DEV-09:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [technical-architect]
     evidence: ADR log in the repository or linked from its README
     automated_check: "Guardrail check (tools/guardrail-check): ADRs in docs/adr"
     since_version: 0.2.0

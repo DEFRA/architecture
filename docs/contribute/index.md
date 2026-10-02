@@ -66,6 +66,7 @@ Then add its metadata to the `guardrails:` block in the page's front matter:
 guardrails:
   GR-HOST-08:
     phases: [alpha, beta, live]
+    lead_roles: [developer, technical-architect]
     evidence: What a team shows to prove they meet it
     evidence_by_phase:               # required for a Must, for every phase it applies in
       alpha: The design or plan that shows it
@@ -83,6 +84,7 @@ guardrails:
 | `status` | `draft`, `endorsed` or `deprecated`. Endorsed means approved by the [Technology Governance Board](../governance/tgb.md). |
 | `phases` | When the guardrail applies: any of `discovery`, `alpha`, `beta`, `live` |
 | `evidence` | What a team shows to prove they meet it, in general. **Required for every Must** - the build fails without it. Used wherever no phase-specific evidence is given. |
+| `lead_roles` | The roles that lead the guardrail - one or more of the DDaT role ids in `delivery/roles.yaml`, such as `content-designer` or `technical-architect`. **Required for every guardrail.** Each role has a page under [By role](../deliver/roles/index.md). |
 | `evidence_by_phase` | What to show in each phase or lifecycle event: `discovery` (intent or constraint identified), `alpha` (design or plan), `beta` (built and tested), `live` (operated and reviewed), `significant-change` and `retire`. **A Must needs an entry for every phase it applies in**, and for `significant-change` or `retire` if it is listed for them in `delivery/lifecycle.yaml`. Only list a phase in `phases` if a team can do or show something for the guardrail in that phase. |
 | `automated_check` | How it can be checked automatically, or `manual` |
 | `service_standard_points` | [Service Standard](https://www.gov.uk/service-manual/service-standard) points (1 to 14) it helps meet. Leave out unless the link is clear. |

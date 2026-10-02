@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-SEC-01:
     phases: [discovery, alpha, beta, live]
+    lead_roles: [security-architect]
     evidence: Named risk owner and the Secure by Design activities completed for the phase
     evidence_by_phase:
       discovery: Named risk owner, and the information and threats the service is likely to face identified
@@ -23,6 +24,7 @@ guardrails:
     sbd_principles: [1, 3]
   GR-SEC-02:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect, developer]
     evidence: Current, dated threat model, reviewed at the last significant change and at least annually
     evidence_by_phase:
       alpha: First threat model, created by the team
@@ -34,6 +36,7 @@ guardrails:
     sbd_principles: [3]
   GR-SEC-03:
     phases: [discovery, alpha]
+    lead_roles: [security-architect, data-architect]
     evidence: Security classification and data types recorded with the controls that match them
     evidence_by_phase:
       discovery: Security classification and the types of data the service will handle identified
@@ -42,6 +45,7 @@ guardrails:
     sbd_principles: [3]
   GR-SEC-04:
     phases: [beta, live]
+    lead_roles: [developer, security-architect]
     evidence: TLS configuration and encryption at rest settings for every data store
     evidence_by_phase:
       beta: TLS 1.2 or higher for all traffic and encryption at rest for every data store, confirmed as built
@@ -50,6 +54,7 @@ guardrails:
     sbd_principles: [8]
   GR-SEC-05:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Pipeline scanning results and the time taken to fix critical and high vulnerabilities
     evidence_by_phase:
       beta: Static analysis, dependency, container and infrastructure scanning running in the pipeline
@@ -59,6 +64,7 @@ guardrails:
     sbd_principles: [9]
   GR-SEC-06:
     phases: [beta, live]
+    lead_roles: [security-architect, delivery-manager]
     evidence: IT health check report and remediation tracker
     evidence_by_phase:
       beta: IT health check before go-live, and a remediation tracker
@@ -68,6 +74,7 @@ guardrails:
     sbd_principles: [9]
   GR-SEC-07:
     phases: [beta, live]
+    lead_roles: [developer, security-architect]
     evidence: Security-relevant events reaching the security operations centre
     evidence_by_phase:
       beta: Authentication, authorisation failures, administrative actions and data exports sent to the security operations centre, and tested
@@ -75,6 +82,7 @@ guardrails:
     sbd_principles: [5]
   GR-SEC-08:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect, developer]
     evidence: Supplier security assessments, pinned dependencies and a software bill of materials
     evidence_by_phase:
       alpha: Security assessment of suppliers and third-party products in the design
@@ -85,6 +93,7 @@ guardrails:
     sbd_principles: [2]
   GR-SEC-09:
     phases: [alpha, beta, live]
+    lead_roles: [security-architect, product-manager]
     evidence: Risk register entries with an owner and an expiry date for every accepted risk
     evidence_by_phase:
       alpha: Risks from controls that cannot be met recorded, with an owner

@@ -11,6 +11,7 @@ guardrail_defaults:
 guardrails:
   GR-OPS-01:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Dashboards and alerts in the platform's observability tooling and security events reaching the security operations centre
     evidence_by_phase:
       beta: Logs, metrics and traces reaching the platform's observability tooling, and security events reaching the security operations centre
@@ -19,6 +20,7 @@ guardrails:
     sbd_principles: [5]
   GR-OPS-02:
     phases: [beta, live]
+    lead_roles: [developer]
     evidence: Sample logs showing structured fields and correlation identifiers and no secrets
     evidence_by_phase:
       beta: Structured logs with correlation identifiers, tested to show no secrets or unnecessary personal data are logged
@@ -26,14 +28,17 @@ guardrails:
     sbd_principles: [5]
   GR-OPS-03:
     phases: [beta, live]
+    lead_roles: [product-manager, performance-analyst, technical-architect]
     evidence: Agreed service level objectives with monitoring and alerts
     service_standard_points: [14]
   GR-OPS-04:
     phases: [beta, live]
+    lead_roles: [developer, interaction-designer]
     evidence: Health endpoints, timeout and retry settings, and a design for when dependencies fail
     service_standard_points: [14]
   GR-OPS-05:
     phases: [beta, live]
+    lead_roles: [delivery-manager, product-manager]
     evidence: Support model, on-call arrangements, runbooks, incident process, named live owner and service catalogue entry
     evidence_by_phase:
       beta: Before public beta, the support model, on-call arrangements, runbooks, incident process and live owner agreed, and the service catalogue entry made
@@ -42,10 +47,12 @@ guardrails:
     service_standard_points: [14]
   GR-OPS-06:
     phases: [live]
+    lead_roles: [delivery-manager]
     evidence: Post-incident reviews and the actions taken
     service_standard_points: [14]
   GR-OPS-07:
     phases: [beta, live]
+    lead_roles: [performance-analyst, product-manager]
     evidence: Published key performance indicators and cost tags on cloud resources
     service_standard_points: [10]
 ---
