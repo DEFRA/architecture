@@ -1,6 +1,6 @@
 name: Guardrail, principle or NFR change
 description: Propose a new guardrail, NFR or service tier, or a change to an existing one
-labels: [guardrail-change]
+labels: [guardrail-change, needs-triage]
 body:
   - type: input
     id: ids

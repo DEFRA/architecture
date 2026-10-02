@@ -1,6 +1,6 @@
 name: Content problem or suggestion
 description: Something on the site is wrong, unclear, out of date or missing
-labels: [content]
+labels: [content, needs-triage]
 body:
   - type: input
     id: page

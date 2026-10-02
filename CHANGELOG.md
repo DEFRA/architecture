@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- `MAINTAINERS.md`, `.github/CODEOWNERS` and `.github/labels.yml`, with tests that every label used is defined. CI warns about guardrails whose `last_reviewed` date is more than 12 months old.
 - Where things live: the site, repository, Issues, GitHub Project, Discussions and releases, and why the GitHub wiki is not used. A test fails on links to a wiki.
 - Draft services and capabilities page, using the definitions from Defra's service taxonomy and showing where the handrail fits.
 - Draft guardrails `GR-DATA-10` (research data), `GR-DATA-11` (no real personal data in prototypes) and `GR-FE-07` (tell users what is happening when things fail or are slow), all Shoulds, with evidence for each phase.

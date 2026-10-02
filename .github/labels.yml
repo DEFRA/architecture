@@ -1,0 +1,33 @@
+# Issue and pull request labels. See MAINTAINERS.md for when to use each.
+# tests/test_content.py checks that every label used in an issue form,
+# Dependabot or a workflow is defined here.
+- name: needs-triage
+  color: fbca04
+  description: New and not yet triaged
+- name: content
+  color: 1d76db
+  description: Something wrong, unclear or out of date
+- name: guardrail-change
+  color: 5319e7
+  description: A new or changed guardrail
+- name: must-change
+  color: b60205
+  description: A new, stricter or relaxed Must - needs TDA review and TGB approval
+- name: new-pattern
+  color: 0e8a16
+  description: A proposed architecture pattern
+- name: open-question
+  color: c5def5
+  description: Answers a To be confirmed box
+- name: feedback
+  color: d4c5f9
+  description: Feedback from a user of the site
+- name: guardrail-backlog
+  color: bfdadc
+  description: An item from the guardrail backlog
+- name: site
+  color: 6e7781
+  description: Site design, tooling, CI or tests
+- name: dependencies
+  color: 0366d6
+  description: Dependency updates

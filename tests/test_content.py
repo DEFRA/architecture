@@ -639,6 +639,47 @@ def test_expansion_match_ignores_markup_and_case():
     assert abbreviations.problems(abbreviations.tidy(page)) == []
 
 
+# --- Maintenance -----------------------------------------------------------------
+
+
+def test_review_due_warns_after_twelve_months():
+    spec = importlib.util.spec_from_file_location("review_due", os.path.join(ROOT, "scripts", "review_due.py"))
+    review = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(review)
+    import datetime
+
+    today = datetime.date(2027, 10, 2)
+    items = [
+        {"id": "GR-A-01", "last_reviewed": "2026-10-01", "status": "draft"},
+        {"id": "GR-A-02", "last_reviewed": "2026-10-02", "status": "draft"},
+        {"id": "GR-A-03", "last_reviewed": "2025-01-01", "status": "deprecated"},
+    ]
+    assert [g["id"] for g in review.overdue(items, today)] == ["GR-A-01"]
+
+
+def test_every_label_used_is_defined():
+    defined = {label["name"] for label in load_yaml(".github", "labels.yml")}
+    used = set()
+    for path in glob.glob(os.path.join(ROOT, ".github", "**", "*.yml"), recursive=True):
+        if path.endswith("labels.yml"):
+            continue
+        with open(path, encoding="utf-8") as handle:
+            text = handle.read()
+        for match in re.findall(r"^\s*labels:\s*\[([^\]]*)\]", text, re.M):
+            used |= {x.strip() for x in match.split(",") if x.strip()}
+        used |= set(re.findall(r"^\s*labels:\s*([a-z][a-z-]+)\s*$", text, re.M))
+    assert used, "no labels found - has the template format changed?"
+    assert used <= defined, f"Define these labels in .github/labels.yml: {sorted(used - defined)}"
+
+
+def test_codeowners_and_maintainers_exist():
+    for name in ("MAINTAINERS.md", os.path.join(".github", "CODEOWNERS")):
+        assert os.path.exists(os.path.join(ROOT, name)), name
+    with open(os.path.join(ROOT, ".github", "CODEOWNERS"), encoding="utf-8") as handle:
+        active = [line for line in handle if line.strip() and not line.startswith("#")]
+    assert active and active[0].split()[0] == "*", "CODEOWNERS needs a default owner for every file"
+
+
 def test_guidance_does_not_live_in_the_wiki():
     """All guidance lives in this repository; nothing links to a GitHub wiki."""
     found = []

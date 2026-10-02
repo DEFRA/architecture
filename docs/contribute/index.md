@@ -38,7 +38,8 @@ Most changes are to Markdown in `docs/` or to the YAML data files. You rarely ne
 | `hooks/` | Small Python scripts that check the data and build tables from it | Site maintainers |
 | `overrides/`, `docs/stylesheets/`, `docs/javascripts/` | Home page hero, theme, decision check and library filter | Site maintainers |
 | `tests/` | Content checks (`pytest`) and the accessibility check (`npm test`) | Site maintainers |
-| `.github/` | CI workflow, pull request and issue templates | Site maintainers |
+| `.github/` | CI workflows, pull request and issue templates, code owners and labels | Site maintainers |
+| [`MAINTAINERS.md`](https://github.com/howellsr/architecture/blob/main/MAINTAINERS.md) | Roles, triage, labels, the route for changing a Must, releases and review cadence | Site maintainers |
 
 ## Common tasks
 

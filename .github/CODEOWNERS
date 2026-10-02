@@ -1,0 +1,13 @@
+# Code owners: GitHub asks these people to review changes to the matching files.
+# Names are to be confirmed - see MAINTAINERS.md. Until then the repository
+# owner reviews everything. Later rules override earlier ones.
+
+*                       @howellsr
+
+# Replace the placeholders below with confirmed people or teams, then uncomment.
+# docs/guardrails/      @OWNER-guardrails       # guardrail area owners
+# docs/principles/      @OWNER-enterprise-arch  # doctrine and principles
+# capabilities/         @OWNER-business-arch    # capability models
+# nfrs/                 @OWNER-solution-arch    # service tiers and NFRs
+# registers/            @OWNER-lead-maintainer  # approvals and exceptions
+# hooks/ tests/ .github/ @OWNER-lead-maintainer # site code and CI
