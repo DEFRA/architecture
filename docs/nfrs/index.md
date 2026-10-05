@@ -14,6 +14,8 @@ The internal page is available only to authorised Defra Group users. Delivery pa
 
 This public site explains how architecture uses NFRs and provides reusable guidance. If public examples or placeholders differ from the internal DDTS catalogue, use the internal catalogue.
 
+The [Defra Digital Service Manual non-functional requirements guidance](https://digital.defra.gov.uk/business-analysis/non-functional-requirements) provides the matching business analysis entry point.
+
 ## What to do
 
 1. **Assess business criticality and service tier.** Do this as early as possible so the tier can inform the required characteristics of the service.
