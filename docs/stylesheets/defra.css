@@ -264,6 +264,13 @@ body {
   font-size: 0.8rem;
 }
 
+/* An option to use first, in the technology capability tables */
+.md-typeset .cap-option {
+  display: block;
+  min-height: 24px;
+  padding: 0.15rem 0;
+}
+
 /* ---------- Capability matrix ---------- */
 
 .cap-matrix-wrapper {

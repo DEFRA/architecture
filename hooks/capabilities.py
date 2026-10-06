@@ -312,7 +312,11 @@ def _guidance(cap: dict, url_to) -> list[str]:
     for need in cap["needs"]:
         options = need.get("options", [])
         if options:
-            use = "<br>".join(f"[{o['name']}]({url_to(o['url'])})" if o.get("url") else o["name"] for o in options)
+            # One block per option, tall enough to be an easy touch target (WCAG 2.2 target size).
+            use = "".join(
+                f'<span class="cap-option">{f"[{o['name']}]({url_to(o['url'])})" if o.get("url") else o["name"]}</span>'
+                for o in options
+            )
         else:
             use = (
                 "No Defra-wide answer yet. "
