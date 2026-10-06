@@ -69,6 +69,7 @@ The [common tasks](index.md#common-tasks) on the contribute page give the exact 
 | Record an approval or exception | The files in `registers/` | Ids, dates and guardrail ids are checked |
 | Answer an open question | Replace the "To be confirmed" box with the fact | Close the `open-question` issue from the pull request |
 | Mark a page as draft | `status: draft` in its front matter | Remove it once the content is agreed |
+| Mark a whole section as a prototype | Add it under `extra.prototype` in `mkdocs.yml`, with a note | Every page in the section shows a prototype banner. Remove the entry once the section has been tested. |
 | Add an abbreviation | `includes/abbreviations.md` | Still write it in full the first time it is used on each page |
 | Add a page | A new Markdown file in the right `docs/` folder | Add it to `nav` in `mkdocs.yml` |
 

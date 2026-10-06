@@ -10,6 +10,14 @@ draft marker in the navigation. Remove the line once the content is agreed.
 
 Add ``status_note: ...`` to replace the standard wording of the banner.
 
+A whole section can be marked as a prototype in ``mkdocs.yml``. Every page whose
+source path starts with ``section`` then shows a prototype banner instead:
+
+    extra:
+      prototype:
+        - section: deliver/
+          note: This section is an early prototype that we are testing with users.
+
 Run ``grep -rl "status: draft" docs`` to list every page still in draft.
 """
 
@@ -22,11 +30,23 @@ DEFAULT_NOTE = (
 )
 
 
+def prototype_note(src_path: str, config) -> str | None:
+    """The prototype note for a page's section, if its section is marked as a prototype."""
+    for entry in (config.get("extra") or {}).get("prototype") or []:
+        if src_path.startswith(entry["section"]):
+            return entry["note"]
+    return None
+
+
 def on_page_markdown(markdown, page, config, files):
-    if page.meta.get("status") != "draft":
+    prototype = prototype_note(page.file.src_uri, config)
+    if prototype:
+        banner = f'!!! warning "Prototype - testing with users"\n    {prototype}\n\n'
+    elif page.meta.get("status") == "draft":
+        note = page.meta.get("status_note", DEFAULT_NOTE)
+        banner = f'!!! warning "Draft - to be confirmed"\n    {note}\n\n'
+    else:
         return markdown
-    note = page.meta.get("status_note", DEFAULT_NOTE)
-    banner = f'!!! warning "Draft - to be confirmed"\n    {note}\n\n'
     lines = markdown.split("\n")
     # Place the banner after the lead paragraph, or after the title if there is none.
     anchor = next((i for i, line in enumerate(lines) if line.startswith('<p class="lead">')), None)

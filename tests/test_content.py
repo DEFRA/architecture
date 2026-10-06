@@ -73,6 +73,15 @@ def test_platforms_name_a_level_2_technology_capability():
     assert not unknown, "Platforms with an unknown technology capability: " + ", ".join(unknown)
 
 
+def test_prototype_sections_show_a_banner():
+    page_status = load_hook("page_status")
+    config = {"extra": {"prototype": [{"section": "deliver/", "note": "Early prototype."}]}}
+    assert page_status.prototype_note("deliver/roles/developer.md", config) == "Early prototype."
+    assert page_status.prototype_note("guardrails/data.md", config) is None
+    with open(os.path.join(ROOT, "mkdocs.yml"), encoding="utf-8") as handle:
+        assert "- section: deliver/" in handle.read(), "the Deliver section should be marked as a prototype"
+
+
 # --- Guardrails ----------------------------------------------------------------
 
 

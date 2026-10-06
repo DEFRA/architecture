@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- A section can be marked as a prototype under `extra.prototype` in `mkdocs.yml`, so every page in it shows a "Prototype - testing with users" banner. Deliver a service is marked as a prototype.
 - A guide for the team on updating the site, linked from the contribute page: how it is built, the rules every change follows, which file to edit and how to fix a failed check.
 - `CLAUDE.md` with the repository's ground rules, layout, commands and gotchas for AI assistants, kept under 80 lines by a test.
 - Issue forms for a new pattern, answering an open question and feedback by role, and a pull request checklist covering unchanged ids, the changelog, checks and \"To be confirmed\" boxes. Tests keep the feedback roles in step with `delivery/roles.yaml`.

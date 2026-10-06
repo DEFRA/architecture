@@ -31,7 +31,7 @@ The site uses [MkDocs](https://www.mkdocs.org/) with the [Material](https://squi
 | `delivery.py` | Phase pages, checklists, platforms and role pages |
 | `patterns.py` | The pattern catalogue and each pattern's guardrails and Secure by Design artefacts |
 | `registers.py` | Approval status, the exception register, guardrails health and doctrine wording |
-| `page_status.py` | The draft banner and navigation marker for `status: draft` pages |
+| `page_status.py` | The draft banner and navigation marker for `status: draft` pages, and the prototype banner for sections listed under `extra.prototype` in `mkdocs.yml` |
 | `cache_busting.py` | Adds a content hash to the site's CSS and JavaScript addresses |
 | `site_info.py` | The last updated date |
 | `releases.py` | Release history and the version in force, from `CHANGELOG.md` |

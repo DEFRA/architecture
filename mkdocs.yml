@@ -88,6 +88,10 @@ extra:
   generator: false
   status:
     draft: Draft - to be confirmed
+  # Sections that are early prototypes: every page in them shows a banner (hooks/page_status.py).
+  prototype:
+    - section: deliver/
+      note: "This section is an early prototype that we are testing with users. It may change a lot, and some of it may be wrong. Check with your solution design authority before relying on it, and tell us what works and what does not through the feedback link above."
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DEFRA
