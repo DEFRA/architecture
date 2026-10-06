@@ -72,12 +72,15 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 
 ## Technology radars
 
-Two radars sit alongside the handrail. Both are internal to Defra: you need to be connected to a Defra network and signed in to open them.
+Two radars sit alongside the handrail.
+
+!!! warning "Defra staff only"
+    These links only open on a Defra device, or on the Defra VPN, and you need to be signed in with your Defra account. They will not work from a personal device or for delivery partners without Defra access.
 
 | Radar | What it tells you | Use it to |
 | --- | --- | --- |
-| [Tools radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630?filter=&groupBy=epic) | The software tools approved for use in Defra | Check whether a tool is already approved before you buy or adopt one ([GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01), [GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) |
-| [Emerging Technology Radar 2026](https://defrati-my.sharepoint.com/personal/jan_murdoch_defrati_co_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments%2FDefra%20DDTS%20%2D%20Emerging%20Technologies%20Radar%202026%20%2Epdf&parent=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments&ga=1) | The emerging technologies Defra is watching, what is ready to use now, what is on the horizon and what still needs time to mature | Spot opportunities early, and find out whether a technology is mature enough before you build on it |
+| [Tools radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630?filter=&groupBy=epic) (Defra device or VPN) | The software tools approved for use in Defra | Check whether a tool is already approved before you buy or adopt one ([GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01), [GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) |
+| [Emerging Technology Radar 2026](https://defrati-my.sharepoint.com/personal/jan_murdoch_defrati_co_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments%2FDefra%20DDTS%20%2D%20Emerging%20Technologies%20Radar%202026%20%2Epdf&parent=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments&ga=1) (Defra device or VPN) | The emerging technologies Defra is watching, what is ready to use now, what is on the horizon and what still needs time to mature | Spot opportunities early, and find out whether a technology is mature enough before you build on it |
 
 The Emerging Technology Radar is published each year, and the 2026 edition added 28 technologies. It is organised around four themes that match where Defra group priorities are heading:
 
