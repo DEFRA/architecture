@@ -223,6 +223,9 @@ For example, a customer may be sent zero to many invoices, while each invoice mu
 
 ```mermaid
 classDiagram
+  accTitle: Customer and invoice relationship example
+  accDescr: Demonstrates UML cardinality notation where a customer may be sent zero to many invoices and each invoice is sent to exactly one customer.
+
   class Customer
   class Invoice
   Customer "1" --> "0..*" Invoice : is sent
