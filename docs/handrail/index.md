@@ -30,7 +30,7 @@
 
     Which technology capabilities each business capability depends on - and where the biggest reuse opportunities are.
 
--   **[Reference architectures](reference-architectures/index.md)**
+-   **[Service patterns](../patterns/service/index.md)**
 
     ---
 
@@ -59,7 +59,7 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 
 - **see duplication** - five case management systems serving the same capability is a reuse opportunity
 - **target investment** - fund the technology capabilities that enable the most business capabilities
-- **give teams a head start** - a new licensing service starts from the licensing reference architecture, not a blank page
+- **give teams a head start** - a new licensing service starts from the regulatory casework service pattern, not a blank page
 - **talk to the business in its own language** - capabilities, not systems
 
 ## Using the handrail on your project
@@ -67,7 +67,7 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 1. **Find your business capability.** Which of the [eleven capabilities](business-capabilities.md) does your service support? Most services support one or two.
 2. **Check the technology capabilities it needs.** Each business capability lists the [technology capabilities](technology-capabilities.md) that typically enable it.
 3. **Use the strategic options first.** Each technology capability lists what to use. If it is marked *gap*, talk to the TDA so we solve it once.
-4. **Start from a reference architecture** if one fits.
+4. **Start from a service pattern** if one fits.
 5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming business capability ids (for example `BC05`) and technology capabilities (for example Enabling Platforms) so decisions can be found later.
 
 ## Technology radars

@@ -10,7 +10,7 @@ Follow [Deliver a service](../deliver/index.md) for the guardrails, artefacts an
 
 1. Map your service to the [business capabilities](../handrail/business-capabilities.md).
 2. Check the [technology capabilities](../handrail/technology-capabilities.md) for what to reuse.
-3. Start from a [reference architecture](../handrail/reference-architectures/index.md) if one fits.
+3. Start from a [service pattern](../patterns/service/index.md) if one fits.
 4. Agree your [service tier](../nfrs/service-tiers.md) and pick your [non-functional requirements](../nfrs/catalogue.md).
 5. Read the [guardrails](../guardrails/index.md) and run the 10-minute self-assurance checklist.
 6. Use the [decision check](../governance/decision-check.md) to find your governance route.

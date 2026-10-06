@@ -67,7 +67,7 @@ To be written - see the box above.
 ## When not to use it
 
 - **There is no authoritative source yet.** Talk to the [enterprise data architecture](../about/team.md) team. You may become the source, which brings duties under [GR-DATA-01](../guardrails/data.md#gr-data-01).
-- **Analytical use at scale.** Use governed data products on the data platform, not high-volume calls to an operational API. See the [data and analytics](../handrail/reference-architectures/data-and-analytics.md) reference architecture.
+- **Analytical use at scale.** Use governed data products on the data platform, not high-volume calls to an operational API. See the [data and analytics](service/data-and-analytics.md) service pattern.
 
 ## Related
 

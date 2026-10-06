@@ -1,21 +1,26 @@
+---
+status: draft
+status_note: "Exploratory, early work. Service patterns are starting points for discussion, not agreed designs, and have not been reviewed by the Technical Design Authority. Talk to the architecture team before building on one."
+---
+
 # Regulatory casework
 
-<p class="lead">The default shape for assessing applications, inspecting, investigating and taking enforcement action - the heart of how Defra regulates.</p>
+<p class="lead">An exploratory starting shape for assessing applications, inspecting, investigating and taking enforcement action - the heart of how Defra regulates.</p>
 
-**Typical business capabilities:** [05 Issue licences and permits](../business-capabilities.md#bc05), [06 Enforce compliance](../business-capabilities.md#bc06).
+**Typical business capabilities:** [05 Issue licences and permits](../../handrail/business-capabilities.md#bc05), [06 Enforce compliance](../../handrail/business-capabilities.md#bc06).
 
 ## Context
 
-Across Defra group, staff assess permit and licence applications, plan and carry out inspections, investigate incidents and take enforcement action. Historically each regime has had its own system. This reference architecture separates what is common to all regulatory regimes from what is specific to each, so new regimes can be added by configuration rather than new systems.
+Across Defra group, staff assess permit and licence applications, plan and carry out inspections, investigate incidents and take enforcement action. Historically each regime has had its own system. This service pattern separates what is common to all regulatory regimes from what is specific to each, so new regimes can be added by configuration rather than new systems.
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    accTitle: Regulatory casework reference architecture
+    accTitle: Regulatory casework service pattern
     accDescr: Intake from transactional services and intelligence feeds case and workflow management, which uses rules and risk scoring and documents and records, sends inspection tasks to field work, uses shared reference and geospatial data, publishes public registers and sends decisions to the data platform, which improves risk models.
     subgraph Intake["Intake"]
-        TS["Transactional services<br/>(see transactional reference architecture)"]
+        TS["Transactional services<br/>(see transactional service pattern)"]
         INT["Intelligence, reports<br/>and referrals"]
     end
 
@@ -60,10 +65,10 @@ flowchart TB
 
 | Concern | Default | Notes |
 | --- | --- | --- |
-| Case and workflow | Strategic case management capability ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Configure per regime; avoid new bespoke case systems |
-| Rules | Rules as code, versioned with the service ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Emerging - talk to the architecture team |
-| Documents | Records management with retention labels ([Communication & Collaboration](../technology-capabilities.md#communication-and-collaboration)) | Apply retention schedules automatically |
-| Field inspection | No strategic answer yet ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Raise with the TDA - a cross-Defra need |
+| Case and workflow | Strategic case management capability ([Manufacturing & Delivery](../../handrail/technology-capabilities.md#manufacturing-and-delivery)) | Configure per regime; avoid new bespoke case systems |
+| Rules | Rules as code, versioned with the service ([Manufacturing & Delivery](../../handrail/technology-capabilities.md#manufacturing-and-delivery)) | Emerging - talk to the architecture team |
+| Documents | Records management with retention labels ([Communication & Collaboration](../../handrail/technology-capabilities.md#communication-and-collaboration)) | Apply retention schedules automatically |
+| Field inspection | No strategic answer yet ([Manufacturing & Delivery](../../handrail/technology-capabilities.md#manufacturing-and-delivery)) | Raise with the TDA - a cross-Defra need |
 | Staff access | Microsoft Entra ID with role-based access | [GR-IAM-02](../../guardrails/identity-and-access.md#gr-iam-02) |
 
 ## Key decisions to record

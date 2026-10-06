@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Patterns: service patterns and solution patterns
+
+- **Reference architectures are now [service patterns](../patterns/service/index.md)**, in the Patterns section. A service pattern shows the shape of a whole kind of service; a solution pattern solves one recurring problem inside a service. Both are exploratory, early work for discussion, not agreed designs. Old addresses redirect to the new pages.
+
 ### Technology capabilities aligned to TBM
 
 - **The [technology capabilities](../handrail/technology-capabilities.md) page now shows Defra's Technology Business Management (TBM) model**: 6 level 1 areas and their level 2 capabilities. The full catalogue is maintained by Strategic Architecture.
@@ -146,7 +150,7 @@ The [Defra Digital Service Manual](https://digital.defra.gov.uk/) is the place f
 
 - **New [Patterns](../patterns/index.md) section**, modelled on the Department for Education's: asynchronous submission with an outbox, acting on behalf of an organisation or holding, file upload with malware scanning, reading from an authoritative source, and publishing open data with metadata. Each lists the guardrails it helps you meet and related Secure by Design artefacts.
 - **[Worked example: apply for a licence](../patterns/worked-example/index.md):** a fictional service taken through the transactional reference architecture, with C4 context and container diagrams, [three sample ADRs](../patterns/worked-example/adrs.md) and a [threat model excerpt](../patterns/worked-example/threat-model.md).
-- **Proposed reference architectures** for capabilities Defra does not yet have a strategic solution for: [field inspection](../handrail/reference-architectures/field-inspection.md), [incident response](../handrail/reference-architectures/incident-response.md) and [grants and schemes](../handrail/reference-architectures/grants.md).
+- **Proposed reference architectures** for capabilities Defra does not yet have a strategic solution for: [field inspection](../patterns/service/field-inspection.md), [incident response](../patterns/service/incident-response.md) and [grants and schemes](../patterns/service/grants.md).
 
 ### Deliver a service
 

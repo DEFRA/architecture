@@ -14,7 +14,7 @@ Architects at Defra work in three areas.
 | --- | --- | --- |
 | **Delivery Architecture** | Embedded in the delivery groups | Works with delivery teams to design their services, explains governance requirements and handles exceptions to the software development standards. Each delivery group has a principal architect. See [working with architects](../deliver/working-with-architects.md). |
 | **Technical Architecture** | Group Infrastructure and Operations (GIO) | Technical architects for Defra's infrastructure and operations. |
-| **Enterprise Architecture** | The CTO Office | Writes the [architecture principles](../principles/architecture-principles.md), [guardrails](../guardrails/index.md) and [reference architectures](../handrail/reference-architectures/index.md) on this site, and supports the Architecture Community across Defra. |
+| **Enterprise Architecture** | The CTO Office | Writes the [architecture principles](../principles/architecture-principles.md), [guardrails](../guardrails/index.md) and [service patterns](../patterns/service/index.md) on this site, and supports the Architecture Community across Defra. |
 
 ## Architecture roles and skills
 

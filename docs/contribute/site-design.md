@@ -37,6 +37,7 @@ The site uses [MkDocs](https://www.mkdocs.org/) with the [Material](https://squi
 | `releases.py` | Release history and the version in force, from `CHANGELOG.md` |
 | `open_questions.py` | The open questions page, from every "To be confirmed" box |
 | `abbreviations.py` | Removes tooltips inside guardrail ids and next to their own expansion |
+| `redirects.py` | Keeps the old addresses of moved pages working - add a page to its `MOVED` list when you move it |
 
 ## Templates
 

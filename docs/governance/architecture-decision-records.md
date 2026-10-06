@@ -7,7 +7,7 @@
 Record a decision when it:
 
 - is hard or expensive to reverse
-- departs from a guardrail or reference architecture
+- departs from a guardrail or service pattern
 - affects other teams, services or users
 - chooses between real options (technology, pattern, supplier, hosting)
 - someone in a year's time will ask "why did they do it this way?"

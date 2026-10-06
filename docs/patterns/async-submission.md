@@ -105,5 +105,5 @@ Threats to consider in your [threat model](../security/threat-modelling.md): spo
 
 ## Related
 
-- [Transactional digital service](../handrail/reference-architectures/transactional-service.md) reference architecture
+- [Transactional digital service](service/transactional-service.md) service pattern
 - [Worked example: apply for a licence](worked-example/index.md), which uses this pattern

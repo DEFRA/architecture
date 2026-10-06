@@ -82,6 +82,7 @@ hooks:
   - hooks/releases.py
   - hooks/open_questions.py
   - hooks/abbreviations.py
+  - hooks/redirects.py
 
 extra:
   generator: false
@@ -219,21 +220,22 @@ nav:
       - Business capabilities: handrail/business-capabilities.md
       - Technology capabilities: handrail/technology-capabilities.md
       - Capability mapping: handrail/capability-mapping.md
-      - Reference architectures:
-          - handrail/reference-architectures/index.md
-          - Transactional digital service: handrail/reference-architectures/transactional-service.md
-          - Regulatory casework: handrail/reference-architectures/regulatory-casework.md
-          - Data and analytics: handrail/reference-architectures/data-and-analytics.md
-          - Field inspection (proposed): handrail/reference-architectures/field-inspection.md
-          - Incident response (proposed): handrail/reference-architectures/incident-response.md
-          - Grants and schemes (proposed): handrail/reference-architectures/grants.md
   - Patterns:
       - patterns/index.md
-      - Asynchronous submission: patterns/async-submission.md
-      - Acting on behalf: patterns/acting-on-behalf.md
-      - File upload and scanning: patterns/file-upload.md
-      - Authoritative source: patterns/authoritative-source.md
-      - Publishing open data: patterns/open-data-publishing.md
+      - Service patterns:
+          - patterns/service/index.md
+          - Transactional digital service: patterns/service/transactional-service.md
+          - Regulatory casework: patterns/service/regulatory-casework.md
+          - Data and analytics: patterns/service/data-and-analytics.md
+          - Field inspection: patterns/service/field-inspection.md
+          - Incident response: patterns/service/incident-response.md
+          - Grants and schemes: patterns/service/grants.md
+      - Solution patterns:
+          - Asynchronous submission: patterns/async-submission.md
+          - Acting on behalf: patterns/acting-on-behalf.md
+          - File upload and scanning: patterns/file-upload.md
+          - Authoritative source: patterns/authoritative-source.md
+          - Publishing open data: patterns/open-data-publishing.md
       - "Worked example: apply for a licence":
           - patterns/worked-example/index.md
           - Sample ADRs: patterns/worked-example/adrs.md

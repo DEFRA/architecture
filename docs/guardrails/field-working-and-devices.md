@@ -38,7 +38,7 @@ guardrails:
 
 <p class="lead">Many Defra staff and partners work on farms, at ports, on rivers and at sea. These draft guardrails make sure the tools they use work where they work, and keep Defra data safe on the move.</p>
 
-Puts architecture principle [8. Right tools, right place](../principles/architecture-principles.md#gr-prin-08) into practice. See also the proposed [field inspection](../handrail/reference-architectures/field-inspection.md) reference architecture.
+Puts architecture principle [8. Right tools, right place](../principles/architecture-principles.md#gr-prin-08) into practice. See also the proposed [field inspection](../patterns/service/field-inspection.md) service pattern.
 
 !!! info "Draft guardrails"
     These guardrails are new drafts from the [guardrail backlog](../about/roadmap.md#guardrail-backlog). Comment on them by [opening an issue](https://github.com/DEFRA/architecture/issues).

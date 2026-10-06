@@ -22,7 +22,7 @@
 
     What every team must and should do with the data their service creates and uses.
 
--   **[Data and analytics reference architecture](../handrail/reference-architectures/data-and-analytics.md)**
+-   **[Data and analytics service pattern](../patterns/service/data-and-analytics.md)**
 
     ---
 

@@ -58,11 +58,11 @@ Terms we use with a specific meaning on this site. Definitions of services and c
 | **DDTS doctrine** | The non-negotiables that guide all Digital, Data and Technology Services work - see [DDTS doctrine](../principles/doctrine.md) |
 | **Architecture principle** | How the doctrine applies to technology change - see [architecture principles](../principles/architecture-principles.md) |
 | **Guardrail** | A default every team follows, labelled Must, Should or Could, with a stable id such as GR-HOST-01 |
-| **Handrail** | The capability models and reference architectures that help teams find what already exists - see [the handrail](../handrail/index.md) |
+| **Handrail** | The capability models that help teams find what already exists - see [the handrail](../handrail/index.md) |
 | **Business capability** | What Defra does, independent of how - see [business capabilities](../handrail/business-capabilities.md) |
 | **Technology capability** | The technology that supports business capabilities, with Defra's strategic option for each - see [technology capabilities](../handrail/technology-capabilities.md) |
-| **Architecture pattern** | A proven technical solution to a recurring problem - see [architecture patterns](../patterns/index.md). Not the same as the design patterns in the Defra Digital Service Manual. |
-| **Reference architecture** | A starting design for a common kind of service, built from the capabilities and patterns |
+| **Service pattern** | The shape of a whole kind of service and how its building blocks connect - see [service patterns](../patterns/service/index.md) |
+| **Solution pattern** | A reusable solution to one recurring technical problem inside a service - see [patterns](../patterns/index.md). Not the same as the design patterns in the Defra Digital Service Manual. |
 | **Architecture decision record (ADR)** | A short record of one significant decision, its options and consequences - see [architecture decision records](../governance/architecture-decision-records.md) |
 | **Exception** | An agreed, time-limited departure from a Must guardrail - see [exceptions](../governance/exceptions.md) |
 | **Solution design authority (SDA)** | Where a principal architect assures decisions for a delivery group, with authority from the TDA - see [solution design authorities](../governance/solution-design-authorities.md) |

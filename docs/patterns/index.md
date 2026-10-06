@@ -1,13 +1,22 @@
 # Architecture patterns
 
-<p class="lead">Proven technical solutions to problems Defra teams meet again and again. Each pattern explains the problem, a solution that stays inside the guardrails, and when not to use it.</p>
+<p class="lead">Patterns are reusable shapes for building Defra services. They are early, exploratory work: starting points for discussion, not agreed designs.</p>
+
+There are two kinds:
+
+| Kind | What it covers | Example |
+| --- | --- | --- |
+| [Service patterns](service/index.md) | The shape of a whole kind of service and how its main building blocks connect | [Transactional digital service](service/transactional-service.md) |
+| [Solution patterns](#solution-patterns) | One recurring technical problem inside a service | [File upload and scanning](file-upload.md) |
+
+A service pattern usually uses several solution patterns. The [worked example](worked-example/index.md) shows both together.
 
 !!! note "Looking for design patterns?"
     These are **architecture** patterns: how to build a recurring technical solution. For design patterns - screens, components and user journeys - use the [GOV.UK Design System](https://design-system.service.gov.uk/) and [components and patterns](https://digital.defra.gov.uk/design/components-and-patterns) in the Defra Digital Service Manual.
 
-Patterns sit between the [guardrails](../guardrails/index.md), which say what good looks like, and the [reference architectures](../handrail/reference-architectures/index.md), which show the shape of a whole service. A pattern solves one recurring problem inside a service.
+## Solution patterns
 
-Every pattern lists:
+Each solution pattern explains the problem, a solution that stays inside the [guardrails](../guardrails/index.md), and when not to use it. Every solution pattern lists:
 
 - the **context** - the problem and when you will meet it
 - the **solution**, with a diagram
@@ -18,7 +27,7 @@ Every pattern lists:
 We model this section on the [Department for Education's architecture patterns](https://dfe-digital.github.io/architecture/), and reuse their structure so people moving between departments find their way around.
 
 !!! example "See it all together"
-    The [worked example: apply for a licence](worked-example/index.md) follows a fictional Defra service through the transactional reference architecture, with C4 diagrams, three sample ADRs and an excerpt from a threat model.
+    The [worked example: apply for a licence](worked-example/index.md) follows a fictional Defra service through the transactional service pattern, with C4 diagrams, three sample ADRs and an excerpt from a threat model.
 
 <!-- patterns:catalogue -->
 
