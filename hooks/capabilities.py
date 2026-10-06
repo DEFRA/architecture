@@ -16,9 +16,9 @@ Markers:
     <!-- capabilities:attributes -->           what makes a good capability
     <!-- capabilities:business-detail -->      level 1 and draft level 2 detail
     <!-- capabilities:technology-summary -->   counts by status
-    <!-- capabilities:technology-catalogue --> technology catalogue by domain
+    <!-- capabilities:technology-catalogue --> technology catalogue by level 1 and level 2
     <!-- capabilities:matrix -->               business x technology heatmap
-    <!-- capabilities:stack -->                layered technology reference model
+    <!-- capabilities:stack -->                level 1 and level 2 capability map
 """
 
 from __future__ import annotations
@@ -58,6 +58,10 @@ def validate(business: dict, technology: dict, docs_dir: str) -> list[str]:
     """Return a list of problems with the capability models."""
     errors: list[str] = []
     domains = {d["id"] for d in technology["domains"]}
+    level2_of = {d["id"]: {l2["id"] for l2 in d.get("level2", [])} for d in technology["domains"]}
+    l2_ids = [l2["id"] for d in technology["domains"] for l2 in d.get("level2", [])]
+    for dup in sorted({i for i in l2_ids if l2_ids.count(i) > 1}):
+        errors.append(f"duplicate level 2 capability id {dup}")
 
     tech_ids = [c["id"] for c in technology["capabilities"]]
     for dup in {i for i in tech_ids if tech_ids.count(i) > 1}:
@@ -69,6 +73,8 @@ def validate(business: dict, technology: dict, docs_dir: str) -> list[str]:
             errors.append(f"{cap['id']} has unknown government_model {cap.get('government_model')!r}")
         if cap.get("domain") not in domains:
             errors.append(f"{cap['id']} has unknown domain {cap.get('domain')!r}")
+        elif cap.get("level2") is not None and cap["level2"] not in level2_of[cap["domain"]]:
+            errors.append(f"{cap['id']} has level2 {cap['level2']!r}, which is not in {cap['domain']}")
         if cap.get("status") not in STATUS_LABELS:
             errors.append(f"{cap['id']} has unknown status {cap.get('status')!r}")
         targets = [cap.get("guardrail")] + [o.get("url") for o in cap.get("options", [])]
@@ -235,29 +241,51 @@ def _business_detail(_url_to, url_to) -> str:
     return "\n".join(out) + "\n"
 
 
-def _stack(url_to, md_to=None) -> str:
-    """Layered view of the technology capabilities, one row per domain.
+def _chip(c, url_to) -> str:
+    return (
+        f'<li><a class="tstack__cap tstack__cap--{c["status"]}" href="{url_to(TECHNOLOGY_PAGE, c["id"].lower())}">'
+        f'<span class="tstack__id">{c["id"]}</span> {e(c["name"])}'
+        f'<span class="visually-hidden"> ({STATUS_LABELS[c["status"]]})</span></a></li>'
+    )
 
-    Domains are listed top to bottom in the order they appear in
-    technology-capabilities.yaml: closest to users first, foundations last.
+
+def _in(domain: dict, level2: str | None) -> list[dict]:
+    """Technology capabilities in a level 1 area, and in one of its level 2 capabilities (None for the whole area)."""
+    return [
+        c for c in _model["technology"]["capabilities"] if c["domain"] == domain["id"] and c.get("level2") == level2
+    ]
+
+
+def _stack(url_to, md_to=None) -> str:
+    """The capability map: one row per level 1 area, with its level 2 capabilities.
+
+    Each level 2 capability lists the Defra technology capabilities in it, which
+    link to what to use. Areas are in the order of technology-capabilities.yaml.
     """
     rows = []
     for domain in _model["technology"]["domains"]:
-        chips = "".join(
-            f'<li><a class="tstack__cap tstack__cap--{c["status"]}" href="{url_to(TECHNOLOGY_PAGE, c["id"].lower())}">'
-            f'<span class="tstack__id">{c["id"]}</span> {e(c["name"])}'
-            f'<span class="visually-hidden"> ({STATUS_LABELS[c["status"]]})</span></a></li>'
-            for c in _model["technology"]["capabilities"]
-            if c["domain"] == domain["id"]
-        )
+        code = f"<span>{e(domain['code'])}</span>" if domain.get("code") else ""
+        whole = _in(domain, None)
+        across = ""
+        if whole:
+            across = f'<ul class="tstack__caps tstack__caps--area">{"".join(_chip(c, url_to) for c in whole)}</ul>'
+        boxes = []
+        for l2 in domain.get("level2", []):
+            caps = _in(domain, l2["id"])
+            name = e(l2["name"])
+            if caps:
+                name = f'<a href="{url_to(TECHNOLOGY_PAGE, l2["id"])}">{name}</a>'
+            chips = f'<ul class="tstack__caps">{"".join(_chip(c, url_to) for c in caps)}</ul>' if caps else ""
+            boxes.append(f'<li class="tstack__l2"><span class="tstack__l2name">{name}</span>{chips}</li>')
         rows.append(
-            f'<div class="tstack__layer"><div class="tstack__label"><strong>{e(domain["name"])}</strong>'
-            f'<span>{e(domain["description"])}</span></div><ul class="tstack__caps">{chips}</ul></div>'
+            f'<div class="tstack__layer"><div class="tstack__label"><strong>'
+            f'<a href="{url_to(TECHNOLOGY_PAGE, domain["id"])}">{e(domain["name"])}</a></strong>{code}</div>'
+            f'<div>{across}<ul class="tstack__l2s">{"".join(boxes)}</ul></div></div>'
         )
     legend = " ".join(_status_badge(s) for s in STATUS_LABELS)
     return (
-        f'<div class="tstack" role="group" aria-label="Defra technology reference model">{"".join(rows)}</div>\n'
-        f'<p class="tstack__legend">Status: {legend}</p>\n'
+        f'<div class="tstack" role="group" aria-label="Defra technology capability map">{"".join(rows)}</div>\n'
+        f'<p class="tstack__legend">Status of each Defra technology capability: {legend}</p>\n'
     )
 
 
@@ -272,38 +300,57 @@ def _technology_summary(url_to, md_to=None) -> str:
 
 
 def _technology_catalogue(_url_to, url_to) -> str:
-    bus = _model["bus_by_id"]
-    levels = {lvl["id"]: lvl["name"] for lvl in _model["technology"]["government_model_levels"]}
     out = []
     for domain in _model["technology"]["domains"]:
-        out.append(f"## {domain['name']}\n\n{domain['description']}\n")
-        for cap in (c for c in _model["technology"]["capabilities"] if c["domain"] == domain["id"]):
-            out.append(f"### {cap['id']} {cap['name']} {{#{cap['id'].lower()}}}\n")
-            out.append(f"{_status_badge(cap['status'])} {cap['description']}\n")
-            out.append(f"<small>Government capability model: {e(levels[cap['government_model']])}</small>\n")
-            options = cap.get("options", [])
-            if options:
-                out.append("**Use first**\n")
-                for opt in options:
-                    if opt.get("url"):
-                        out.append(f"- [{opt['name']}]({url_to(opt['url'])})")
-                    else:
-                        out.append(f"- {opt['name']}")
-                out.append("")
-            else:
-                out.append(
-                    "**No Defra-wide answer yet.** If you need this capability, "
-                    f"[talk to the Technical Design Authority]({url_to('governance/tda.md')}) "
-                    "so we solve it once.\n"
-                )
-            if cap.get("guardrail"):
-                out.append(f"**Guardrails:** [{_page_title(cap['guardrail'])}]({url_to(cap['guardrail'])})\n")
-            supported = ", ".join(
-                f"[{bus[b]['number']} {bus[b]['name']}]({url_to(BUSINESS_PAGE, b.lower())})"
-                for b in _model["supports"][cap["id"]]
+        out.append(f"## {domain['name']} {{#{domain['id']}}}\n")
+        for cap in _in(domain, None):
+            out.extend(_capability(cap, "###", url_to))
+        empty = []
+        for l2 in domain.get("level2", []):
+            caps = _in(domain, l2["id"])
+            if not caps:
+                empty.append(l2["name"])
+                continue
+            out.append(f"### {l2['name']} {{#{l2['id']}}}\n")
+            for cap in caps:
+                out.extend(_capability(cap, "####", url_to))
+        if empty:
+            out.append(
+                f"**Other level 2 capabilities in this area:** {', '.join(empty)}. "
+                "There is no Defra-specific guidance for these yet.\n"
             )
-            out.append(f"**Supports:** {supported}\n")
     return "\n".join(out) + "\n"
+
+
+def _capability(cap: dict, level: str, url_to) -> list[str]:
+    bus = _model["bus_by_id"]
+    levels = {lvl["id"]: lvl["name"] for lvl in _model["technology"]["government_model_levels"]}
+    out = [f"{level} {cap['id']} {cap['name']} {{#{cap['id'].lower()}}}\n"]
+    out.append(f"{_status_badge(cap['status'])} {cap['description']}\n")
+    out.append(f"<small>Government capability model: {e(levels[cap['government_model']])}</small>\n")
+    options = cap.get("options", [])
+    if options:
+        out.append("**Use first**\n")
+        for opt in options:
+            if opt.get("url"):
+                out.append(f"- [{opt['name']}]({url_to(opt['url'])})")
+            else:
+                out.append(f"- {opt['name']}")
+        out.append("")
+    else:
+        out.append(
+            "**No Defra-wide answer yet.** If you need this capability, "
+            f"[talk to the Technical Design Authority]({url_to('governance/tda.md')}) "
+            "so we solve it once.\n"
+        )
+    if cap.get("guardrail"):
+        out.append(f"**Guardrails:** [{_page_title(cap['guardrail'])}]({url_to(cap['guardrail'])})\n")
+    supported = ", ".join(
+        f"[{bus[b]['number']} {bus[b]['name']}]({url_to(BUSINESS_PAGE, b.lower())})"
+        for b in _model["supports"][cap["id"]]
+    )
+    out.append(f"**Supports:** {supported}\n")
+    return out
 
 
 def _page_title(src_path: str) -> str:
@@ -312,8 +359,8 @@ def _page_title(src_path: str) -> str:
 
 
 def _matrix(url_to, md_to=None) -> str:
-    domains = _model["technology"]["domains"]
     techs = _model["technology"]["capabilities"]
+    domains = [d for d in _model["technology"]["domains"] if any(t["domain"] == d["id"] for t in techs)]
     head_domains = "".join(
         f'<th scope="colgroup" colspan="{sum(1 for t in techs if t["domain"] == d["id"])}" '
         f'class="cap-matrix__domain">{e(d["name"])}</th>'

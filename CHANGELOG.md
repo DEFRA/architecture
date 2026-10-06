@@ -27,6 +27,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- Technology capabilities follow Defra's TBM model: level 1 areas and level 2 capabilities in `capabilities/technology-capabilities.yaml`, rendered as a map, with TC01 to TC24 placed under their level 2 capability. TC ids and anchors are unchanged. The boxes page is folded in and the deprecated section removed. Tests check each TC's level 2 is in its area and level 2 ids are unique.
 - The accessibility check runs light and dark mode in two parallel jobs, so CI finishes about a minute sooner. Set `A11Y_SCHEMES` to check one scheme locally.
 - Only `DEFRA/architecture` deploys the site, makes releases and runs the weekly link check. A fork runs the checks but cannot overwrite its own `gh-pages` branch, which serves redirects to the new address. A test keeps these workflows limited to `DEFRA/architecture`.
 - The site moved to the DEFRA GitHub organisation: source at `DEFRA/architecture`, published at https://defra.github.io/architecture/. Every link, the issue forms, the guardrail check and the link-check settings point to the new address. Version 0.2.0 stays at https://github.com/howellsr/architecture/releases/tag/v0.2.0. See ADR 0006.

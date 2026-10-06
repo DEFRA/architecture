@@ -64,6 +64,21 @@ def test_every_technology_capability_has_a_government_model_level():
     assert any("government_model" in e for e in capabilities.validate(business, technology, DOCS))
 
 
+def test_technology_capability_level2_must_be_in_its_area():
+    technology = load_yaml("capabilities", "technology-capabilities.yaml")
+    business = load_yaml("capabilities", "business-capabilities.yaml")
+    cap = next(c for c in technology["capabilities"] if c["domain"] == "business")
+    cap["level2"] = "compute"
+    assert any("not in business" in e for e in capabilities.validate(business, technology, DOCS))
+
+
+def test_level2_capability_ids_are_unique():
+    technology = load_yaml("capabilities", "technology-capabilities.yaml")
+    business = load_yaml("capabilities", "business-capabilities.yaml")
+    technology["domains"][1]["level2"].append(dict(technology["domains"][0]["level2"][0]))
+    assert any("duplicate level 2" in e for e in capabilities.validate(business, technology, DOCS))
+
+
 # --- Guardrails ----------------------------------------------------------------
 
 

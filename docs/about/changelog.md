@@ -4,6 +4,11 @@
 
 ## October 2026
 
+### Technology capabilities aligned to TBM
+
+- **The [technology capabilities](../handrail/technology-capabilities.md) page now uses Defra's Technology Business Management (TBM) model**: 6 level 1 areas and their level 2 capabilities, shown as a map. Defra's technology capabilities, TC01 to TC24, sit under the level 2 capability they belong to and still name the option to use first. Their ids and links are unchanged.
+- The separate technology capabilities boxes page has been folded into this page, and the old "deprecated" section has gone. Where each TC sits in the level 2 structure is a first draft for Strategic Architecture to confirm.
+
 ### The site has moved to the DEFRA GitHub organisation
 
 - **The site is now at [defra.github.io/architecture](https://defra.github.io/architecture/)**, and its source at [DEFRA/architecture](https://github.com/DEFRA/architecture). Old addresses redirect to the same page, including guardrail anchors. See [moving to the DEFRA GitHub organisation](moving-to-defra.md) and [ADR 0006](../adr/0006-move-to-defra-github.md).
@@ -179,7 +184,7 @@ The [Defra Digital Service Manual](https://digital.defra.gov.uk/) is the place f
 - **[Principles](../principles/index.md)** have their own section, showing how doctrine, principles and guardrails fit together.
 - [GR-AI-01](../guardrails/ai.md#gr-ai-01) now asks teams to consider AI first, in line with the doctrine.
 - Fixed the home page figures displaying incorrectly when the browser had cached an older stylesheet.
-- **[Technology stack view](../handrail/technology-capabilities.md#the-technology-stack-at-a-glance):** technology capabilities shown as layers, inspired by the Local Government Architecture Model.
+- **[Technology stack view](../handrail/technology-capabilities.md#the-capability-map):** technology capabilities shown as layers, inspired by the Local Government Architecture Model.
 - **[Seek advice, not permission](../governance/index.md#seek-advice-not-permission):** the advice process is now explicit in governance, and ADRs record the advice sought.
 - Links to the cross-government [Secure by Design artefact library](https://github.com/co-cddo/SbD), the Local Government Architecture Model and government data architecture guidance.
 

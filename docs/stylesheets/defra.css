@@ -1636,8 +1636,8 @@ body {
 
 .md-typeset .tstack__layer {
   display: grid;
-  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
-  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
   align-items: start;
   padding: 0.8rem 1rem;
   background: var(--da-card);
@@ -1649,6 +1649,8 @@ body {
 .md-typeset .tstack__layer:nth-child(2) { border-left-color: var(--da-green); }
 .md-typeset .tstack__layer:nth-child(3) { border-left-color: var(--da-blue); }
 .md-typeset .tstack__layer:nth-child(4) { border-left-color: var(--da-lime); }
+.md-typeset .tstack__layer:nth-child(5) { border-left-color: var(--da-amber); }
+.md-typeset .tstack__layer:nth-child(6) { border-left-color: var(--da-muted); }
 [data-md-color-scheme="slate"] .md-typeset .tstack__layer:first-child { border-left-color: #6fa8d6; }
 
 .md-typeset .tstack__label strong {
@@ -1657,9 +1659,14 @@ body {
   color: var(--da-heading);
 }
 
+.md-typeset .tstack__label {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+
 .md-typeset .tstack__label span {
   display: block;
-  margin-top: 0.2rem;
   font-size: 0.7rem;
   color: var(--da-muted);
 }
@@ -1706,6 +1713,44 @@ body {
   font-family: var(--md-code-font-family, monospace);
   font-size: 0.62rem;
   color: var(--da-muted);
+}
+
+.md-typeset .tstack__label a {
+  color: inherit;
+}
+
+.md-typeset ul.tstack__l2s {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset ul.tstack__l2s > li.tstack__l2 {
+  margin: 0;
+  padding: 0.5rem 0.6rem;
+  background: var(--da-paper);
+  border: 1px solid var(--da-line);
+  border-radius: 3px;
+}
+
+.md-typeset .tstack__l2name {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--da-heading);
+}
+
+.md-typeset .tstack__l2 ul.tstack__caps {
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 0.4rem;
+}
+
+.md-typeset ul.tstack__caps--area {
+  margin-bottom: 0.5rem;
 }
 
 .md-typeset .tstack__legend {

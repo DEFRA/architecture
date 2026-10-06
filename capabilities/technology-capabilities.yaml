@@ -15,6 +15,12 @@
 #   so Defra and government describe technology in the same language.
 #   One of the ids under government_model_levels below.
 #
+# domain and level2:
+#   where the capability sits in Defra's technology capability model, which is
+#   aligned to Technology Business Management (TBM). domain is the level 1
+#   area and level2 the level 2 capability, both from the domains list below.
+#   Leave level2 out when a capability spans a whole level 1 area.
+#
 # This file is validated and rendered by hooks/capabilities.py at build time.
 
 government_model_levels:
@@ -38,24 +44,101 @@ government_model_levels:
     name: "Level 6: Security"
 
 domains:
-  - id: engage
-    name: Engage and transact
-    description: How users find us, prove who they are, tell us things and pay us.
-  - id: operate
-    name: Operate and decide
-    description: How we process work, make decisions and keep records.
-  - id: insight
-    name: Data and insight
-    description: How we collect, manage, share and learn from data and evidence.
-  - id: platform
-    name: Platform and integration
-    description: The foundations every service is built and run on.
+  - id: business
+    name: Business
+    level2:
+      - id: product-management
+        name: "Product Management"
+      - id: sales-and-marketing
+        name: "Sales & Marketing"
+      - id: customer-service
+        name: "Customer Service"
+      - id: manufacturing-and-delivery
+        name: "Manufacturing & Delivery"
+  - id: shared-corporate
+    name: Shared & Corporate
+    code: "0.020"
+    level2:
+      - id: corporate-communication-services
+        name: "Corporate Communication Services"
+      - id: finance
+        name: "Finance"
+      - id: health-safety-and-environmental-services
+        name: "Health, Safety, and Environmental Services"
+      - id: legal
+        name: "Legal"
+      - id: property-and-facility-services
+        name: "Property & Facility Services"
+      - id: risk-audit-and-compliance-services
+        name: "Risk, Audit & Compliance Services"
+      - id: sustainability-and-esg
+        name: "Sustainability & ESG"
+      - id: vendor-and-procurement-services
+        name: "Vendor and Procurement Services"
+      - id: workforce
+        name: "Workforce"
+  - id: workplace
+    name: Workplace
+    code: "0.030"
+    level2:
+      - id: connectivity
+        name: "Connectivity"
+      - id: client-computing
+        name: "Client Computing"
+      - id: communication-and-collaboration
+        name: "Communication & Collaboration"
+  - id: artificial-intelligence
+    name: Artificial Intelligence
+    code: "0.040"
+    level2:
+      - id: agentic
+        name: "Agentic"
+      - id: generative
+        name: "Generative"
+      - id: interpretive
+        name: "Interpretive"
+      - id: predictive
+        name: "Predictive"
+  - id: delivery
+    name: Delivery
+    code: "0.050"
+    level2:
+      - id: development
+        name: "Development"
+      - id: enabling-platforms
+        name: "Enabling Platforms"
+      - id: operations
+        name: "Operations"
+      - id: security-and-compliance
+        name: "Security & Compliance"
+      - id: strategy-and-planning
+        name: "Strategy & Planning"
+      - id: support
+        name: "Support"
+      - id: geospatial-solutions-defra-customisation
+        name: "Geospatial Solutions (Defra Customisation)"
+      - id: scientific-data-and-laboratory-solutions-defra-customisation
+        name: "Scientific Data & Laboratory Solutions (Defra Customisation)"
+  - id: infrastructure
+    name: Infrastructure
+    code: "0.060"
+    level2:
+      - id: compute
+        name: "Compute"
+      - id: data-centre
+        name: "Data Centre"
+      - id: data
+        name: "Data"
+      - id: network
+        name: "Network"
+      - id: storage
+        name: "Storage"
 
 capabilities:
-  # --- Engage and transact -------------------------------------------------
   - id: TC01
     name: Customer identity and access
-    domain: engage
+    domain: delivery
+    level2: security-and-compliance
     government_model: service
     status: strategic
     description: >-
@@ -68,7 +151,8 @@ capabilities:
 
   - id: TC02
     name: Staff identity and access
-    domain: engage
+    domain: delivery
+    level2: security-and-compliance
     government_model: security
     status: strategic
     description: >-
@@ -80,7 +164,8 @@ capabilities:
 
   - id: TC03
     name: Digital forms and applications
-    domain: engage
+    domain: business
+    level2: customer-service
     government_model: service
     status: emerging
     description: >-
@@ -95,7 +180,8 @@ capabilities:
 
   - id: TC04
     name: Notifications
-    domain: engage
+    domain: business
+    level2: customer-service
     government_model: service
     status: strategic
     description: Send emails, text messages and letters to users.
@@ -105,7 +191,8 @@ capabilities:
 
   - id: TC05
     name: Payments and collections
-    domain: engage
+    domain: shared-corporate
+    level2: finance
     government_model: service
     status: strategic
     description: Take card and other payments for fees, charges and penalties.
@@ -115,7 +202,8 @@ capabilities:
 
   - id: TC06
     name: Content and publishing
-    domain: engage
+    domain: shared-corporate
+    level2: corporate-communication-services
     government_model: service
     status: strategic
     description: Publish guidance, policy, consultations and news.
@@ -126,7 +214,8 @@ capabilities:
 
   - id: TC07
     name: Customer and stakeholder relationship management
-    domain: engage
+    domain: business
+    level2: customer-service
     government_model: corporate
     status: strategic
     description: >-
@@ -135,10 +224,10 @@ capabilities:
     options:
       - name: Microsoft Dynamics 365 / Power Platform
 
-  # --- Operate and decide --------------------------------------------------
   - id: TC08
     name: Case and workflow management
-    domain: operate
+    domain: business
+    level2: manufacturing-and-delivery
     government_model: service
     status: strategic
     description: >-
@@ -150,7 +239,8 @@ capabilities:
 
   - id: TC09
     name: Rules and decisioning
-    domain: operate
+    domain: business
+    level2: manufacturing-and-delivery
     government_model: service
     status: emerging
     description: >-
@@ -161,7 +251,8 @@ capabilities:
 
   - id: TC10
     name: Document and records management
-    domain: operate
+    domain: workplace
+    level2: communication-and-collaboration
     government_model: data
     status: strategic
     description: >-
@@ -173,7 +264,8 @@ capabilities:
 
   - id: TC11
     name: Field work and inspection
-    domain: operate
+    domain: business
+    level2: manufacturing-and-delivery
     government_model: service
     status: gap
     description: >-
@@ -183,7 +275,8 @@ capabilities:
 
   - id: TC12
     name: Incident and emergency management
-    domain: operate
+    domain: business
+    level2: manufacturing-and-delivery
     government_model: service
     status: gap
     description: >-
@@ -193,7 +286,8 @@ capabilities:
 
   - id: TC13
     name: Finance and enterprise resource planning
-    domain: operate
+    domain: shared-corporate
+    level2: finance
     government_model: corporate
     status: strategic
     description: General ledger, purchase to pay, order to cash, HR and payroll.
@@ -202,7 +296,8 @@ capabilities:
 
   - id: TC14
     name: Grants and scheme management
-    domain: operate
+    domain: business
+    level2: manufacturing-and-delivery
     government_model: service
     status: emerging
     description: >-
@@ -211,10 +306,10 @@ capabilities:
     options:
       - name: Reusable grants components on the Core Delivery Platform
 
-  # --- Data and insight ----------------------------------------------------
   - id: TC15
     name: Geospatial and location services
-    domain: insight
+    domain: delivery
+    level2: geospatial-solutions-defra-customisation
     government_model: data
     status: strategic
     description: >-
@@ -231,7 +326,8 @@ capabilities:
 
   - id: TC16
     name: Data platform and analytics
-    domain: insight
+    domain: infrastructure
+    level2: data
     government_model: data
     status: emerging
     description: >-
@@ -243,7 +339,8 @@ capabilities:
 
   - id: TC17
     name: Reference and master data
-    domain: insight
+    domain: infrastructure
+    level2: data
     government_model: data
     status: emerging
     description: >-
@@ -256,7 +353,8 @@ capabilities:
 
   - id: TC18
     name: Environmental monitoring and IoT
-    domain: insight
+    domain: delivery
+    level2: scientific-data-and-laboratory-solutions-defra-customisation
     government_model: data
     status: gap
     description: >-
@@ -266,7 +364,8 @@ capabilities:
 
   - id: TC19
     name: Data sharing and publishing
-    domain: insight
+    domain: infrastructure
+    level2: data
     government_model: integration
     status: strategic
     description: >-
@@ -281,7 +380,7 @@ capabilities:
 
   - id: TC20
     name: Artificial intelligence and machine learning
-    domain: insight
+    domain: artificial-intelligence
     government_model: ai
     status: emerging
     description: >-
@@ -291,10 +390,10 @@ capabilities:
       - name: Approved cloud AI services within Defra cloud tenancies
     guardrail: guardrails/ai.md
 
-  # --- Platform and integration --------------------------------------------
   - id: TC21
     name: Application hosting and delivery platform
-    domain: platform
+    domain: delivery
+    level2: enabling-platforms
     government_model: devops
     status: strategic
     description: >-
@@ -307,7 +406,8 @@ capabilities:
 
   - id: TC22
     name: API management and integration
-    domain: platform
+    domain: delivery
+    level2: enabling-platforms
     government_model: integration
     status: strategic
     description: >-
@@ -319,7 +419,8 @@ capabilities:
 
   - id: TC23
     name: Observability and security monitoring
-    domain: platform
+    domain: delivery
+    level2: operations
     government_model: security
     status: strategic
     description: >-
@@ -332,7 +433,8 @@ capabilities:
 
   - id: TC24
     name: Collaboration and productivity
-    domain: platform
+    domain: workplace
+    level2: communication-and-collaboration
     government_model: foundation
     status: strategic
     description: Email, documents, meetings and team collaboration for staff.
