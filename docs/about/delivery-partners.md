@@ -45,7 +45,7 @@ Commercial teams may reference this site in statements of requirements and state
 
 ## Getting started on an engagement
 
-1. Read the [guardrails](../guardrails/index.md) and the relevant [reference architecture](../handrail/reference-architectures/index.md) and [patterns](../patterns/index.md).
+1. Read the [guardrails](../guardrails/index.md) and the relevant [service pattern](../patterns/service/index.md) and [patterns](../patterns/index.md).
 2. Work through the [mobilisation checklist](../partners/mobilisation.md): access, devices and who to meet in week one.
 3. Use [Deliver a service](../deliver/index.md) for what each phase needs, and its evidence checklists before each assessment.
 4. Plan [handover](../partners/handover-and-exit.md) from the start.

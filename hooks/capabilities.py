@@ -2,23 +2,22 @@
 
 The business and technology capability models live in ``capabilities/*.yaml``
 so they can be reviewed in pull requests, reused by other tools and rendered
-consistently. This hook:
+consistently. The technology model is aligned to Technology Business
+Management (TBM): level 1 areas, each with level 2 capabilities. This hook:
 
-* validates the models when the site builds (unknown ids, missing guardrail
-  pages and orphaned technology capabilities fail the build);
+* validates the models when the site builds (unknown or duplicate ids, missing
+  guardrail pages and broken references fail the build);
 * replaces ``<!-- capabilities:... -->`` markers in pages with generated
   content; and
 * publishes the combined model as ``capabilities.json`` alongside the site.
 
 Markers:
 
-    <!-- capabilities:business-map -->         the one-page capability map
+    <!-- capabilities:business-map -->         the one-page business capability map
     <!-- capabilities:attributes -->           what makes a good capability
     <!-- capabilities:business-detail -->      level 1 and draft level 2 detail
-    <!-- capabilities:technology-summary -->   counts by status
-    <!-- capabilities:technology-catalogue --> technology catalogue by domain
     <!-- capabilities:matrix -->               business x technology heatmap
-    <!-- capabilities:stack -->                layered technology reference model
+    <!-- capabilities:stack -->                level 1 and level 2 capability map
 """
 
 from __future__ import annotations
@@ -27,7 +26,6 @@ import html
 import json
 import os
 import posixpath
-from collections import Counter
 
 import yaml
 from mkdocs.exceptions import PluginError
@@ -40,12 +38,6 @@ TECHNOLOGY_FILE = os.path.join(ROOT, "capabilities", "technology-capabilities.ya
 BUSINESS_PAGE = "handrail/business-capabilities.md"
 TECHNOLOGY_PAGE = "handrail/technology-capabilities.md"
 
-STATUS_LABELS = {
-    "strategic": "Strategic",
-    "emerging": "Emerging",
-    "gap": "Gap",
-}
-
 _model: dict = {}
 
 
@@ -54,44 +46,40 @@ def _load(path: str) -> dict:
         return yaml.safe_load(handle)
 
 
+def technology_ids(technology: dict) -> dict[str, dict]:
+    """Every level 1 area and level 2 capability by id, each with its ``area`` (level 1 id)."""
+    found: dict[str, dict] = {}
+    for area in technology["domains"]:
+        found[area["id"]] = {**area, "area": area["id"], "level": 1}
+        for l2 in area.get("level2", []):
+            found[l2["id"]] = {**l2, "area": area["id"], "level": 2}
+    return found
+
+
 def validate(business: dict, technology: dict, docs_dir: str) -> list[str]:
     """Return a list of problems with the capability models."""
     errors: list[str] = []
-    domains = {d["id"] for d in technology["domains"]}
-
-    tech_ids = [c["id"] for c in technology["capabilities"]]
-    for dup in {i for i in tech_ids if tech_ids.count(i) > 1}:
+    ids = [a["id"] for a in technology["domains"]] + [
+        l2["id"] for a in technology["domains"] for l2 in a.get("level2", [])
+    ]
+    for dup in sorted({i for i in ids if ids.count(i) > 1}):
         errors.append(f"duplicate technology capability id {dup}")
+    known = set(ids)
 
-    levels = {lvl["id"] for lvl in technology.get("government_model_levels", [])}
-    for cap in technology["capabilities"]:
-        if cap.get("government_model") not in levels:
-            errors.append(f"{cap['id']} has unknown government_model {cap.get('government_model')!r}")
-        if cap.get("domain") not in domains:
-            errors.append(f"{cap['id']} has unknown domain {cap.get('domain')!r}")
-        if cap.get("status") not in STATUS_LABELS:
-            errors.append(f"{cap['id']} has unknown status {cap.get('status')!r}")
-        targets = [cap.get("guardrail")] + [o.get("url") for o in cap.get("options", [])]
-        for target in targets:
-            if target and not target.startswith("http"):
-                if not os.path.exists(os.path.join(docs_dir, target.split("#")[0])):
-                    errors.append(f"{cap['id']} links to missing page {target}")
+    for cap in technology_ids(technology).values():
+        if not cap.get("name"):
+            errors.append(f"{cap['id']} has no name")
 
     bus_ids = [c["id"] for c in business["capabilities"]]
     for dup in {i for i in bus_ids if bus_ids.count(i) > 1}:
         errors.append(f"duplicate business capability id {dup}")
 
-    used = set()
     for cap in business["capabilities"]:
         if cap.get("type") not in ("core", "supporting"):
             errors.append(f"{cap['id']} has unknown type {cap.get('type')!r}")
         for ref in cap.get("technology", []):
-            if ref not in tech_ids:
+            if ref not in known:
                 errors.append(f"{cap['id']} references unknown technology capability {ref}")
-            used.add(ref)
-
-    for orphan in sorted(set(tech_ids) - used):
-        errors.append(f"technology capability {orphan} does not support any business capability")
 
     return errors
 
@@ -106,7 +94,7 @@ def on_config(config):
     if errors:
         raise PluginError("Capability model is invalid:\n  - " + "\n  - ".join(errors))
 
-    tech_by_id = {c["id"]: c for c in technology["capabilities"]}
+    tech_by_id = technology_ids(technology)
     supports: dict[str, list[str]] = {i: [] for i in tech_by_id}
     for cap in business["capabilities"]:
         for ref in cap.get("technology", []):
@@ -150,8 +138,6 @@ def on_page_markdown(markdown, page, config, files):
         "business-map": _business_map,
         "attributes": _attributes,
         "business-detail": _business_detail,
-        "technology-summary": _technology_summary,
-        "technology-catalogue": _technology_catalogue,
         "matrix": _matrix,
         "stack": _stack,
     }
@@ -166,8 +152,7 @@ def on_post_build(config):
     out = {
         "attributes": _model["business"]["attributes"],
         "business_capabilities": _model["business"]["capabilities"],
-        "technology_domains": _model["technology"]["domains"],
-        "technology_capabilities": _model["technology"]["capabilities"],
+        "technology_capabilities": _model["technology"]["domains"],
     }
     with open(os.path.join(config["site_dir"], "capabilities.json"), "w", encoding="utf-8") as handle:
         json.dump(out, handle, indent=2)
@@ -207,12 +192,7 @@ def _attributes(url_to, md_to=None) -> str:
     return "| Attribute | What it means |\n| --- | --- |\n" + rows + "\n"
 
 
-def _status_badge(status: str) -> str:
-    return f'<span class="cap-status cap-status--{status}">{STATUS_LABELS[status]}</span>'
-
-
-def _business_detail(_url_to, url_to) -> str:
-    tech = _model["tech_by_id"]
+def _business_detail(_url_to, md_to=None) -> str:
     out = []
     current_type = None
     for cap in _model["business"]["capabilities"]:
@@ -225,105 +205,55 @@ def _business_detail(_url_to, url_to) -> str:
         out.append('<div class="grid" markdown>\n')
         out.append("<div markdown>\n\n**Outcomes**\n")
         out.extend(f"- {o}" for o in cap.get("outcomes", []))
-        out.append("\n**Level 2 capabilities** <small>(draft)</small>\n")
+        out.append("\n</div>\n<div markdown>\n\n**Level 2 capabilities** <small>(draft)</small>\n")
         out.extend(f"- {l2}" for l2 in cap.get("level2", []))
-        out.append("\n</div>\n<div markdown>\n\n**Enabled by technology capabilities**\n")
-        for ref in cap.get("technology", []):
-            t = tech[ref]
-            out.append(f"- [{ref} {t['name']}]({url_to(TECHNOLOGY_PAGE, ref.lower())}) {_status_badge(t['status'])}")
         out.append("\n</div>\n</div>\n")
     return "\n".join(out) + "\n"
 
 
 def _stack(url_to, md_to=None) -> str:
-    """Layered view of the technology capabilities, one row per domain.
+    """The capability map: one row per level 1 area, with a box per level 2 capability.
 
-    Domains are listed top to bottom in the order they appear in
-    technology-capabilities.yaml: closest to users first, foundations last.
+    Each area and box has an id, so other pages can link to it. Areas and
+    capabilities are in the order of technology-capabilities.yaml.
     """
     rows = []
-    for domain in _model["technology"]["domains"]:
-        chips = "".join(
-            f'<li><a class="tstack__cap tstack__cap--{c["status"]}" href="{url_to(TECHNOLOGY_PAGE, c["id"].lower())}">'
-            f'<span class="tstack__id">{c["id"]}</span> {e(c["name"])}'
-            f'<span class="visually-hidden"> ({STATUS_LABELS[c["status"]]})</span></a></li>'
-            for c in _model["technology"]["capabilities"]
-            if c["domain"] == domain["id"]
+    for area in _model["technology"]["domains"]:
+        boxes = "".join(
+            f'<li class="tstack__l2" id="{l2["id"]}"><span class="tstack__l2name">{e(l2["name"])}</span></li>'
+            for l2 in area.get("level2", [])
         )
         rows.append(
-            f'<div class="tstack__layer"><div class="tstack__label"><strong>{e(domain["name"])}</strong>'
-            f'<span>{e(domain["description"])}</span></div><ul class="tstack__caps">{chips}</ul></div>'
+            f'<div class="tstack__layer" id="{area["id"]}"><div class="tstack__label">'
+            f"<strong>{e(area['name'])}</strong></div>"
+            f'<ul class="tstack__l2s">{boxes}</ul></div>'
         )
-    legend = " ".join(_status_badge(s) for s in STATUS_LABELS)
-    return (
-        f'<div class="tstack" role="group" aria-label="Defra technology reference model">{"".join(rows)}</div>\n'
-        f'<p class="tstack__legend">Status: {legend}</p>\n'
-    )
-
-
-def _technology_summary(url_to, md_to=None) -> str:
-    counts = Counter(c["status"] for c in _model["technology"]["capabilities"])
-    cards = "".join(
-        f'<div class="cap-count cap-count--{s}"><span class="cap-count__n">{counts.get(s, 0)}</span>'
-        f'<span class="cap-count__label">{label}</span></div>'
-        for s, label in STATUS_LABELS.items()
-    )
-    return f'<div class="cap-counts">{cards}</div>\n'
-
-
-def _technology_catalogue(_url_to, url_to) -> str:
-    bus = _model["bus_by_id"]
-    levels = {lvl["id"]: lvl["name"] for lvl in _model["technology"]["government_model_levels"]}
-    out = []
-    for domain in _model["technology"]["domains"]:
-        out.append(f"## {domain['name']}\n\n{domain['description']}\n")
-        for cap in (c for c in _model["technology"]["capabilities"] if c["domain"] == domain["id"]):
-            out.append(f"### {cap['id']} {cap['name']} {{#{cap['id'].lower()}}}\n")
-            out.append(f"{_status_badge(cap['status'])} {cap['description']}\n")
-            out.append(f"<small>Government capability model: {e(levels[cap['government_model']])}</small>\n")
-            options = cap.get("options", [])
-            if options:
-                out.append("**Use first**\n")
-                for opt in options:
-                    if opt.get("url"):
-                        out.append(f"- [{opt['name']}]({url_to(opt['url'])})")
-                    else:
-                        out.append(f"- {opt['name']}")
-                out.append("")
-            else:
-                out.append(
-                    "**No Defra-wide answer yet.** If you need this capability, "
-                    f"[talk to the Technical Design Authority]({url_to('governance/tda.md')}) "
-                    "so we solve it once.\n"
-                )
-            if cap.get("guardrail"):
-                out.append(f"**Guardrails:** [{_page_title(cap['guardrail'])}]({url_to(cap['guardrail'])})\n")
-            supported = ", ".join(
-                f"[{bus[b]['number']} {bus[b]['name']}]({url_to(BUSINESS_PAGE, b.lower())})"
-                for b in _model["supports"][cap["id"]]
-            )
-            out.append(f"**Supports:** {supported}\n")
-    return "\n".join(out) + "\n"
-
-
-def _page_title(src_path: str) -> str:
-    name = os.path.splitext(os.path.basename(src_path))[0]
-    return name.replace("-", " ").capitalize().replace("Apis", "APIs").replace("Ai", "AI")
+    return f'<div class="tstack" role="group" aria-label="Defra technology capability map">{"".join(rows)}</div>\n'
 
 
 def _matrix(url_to, md_to=None) -> str:
-    domains = _model["technology"]["domains"]
-    techs = _model["technology"]["capabilities"]
-    head_domains = "".join(
-        f'<th scope="colgroup" colspan="{sum(1 for t in techs if t["domain"] == d["id"])}" '
-        f'class="cap-matrix__domain">{e(d["name"])}</th>'
-        for d in domains
+    """Business capabilities against the technology capabilities they use, grouped by level 1 area."""
+    used = {ref for c in _model["business"]["capabilities"] for ref in c.get("technology", [])}
+    columns = []
+    for area in _model["technology"]["domains"]:
+        cols = [area] if area["id"] in used else []
+        cols += [l2 for l2 in area.get("level2", []) if l2["id"] in used]
+        if cols:
+            columns.append((area, cols))
+    head_areas = "".join(
+        f'<th scope="colgroup" colspan="{len(cols)}" class="cap-matrix__domain">{e(a["name"])}</th>'
+        for a, cols in columns
     )
-    ordered = [t for d in domains for t in techs if t["domain"] == d["id"]]
+    ordered = [c for _, cols in columns for c in cols]
+    areas = {a["id"] for a, _ in columns}
+
+    def label(t: dict) -> str:
+        return f"All of {t['name']}" if t["id"] in areas else t["name"]
+
     head_caps = "".join(
-        f'<th scope="col" class="cap-matrix__tech cap-matrix__tech--{t["status"]}">'
-        f'<a href="{url_to(TECHNOLOGY_PAGE, t["id"].lower())}" title="{e(t["name"])}">'
-        f"<span>{e(t['name'])}</span></a></th>"
+        f'<th scope="col" class="cap-matrix__tech">'
+        f'<a href="{url_to(TECHNOLOGY_PAGE, t["id"])}" title="{e(t["name"])}">'
+        f"<span>{e(label(t))}</span></a></th>"
         for t in ordered
     )
     rows = []
@@ -345,7 +275,7 @@ def _matrix(url_to, md_to=None) -> str:
     return (
         '<div class="cap-matrix-wrapper" tabindex="0" role="region" aria-label="Capability mapping matrix">\n'
         '<table class="cap-matrix">\n'
-        f'<thead><tr><td rowspan="2"></td>{head_domains}</tr><tr>{head_caps}</tr></thead>\n'
+        f'<thead><tr><td rowspan="2"></td>{head_areas}</tr><tr>{head_caps}</tr></thead>\n'
         f"<tbody>{''.join(rows)}</tbody>\n"
         "</table>\n</div>\n"
     )

@@ -1,340 +1,97 @@
-# Defra technology capability catalogue
+# Defra technology capability model
 #
-# A technology capability is something technology does to enable one or more
-# business capabilities. Each entry names the strategic / reusable options a
-# team should consider FIRST, before buying or building something new.
+# Aligned to Technology Business Management (TBM): level 1 areas (domains),
+# each with its level 2 capabilities. The full catalogue, with definitions,
+# ownership and lifecycle status, is maintained by Strategic Architecture.
 #
-# status:
-#   strategic  - use this. Departing from it needs a recorded decision.
-#   emerging   - being established. Talk to the architecture team first.
-#   gap        - no agreed Defra-wide answer yet. Raise with the TDA if you need it.
+#   id    stable id, used for the page anchor and by
+#         business-capabilities.yaml and delivery/platforms.yaml
+#   name  as it appears in the catalogue
 #
-# government_model:
-#   where the capability sits in the cross-government Digital Technology
-#   Capability Model (https://architecture.cddo.cabinetoffice.gov.uk/digital-capability-model/),
-#   so Defra and government describe technology in the same language.
-#   One of the ids under government_model_levels below.
-#
-# This file is validated and rendered by hooks/capabilities.py at build time.
-
-government_model_levels:
-  - id: service
-    name: "Level 1: Service applications"
-  - id: corporate
-    name: "Level 2: Corporate services"
-  - id: integration
-    name: "Level 3: Middleware - integration"
-  - id: data
-    name: "Level 3: Middleware - data and information management"
-  - id: ai
-    name: "Level 3: Middleware - artificial intelligence"
-  - id: devops
-    name: "Level 3: Middleware - DevOps"
-  - id: foundation
-    name: "Level 4: Foundational technology"
-  - id: governance
-    name: "Level 5: Governance and standards"
-  - id: security
-    name: "Level 6: Security"
+# Validated and rendered by hooks/capabilities.py at build time.
 
 domains:
-  - id: engage
-    name: Engage and transact
-    description: How users find us, prove who they are, tell us things and pay us.
-  - id: operate
-    name: Operate and decide
-    description: How we process work, make decisions and keep records.
-  - id: insight
-    name: Data and insight
-    description: How we collect, manage, share and learn from data and evidence.
-  - id: platform
-    name: Platform and integration
-    description: The foundations every service is built and run on.
-
-capabilities:
-  # --- Engage and transact -------------------------------------------------
-  - id: TC01
-    name: Customer identity and access
-    domain: engage
-    government_model: service
-    status: strategic
-    description: >-
-      Let citizens, businesses and their agents sign in, prove who they are and
-      act on behalf of an organisation.
-    options:
-      - name: Defra Customer Identity (Defra ID), which uses GOV.UK One Login and Government Gateway as identity providers
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity
-    guardrail: guardrails/identity-and-access.md
-
-  - id: TC02
-    name: Staff identity and access
-    domain: engage
-    government_model: security
-    status: strategic
-    description: >-
-      Single sign-on, role-based access and joiner/mover/leaver for Defra group
-      staff and contractors.
-    options:
-      - name: Microsoft Entra ID
-    guardrail: guardrails/identity-and-access.md
-
-  - id: TC03
-    name: Digital forms and applications
-    domain: engage
-    government_model: service
-    status: emerging
-    description: >-
-      Capture structured information from users through accessible, GOV.UK
-      design system compliant forms without bespoke front-end builds.
-    options:
-      - name: Defra Forms
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-forms
-      - name: GOV.UK Forms
-        url: https://www.forms.service.gov.uk/
-    guardrail: guardrails/front-end-and-accessibility.md
-
-  - id: TC04
-    name: Notifications
-    domain: engage
-    government_model: service
-    status: strategic
-    description: Send emails, text messages and letters to users.
-    options:
-      - name: GOV.UK Notify
-        url: https://www.notifications.service.gov.uk/
-
-  - id: TC05
-    name: Payments and collections
-    domain: engage
-    government_model: service
-    status: strategic
-    description: Take card and other payments for fees, charges and penalties.
-    options:
-      - name: GOV.UK Pay
-        url: https://www.payments.service.gov.uk/
-
-  - id: TC06
-    name: Content and publishing
-    domain: engage
-    government_model: service
-    status: strategic
-    description: Publish guidance, policy, consultations and news.
-    options:
-      - name: GOV.UK publishing
-        url: https://www.gov.uk/
-      - name: Citizen Space (consultations)
-
-  - id: TC07
-    name: Customer and stakeholder relationship management
-    domain: engage
-    government_model: corporate
-    status: strategic
-    description: >-
-      A single view of the customers, organisations and stakeholders we deal
-      with, and our interactions with them.
-    options:
-      - name: Microsoft Dynamics 365 / Power Platform
-
-  # --- Operate and decide --------------------------------------------------
-  - id: TC08
-    name: Case and workflow management
-    domain: operate
-    government_model: service
-    status: strategic
-    description: >-
-      Route, track and complete work items (applications, inspections,
-      investigations, claims) through configurable workflow.
-    options:
-      - name: Microsoft Dynamics 365 / Power Platform
-      - name: Workflow on the Core Delivery Platform for high-volume digital services
-
-  - id: TC09
-    name: Rules and decisioning
-    domain: operate
-    government_model: service
-    status: emerging
-    description: >-
-      Express eligibility, risk scoring and business rules as versioned,
-      testable artefacts rather than burying them in code.
-    options:
-      - name: Rules as code libraries within the service (default)
-
-  - id: TC10
-    name: Document and records management
-    domain: operate
-    government_model: data
-    status: strategic
-    description: >-
-      Store, classify, retain and dispose of documents and records in line with
-      the Public Records Act and retention schedules.
-    options:
-      - name: Microsoft 365 / SharePoint (with retention labels)
-      - name: Cloud object storage for service-generated documents
-
-  - id: TC11
-    name: Field work and inspection
-    domain: operate
-    government_model: service
-    status: gap
-    description: >-
-      Plan, schedule and record inspections, surveys and sampling in the field,
-      including offline mobile working and evidence capture.
-    options: []
-
-  - id: TC12
-    name: Incident and emergency management
-    domain: operate
-    government_model: service
-    status: gap
-    description: >-
-      Detect, log, coordinate and report on incidents such as animal and plant
-      disease outbreaks, floods and pollution events.
-    options: []
-
-  - id: TC13
-    name: Finance and enterprise resource planning
-    domain: operate
-    government_model: corporate
-    status: strategic
-    description: General ledger, purchase to pay, order to cash, HR and payroll.
-    options:
-      - name: Departmental ERP (shared services)
-
-  - id: TC14
-    name: Grants and scheme management
-    domain: operate
-    government_model: service
-    status: emerging
-    description: >-
-      Configure schemes, take applications, manage agreements, verify claims and
-      make and recover payments.
-    options:
-      - name: Reusable grants components on the Core Delivery Platform
-
-  # --- Data and insight ----------------------------------------------------
-  - id: TC15
-    name: Geospatial and location services
-    domain: insight
-    government_model: data
-    status: strategic
-    description: >-
-      Store, analyse, visualise and serve spatial data - land parcels,
-      boundaries, designations, catchments and observations.
-    options:
-      - name: Defra Data Services Platform
-        url: https://environment.data.gov.uk/
-      - name: Defra Interactive Map, an accessible mapping component (beta)
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-accessible-maps
-      - name: Ordnance Survey data via the Public Sector Geospatial Agreement
-        url: https://www.ordnancesurvey.co.uk/customers/public-sector
-    guardrail: guardrails/data.md
-
-  - id: TC16
-    name: Data platform and analytics
-    domain: insight
-    government_model: data
-    status: emerging
-    description: >-
-      Ingest, store, transform and analyse data at scale with governed access
-      for analysts and data scientists.
-    options:
-      - name: Defra strategic data platform
-    guardrail: guardrails/data.md
-
-  - id: TC17
-    name: Reference and master data
-    domain: insight
-    government_model: data
-    status: emerging
-    description: >-
-      Authoritative, shared records for the things many services depend on:
-      customers, organisations, holdings, land parcels, species, locations.
-    options:
-      - name: Authoritative source per entity - see Defra on a page
-        url: data/defra-on-a-page.md
-    guardrail: guardrails/data.md
-
-  - id: TC18
-    name: Environmental monitoring and IoT
-    domain: insight
-    government_model: data
-    status: gap
-    description: >-
-      Ingest and manage high-volume telemetry and observations from sensors,
-      gauges, samples and earth observation.
-    options: []
-
-  - id: TC19
-    name: Data sharing and publishing
-    domain: insight
-    government_model: integration
-    status: strategic
-    description: >-
-      Share data with partners through APIs and publish open data with good
-      metadata.
-    options:
-      - name: Defra Data Services Platform
-        url: https://environment.data.gov.uk/
-      - name: data.gov.uk
-        url: https://www.data.gov.uk/
-    guardrail: guardrails/data.md
-
-  - id: TC20
-    name: Artificial intelligence and machine learning
-    domain: insight
-    government_model: ai
-    status: emerging
-    description: >-
-      Train, evaluate, deploy and monitor models, including generative AI, safely
-      and transparently.
-    options:
-      - name: Approved cloud AI services within Defra cloud tenancies
-    guardrail: guardrails/ai.md
-
-  # --- Platform and integration --------------------------------------------
-  - id: TC21
-    name: Application hosting and delivery platform
-    domain: platform
-    government_model: devops
-    status: strategic
-    description: >-
-      Build, test, deploy and run services on a secure, observable, paved road
-      with the undifferentiated heavy lifting done once.
-    options:
-      - name: Defra Core Delivery Platform (CDP)
-        url: https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform
-    guardrail: guardrails/hosting-and-platforms.md
-
-  - id: TC22
-    name: API management and integration
-    domain: platform
-    government_model: integration
-    status: strategic
-    description: >-
-      Publish, secure, discover and manage APIs and asynchronous messaging
-      between services and with partners.
-    options:
-      - name: Platform API gateway and messaging on the Core Delivery Platform
-    guardrail: guardrails/apis-and-integration.md
-
-  - id: TC23
-    name: Observability and security monitoring
-    domain: platform
-    government_model: security
-    status: strategic
-    description: >-
-      Logs, metrics, traces, alerting and protective monitoring feeding the
-      security operations centre.
-    options:
-      - name: Platform observability on the Core Delivery Platform
-      - name: Defra security operations centre (SOC)
-    guardrail: guardrails/observability-and-operations.md
-
-  - id: TC24
-    name: Collaboration and productivity
-    domain: platform
-    government_model: foundation
-    status: strategic
-    description: Email, documents, meetings and team collaboration for staff.
-    options:
-      - name: Microsoft 365
+- id: business
+  name: Business
+  level2:
+  - id: product-management
+    name: Product Management
+  - id: sales-and-marketing
+    name: Sales & Marketing
+  - id: customer-service
+    name: Customer Service
+  - id: manufacturing-and-delivery
+    name: Manufacturing & Delivery
+- id: shared-corporate
+  name: Shared & Corporate
+  level2:
+  - id: corporate-communication-services
+    name: Corporate Communication Services
+  - id: finance
+    name: Finance
+  - id: health-safety-and-environmental-services
+    name: Health, Safety, and Environmental Services
+  - id: legal
+    name: Legal
+  - id: property-and-facility-services
+    name: Property & Facility Services
+  - id: risk-audit-and-compliance-services
+    name: Risk, Audit & Compliance Services
+  - id: sustainability-and-esg
+    name: Sustainability & ESG
+  - id: vendor-and-procurement-services
+    name: Vendor and Procurement Services
+  - id: workforce
+    name: Workforce
+- id: workplace
+  name: Workplace
+  level2:
+  - id: connectivity
+    name: Connectivity
+  - id: client-computing
+    name: Client Computing
+  - id: communication-and-collaboration
+    name: Communication & Collaboration
+- id: artificial-intelligence
+  name: Artificial Intelligence
+  level2:
+  - id: agentic
+    name: Agentic
+  - id: generative
+    name: Generative
+  - id: interpretive
+    name: Interpretive
+  - id: predictive
+    name: Predictive
+- id: delivery
+  name: Delivery
+  level2:
+  - id: development
+    name: Development
+  - id: enabling-platforms
+    name: Enabling Platforms
+  - id: operations
+    name: Operations
+  - id: security-and-compliance
+    name: Security & Compliance
+  - id: strategy-and-planning
+    name: Strategy & Planning
+  - id: support
+    name: Support
+  - id: geospatial-solutions
+    name: Geospatial Solutions (Defra Customisation)
+  - id: scientific-data-and-laboratory-solutions
+    name: Scientific Data & Laboratory Solutions (Defra Customisation)
+- id: infrastructure
+  name: Infrastructure
+  level2:
+  - id: compute
+    name: Compute
+  - id: data-centre
+    name: Data Centre
+  - id: data
+    name: Data
+  - id: network
+    name: Network
+  - id: storage
+    name: Storage

@@ -38,7 +38,7 @@ they do or do not fit.
 - Context diagram
 - Container diagram
 - Key integrations and data flows
-- Technology capabilities used (e.g. TC01, TC08, TC21)
+- Technology capabilities used (level 2, e.g. Security & Compliance, Enabling Platforms)
 
 ## 6. Guardrails
 

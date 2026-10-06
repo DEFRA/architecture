@@ -112,7 +112,7 @@ guardrails:
 
 Applies the DDTS doctrine [assume AI until proven otherwise](../principles/doctrine.md#ddts-05), and builds on the [AI Playbook for the UK Government](https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government).
 
-For practical guidance - which tools teams use, what data you can put into them, keeping data safe, working with AI agents and reporting an AI incident - use the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) in the Defra Digital Service Manual, run by the AI Capability and Enablement (AICE) team. Contact details for AICE are on the toolkit's home page. These guardrails set the architecture boundaries; the toolkit tells you how. Technology capability [TC20 Artificial intelligence and machine learning](../handrail/technology-capabilities.md#tc20).
+For practical guidance - which tools teams use, what data you can put into them, keeping data safe, working with AI agents and reporting an AI incident - use the [AI digital toolkit](https://digital.defra.gov.uk/ai-toolkit) in the Defra Digital Service Manual, run by the AI Capability and Enablement (AICE) team. Contact details for AICE are on the toolkit's home page. These guardrails set the architecture boundaries; the toolkit tells you how. Technology capability [Artificial intelligence and machine learning](../handrail/technology-capabilities.md#artificial-intelligence).
 
 ## GR-AI-01 Consider AI first {#gr-ai-01}
 

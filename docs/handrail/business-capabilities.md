@@ -20,6 +20,8 @@ A useful test: if a reorganisation or a new system would change it, it is not a 
 
 Level 1 capabilities are agreed. **Level 2 capabilities are a draft** - informed by Gartner research on government and human services business capability models and other public sector reference models - and we want your help improving them.
 
+To see which [technology capabilities](technology-capabilities.md) each business capability is likely to depend on, see [capability mapping](capability-mapping.md). That mapping is a draft.
+
 <!-- capabilities:business-detail -->
 
 ## Capabilities and services

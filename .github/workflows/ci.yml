@@ -85,9 +85,14 @@ jobs:
           retention-days: 7
 
   accessibility:
-    name: Accessibility (WCAG 2.2 AA)
+    name: Accessibility (WCAG 2.2 AA, ${{ matrix.scheme }})
     needs: build
     runs-on: ubuntu-latest
+    # Light and dark mode are checked in parallel jobs to halve the wait.
+    strategy:
+      fail-fast: false
+      matrix:
+        scheme: [light, dark]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
@@ -104,8 +109,10 @@ jobs:
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps --only-shell chromium
       - run: npm test
+        env:
+          A11Y_SCHEMES: ${{ matrix.scheme }}
 
   dependency-review:
     name: Dependency review
@@ -118,9 +125,10 @@ jobs:
   deploy:
     name: Publish to GitHub Pages
     needs: [lint, build, accessibility]
-    # Only DEFRA/architecture publishes the site. A fork runs the checks but
-    # never deploys, so it cannot overwrite its own gh-pages branch.
-    if: github.repository == 'DEFRA/architecture' && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # DEFRA/architecture publishes the site. A fork runs the checks but only
+    # deploys if its owner sets the Actions variable PUBLISH_SITE to true, so a
+    # fork cannot overwrite its own gh-pages branch by accident.
+    if: (github.repository == 'DEFRA/architecture' || vars.PUBLISH_SITE == 'true') && github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -143,3 +151,6 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
+        env:
+          # Links in llms.txt, the JSON files and the sitemap use the address this copy is published at.
+          SITE_URL: ${{ github.repository == 'DEFRA/architecture' && 'https://defra.github.io/architecture/' || format('https://{0}.github.io/architecture/', github.repository_owner) }}

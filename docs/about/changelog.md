@@ -4,6 +4,19 @@
 
 ## October 2026
 
+### Simpler navigation
+
+- **The top navigation has 7 tabs instead of 11.** **Rules** holds principles, guardrails and non-functional requirements; **Reuse** holds the handrail and patterns; **Topics** holds data and security. Every page keeps its address, so links still work.
+
+### Patterns: service patterns and solution patterns
+
+- **Reference architectures are now [service patterns](../patterns/service/index.md)**, in the Patterns section. A service pattern shows the shape of a whole kind of service; a solution pattern solves one recurring problem inside a service. Both are exploratory, early work for discussion, not agreed designs. Old addresses redirect to the new pages.
+
+### Technology capabilities aligned to TBM
+
+- **The [technology capabilities](../handrail/technology-capabilities.md) page now shows Defra's Technology Business Management (TBM) model**: 6 level 1 areas and their level 2 capabilities. The full catalogue is maintained by Strategic Architecture.
+- The old TC01 to TC24 capabilities and their strategic, emerging and gap statuses have gone. Guardrails, platforms, reference architectures and the [capability mapping](../handrail/capability-mapping.md) now point to level 2 capabilities.
+
 ### The site has moved to the DEFRA GitHub organisation
 
 - **The site is now at [defra.github.io/architecture](https://defra.github.io/architecture/)**, and its source at [DEFRA/architecture](https://github.com/DEFRA/architecture). Old addresses redirect to the same page, including guardrail anchors. See [moving to the DEFRA GitHub organisation](moving-to-defra.md) and [ADR 0006](../adr/0006-move-to-defra-github.md).
@@ -12,6 +25,7 @@
 
 ### Content style and site design
 
+- **New page: [guide for the team](../contribute/team-guide.md)** - start here to update the site: how it is built, the rules every change follows, which file to edit and what to do when a check fails.
 - **New page: [site design](../contribute/site-design.md)** - how pages are built from data by hooks, the templates, theme tokens, components and interactive tools, for maintainers. A test checks that it describes every hook.
 - **New page: [content style](../contribute/content-style.md)** - the house rules on top of the GOV.UK style guide, how to write a guardrail and a pattern, diagrams and a glossary of the terms this site uses.
 - Pull requests now get **prose warnings** from Vale (words to avoid, filler words and exclamation marks) and a check that headings are in sentence case. They never block a merge.
@@ -140,7 +154,7 @@ The [Defra Digital Service Manual](https://digital.defra.gov.uk/) is the place f
 
 - **New [Patterns](../patterns/index.md) section**, modelled on the Department for Education's: asynchronous submission with an outbox, acting on behalf of an organisation or holding, file upload with malware scanning, reading from an authoritative source, and publishing open data with metadata. Each lists the guardrails it helps you meet and related Secure by Design artefacts.
 - **[Worked example: apply for a licence](../patterns/worked-example/index.md):** a fictional service taken through the transactional reference architecture, with C4 context and container diagrams, [three sample ADRs](../patterns/worked-example/adrs.md) and a [threat model excerpt](../patterns/worked-example/threat-model.md).
-- **Proposed reference architectures** for capabilities Defra does not yet have a strategic solution for: [field inspection](../handrail/reference-architectures/field-inspection.md), [incident response](../handrail/reference-architectures/incident-response.md) and [grants and schemes](../handrail/reference-architectures/grants.md).
+- **Proposed reference architectures** for capabilities Defra does not yet have a strategic solution for: [field inspection](../patterns/service/field-inspection.md), [incident response](../patterns/service/incident-response.md) and [grants and schemes](../patterns/service/grants.md).
 
 ### Deliver a service
 
@@ -178,7 +192,7 @@ The [Defra Digital Service Manual](https://digital.defra.gov.uk/) is the place f
 - **[Principles](../principles/index.md)** have their own section, showing how doctrine, principles and guardrails fit together.
 - [GR-AI-01](../guardrails/ai.md#gr-ai-01) now asks teams to consider AI first, in line with the doctrine.
 - Fixed the home page figures displaying incorrectly when the browser had cached an older stylesheet.
-- **[Technology stack view](../handrail/technology-capabilities.md#the-technology-stack-at-a-glance):** technology capabilities shown as layers, inspired by the Local Government Architecture Model.
+- **[Technology stack view](../handrail/technology-capabilities.md#the-capability-map):** technology capabilities shown as layers, inspired by the Local Government Architecture Model.
 - **[Seek advice, not permission](../governance/index.md#seek-advice-not-permission):** the advice process is now explicit in governance, and ADRs record the advice sought.
 - Links to the cross-government [Secure by Design artefact library](https://github.com/co-cddo/SbD), the Local Government Architecture Model and government data architecture guidance.
 

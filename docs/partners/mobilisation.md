@@ -25,7 +25,7 @@ Meet:
 
 - **your Defra engagement lead and service owner**, to agree outcomes, ways of working and how decisions are made
 - **the solution design authority** for your area, to agree how you will share designs and decisions - see [solution design authorities](../governance/solution-design-authorities.md)
-- **the architecture team**, for the relevant [reference architecture](../handrail/reference-architectures/index.md), patterns and guardrails
+- **the architecture team**, for the relevant [service pattern](../patterns/service/index.md), patterns and guardrails
 - **the platform team**, for onboarding to the Core Delivery Platform
 - **a security architect and the service's risk owner**, to plan [Secure by Design](../security/secure-by-design.md) activities and the first threat model
 - **teams you depend on or that depend on you** - see [working with other suppliers](multi-supplier.md)

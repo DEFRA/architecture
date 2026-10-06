@@ -5,7 +5,7 @@
 ## What it means for architecture
 
 - Try out options for hosting, identity, integration and data, starting from the strategic options in the [handrail](../handrail/index.md).
-- Start from a [reference architecture](../handrail/reference-architectures/index.md) where one fits.
+- Start from a [service pattern](../patterns/service/index.md) where one fits.
 - Run your first threat model with the whole team.
 - Agree your service tier and non-functional requirements, so beta has targets to build and test against.
 

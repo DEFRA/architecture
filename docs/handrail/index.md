@@ -22,7 +22,7 @@
 
     ---
 
-    What technology does to enable the business, and the strategic options to use first.
+    What technology does to enable the business, in Technology Business Management (TBM) level 1 and level 2 areas.
 
 -   **[Capability mapping](capability-mapping.md)**
 
@@ -30,11 +30,11 @@
 
     Which technology capabilities each business capability depends on - and where the biggest reuse opportunities are.
 
--   **[Reference architectures](reference-architectures/index.md)**
+-   **[Reference architecture](reference-architecture.md)**
 
     ---
 
-    Proven shapes for common types of Defra service, built from the capabilities above.
+    A layered view of Defra's technology. Coming in a future iteration.
 
 </div>
 
@@ -59,25 +59,28 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 
 - **see duplication** - five case management systems serving the same capability is a reuse opportunity
 - **target investment** - fund the technology capabilities that enable the most business capabilities
-- **give teams a head start** - a new licensing service starts from the licensing reference architecture, not a blank page
+- **give teams a head start** - a new licensing service starts from the regulatory casework service pattern, not a blank page
 - **talk to the business in its own language** - capabilities, not systems
 
 ## Using the handrail on your project
 
 1. **Find your business capability.** Which of the [eleven capabilities](business-capabilities.md) does your service support? Most services support one or two.
-2. **Check the technology capabilities it needs.** Each business capability lists the [technology capabilities](technology-capabilities.md) that typically enable it.
+2. **Check the technology capabilities it needs.** The [capability mapping](capability-mapping.md) shows which [technology capabilities](technology-capabilities.md) each business capability typically depends on.
 3. **Use the strategic options first.** Each technology capability lists what to use. If it is marked *gap*, talk to the TDA so we solve it once.
-4. **Start from a reference architecture** if one fits.
-5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming capability ids (for example `BC05`, `TC08`) so decisions can be found later.
+4. **Start from a service pattern** if one fits.
+5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming business capability ids (for example `BC05`) and technology capabilities (for example Enabling Platforms) so decisions can be found later.
 
 ## Technology radars
 
-Two radars sit alongside the handrail. Both are internal to Defra: you need to be connected to a Defra network and signed in to open them.
+Two radars sit alongside the handrail.
+
+!!! warning "Defra staff only"
+    These links only open on a Defra device, or on the Defra VPN, and you need to be signed in with your Defra account. They will not work from a personal device or for delivery partners without Defra access.
 
 | Radar | What it tells you | Use it to |
 | --- | --- | --- |
-| [Tools radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630?filter=&groupBy=epic) | The software tools approved for use in Defra | Check whether a tool is already approved before you buy or adopt one ([GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01), [GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) |
-| [Emerging Technology Radar 2026](https://defrati-my.sharepoint.com/personal/jan_murdoch_defrati_co_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments%2FDefra%20DDTS%20%2D%20Emerging%20Technologies%20Radar%202026%20%2Epdf&parent=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments&ga=1) | The emerging technologies Defra is watching, what is ready to use now, what is on the horizon and what still needs time to mature | Spot opportunities early, and find out whether a technology is mature enough before you build on it |
+| [Tools radar](https://eaflood.atlassian.net/jira/software/projects/TR/boards/630?filter=&groupBy=epic) (Defra device or VPN) | The software tools approved for use in Defra | Check whether a tool is already approved before you buy or adopt one ([GR-TECH-01](../guardrails/choosing-technology.md#gr-tech-01), [GR-TECH-04](../guardrails/choosing-technology.md#gr-tech-04)) |
+| [Emerging Technology Radar 2026](https://defrati-my.sharepoint.com/personal/jan_murdoch_defrati_co_uk/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments%2FDefra%20DDTS%20%2D%20Emerging%20Technologies%20Radar%202026%20%2Epdf&parent=%2Fpersonal%2Fjan%5Fmurdoch%5Fdefrati%5Fco%5Fuk%2FDocuments&ga=1) (Defra device or VPN) | The emerging technologies Defra is watching, what is ready to use now, what is on the horizon and what still needs time to mature | Spot opportunities early, and find out whether a technology is mature enough before you build on it |
 
 The Emerging Technology Radar is published each year, and the 2026 edition added 28 technologies. It is organised around four themes that match where Defra group priorities are heading:
 

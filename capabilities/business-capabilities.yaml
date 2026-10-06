@@ -2,7 +2,7 @@
 #
 # Business capabilities describe WHAT Defra does, not how or who does it.
 # They are the stable "handrail" that links strategy and outcomes to the
-# technology capabilities in technology-capabilities.yaml.
+# technology capabilities (level 1 or level 2 ids) in technology-capabilities.yaml.
 #
 # Level 1 capabilities are agreed. Level 2 capabilities are a DRAFT for
 # discussion - open an issue or pull request to improve them.
@@ -43,7 +43,7 @@ capabilities:
       - Designate and manage protected sites
       - Manage flood and coastal erosion risk
       - Manage natural capital and biodiversity net gain
-    technology: [TC15, TC16, TC17, TC18, TC19, TC11]
+    technology: [geospatial-solutions, data, scientific-data-and-laboratory-solutions, manufacturing-and-delivery]
 
   - id: BC02
     number: "02"
@@ -61,7 +61,7 @@ capabilities:
       - Analyse, model and forecast
       - Publish official statistics
       - Horizon scan for emerging risks
-    technology: [TC16, TC15, TC18, TC19, TC20, TC10]
+    technology: [data, geospatial-solutions, scientific-data-and-laboratory-solutions, artificial-intelligence, communication-and-collaboration]
 
   - id: BC03
     number: "03"
@@ -79,7 +79,7 @@ capabilities:
       - Draft and maintain legislation
       - Negotiate international agreements
       - Evaluate policy impact
-    technology: [TC06, TC16, TC10, TC24, TC20]
+    technology: [corporate-communication-services, data, communication-and-collaboration, artificial-intelligence]
 
   - id: BC04
     number: "04"
@@ -97,7 +97,7 @@ capabilities:
       - Handle enquiries, complaints and information requests
       - Run campaigns and communications
       - Gather and act on feedback
-    technology: [TC01, TC04, TC06, TC07, TC03, TC08]
+    technology: [security-and-compliance, customer-service, corporate-communication-services, manufacturing-and-delivery]
 
   - id: BC05
     number: "05"
@@ -115,7 +115,7 @@ capabilities:
       - Issue licences, permits and certificates
       - Vary, renew, suspend and revoke
       - Maintain public registers
-    technology: [TC01, TC03, TC05, TC08, TC09, TC10, TC15, TC17, TC04]
+    technology: [security-and-compliance, customer-service, finance, manufacturing-and-delivery, communication-and-collaboration, geospatial-solutions, data]
 
   - id: BC06
     number: "06"
@@ -133,7 +133,7 @@ capabilities:
       - Gather intelligence and investigate
       - Take enforcement action
       - Manage appeals and sanctions
-    technology: [TC08, TC09, TC11, TC15, TC16, TC17, TC10]
+    technology: [manufacturing-and-delivery, geospatial-solutions, data, communication-and-collaboration]
 
   - id: BC07
     number: "07"
@@ -152,7 +152,7 @@ capabilities:
       - Make payments
       - Recover payments and manage irregularities
       - Evaluate scheme outcomes
-    technology: [TC01, TC14, TC08, TC09, TC13, TC15, TC17, TC04]
+    technology: [security-and-compliance, manufacturing-and-delivery, finance, geospatial-solutions, data, customer-service]
 
   - id: BC08
     number: "08"
@@ -170,7 +170,7 @@ capabilities:
       - Coordinate response
       - Contain and control
       - Recover and learn lessons
-    technology: [TC12, TC15, TC18, TC04, TC11, TC16, TC17]
+    technology: [manufacturing-and-delivery, geospatial-solutions, scientific-data-and-laboratory-solutions, customer-service, data]
 
   - id: BC09
     number: "09"
@@ -188,7 +188,7 @@ capabilities:
       - Operate assets
       - Inspect and maintain assets
       - Dispose of assets
-    technology: [TC15, TC18, TC11, TC13, TC16]
+    technology: [geospatial-solutions, scientific-data-and-laboratory-solutions, manufacturing-and-delivery, finance, data]
 
   - id: BC10
     number: "10"
@@ -206,7 +206,7 @@ capabilities:
       - Manage performance and risk
       - Govern and assure
       - Design the operating model
-    technology: [TC16, TC24, TC10]
+    technology: [data, communication-and-collaboration]
 
   - id: BC11
     number: "11"
@@ -225,4 +225,4 @@ capabilities:
       - Provide digital, data and technology services
       - Manage estates and facilities
       - Manage information and records
-    technology: [TC02, TC13, TC10, TC21, TC22, TC23, TC24]
+    technology: [security-and-compliance, finance, communication-and-collaboration, enabling-platforms, operations]

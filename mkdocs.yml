@@ -2,7 +2,8 @@ site_name: Defra architecture
 site_description: >-
   Architecture handrails, guardrails and governance for Defra digital, data and
   technology - for internal product and platform teams and delivery partners.
-site_url: https://defra.github.io/architecture/
+# The publish step sets SITE_URL to the address the site is published at.
+site_url: !ENV [SITE_URL, 'https://defra.github.io/architecture/']
 repo_url: https://github.com/DEFRA/architecture
 repo_name: DEFRA/architecture
 edit_uri: edit/main/docs/
@@ -82,11 +83,17 @@ hooks:
   - hooks/releases.py
   - hooks/open_questions.py
   - hooks/abbreviations.py
+  - hooks/redirects.py
+  - hooks/machine.py   # keep last: it copies each page after the other hooks
 
 extra:
   generator: false
   status:
     draft: Draft - to be confirmed
+  # Sections that are early prototypes: every page in them shows a banner (hooks/page_status.py).
+  prototype:
+    - section: deliver/
+      note: "This section is an early prototype that we are testing with users. It may change a lot, and some of it may be wrong. Check with your solution design authority before relying on it, and tell us what works and what does not through the feedback link above."
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/DEFRA
@@ -132,6 +139,11 @@ markdown_extensions:
 # Pages built but deliberately left out of the navigation.
 not_in_nav: |
   /print/
+  # For the team that maintains the site: reached by address, not the navigation.
+  /contribute/
+  /adr/
+  # Placeholder until the reference architecture is written; linked from the handrail page.
+  /handrail/reference-architecture.md
 
 nav:
   - Home:
@@ -182,60 +194,72 @@ nav:
           - Live: deliver/checklists/live.md
           - Significant change: deliver/checklists/significant-change.md
           - Retirement: deliver/checklists/retire.md
-  - Principles:
-      - principles/index.md
-      - DDTS doctrine: principles/doctrine.md
-      - Architecture principles: principles/architecture-principles.md
-  - Guardrails:
-      - guardrails/index.md
-      - Guardrail library: guardrails/library.md
-      - Choosing technology: guardrails/choosing-technology.md
-      - Hosting and platforms: guardrails/hosting-and-platforms.md
-      - Software development: guardrails/software-development.md
-      - APIs and integration: guardrails/apis-and-integration.md
-      - Identity and access: guardrails/identity-and-access.md
-      - Data: guardrails/data.md
-      - Security: guardrails/security.md
-      - Observability and operations: guardrails/observability-and-operations.md
-      - Front end and accessibility: guardrails/front-end-and-accessibility.md
-      - Open source and working in the open: guardrails/open-source.md
-      - Artificial intelligence: guardrails/ai.md
-      - Sustainability: guardrails/sustainability.md
-      - Products and platforms (draft): guardrails/products-and-platforms.md
-      - Digital first (draft): guardrails/digital-first.md
-      - Field working and devices (draft): guardrails/field-working-and-devices.md
-      - Software development standards: https://defra.github.io/software-development-standards/
-  - NFRs:
-      - nfrs/index.md
-      - Service tiers: nfrs/service-tiers.md
-      - NFR catalogue: nfrs/catalogue.md
-      - Writing good NFRs: nfrs/writing-nfrs.md
-  - Handrail:
-      - handrail/index.md
-      - Services and capabilities: handrail/services-and-capabilities.md
-      - Business capabilities: handrail/business-capabilities.md
-      - Technology capabilities: handrail/technology-capabilities.md
-      - Technology capabilities Boxes: handrail/technology-capabilities-boxes.md
-      - Capability mapping: handrail/capability-mapping.md
-      - Reference architectures:
-          - handrail/reference-architectures/index.md
-          - Transactional digital service: handrail/reference-architectures/transactional-service.md
-          - Regulatory casework: handrail/reference-architectures/regulatory-casework.md
-          - Data and analytics: handrail/reference-architectures/data-and-analytics.md
-          - Field inspection (proposed): handrail/reference-architectures/field-inspection.md
-          - Incident response (proposed): handrail/reference-architectures/incident-response.md
-          - Grants and schemes (proposed): handrail/reference-architectures/grants.md
-  - Patterns:
-      - patterns/index.md
-      - Asynchronous submission: patterns/async-submission.md
-      - Acting on behalf: patterns/acting-on-behalf.md
-      - File upload and scanning: patterns/file-upload.md
-      - Authoritative source: patterns/authoritative-source.md
-      - Publishing open data: patterns/open-data-publishing.md
-      - "Worked example: apply for a licence":
-          - patterns/worked-example/index.md
-          - Sample ADRs: patterns/worked-example/adrs.md
-          - Threat model excerpt: patterns/worked-example/threat-model.md
+  - Rules:
+      - Principles:
+          - principles/index.md
+          - DDTS doctrine: principles/doctrine.md
+          - Architecture principles: principles/architecture-principles.md
+      - Guardrails:
+          - guardrails/index.md
+          - Guardrail library: guardrails/library.md
+          - Choosing technology: guardrails/choosing-technology.md
+          - Hosting and platforms: guardrails/hosting-and-platforms.md
+          - Software development: guardrails/software-development.md
+          - APIs and integration: guardrails/apis-and-integration.md
+          - Identity and access: guardrails/identity-and-access.md
+          - Data: guardrails/data.md
+          - Security: guardrails/security.md
+          - Observability and operations: guardrails/observability-and-operations.md
+          - Front end and accessibility: guardrails/front-end-and-accessibility.md
+          - Open source and working in the open: guardrails/open-source.md
+          - Artificial intelligence: guardrails/ai.md
+          - Sustainability: guardrails/sustainability.md
+          - Products and platforms (draft): guardrails/products-and-platforms.md
+          - Digital first (draft): guardrails/digital-first.md
+          - Field working and devices (draft): guardrails/field-working-and-devices.md
+          - Software development standards: https://defra.github.io/software-development-standards/
+      - NFRs:
+          - nfrs/index.md
+          - Service tiers: nfrs/service-tiers.md
+          - NFR catalogue: nfrs/catalogue.md
+          - Writing good NFRs: nfrs/writing-nfrs.md
+  - Reuse:
+      - Handrail:
+          - handrail/index.md
+          - Services and capabilities: handrail/services-and-capabilities.md
+          - Business capabilities: handrail/business-capabilities.md
+          - Technology capabilities: handrail/technology-capabilities.md
+          - Capability mapping: handrail/capability-mapping.md
+      - Patterns:
+          - patterns/index.md
+          - Service patterns:
+              - patterns/service/index.md
+              - Transactional digital service: patterns/service/transactional-service.md
+              - Regulatory casework: patterns/service/regulatory-casework.md
+              - Data and analytics: patterns/service/data-and-analytics.md
+              - Field inspection: patterns/service/field-inspection.md
+              - Incident response: patterns/service/incident-response.md
+              - Grants and schemes: patterns/service/grants.md
+          - Solution patterns:
+              - Asynchronous submission: patterns/async-submission.md
+              - Acting on behalf: patterns/acting-on-behalf.md
+              - File upload and scanning: patterns/file-upload.md
+              - Authoritative source: patterns/authoritative-source.md
+              - Publishing open data: patterns/open-data-publishing.md
+          - "Worked example: apply for a licence":
+              - patterns/worked-example/index.md
+              - Sample ADRs: patterns/worked-example/adrs.md
+              - Threat model excerpt: patterns/worked-example/threat-model.md
+  - Topics:
+      - Data:
+          - data/index.md
+          - Defra on a page: data/defra-on-a-page.md
+          - Data standards: data/data-standards.md
+      - Security:
+          - security/index.md
+          - Secure by Design: security/secure-by-design.md
+          - Threat modelling: security/threat-modelling.md
+          - Managing security exceptions: security/managing-exceptions.md
   - Governance:
       - governance/index.md
       - Check a decision: governance/decision-check.md
@@ -253,26 +277,4 @@ nav:
           - TDA submission: governance/templates/tda-submission.md
           - Guardrail exception request: governance/templates/exception-request.md
           - Threat model: governance/templates/threat-model.md
-  - Data:
-      - data/index.md
-      - Defra on a page: data/defra-on-a-page.md
-      - Data standards: data/data-standards.md
-  - Security:
-      - security/index.md
-      - Secure by Design: security/secure-by-design.md
-      - Threat modelling: security/threat-modelling.md
-      - Managing security exceptions: security/managing-exceptions.md
   - Standards and links: standards/index.md
-  - Contribute:
-      - contribute/index.md
-      - Content style: contribute/content-style.md
-      - Site design: contribute/site-design.md
-      - Where things live: contribute/where-things-live.md
-      - Decisions about this site:
-          - adr/index.md
-          - "0001 MkDocs Material with hooks": adr/0001-mkdocs-material-with-hooks.md
-          - "0002 Guardrail metadata in front matter": adr/0002-guardrail-metadata-in-front-matter.md
-          - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md
-          - "0004 Musts only where required": adr/0004-musts-only-where-required.md
-          - "0005 Enterprise decisions in SharePoint": adr/0005-enterprise-decisions-in-sharepoint.md
-          - "0006 Move to DEFRA/architecture": adr/0006-move-to-defra-github.md

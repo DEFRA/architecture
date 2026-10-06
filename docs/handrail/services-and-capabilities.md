@@ -39,7 +39,7 @@ The taxonomy has six levels. The definitions below are quoted from version 2 of 
 ```mermaid
 flowchart LR
     accTitle: How the Defra service taxonomy links to the architecture handrail
-    accDescr: The six levels of the service taxonomy are shown on the left, from outcomes, through whole services and services, products, common business capabilities and components, to data. On the right, the architecture views that sit at each level. Reference architectures describe common shapes of service. Guardrails and the Deliver a service section apply mainly to products. The business capability model is Defra's set of common business capabilities. Technology capabilities connect business capabilities to the components, including platforms, that provide them. Defra on a page describes the data and its authoritative sources.
+    accDescr: The six levels of the service taxonomy are shown on the left, from outcomes, through whole services and services, products, common business capabilities and components, to data. On the right, the architecture views that sit at each level. Service patterns describe common shapes of service. Guardrails and the Deliver a service section apply mainly to products. The business capability model is Defra's set of common business capabilities. Technology capabilities connect business capabilities to the components, including platforms, that provide them. Defra on a page describes the data and its authoritative sources.
     subgraph TAX["Defra service taxonomy"]
         direction TB
         L1["1 Outcomes"] --> L2["2 Whole services<br/>and services"]
@@ -50,10 +50,10 @@ flowchart LR
     end
     subgraph ARCH["Architecture views on this site"]
         direction TB
-        RA["Reference architectures"]
+        RA["Service patterns"]
         GR["Guardrails and<br/>Deliver a service"]
         BCM["Business capability model<br/>BC01 to BC11"]
-        TC["Technology capabilities<br/>TC01 to TC24"]
+        TC["Technology capabilities<br/>TBM level 1 and level 2"]
         DOP["Defra on a page"]
     end
     L2 -.- RA
@@ -67,7 +67,7 @@ flowchart LR
 | Taxonomy level | Where it shows up on this site |
 | --- | --- |
 | 1 Outcomes | The [DDTS doctrine](../principles/doctrine.md) and the outcomes that [business capabilities](business-capabilities.md) deliver |
-| 2 Whole services and services | [Reference architectures](reference-architectures/index.md) describe common shapes of service. Services are assessed against the [Service Standard](https://www.gov.uk/service-manual/service-standard). |
+| 2 Whole services and services | [Service patterns](../patterns/service/index.md) describe common shapes of service. Services are assessed against the [Service Standard](https://www.gov.uk/service-manual/service-standard). |
 | 3 Products | Most [guardrails](../guardrails/index.md), the [Deliver a service](../deliver/index.md) section and [ADRs](../governance/architecture-decision-records.md) apply to products and the teams that build them |
 | 4 Common business capabilities | The [business capability model](business-capabilities.md) is Defra's architecture view of this level. [Technology capabilities](technology-capabilities.md) describe what technology must do to enable them. |
 | 5 Components | The strategic options in each [technology capability](technology-capabilities.md), the [platforms](../deliver/platforms.md) teams build on, and reusable building blocks in the [patterns](../patterns/index.md) |

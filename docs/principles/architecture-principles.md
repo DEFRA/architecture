@@ -171,7 +171,7 @@ The principles apply the [DDTS doctrine](doctrine.md) to technology change, and 
 
 <!-- trace:principle GR-PRIN-08 -->
 
-**See also:** [front end and accessibility](../guardrails/front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#tc11), [staff identity](../guardrails/identity-and-access.md#gr-iam-02).
+**See also:** [front end and accessibility](../guardrails/front-end-and-accessibility.md#gr-fe-05) (low bandwidth), [field work and inspection](../handrail/technology-capabilities.md#manufacturing-and-delivery), [staff identity](../guardrails/identity-and-access.md#gr-iam-02).
 
 ---
 

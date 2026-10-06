@@ -158,7 +158,7 @@ Practical Must, Should and Could defaults. Stay inside them and your team decide
 
 - [Business capabilities](handrail/business-capabilities.md)
 - [Capability mapping](handrail/capability-mapping.md)
-- [Reference architectures](handrail/reference-architectures/index.md)
+- [Service patterns](patterns/service/index.md)
 
 </div>
 

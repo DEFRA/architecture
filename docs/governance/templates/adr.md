@@ -10,7 +10,7 @@ Save as `docs/adr/NNNN-short-title.md` in your repository.
 - Deciders: names or roles
 - Decided by: team | SDA name | TDA | TGB
 - Business capabilities: e.g. BC05 Issue licences and permits
-- Technology capabilities: e.g. TC08 Case and workflow management
+- Technology capabilities: e.g. Manufacturing & Delivery (Business)
 - Guardrails: e.g. GR-HOST-01 (met), GR-DEV-01 (departure - see below)
 - Advice sought from: e.g. platform team, security architect, teams affected
 

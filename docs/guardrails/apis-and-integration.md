@@ -78,7 +78,7 @@ guardrails:
 
 <p class="lead">How services talk to each other and to partners. Good integration lets us reuse capabilities and change one part of Defra without breaking another.</p>
 
-Technology capability [TC22 API management and integration](../handrail/technology-capabilities.md#tc22).
+Technology capability [Enabling Platforms](../handrail/technology-capabilities.md#enabling-platforms): aPI management and integration.
 
 ## GR-API-01 API first {#gr-api-01}
 

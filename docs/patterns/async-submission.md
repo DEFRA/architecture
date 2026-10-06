@@ -35,7 +35,7 @@ flowchart LR
     API --> O
     API -->|"reference number"| U
     O --> R["Relay"]
-    R -->|"application-submitted event"| M["Messaging<br/>TC22"]
+    R -->|"application-submitted event"| M["Messaging"]
     M --> C["Case management"]
     M --> D["Data platform"]
     M --> N["Notifications"]
@@ -105,5 +105,5 @@ Threats to consider in your [threat model](../security/threat-modelling.md): spo
 
 ## Related
 
-- [Transactional digital service](../handrail/reference-architectures/transactional-service.md) reference architecture
+- [Transactional digital service](service/transactional-service.md) service pattern
 - [Worked example: apply for a licence](worked-example/index.md), which uses this pattern

@@ -31,12 +31,14 @@ The site uses [MkDocs](https://www.mkdocs.org/) with the [Material](https://squi
 | `delivery.py` | Phase pages, checklists, platforms and role pages |
 | `patterns.py` | The pattern catalogue and each pattern's guardrails and Secure by Design artefacts |
 | `registers.py` | Approval status, the exception register, guardrails health and doctrine wording |
-| `page_status.py` | The draft banner and navigation marker for `status: draft` pages |
+| `page_status.py` | The draft banner and navigation marker for `status: draft` pages, and the prototype banner for sections listed under `extra.prototype` in `mkdocs.yml` |
 | `cache_busting.py` | Adds a content hash to the site's CSS and JavaScript addresses |
 | `site_info.py` | The last updated date |
 | `releases.py` | Release history and the version in force, from `CHANGELOG.md` |
 | `open_questions.py` | The open questions page, from every "To be confirmed" box |
 | `abbreviations.py` | Removes tooltips inside guardrail ids and next to their own expansion |
+| `machine.py` | `llms.txt`, `pages.json` and a Markdown copy of every page, for tools and AI. Keep it last in `mkdocs.yml` |
+| `redirects.py` | Keeps the old addresses of moved pages working - add a page to its `MOVED` list when you move it |
 
 ## Templates
 

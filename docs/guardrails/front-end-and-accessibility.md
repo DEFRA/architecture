@@ -92,7 +92,7 @@ See the Defra Digital Service Manual for how to do this: [make sure everyone can
 
 ## GR-FE-04 Consider forms platforms first {#gr-fe-04}
 
-<span class="rfc rfc--should">Should</span> For form-based services, consider the forms capability ([TC03](../handrail/technology-capabilities.md#tc03)) before building a bespoke front end.
+<span class="rfc rfc--should">Should</span> For form-based services, consider the forms options under [Customer Service](../handrail/technology-capabilities.md#customer-service) before building a bespoke front end.
 
 **In the Defra Digital Service Manual:** [Defra Forms](https://digital.defra.gov.uk/architecture-and-software-development/defra-forms).
 

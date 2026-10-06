@@ -43,7 +43,7 @@ hide:
 
 <h2 id="roadmap-later"><span class="da-roadmap__tag">Later</span> Proposed</h2>
 
-- Develop the proposed [reference architectures](../handrail/reference-architectures/index.md) for field inspection, incident response and grants with the teams who own those capabilities
+- Develop the proposed [service patterns](../patterns/service/index.md) for field inspection, incident response and grants with the teams who own those capabilities
 - Grow the [patterns](../patterns/index.md) library, starting with infrastructure patterns
 - Measure how quickly teams get to a decision, and publish the results
 - **AI tools:** an assistant that answers architecture questions from this site, suggests which guardrails and capabilities apply to a design, and drafts decision records for teams to check
@@ -59,7 +59,7 @@ hide:
 
 - Structured metadata for every guardrail, with phase and status filters in the [guardrail library](../guardrails/library.md)
 - [Deliver a service](../deliver/index.md): what each phase needs, with evidence checklists and [getting onto Defra platforms](../deliver/platforms.md)
-- [Patterns](../patterns/index.md), a [worked example](../patterns/worked-example/index.md) and proposed reference architectures for the capability gaps
+- [Patterns](../patterns/index.md), a [worked example](../patterns/worked-example/index.md) and proposed service patterns for the capability gaps
 - [Delivery partners](delivery-partners.md): contracting, mobilisation, handover and working with other suppliers
 - [Releases](releases.md), [approval status](approval-status.md), the [exception register](../governance/exception-register.md) and [guardrails health](../governance/guardrails-health.md)
 - The first automated [guardrail check](../deliver/guardrail-check.md) for repositories

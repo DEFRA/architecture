@@ -14,6 +14,9 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- For tools and AI: `llms.txt`, `pages.json` and a Markdown copy of every page, each page marked as published, draft or prototype. `guardrails.json` now includes each guardrail's why, how to meet it, its address and the site version. The site's own address comes from `SITE_URL` when it is published, so copies of the repository link to themselves.
+- A section can be marked as a prototype under `extra.prototype` in `mkdocs.yml`, so every page in it shows a "Prototype - testing with users" banner. Deliver a service is marked as a prototype.
+- A guide for the team on updating the site, linked from the contribute page: how it is built, the rules every change follows, which file to edit and how to fix a failed check.
 - `CLAUDE.md` with the repository's ground rules, layout, commands and gotchas for AI assistants, kept under 80 lines by a test.
 - Issue forms for a new pattern, answering an open question and feedback by role, and a pull request checklist covering unchanged ids, the changelog, checks and \"To be confirmed\" boxes. Tests keep the feedback roles in step with `delivery/roles.yaml`.
 - Site design page for maintainers: hooks, templates, theme tokens, components and interactive tools, with a test that every hook is described.
@@ -26,12 +29,19 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- The top navigation has 7 tabs instead of 11: Rules groups principles, guardrails and NFRs; Reuse groups the handrail and patterns; Topics groups data and security. No page addresses change.
+- Business capabilities no longer list the technology capabilities that enable them; the page points to capability mapping, the one place that draft mapping is shown. Outcomes and level 2 capabilities now sit side by side.
+- Reference architectures are now service patterns, in the Patterns section alongside the solution patterns, and are marked as exploratory early work. Overclaims such as "proven" and lighter governance are removed. Old addresses redirect through a new `redirects.py` hook. The term "reference architecture" is kept for a future layered view.
+- Contribute and the decisions about this site are no longer in the top navigation, to keep it simple for users. The pages are still published at their addresses for the team.
+- Technology capabilities follow Defra's Technology Business Management (TBM) model: level 1 areas and level 2 capabilities in `capabilities/technology-capabilities.yaml`, shown as a map. TC01 to TC24, their statuses and options are removed pending internal review. Business capabilities, platforms, guardrails, reference architectures and the mapping matrix point to level 2 capabilities. The boxes page is folded in. Tests check ids are unique and platforms name a level 2 capability.
+- The accessibility check runs light and dark mode in two parallel jobs, so CI finishes about a minute sooner. Set `A11Y_SCHEMES` to check one scheme locally.
 - Only `DEFRA/architecture` deploys the site, makes releases and runs the weekly link check. A fork runs the checks but cannot overwrite its own `gh-pages` branch, which serves redirects to the new address. A test keeps these workflows limited to `DEFRA/architecture`.
 - The site moved to the DEFRA GitHub organisation: source at `DEFRA/architecture`, published at https://defra.github.io/architecture/. Every link, the issue forms, the guardrail check and the link-check settings point to the new address. Version 0.2.0 stays at https://github.com/howellsr/architecture/releases/tag/v0.2.0. See ADR 0006.
 - Architecture decisions for review are emailed to StrategicEnterpriseArchitecture@defra.gov.uk, replacing the alpha holding address noreply@defra.gov.uk.
 
 ### Fixed
 
+- A fork can publish its own copy of the site by setting the Actions variable `PUBLISH_SITE` to `true`. Without it, a fork runs the checks but does not deploy.
 - CI could not install its JavaScript tools after Dependabot moved ESLint to version 10, which the neostandard lint rules do not support yet. ESLint is back on version 9, Dependabot no longer proposes a new major version of ESLint, and a test checks the two stay compatible.
 - The link check no longer fails on GitHub errors it cannot avoid: Secure by Design library files are checked at their raw address, folders in that library and this repository's own releases page are skipped, and the Defra Digital Service Manual step checks only manual links. Tests keep these settings in place.
 - Abbreviation tooltips appeared inside guardrail ids such as GR-API-05, and next to their own expansion, where screen readers could announce it twice. The build now removes them and fails if any are left.

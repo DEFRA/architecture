@@ -2,6 +2,8 @@
 
 <p class="lead">This site is built in the open and improves when the people who use it change it. Defra staff and delivery partners are equally welcome to contribute.</p>
 
+New to updating the site? Read the [guide for the team](team-guide.md) first. It explains how the site is built, the rules every change follows and which file to edit.
+
 ## Ways to contribute
 
 - **Spotted a mistake or something unclear?** Select **Edit this page** (the pencil icon at the top of each page) to propose a change on GitHub.

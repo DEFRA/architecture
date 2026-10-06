@@ -1,6 +1,6 @@
 # Worked example: apply for a licence
 
-<p class="lead">A fictional Defra service, followed from context to containers, decisions and threats, to show how the reference architecture, patterns and guardrails fit together.</p>
+<p class="lead">A fictional Defra service, followed from context to containers, decisions and threats, to show how the service pattern, patterns and guardrails fit together.</p>
 
 !!! info "This service is fictional"
     "Apply for a riverside works licence" is invented for this example. The names, volumes and decisions are illustrative and do not describe a real Defra service or system.
@@ -14,7 +14,7 @@ Landowners, farmers and contractors need a licence before doing certain works ne
 | Users | Landowners, farmers, contractors and agents; assessing staff |
 | Volume | Around 5,000 applications a year, with peaks in spring |
 | Business capability | [05 Issue licences and permits](../../handrail/business-capabilities.md#bc05) |
-| Starting point | [Transactional digital service](../../handrail/reference-architectures/transactional-service.md) reference architecture |
+| Starting point | [Transactional digital service](../service/transactional-service.md) service pattern |
 | Service tier | T3 Standard - see [service tiers](../../nfrs/service-tiers.md) |
 | Patterns used | [Asynchronous submission](../async-submission.md), [acting on behalf](../acting-on-behalf.md), [file upload with malware scanning](../file-upload.md), [authoritative source](../authoritative-source.md) |
 
@@ -127,7 +127,7 @@ The team ran a STRIDE threat model in alpha. An excerpt is on the [threat model 
 
 | Concern | What the team did | Guardrails |
 | --- | --- | --- |
-| Reuse | Started from the transactional reference architecture and used strategic capabilities for identity, payments and notifications | `GR-TECH-01` |
+| Reuse | Started from the transactional service pattern and used strategic capabilities for identity, payments and notifications | `GR-TECH-01` |
 | Hosting | Core Delivery Platform; infrastructure as code from the platform templates | `GR-HOST-01`, `GR-HOST-03` |
 | Integration | Event to case management through the outbox; no shared database | `GR-API-05`, `GR-API-06`, `GR-API-02` |
 | Identity | Defra ID; authorisation per organisation and holding in the API | `GR-IAM-01`, `GR-IAM-04` |

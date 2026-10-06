@@ -1,13 +1,13 @@
 ---
 status: draft
-status_note: "This is a proposed reference architecture for a capability Defra does not yet have a strategic solution for. It is a starting point for discussion, not an agreed design. Talk to the architecture team before building on it."
+status_note: "Exploratory, early work. Service patterns are starting points for discussion, not agreed designs, and have not been reviewed by the Technical Design Authority. Talk to the architecture team before building on one."
 ---
 
 # Incident response (proposed)
 
 <p class="lead">A proposed starting shape for detecting, coordinating and reporting on incidents such as animal and plant disease outbreaks, floods and pollution events.</p>
 
-**Technology capability:** [TC12 Incident and emergency management](../technology-capabilities.md#tc12), currently a **gap**. **Typical business capability:** [08 Respond to incidents and crises](../business-capabilities.md#bc08).
+**Technology capability:** incident and emergency management, under [Manufacturing & Delivery](../../handrail/technology-capabilities.md#manufacturing-and-delivery). Defra has **no Defra-wide answer yet**. **Typical business capability:** [08 Respond to incidents and crises](../../handrail/business-capabilities.md#bc08).
 
 ## Context
 
@@ -17,17 +17,17 @@ Defra and its arm's length bodies respond to incidents that can grow from one re
 
 ```mermaid
 flowchart LR
-    accTitle: Proposed incident response reference architecture
+    accTitle: Proposed incident response service pattern
     accDescr: Reports arrive from the public through a reporting service, from staff in the field, and from monitoring and partner feeds. An incident service on the Core Delivery Platform records and triages them, and publishes events. Responders coordinate tasks through case and workflow, see a common operating picture on a map from geospatial services, and send alerts through notifications. Data flows to the data platform for reporting and lessons learned.
     PUB(["Public reports"]) --> REP["Reporting service"]
     FIELD(["Field staff"]) --> INC
     MON["Monitoring and<br/>partner feeds"] --> INC
     REP --> INC["Incident service<br/>on CDP"]
-    INC -->|"incident events"| MSG["Messaging<br/>TC22"]
-    MSG --> CASE["Tasks and workflow<br/>TC08"]
-    MSG --> MAP["Common operating picture<br/>Geospatial TC15"]
-    MSG --> NOT["Alerts<br/>Notifications TC04"]
-    MSG --> DP["Data platform<br/>TC16"]
+    INC -->|"incident events"| MSG["Messaging"]
+    MSG --> CASE["Tasks and workflow"]
+    MSG --> MAP["Common operating picture<br/>Geospatial"]
+    MSG --> NOT["Alerts<br/>Notifications"]
+    MSG --> DP["Data platform"]
 ```
 
 ## Questions to answer

@@ -70,5 +70,5 @@ To be written - see the box above.
 
 ## Related
 
-- [Data and analytics](../handrail/reference-architectures/data-and-analytics.md) reference architecture
+- [Data and analytics](service/data-and-analytics.md) service pattern
 - [Data guardrails](../guardrails/data.md)
