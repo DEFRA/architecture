@@ -136,9 +136,9 @@ Not sure which technology capability applies to your work?
 
 Start with the relevant guardrail, review the supporting guidance, or contact Strategic Architecture for assistance.
 
-➡️ [Browse Guardrails]rails/library/
+➡️ [Browse Guardrails]/architecture/guardrails/library/
 
-## Depracated
+## Deprecated - don not use
 
 Deprecated - now  aligned to the Defra TBM
 
