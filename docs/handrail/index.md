@@ -22,7 +22,7 @@
 
     ---
 
-    What technology does to enable the business, and the strategic options to use first.
+    What technology does to enable the business, in Technology Business Management (TBM) level 1 and level 2 areas.
 
 -   **[Capability mapping](capability-mapping.md)**
 
@@ -30,11 +30,11 @@
 
     Which technology capabilities each business capability depends on - and where the biggest reuse opportunities are.
 
--   **[Service patterns](../patterns/service/index.md)**
+-   **[Reference architecture](reference-architecture.md)**
 
     ---
 
-    Proven shapes for common types of Defra service, built from the capabilities above.
+    A layered view of Defra's technology. Coming in a future iteration.
 
 </div>
 

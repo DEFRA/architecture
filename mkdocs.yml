@@ -136,6 +136,8 @@ not_in_nav: |
   # For the team that maintains the site: reached by address, not the navigation.
   /contribute/
   /adr/
+  # Placeholder until the reference architecture is written; linked from the handrail page.
+  /handrail/reference-architecture.md
 
 nav:
   - Home:
