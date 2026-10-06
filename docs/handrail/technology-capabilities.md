@@ -1,7 +1,6 @@
 ---
 status: draft
 ---
-
 # Technology capabilities
 
 Technology capabilities describe what technology must do to enable Defra's business capabilities.
@@ -14,7 +13,8 @@ They provide a common language for understanding technology across Defra and hel
 - understand where existing platforms and services can be used
 - support investment, roadmap and architecture decisions
 
-> Technology capabilities describe **what we need to do**.  
+> Technology capabilities describe **what we need to do**.
+>
 > Guardrails describe **how we recommend doing it**.
 
 ---
@@ -25,11 +25,11 @@ Technology capabilities continue to evolve as Defra's services, platforms and te
 
 The capability catalogue is maintained by Strategic Architecture and reflects our current understanding of the capabilities needed across Defra.
 
-Parts of this page, such as names, structures and classifications, may continue to evolve as we mature the model.
+Parts of this page, including capability classifications and mappings, will continue to evolve as we mature the capability model with delivery teams and partners.
 
 ---
 
-## Aligned with industry and government models
+## Aligned with Technology Business Management (TBM)
 
 Defra's technology capability model draws on:
 
@@ -40,11 +40,7 @@ Defra's technology capability model draws on:
 
 Using a common capability language helps teams compare, share and reuse technology across organisational boundaries.
 
----
-
-## How technology capabilities fit together
-
-Technology capabilities provide the bridge between business needs and technology implementation.
+Technology capabilities provide the bridge between business needs, architectural guardrails and delivery decisions.
 
 ```text
 Business Capability
@@ -67,7 +63,7 @@ This helps teams answer four simple questions:
 
 ---
 
-## Browse the technology capability catalogue
+## Browse the capability catalogue
 
 The authoritative technology capability catalogue is maintained internally by Strategic Architecture.
 
@@ -75,34 +71,15 @@ The catalogue contains:
 
 - capability definitions
 - capability hierarchy
-- capability ownership
+- ownership information
 - lifecycle status
 - supporting descriptions
-- relationships between capabilities
+- capability relationships
+- strategic technology mappings
 
-### View the catalogue
+### Technology Capability Catalogue
 
-➡️ [Technology Capability Catalogue](https://defra.sharepoint.com/:l:/r/teams/Team3221/Lists/Technical%20Capabilities)
-
----
-
-## Using technology capabilities
-
-### Designing a new service
-
-Identify the technology capabilities required before selecting products, platforms or suppliers.
-
-### Looking for reuse opportunities
-
-Check whether Defra already provides the capability you need before creating a new solution.
-
-### Creating technology strategies and roadmaps
-
-Use capabilities to identify strengths, gaps and investment priorities.
-
-### Supporting architecture decisions
-
-Technology capabilities provide a consistent language for discussing technology choices across teams and organisations.
+➡️ [View the Technology Capability Catalogue](https://defra.sharepoint.com/:l:/r/teams/Team3221/Lists/Technical%20Capabilities)
 
 ---
 
@@ -116,7 +93,7 @@ Guardrails explain the preferred approaches for delivering technology capabiliti
 
 ### Business capabilities
 
-Business capabilities describe what Defra needs to do to deliver outcomes for citizens, customers and partners.
+Business capabilities describe what Defra needs to do.
 
 Technology capabilities describe how technology enables those outcomes.
 
@@ -130,10 +107,16 @@ Detailed guidance, standards, decision trees, reference architectures and govern
 
 ---
 
-## Need help?
+## Legacy capability catalogue
 
-Not sure which technology capability applies to your work?
+!!! warning "Planned refactor"
 
-Start with the relevant guardrail, review the supporting guidance, or contact Strategic Architecture for assistance.
+    The detailed capability catalogue below remains available to support existing architecture content and references across the site.
 
-➡️ [Browse Guardrails]rails/library/
+    Over time, the authoritative capability hierarchy, ownership and lifecycle information will move to the internal Technology Capability Catalogue and supporting architecture guidance.
+
+    Existing capability references (TC01-TC24) remain supported to avoid breaking links from guardrails, reference architectures and business capability mappings.
+
+---
+
+## The technology stack at a glance
