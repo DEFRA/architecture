@@ -88,6 +88,11 @@ function serve () {
     for (const v of violations) {
       failures += v.nodes.length
       console.log(`\n[${scheme}] ${url}\n  ${v.id} (${v.impact}): ${v.help}`)
+      // In GitHub Actions, also show each problem on the run's summary page.
+      if (process.env.GITHUB_ACTIONS) {
+        const where = v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(', ')
+        console.log(`::error title=Accessibility (${scheme}) ${url}::${v.id} (${v.impact}): ${v.help} - ${where}`)
+      }
       v.nodes.slice(0, 5).forEach((n) => console.log(`    ${n.target.join(' ')}\n      ${n.failureSummary.split('\n').slice(1, 2).join(' ').trim()}`))
     }
   }
