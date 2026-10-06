@@ -12,6 +12,8 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-06
+
 ### Added
 
 - For tools and AI: `llms.txt`, `pages.json` and a Markdown copy of every page, each page marked as published, draft or prototype. `guardrails.json` now includes each guardrail's why, how to meet it, its address and the site version. The site's own address comes from `SITE_URL` when it is published, so copies of the repository link to themselves.

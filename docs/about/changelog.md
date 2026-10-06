@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Version 0.3.0 released
+
+- **[Version 0.3.0](releases.md)** includes everything listed above this point: the technology capabilities aligned to TBM, service patterns, simpler navigation, the prototype label on Deliver a service and the files for tools and AI. Its PDF of every guardrail is attached to the release. The banner on every page now shows 0.3.0 as the version in force.
+
 ### Simpler navigation
 
 - **The top navigation has 7 tabs instead of 11.** **Rules** holds principles, guardrails and non-functional requirements; **Reuse** holds the handrail and patterns; **Topics** holds data and security. Every page keeps its address, so links still work.
