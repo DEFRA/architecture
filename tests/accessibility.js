@@ -5,6 +5,9 @@
  * violation is found, so CI fails before an inaccessible change is published.
  *
  *   mkdocs build --strict && npm test
+ *
+ * Set A11Y_SCHEMES=light or A11Y_SCHEMES=dark to check one colour scheme only.
+ * CI checks the two schemes in parallel jobs.
  */
 
 'use strict'
@@ -17,6 +20,7 @@ const { chromium } = require('playwright')
 const SITE = path.resolve(__dirname, '..', 'site')
 const AXE = require.resolve('axe-core/axe.min.js')
 const WORKERS = Number(process.env.A11Y_WORKERS) || 6
+const SCHEMES = (process.env.A11Y_SCHEMES || 'light,dark').split(',').map((s) => s.trim())
 const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml' }
 
@@ -52,7 +56,7 @@ function serve () {
   // Check pages in parallel: one queue of (scheme, page) jobs shared by several
   // browser tabs. Output is collected per job and printed in order, so results
   // read the same as a sequential run.
-  const jobs = ['light', 'dark'].flatMap((scheme) => urls.map((url) => ({ scheme, url })))
+  const jobs = SCHEMES.flatMap((scheme) => urls.map((url) => ({ scheme, url })))
   const results = new Array(jobs.length)
   let next = 0
   async function worker () {
@@ -90,6 +94,6 @@ function serve () {
 
   await browser.close()
   server.close()
-  console.log(failures ? `\n${failures} accessibility issue(s) found across ${urls.length} pages.` : `\nNo accessibility issues found across ${urls.length} pages in light and dark mode.`)
+  console.log(failures ? `\n${failures} accessibility issue(s) found across ${urls.length} pages.` : `\nNo accessibility issues found across ${urls.length} pages in ${SCHEMES.join(' and ')} mode.`)
   process.exit(failures ? 1 : 0)
 })()
