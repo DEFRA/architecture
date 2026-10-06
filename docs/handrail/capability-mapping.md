@@ -12,11 +12,14 @@ Each dot means the business capability typically depends on that technology capa
 
 <!-- capabilities:matrix -->
 
+!!! warning "To be confirmed"
+    **TODO:** Strategic Architecture to review this mapping. It was converted from the earlier technology capability model to the TBM level 2 capabilities and is a first draft. Some columns combine several earlier capabilities, so they may show more dots than they should.
+
 ## Reading the map
 
-- **Columns with many dots** are the foundations: geospatial solutions, data, communication and collaboration, and manufacturing and delivery (case management) underpin most of what Defra does. Investing in these once has the biggest payoff, and duplicating them has the biggest cost.
-- **Needs with no Defra-wide answer** are priorities. Field work and inspection supports four core capabilities but has no Defra-wide answer yet; environmental monitoring and incident management have none either. The [technology capabilities](technology-capabilities.md) page lists them.
-- **Rows** give a delivery team a starting checklist. A new licensing service, for example, should expect to need identity, forms, payments, case management, rules, documents, geospatial and reference data.
+- **Columns with many dots** suggest where shared technology matters most. Investing in a capability once pays off across every business capability that uses it, and duplicating it costs the most.
+- **Rows** give a delivery team a starting checklist of the technology capabilities a service in that area is likely to need.
+- **Delivery and infrastructure capabilities**, such as Enabling Platforms, Operations, Compute and Network, underpin almost every service. The map only marks them where a business capability depends on them directly.
 
 ## Using this for planning
 
