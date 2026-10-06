@@ -265,6 +265,7 @@ nav:
   - Standards and links: standards/index.md
   - Contribute:
       - contribute/index.md
+      - Guide for the team: contribute/team-guide.md
       - Content style: contribute/content-style.md
       - Site design: contribute/site-design.md
       - Where things live: contribute/where-things-live.md

@@ -12,6 +12,7 @@
 
 ### Content style and site design
 
+- **New page: [guide for the team](../contribute/team-guide.md)** - start here to update the site: how it is built, the rules every change follows, which file to edit and what to do when a check fails.
 - **New page: [site design](../contribute/site-design.md)** - how pages are built from data by hooks, the templates, theme tokens, components and interactive tools, for maintainers. A test checks that it describes every hook.
 - **New page: [content style](../contribute/content-style.md)** - the house rules on top of the GOV.UK style guide, how to write a guardrail and a pattern, diagrams and a glossary of the terms this site uses.
 - Pull requests now get **prose warnings** from Vale (words to avoid, filler words and exclamation marks) and a check that headings are in sentence case. They never block a merge.
