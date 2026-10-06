@@ -64,14 +64,6 @@ def test_technology_capability_ids_are_unique():
     assert any("duplicate technology capability" in e for e in capabilities.validate(business, technology, DOCS))
 
 
-def test_every_need_has_a_name_and_description():
-    technology = load_yaml("capabilities", "technology-capabilities.yaml")
-    business = load_yaml("capabilities", "business-capabilities.yaml")
-    l2 = next(c for a in technology["domains"] for c in a.get("level2", []) if c.get("needs"))
-    del l2["needs"][0]["description"]
-    assert any("without a name or description" in e for e in capabilities.validate(business, technology, DOCS))
-
-
 def test_platforms_name_a_level_2_technology_capability():
     technology = load_yaml("capabilities", "technology-capabilities.yaml")
     level2 = {c["id"] for a in technology["domains"] for c in a.get("level2", [])}

@@ -3,8 +3,7 @@
 The business and technology capability models live in ``capabilities/*.yaml``
 so they can be reviewed in pull requests, reused by other tools and rendered
 consistently. The technology model is aligned to Technology Business
-Management (TBM): level 1 areas, each with level 2 capabilities, some of which
-list the needs teams commonly have and the options to use first. This hook:
+Management (TBM): level 1 areas, each with level 2 capabilities. This hook:
 
 * validates the models when the site builds (unknown or duplicate ids, missing
   guardrail pages and broken references fail the build);
@@ -17,8 +16,6 @@ Markers:
     <!-- capabilities:business-map -->         the one-page business capability map
     <!-- capabilities:attributes -->           what makes a good capability
     <!-- capabilities:business-detail -->      level 1 and draft level 2 detail
-    <!-- capabilities:technology-summary -->   counts of areas, capabilities and needs
-    <!-- capabilities:technology-catalogue --> what to use, by level 1 and level 2
     <!-- capabilities:matrix -->               business x technology heatmap
     <!-- capabilities:stack -->                level 1 and level 2 capability map
 """
@@ -72,15 +69,6 @@ def validate(business: dict, technology: dict, docs_dir: str) -> list[str]:
     for cap in technology_ids(technology).values():
         if not cap.get("name"):
             errors.append(f"{cap['id']} has no name")
-        targets = list(cap.get("guardrails", []))
-        for need in cap.get("needs", []):
-            if not need.get("name") or not need.get("description"):
-                errors.append(f"{cap['id']} has a need without a name or description")
-            targets += [o.get("url") for o in need.get("options", [])]
-        for target in targets:
-            if target and not target.startswith("http"):
-                if not os.path.exists(os.path.join(docs_dir, target.split("#")[0])):
-                    errors.append(f"{cap['id']} links to missing page {target}")
 
     bus_ids = [c["id"] for c in business["capabilities"]]
     for dup in {i for i in bus_ids if bus_ids.count(i) > 1}:
@@ -150,8 +138,6 @@ def on_page_markdown(markdown, page, config, files):
         "business-map": _business_map,
         "attributes": _attributes,
         "business-detail": _business_detail,
-        "technology-summary": _technology_summary,
-        "technology-catalogue": _technology_catalogue,
         "matrix": _matrix,
         "stack": _stack,
     }
@@ -235,110 +221,24 @@ def _business_detail(_url_to, url_to) -> str:
     return "\n".join(out) + "\n"
 
 
-def _needs_list(cap: dict) -> str:
-    items = "".join(
-        f"<li>{e(n['name'])}{'' if n.get('options') else ' <em>(no Defra-wide answer)</em>'}</li>"
-        for n in cap.get("needs", [])
-    )
-    return f'<ul class="tstack__needs">{items}</ul>' if items else ""
-
-
 def _stack(url_to, md_to=None) -> str:
     """The capability map: one row per level 1 area, with a box per level 2 capability.
 
-    Boxes with Defra guidance list its needs and link to what to use. Areas and
+    Each area and box has an id, so other pages can link to it. Areas and
     capabilities are in the order of technology-capabilities.yaml.
     """
     rows = []
     for area in _model["technology"]["domains"]:
-        code = f"<span>{e(area['code'])}</span>" if area.get("code") else ""
-        across = _needs_list(area)
-        boxes = []
-        for l2 in area.get("level2", []):
-            name = e(l2["name"])
-            if l2.get("needs"):
-                name = f'<a href="{url_to(TECHNOLOGY_PAGE, l2["id"])}">{name}</a>'
-            cls = "tstack__l2 tstack__l2--guided" if l2.get("needs") else "tstack__l2"
-            boxes.append(f'<li class="{cls}"><span class="tstack__l2name">{name}</span>{_needs_list(l2)}</li>')
+        boxes = "".join(
+            f'<li class="tstack__l2" id="{l2["id"]}"><span class="tstack__l2name">{e(l2["name"])}</span></li>'
+            for l2 in area.get("level2", [])
+        )
         rows.append(
-            f'<div class="tstack__layer"><div class="tstack__label"><strong>'
-            f'<a href="{url_to(TECHNOLOGY_PAGE, area["id"])}">{e(area["name"])}</a></strong>{code}</div>'
-            f'<div>{across}<ul class="tstack__l2s">{"".join(boxes)}</ul></div></div>'
+            f'<div class="tstack__layer" id="{area["id"]}"><div class="tstack__label">'
+            f"<strong>{e(area['name'])}</strong></div>"
+            f'<ul class="tstack__l2s">{boxes}</ul></div>'
         )
     return f'<div class="tstack" role="group" aria-label="Defra technology capability map">{"".join(rows)}</div>\n'
-
-
-def _technology_summary(url_to, md_to=None) -> str:
-    caps = list(_model["tech_by_id"].values())
-    needs = [n for c in caps for n in c.get("needs", [])]
-    counts = [
-        (sum(1 for c in caps if c["level"] == 1), "level 1 areas"),
-        (sum(1 for c in caps if c["level"] == 2), "level 2 capabilities"),
-        (sum(1 for n in needs if n.get("options")), "needs with an option to use first"),
-        (sum(1 for n in needs if not n.get("options")), "needs with no Defra-wide answer yet"),
-    ]
-    cards = "".join(
-        f'<div class="cap-count"><span class="cap-count__n">{n}</span>'
-        f'<span class="cap-count__label">{label}</span></div>'
-        for n, label in counts
-    )
-    return f'<div class="cap-counts">{cards}</div>\n'
-
-
-def _technology_catalogue(_url_to, url_to) -> str:
-    out = []
-    for area in _model["technology"]["domains"]:
-        out.append(f"## {area['name']} {{#{area['id']}}}\n")
-        if area.get("needs"):
-            out.extend(_guidance(area, url_to))
-        empty = []
-        for l2 in area.get("level2", []):
-            if not l2.get("needs"):
-                empty.append(l2["name"])
-                continue
-            out.append(f"### {l2['name']} {{#{l2['id']}}}\n")
-            out.extend(_guidance(l2, url_to))
-        if empty:
-            out.append(
-                f"**Other level 2 capabilities in this area:** {', '.join(empty)}. "
-                "There is no Defra-specific guidance for these yet.\n"
-            )
-    return "\n".join(out) + "\n"
-
-
-def _guidance(cap: dict, url_to) -> list[str]:
-    bus = _model["bus_by_id"]
-    rows = ["| Need | Use first |", "| --- | --- |"]
-    for need in cap["needs"]:
-        options = need.get("options", [])
-        if options:
-            # One block per option, tall enough to be an easy touch target (WCAG 2.2 target size).
-            use = "".join(
-                f'<span class="cap-option">{f"[{o['name']}]({url_to(o['url'])})" if o.get("url") else o["name"]}</span>'
-                for o in options
-            )
-        else:
-            use = (
-                "No Defra-wide answer yet. "
-                f"[Talk to the Technical Design Authority]({url_to('governance/tda.md')}) so we solve it once."
-            )
-        rows.append(f"| **{need['name']}**<br>{need['description']} | {use} |")
-    out = ["\n".join(rows) + "\n"]
-    if cap.get("guardrails"):
-        links = ", ".join(f"[{_page_title(g)}]({url_to(g)})" for g in cap["guardrails"])
-        out.append(f"**Guardrails:** {links}\n")
-    supported = ", ".join(
-        f"[{bus[b]['number']} {bus[b]['name']}]({url_to(BUSINESS_PAGE, b.lower())})"
-        for b in _model["supports"][cap["id"]]
-    )
-    if supported:
-        out.append(f"**Supports business capabilities:** {supported}\n")
-    return out
-
-
-def _page_title(src_path: str) -> str:
-    name = os.path.splitext(os.path.basename(src_path))[0]
-    return name.replace("-", " ").capitalize().replace("Apis", "APIs").replace("Ai", "AI")
 
 
 def _matrix(url_to, md_to=None) -> str:

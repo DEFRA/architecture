@@ -1,21 +1,14 @@
 # Defra technology capability model
 #
-# Aligned to Technology Business Management (TBM). Each level 1 area (domains)
-# has level 2 capabilities. Where Defra has guidance, a level 2 capability
-# lists the needs teams commonly have and the options to use first.
+# Aligned to Technology Business Management (TBM): level 1 areas (domains),
+# each with its level 2 capabilities. The full catalogue, with definitions,
+# ownership and lifecycle status, is maintained by Strategic Architecture.
 #
-#   id          stable id, used for the page anchor and by
-#               business-capabilities.yaml and delivery/platforms.yaml
-#   code        the catalogue code, where confirmed
-#   needs       name, description and options (name, optional url) to use
-#               first. A need with no options has no Defra-wide answer yet:
-#               the page tells teams to talk to the Technical Design Authority.
-#   guardrails  guardrail pages that apply
+#   id    stable id, used for the page anchor and by
+#         business-capabilities.yaml and delivery/platforms.yaml
+#   name  as it appears in the catalogue
 #
-# Needs can also sit on a level 1 area when they span all of it.
-# The full catalogue is maintained by Strategic Architecture; this file holds
-# the top two levels and what to use. Validated and rendered by
-# hooks/capabilities.py at build time.
+# Validated and rendered by hooks/capabilities.py at build time.
 
 domains:
 - id: business
@@ -27,76 +20,15 @@ domains:
     name: Sales & Marketing
   - id: customer-service
     name: Customer Service
-    needs:
-    - name: Digital forms and applications
-      description: Capture structured information from users through accessible, GOV.UK design system compliant
-        forms without bespoke front-end builds.
-      options:
-      - name: Defra Forms
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-forms
-      - name: GOV.UK Forms
-        url: https://www.forms.service.gov.uk/
-    - name: Notifications
-      description: Send emails, text messages and letters to users.
-      options:
-      - name: GOV.UK Notify
-        url: https://www.notifications.service.gov.uk/
-    - name: Customer and stakeholder relationship management
-      description: A single view of the customers, organisations and stakeholders we deal with, and our interactions
-        with them.
-      options:
-      - name: Microsoft Dynamics 365 / Power Platform
-    guardrails:
-    - guardrails/front-end-and-accessibility.md
   - id: manufacturing-and-delivery
     name: Manufacturing & Delivery
-    needs:
-    - name: Case and workflow management
-      description: Route, track and complete work items (applications, inspections, investigations, claims) through
-        configurable workflow.
-      options:
-      - name: Microsoft Dynamics 365 / Power Platform
-      - name: Workflow on the Core Delivery Platform for high-volume digital services
-    - name: Rules and decisioning
-      description: Express eligibility, risk scoring and business rules as versioned, testable artefacts rather
-        than burying them in code.
-      options:
-      - name: Rules as code libraries within the service (default)
-    - name: Field work and inspection
-      description: Plan, schedule and record inspections, surveys and sampling in the field, including offline mobile
-        working and evidence capture.
-    - name: Incident and emergency management
-      description: Detect, log, coordinate and report on incidents such as animal and plant disease outbreaks, floods
-        and pollution events.
-    - name: Grants and scheme management
-      description: Configure schemes, take applications, manage agreements, verify claims and make and recover payments.
-      options:
-      - name: Reusable grants components on the Core Delivery Platform
 - id: shared-corporate
   name: Shared & Corporate
-  code: '0.020'
   level2:
   - id: corporate-communication-services
     name: Corporate Communication Services
-    needs:
-    - name: Content and publishing
-      description: Publish guidance, policy, consultations and news.
-      options:
-      - name: GOV.UK publishing
-        url: https://www.gov.uk/
-      - name: Citizen Space (consultations)
   - id: finance
     name: Finance
-    needs:
-    - name: Payments and collections
-      description: Take card and other payments for fees, charges and penalties.
-      options:
-      - name: GOV.UK Pay
-        url: https://www.payments.service.gov.uk/
-    - name: Finance and enterprise resource planning
-      description: General ledger, purchase to pay, order to cash, HR and payroll.
-      options:
-      - name: Departmental ERP (shared services)
   - id: health-safety-and-environmental-services
     name: Health, Safety, and Environmental Services
   - id: legal
@@ -113,7 +45,6 @@ domains:
     name: Workforce
 - id: workplace
   name: Workplace
-  code: '0.030'
   level2:
   - id: connectivity
     name: Connectivity
@@ -121,27 +52,8 @@ domains:
     name: Client Computing
   - id: communication-and-collaboration
     name: Communication & Collaboration
-    needs:
-    - name: Document and records management
-      description: Store, classify, retain and dispose of documents and records in line with the Public Records
-        Act and retention schedules.
-      options:
-      - name: Microsoft 365 / SharePoint (with retention labels)
-      - name: Cloud object storage for service-generated documents
-    - name: Collaboration and productivity
-      description: Email, documents, meetings and team collaboration for staff.
-      options:
-      - name: Microsoft 365
 - id: artificial-intelligence
   name: Artificial Intelligence
-  code: '0.040'
-  needs:
-  - name: Artificial intelligence and machine learning
-    description: Train, evaluate, deploy and monitor models, including generative AI, safely and transparently.
-    options:
-    - name: Approved cloud AI services within Defra cloud tenancies
-  guardrails:
-  - guardrails/ai.md
   level2:
   - id: agentic
     name: Agentic
@@ -153,81 +65,25 @@ domains:
     name: Predictive
 - id: delivery
   name: Delivery
-  code: '0.050'
   level2:
   - id: development
     name: Development
   - id: enabling-platforms
     name: Enabling Platforms
-    needs:
-    - name: Application hosting and delivery platform
-      description: Build, test, deploy and run services on a secure, observable, paved road with the undifferentiated
-        heavy lifting done once.
-      options:
-      - name: Defra Core Delivery Platform (CDP)
-        url: https://digital.defra.gov.uk/architecture-and-software-development/core-delivery-platform
-    - name: API management and integration
-      description: Publish, secure, discover and manage APIs and asynchronous messaging between services and with
-        partners.
-      options:
-      - name: Platform API gateway and messaging on the Core Delivery Platform
-    guardrails:
-    - guardrails/hosting-and-platforms.md
-    - guardrails/apis-and-integration.md
   - id: operations
     name: Operations
-    needs:
-    - name: Observability and security monitoring
-      description: Logs, metrics, traces, alerting and protective monitoring feeding the security operations centre.
-      options:
-      - name: Platform observability on the Core Delivery Platform
-      - name: Defra security operations centre (SOC)
-    guardrails:
-    - guardrails/observability-and-operations.md
   - id: security-and-compliance
     name: Security & Compliance
-    needs:
-    - name: Customer identity and access
-      description: Let citizens, businesses and their agents sign in, prove who they are and act on behalf of an
-        organisation.
-      options:
-      - name: Defra Customer Identity (Defra ID), which uses GOV.UK One Login and Government Gateway as identity
-          providers
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-customer-identity
-    - name: Staff identity and access
-      description: Single sign-on, role-based access and joiner/mover/leaver for Defra group staff and contractors.
-      options:
-      - name: Microsoft Entra ID
-    guardrails:
-    - guardrails/identity-and-access.md
   - id: strategy-and-planning
     name: Strategy & Planning
   - id: support
     name: Support
   - id: geospatial-solutions
     name: Geospatial Solutions (Defra Customisation)
-    needs:
-    - name: Geospatial and location services
-      description: Store, analyse, visualise and serve spatial data - land parcels, boundaries, designations, catchments
-        and observations.
-      options:
-      - name: Defra Data Services Platform
-        url: https://environment.data.gov.uk/
-      - name: Defra Interactive Map, an accessible mapping component (beta)
-        url: https://digital.defra.gov.uk/architecture-and-software-development/defra-accessible-maps
-      - name: Ordnance Survey data via the Public Sector Geospatial Agreement
-        url: https://www.ordnancesurvey.co.uk/customers/public-sector
-    guardrails:
-    - guardrails/data.md
   - id: scientific-data-and-laboratory-solutions
     name: Scientific Data & Laboratory Solutions (Defra Customisation)
-    needs:
-    - name: Environmental monitoring and IoT
-      description: Ingest and manage high-volume telemetry and observations from sensors, gauges, samples and earth
-        observation.
 - id: infrastructure
   name: Infrastructure
-  code: '0.060'
   level2:
   - id: compute
     name: Compute
@@ -235,27 +91,6 @@ domains:
     name: Data Centre
   - id: data
     name: Data
-    needs:
-    - name: Data platform and analytics
-      description: Ingest, store, transform and analyse data at scale with governed access for analysts and data
-        scientists.
-      options:
-      - name: Defra strategic data platform
-    - name: Reference and master data
-      description: 'Authoritative, shared records for the things many services depend on: customers, organisations,
-        holdings, land parcels, species, locations.'
-      options:
-      - name: Authoritative source per entity - see Defra on a page
-        url: data/defra-on-a-page.md
-    - name: Data sharing and publishing
-      description: Share data with partners through APIs and publish open data with good metadata.
-      options:
-      - name: Defra Data Services Platform
-        url: https://environment.data.gov.uk/
-      - name: data.gov.uk
-        url: https://www.data.gov.uk/
-    guardrails:
-    - guardrails/data.md
   - id: network
     name: Network
   - id: storage
