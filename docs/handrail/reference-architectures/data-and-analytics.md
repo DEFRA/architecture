@@ -16,12 +16,12 @@ flowchart LR
     accDescr: Data from services, sensors, research and external sources lands in raw storage on the data platform, is curated and quality checked, and becomes data products used for analysis and AI, dashboards and statistics, open data and APIs, and geospatial services. Cataloguing, lineage, access control and quality apply across the platform.
     subgraph Sources
         S1["Services and casework"]
-        S2["Sensors, gauges and IoT<br/>TC18"]
+        S2["Sensors, gauges and IoT"]
         S3["Survey, sampling<br/>and research"]
         S4["External and<br/>earth observation data"]
     end
 
-    subgraph Platform["Data platform - TC16"]
+    subgraph Platform["Data platform"]
         RAW[("Raw / landing")]
         CUR[("Curated, quality-checked")]
         PROD[("Data products")]
@@ -33,10 +33,10 @@ flowchart LR
     S3 --> RAW
     S4 --> RAW
 
-    PROD --> AN["Analysis, models and AI<br/>TC20"]
+    PROD --> AN["Analysis, models and AI"]
     PROD --> BI["Dashboards and<br/>official statistics"]
-    PROD --> PUB["Open data and APIs<br/>TC19"]
-    PROD --> GEO["Geospatial services<br/>TC15"]
+    PROD --> PUB["Open data and APIs"]
+    PROD --> GEO["Geospatial services"]
 
     GOV["Catalogue, lineage,<br/>access control, quality"] -.-> Platform
 ```

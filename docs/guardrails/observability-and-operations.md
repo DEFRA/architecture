@@ -61,7 +61,7 @@ guardrails:
 
 <p class="lead">Services live for years. These guardrails make sure they can be run, supported and improved by people who did not build them.</p>
 
-Technology capability [TC23 Observability and security monitoring](../handrail/technology-capabilities.md#tc23).
+Technology capability [Operations](../handrail/technology-capabilities.md#operations): observability and security monitoring.
 
 ## GR-OPS-01 Use the platform's observability tooling {#gr-ops-01}
 

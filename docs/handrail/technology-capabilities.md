@@ -4,7 +4,7 @@ status: draft
 
 # Technology capabilities
 
-<p class="lead">Technology capabilities describe what technology must do to enable Defra's business capabilities. Defra's model is aligned to Technology Business Management (TBM): 6 level 1 areas, each with its level 2 capabilities. Under them, Defra's technology capabilities (TC01 to TC24) name the strategic option to use first.</p>
+<p class="lead">Technology capabilities describe what technology must do to enable Defra's business capabilities. Defra's model is aligned to Technology Business Management (TBM): 6 level 1 areas, each with its level 2 capabilities. Where Defra has guidance, a level 2 capability lists the needs teams commonly have and what to use first.</p>
 
 Use technology capabilities to:
 
@@ -17,17 +17,13 @@ Technology capabilities describe what technology must do. [Guardrails](../guardr
 
 ## The capability map
 
-Each row is a level 1 area and each box a level 2 capability. Where Defra has guidance, the box lists the Defra technology capabilities in it. Select one for what to use.
+Each row is a level 1 area and each box a level 2 capability. Boxes with a green edge have Defra guidance: they list the needs it covers. Select one for what to use first.
 
 <!-- capabilities:stack -->
 
 <!-- capabilities:technology-summary -->
 
-| Status | Meaning | What you should do |
-| --- | --- | --- |
-| <span class="cap-status cap-status--strategic">Strategic</span> | There is an agreed Defra or cross-government answer. | Use it. Departing from it needs an [ADR](../governance/architecture-decision-records.md) and your solution design authority's agreement. |
-| <span class="cap-status cap-status--emerging">Emerging</span> | An answer is being established. | Talk to the architecture team before choosing, so you can shape it and avoid rework. |
-| <span class="cap-status cap-status--gap">Gap</span> | No Defra-wide answer yet. | Raise it with the [Technical Design Authority](../governance/tda.md). If several teams need it, we should solve it once. |
+If you use the option to use first, you are following the Defra approach. Departing from it needs an [architecture decision record (ADR)](../governance/architecture-decision-records.md) and your solution design authority's agreement. If a need has no Defra-wide answer yet, raise it with the [Technical Design Authority](../governance/tda.md): if several teams need it, we should solve it once.
 
 ## The full catalogue
 
@@ -36,11 +32,11 @@ This site shows the top 2 levels and what to use. The full technology capability
 - [Technology capability catalogue](https://defra.sharepoint.com/teams/Team3221/Lists/Technical%20Capabilities/AllItems.aspx) (Defra staff only)
 - [Strategic Architecture methods and guidance](https://defra.sharepoint.com/teams/Team3221/SitePages/New-Landing-Page.aspx) (Defra staff only) - standards, decision trees and governance
 
-!!! info "Aligned with industry and government models"
-    The level 1 and level 2 structure follows Technology Business Management (TBM), with Defra additions for geospatial and scientific data. Each Defra technology capability also shows where it sits in the cross-government [Digital Technology Capability Model](https://architecture.cddo.cabinetoffice.gov.uk/digital-capability-model/index.html), so Defra describes technology in the same language as other departments.
+!!! info "Aligned with industry models"
+    The level 1 and level 2 structure follows Technology Business Management (TBM), with Defra additions for geospatial and scientific data. Using a common capability language helps teams compare, share and reuse technology across organisational boundaries.
 
 !!! warning "To be confirmed"
-    **TODO:** Strategic Architecture to confirm where each Defra technology capability (TC01 to TC24) sits in the level 2 structure. The current placement is a first draft. Also confirm the catalogue code for the Business area, and whether this site should show the catalogue's level 2 codes.
+    **TODO:** Strategic Architecture to confirm which level 2 capability each need sits under - the current placement is a first draft. Also confirm the catalogue code for the Business area, and whether this site should show the catalogue's level 2 codes.
 
 !!! note "Products named here"
     Products and platforms are named to help teams find the right people quickly. The capability is what matters - products change over time, and this page will be updated when they do.

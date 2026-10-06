@@ -53,7 +53,7 @@ flowchart LR
         RA["Reference architectures"]
         GR["Guardrails and<br/>Deliver a service"]
         BCM["Business capability model<br/>BC01 to BC11"]
-        TC["Technology capabilities<br/>TC01 to TC24"]
+        TC["Technology capabilities<br/>TBM level 1 and level 2"]
         DOP["Defra on a page"]
     end
     L2 -.- RA

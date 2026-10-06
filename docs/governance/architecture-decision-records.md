@@ -68,7 +68,7 @@ This site does not hold a copy of the register. Decisions about this site itself
 - **One decision per record.** Short is good - a page is usually enough.
 - **Make the context clear** for someone who was not in the room.
 - **Show real options**, including the strategic option from the [handrail](../handrail/technology-capabilities.md).
-- **Reference guardrail and capability ids** (for example `GR-HOST-01`, `BC05`, `TC08`) so decisions can be searched across Defra.
+- **Reference guardrail and capability ids** (for example `GR-HOST-01`, `BC05`) and technology capabilities by name so decisions can be searched across Defra.
 - **Be honest about consequences**, including the downsides.
 - **Never edit an accepted ADR's decision.** Supersede it with a new one and link the two.
 

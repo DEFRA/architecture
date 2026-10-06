@@ -333,7 +333,6 @@ def on_config(config):
         with open(os.path.join(ROOT, "capabilities", name), encoding="utf-8") as handle:
             return yaml.safe_load(handle)["capabilities"]
 
-    tech = load("technology-capabilities.yaml")
     with open(os.path.join(config["docs_dir"], "principles", "doctrine.md"), encoding="utf-8") as handle:
         doctrines = len(DOCTRINE_HEADING.findall(handle.read()))
     _stats.clear()
@@ -345,8 +344,6 @@ def on_config(config):
         could=levels["could"],
         principles=levels["principle"],
         business=len(load("business-capabilities.yaml")),
-        technology=len(tech),
-        strategic=sum(1 for t in tech if t["status"] == "strategic"),
     )
     return config
 

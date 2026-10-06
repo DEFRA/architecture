@@ -68,7 +68,7 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 2. **Check the technology capabilities it needs.** Each business capability lists the [technology capabilities](technology-capabilities.md) that typically enable it.
 3. **Use the strategic options first.** Each technology capability lists what to use. If it is marked *gap*, talk to the TDA so we solve it once.
 4. **Start from a reference architecture** if one fits.
-5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming capability ids (for example `BC05`, `TC08`) so decisions can be found later.
+5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming business capability ids (for example `BC05`) and technology capabilities (for example Enabling Platforms) so decisions can be found later.
 
 ## Technology radars
 

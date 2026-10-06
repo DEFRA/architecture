@@ -7,7 +7,7 @@ status_note: "This is a proposed reference architecture for a capability Defra d
 
 <p class="lead">A proposed starting shape for services where staff plan, carry out and record inspections, surveys and sampling in the field - often with no mobile signal.</p>
 
-**Technology capability:** [TC11 Field work and inspection](../technology-capabilities.md#tc11), currently a **gap** - Defra has no strategic option. **Typical business capabilities:** [05 Issue licences and permits](../business-capabilities.md#bc05), [06 Enforce compliance](../business-capabilities.md#bc06), [01 Act as a custodian of the environment](../business-capabilities.md#bc01).
+**Technology capability:** field work and inspection, under [Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery). Defra has **no Defra-wide answer yet**. **Typical business capabilities:** [05 Issue licences and permits](../business-capabilities.md#bc05), [06 Enforce compliance](../business-capabilities.md#bc06), [01 Act as a custodian of the environment](../business-capabilities.md#bc01).
 
 ## Context
 
@@ -19,7 +19,7 @@ Inspectors, scientists and field officers work on farms, riverbanks, ports and c
 flowchart LR
     accTitle: Proposed field inspection reference architecture
     accDescr: Inspections are planned and scheduled from case management. A field app on a managed device downloads the work and reference data before the visit, works offline to capture findings, photos, samples and locations, and stores them encrypted on the device. When back in signal it syncs to a field service API on the Core Delivery Platform, which stores evidence, updates the case through events and feeds the data platform.
-    CASE["Case and workflow<br/>TC08"] -->|"inspections due"| PLAN["Planning and scheduling"]
+    CASE["Case and workflow"] -->|"inspections due"| PLAN["Planning and scheduling"]
     PLAN --> API
     subgraph DEV["Managed mobile device"]
         APP["Field app<br/>works offline"]
@@ -29,10 +29,10 @@ flowchart LR
     API["Field service API<br/>on CDP"] -->|"download work and<br/>reference data"| APP
     APP -->|"sync when in signal"| API
     API --> EV[("Evidence store")]
-    API -->|"inspection-completed event"| MSG["Messaging<br/>TC22"]
+    API -->|"inspection-completed event"| MSG["Messaging"]
     MSG --> CASE
-    MSG --> DP["Data platform<br/>TC16"]
-    GEO["Geospatial services<br/>TC15"] --> APP
+    MSG --> DP["Data platform"]
+    GEO["Geospatial services"] --> APP
 ```
 
 ## Questions to answer

@@ -7,7 +7,7 @@ status_note: "This is a proposed reference architecture for a capability Defra d
 
 <p class="lead">A proposed starting shape for detecting, coordinating and reporting on incidents such as animal and plant disease outbreaks, floods and pollution events.</p>
 
-**Technology capability:** [TC12 Incident and emergency management](../technology-capabilities.md#tc12), currently a **gap**. **Typical business capability:** [08 Respond to incidents and crises](../business-capabilities.md#bc08).
+**Technology capability:** incident and emergency management, under [Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery). Defra has **no Defra-wide answer yet**. **Typical business capability:** [08 Respond to incidents and crises](../business-capabilities.md#bc08).
 
 ## Context
 
@@ -23,11 +23,11 @@ flowchart LR
     FIELD(["Field staff"]) --> INC
     MON["Monitoring and<br/>partner feeds"] --> INC
     REP --> INC["Incident service<br/>on CDP"]
-    INC -->|"incident events"| MSG["Messaging<br/>TC22"]
-    MSG --> CASE["Tasks and workflow<br/>TC08"]
-    MSG --> MAP["Common operating picture<br/>Geospatial TC15"]
-    MSG --> NOT["Alerts<br/>Notifications TC04"]
-    MSG --> DP["Data platform<br/>TC16"]
+    INC -->|"incident events"| MSG["Messaging"]
+    MSG --> CASE["Tasks and workflow"]
+    MSG --> MAP["Common operating picture<br/>Geospatial"]
+    MSG --> NOT["Alerts<br/>Notifications"]
+    MSG --> DP["Data platform"]
 ```
 
 ## Questions to answer

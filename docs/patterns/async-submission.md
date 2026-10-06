@@ -35,7 +35,7 @@ flowchart LR
     API --> O
     API -->|"reference number"| U
     O --> R["Relay"]
-    R -->|"application-submitted event"| M["Messaging<br/>TC22"]
+    R -->|"application-submitted event"| M["Messaging"]
     M --> C["Case management"]
     M --> D["Data platform"]
     M --> N["Notifications"]

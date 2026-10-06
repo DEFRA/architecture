@@ -12,7 +12,7 @@
 - Deciders: tech lead, product manager, solution architect
 - Decided by: team, shared with the solution design authority
 - Business capabilities: BC05 Issue licences and permits
-- Technology capabilities: TC21 Application hosting and delivery platform
+- Technology capabilities: Enabling Platforms (Delivery)
 - Guardrails: GR-HOST-01 (met), GR-TECH-01 (met), GR-HOST-03 (met)
 - Advice sought from: platform team
 
@@ -42,7 +42,7 @@ We will host on the Core Delivery Platform because it meets every hosting need w
 - Date: 2026-05-02
 - Deciders: tech lead, solution architect, case management product owner
 - Decided by: team, shared with the solution design authority
-- Technology capabilities: TC08 Case and workflow management, TC22 API management and integration
+- Technology capabilities: Manufacturing & Delivery (Business), Enabling Platforms (Delivery)
 - Guardrails: GR-API-05 (met), GR-API-06 (met), GR-API-02 (met), GR-OPS-04 (met)
 - Advice sought from: case management team, platform team
 
@@ -74,7 +74,7 @@ We will use option 3. Users get our own application reference straight away, and
 - Date: 2026-05-20
 - Deciders: tech lead, product manager, identity team representative
 - Decided by: solution design authority
-- Technology capabilities: TC01 Customer identity and access, TC17 Reference and master data
+- Technology capabilities: Security & Compliance (Delivery), Data (Infrastructure)
 - Guardrails: GR-IAM-01 (met), GR-IAM-04 (met), GR-DATA-02 (met)
 - Advice sought from: identity team, enterprise data architecture
 

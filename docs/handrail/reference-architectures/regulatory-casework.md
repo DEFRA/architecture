@@ -20,19 +20,19 @@ flowchart TB
     end
 
     subgraph Core["Regulatory core"]
-        CASE["Case and workflow<br/>TC08"]
-        RULES["Rules and risk scoring<br/>TC09"]
-        DOCS["Documents and records<br/>TC10"]
+        CASE["Case and workflow"]
+        RULES["Rules and risk scoring"]
+        DOCS["Documents and records"]
     end
 
     subgraph Field["Field"]
-        INSP["Field work and inspection<br/>TC11 (gap)"]
+        INSP["Field work and inspection<br/>(no Defra-wide answer)"]
     end
 
     subgraph Shared["Shared data"]
-        REF["Customers, organisations,<br/>sites and holdings - TC17"]
-        GEO["Geospatial - TC15"]
-        REG["Public registers<br/>TC19"]
+        REF["Customers, organisations,<br/>sites and holdings"]
+        GEO["Geospatial"]
+        REG["Public registers"]
     end
 
     TS -->|"application events"| CASE
@@ -44,14 +44,14 @@ flowchart TB
     CASE <--> REF
     CASE <--> GEO
     CASE -->|"permits issued,<br/>enforcement published"| REG
-    CASE -->|"decisions, events"| DP[("Data platform - TC16")]
+    CASE -->|"decisions, events"| DP[("Data platform")]
     DP -->|"risk models,<br/>compliance insight"| RULES
 ```
 
 ## Principles for this architecture
 
-1. **One customer, many regimes.** A farmer may hold a water abstraction licence, a waste exemption and an animal movement record. Use shared reference data (`TC17`) so staff and users see the whole picture.
-2. **Rules are data.** Eligibility, conditions and risk scores are versioned and testable, separate from workflow (`TC09`).
+1. **One customer, many regimes.** A farmer may hold a water abstraction licence, a waste exemption and an animal movement record. Use shared reference data so staff and users see the whole picture.
+2. **Rules are data.** Eligibility, conditions and risk scores are versioned and testable, separate from workflow.
 3. **Risk-based regulation needs data.** Decisions and inspection findings flow to the data platform so risk models improve over time.
 4. **Field first.** Inspectors often have no signal. Field tools must work offline and synchronise safely.
 5. **Registers are outputs, not separate systems.** Public registers are generated from case decisions and published as open data where the law allows.
@@ -60,10 +60,10 @@ flowchart TB
 
 | Concern | Default | Notes |
 | --- | --- | --- |
-| Case and workflow | Strategic case management capability ([TC08](../technology-capabilities.md#tc08)) | Configure per regime; avoid new bespoke case systems |
-| Rules | Rules as code, versioned with the service ([TC09](../technology-capabilities.md#tc09)) | Emerging - talk to the architecture team |
-| Documents | Records management with retention labels ([TC10](../technology-capabilities.md#tc10)) | Apply retention schedules automatically |
-| Field inspection | No strategic answer yet ([TC11](../technology-capabilities.md#tc11)) | Raise with the TDA - a cross-Defra need |
+| Case and workflow | Strategic case management capability ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Configure per regime; avoid new bespoke case systems |
+| Rules | Rules as code, versioned with the service ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Emerging - talk to the architecture team |
+| Documents | Records management with retention labels ([Communication & Collaboration](../technology-capabilities.md#communication-and-collaboration)) | Apply retention schedules automatically |
+| Field inspection | No strategic answer yet ([Manufacturing & Delivery](../technology-capabilities.md#manufacturing-and-delivery)) | Raise with the TDA - a cross-Defra need |
 | Staff access | Microsoft Entra ID with role-based access | [GR-IAM-02](../../guardrails/identity-and-access.md#gr-iam-02) |
 
 ## Key decisions to record

@@ -69,7 +69,7 @@ guardrails:
 
 <p class="lead">Who users are and what they are allowed to do. Getting this right once, centrally, is safer and simpler for everyone.</p>
 
-Technology capabilities [TC01 Customer identity and access](../handrail/technology-capabilities.md#tc01) and [TC02 Staff identity and access](../handrail/technology-capabilities.md#tc02).
+Technology capability [Security & Compliance](../handrail/technology-capabilities.md#security-and-compliance): customer identity and access, and staff identity and access.
 
 ## GR-IAM-01 Use the strategic customer identity services {#gr-iam-01}
 

@@ -37,4 +37,4 @@ Throughout this site, **must** means a requirement, **should** means a strong de
 
 ## Searching
 
-Press ++slash++ or ++s++ to search. You can search for guardrail ids (such as `GR-HOST-01`) and capability ids (such as `BC05` or `TC08`).
+Press ++slash++ or ++s++ to search. You can search for guardrail ids (such as `GR-HOST-01`) and business capability ids (such as `BC05`).

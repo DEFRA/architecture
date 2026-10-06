@@ -1743,14 +1743,23 @@ body {
   color: var(--da-heading);
 }
 
-.md-typeset .tstack__l2 ul.tstack__caps {
-  flex-direction: column;
-  align-items: stretch;
-  margin-top: 0.4rem;
+.md-typeset .tstack__l2--guided {
+  border-bottom: 3px solid var(--da-green);
 }
 
-.md-typeset ul.tstack__caps--area {
-  margin-bottom: 0.5rem;
+.md-typeset ul.tstack__needs {
+  margin: 0.3rem 0 0;
+  padding-left: 1rem;
+  font-size: 0.68rem;
+  color: var(--md-default-fg-color);
+}
+
+.md-typeset ul.tstack__needs li {
+  margin: 0.1rem 0;
+}
+
+.md-typeset .tstack__layer > div > ul.tstack__needs {
+  margin: 0 0 0.5rem;
 }
 
 .md-typeset .tstack__legend {

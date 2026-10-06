@@ -53,30 +53,32 @@ def test_capability_model_is_valid():
 def test_capability_model_catches_unknown_reference():
     business = load_yaml("capabilities", "business-capabilities.yaml")
     technology = load_yaml("capabilities", "technology-capabilities.yaml")
-    business["capabilities"][0]["technology"].append("TC99")
-    assert any("TC99" in e for e in capabilities.validate(business, technology, DOCS))
+    business["capabilities"][0]["technology"].append("no-such-capability")
+    assert any("no-such-capability" in e for e in capabilities.validate(business, technology, DOCS))
 
 
-def test_every_technology_capability_has_a_government_model_level():
-    technology = load_yaml("capabilities", "technology-capabilities.yaml")
-    del technology["capabilities"][0]["government_model"]
-    business = load_yaml("capabilities", "business-capabilities.yaml")
-    assert any("government_model" in e for e in capabilities.validate(business, technology, DOCS))
-
-
-def test_technology_capability_level2_must_be_in_its_area():
-    technology = load_yaml("capabilities", "technology-capabilities.yaml")
-    business = load_yaml("capabilities", "business-capabilities.yaml")
-    cap = next(c for c in technology["capabilities"] if c["domain"] == "business")
-    cap["level2"] = "compute"
-    assert any("not in business" in e for e in capabilities.validate(business, technology, DOCS))
-
-
-def test_level2_capability_ids_are_unique():
+def test_technology_capability_ids_are_unique():
     technology = load_yaml("capabilities", "technology-capabilities.yaml")
     business = load_yaml("capabilities", "business-capabilities.yaml")
     technology["domains"][1]["level2"].append(dict(technology["domains"][0]["level2"][0]))
-    assert any("duplicate level 2" in e for e in capabilities.validate(business, technology, DOCS))
+    assert any("duplicate technology capability" in e for e in capabilities.validate(business, technology, DOCS))
+
+
+def test_every_need_has_a_name_and_description():
+    technology = load_yaml("capabilities", "technology-capabilities.yaml")
+    business = load_yaml("capabilities", "business-capabilities.yaml")
+    l2 = next(c for a in technology["domains"] for c in a.get("level2", []) if c.get("needs"))
+    del l2["needs"][0]["description"]
+    assert any("without a name or description" in e for e in capabilities.validate(business, technology, DOCS))
+
+
+def test_platforms_name_a_level_2_technology_capability():
+    technology = load_yaml("capabilities", "technology-capabilities.yaml")
+    level2 = {c["id"] for a in technology["domains"] for c in a.get("level2", [])}
+    platforms = load_yaml("delivery", "platforms.yaml")
+    items = platforms["platforms"] if isinstance(platforms, dict) else platforms
+    unknown = [p["name"] for p in items if p.get("capability") and p["capability"] not in level2]
+    assert not unknown, "Platforms with an unknown technology capability: " + ", ".join(unknown)
 
 
 # --- Guardrails ----------------------------------------------------------------

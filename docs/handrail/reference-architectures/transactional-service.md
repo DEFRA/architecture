@@ -19,22 +19,22 @@ flowchart LR
     accDescr: A user reaches a server-rendered front end on the Core Delivery Platform, which calls a service backend API and data store. The service uses customer identity, reference and geospatial data, payments and notifications, and hands submissions to case management and the data platform through messaging. Logs and metrics go to observability.
     U(["User or agent"]) --> FE
 
-    subgraph CDP["Core Delivery Platform (TC21)"]
+    subgraph CDP["Core Delivery Platform"]
         FE["Front end<br/>GOV.UK Frontend,<br/>server-rendered"]
         API["Service backend API"]
         DB[("Service data store")]
         FE --> API --> DB
     end
 
-    FE -->|"sign in"| ID["Customer identity<br/>TC01"]
-    API -->|"look up customer,<br/>organisation, holding"| REF["Reference and master data<br/>TC17"]
-    API -->|"location, land parcels"| GEO["Geospatial services<br/>TC15"]
-    FE -->|"take payment"| PAY["Payments<br/>TC05"]
-    API -->|"emails, texts, letters"| NOT["Notifications<br/>TC04"]
-    API -->|"submission event"| MSG["Messaging and APIs<br/>TC22"]
-    MSG --> CASE["Case and workflow<br/>TC08"]
-    MSG --> DP["Data platform<br/>TC16"]
-    CDP -.->|"logs, metrics, traces"| OBS["Observability and SOC<br/>TC23"]
+    FE -->|"sign in"| ID["Customer identity"]
+    API -->|"look up customer,<br/>organisation, holding"| REF["Reference and master data"]
+    API -->|"location, land parcels"| GEO["Geospatial services"]
+    FE -->|"take payment"| PAY["Payments"]
+    API -->|"emails, texts, letters"| NOT["Notifications"]
+    API -->|"submission event"| MSG["Messaging and APIs"]
+    MSG --> CASE["Case and workflow"]
+    MSG --> DP["Data platform"]
+    CDP -.->|"logs, metrics, traces"| OBS["Observability and SOC"]
 ```
 
 ## Building blocks
@@ -44,8 +44,8 @@ flowchart LR
 | Hosting | Core Delivery Platform | [GR-HOST-01](../../guardrails/hosting-and-platforms.md#gr-host-01) |
 | Front end | Node.js, hapi, Nunjucks, GOV.UK Frontend; or the forms capability for simple form-based services | [GR-FE-02](../../guardrails/front-end-and-accessibility.md#gr-fe-02), [GR-FE-04](../../guardrails/front-end-and-accessibility.md#gr-fe-04) |
 | Sign in | Defra Customer Identity (Defra ID), which uses GOV.UK One Login and Government Gateway | [GR-IAM-01](../../guardrails/identity-and-access.md#gr-iam-01) |
-| Payments | GOV.UK Pay | [TC05](../technology-capabilities.md#tc05) |
-| Notifications | GOV.UK Notify | [TC04](../technology-capabilities.md#tc04) |
+| Payments | GOV.UK Pay | [Finance](../technology-capabilities.md#finance) |
+| Notifications | GOV.UK Notify | [Customer Service](../technology-capabilities.md#customer-service) |
 | Hand-off to back office | Publish an event or call a documented API; never share a database | [GR-API-05](../../guardrails/apis-and-integration.md#gr-api-05), [GR-API-06](../../guardrails/apis-and-integration.md#gr-api-06) |
 | Data | Own your service data; use authoritative sources for customers, holdings and locations | [GR-DATA-02](../../guardrails/data.md#gr-data-02) |
 | Observability | Platform logging, metrics and tracing | [GR-OPS-01](../../guardrails/observability-and-operations.md#gr-ops-01) |

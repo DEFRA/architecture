@@ -359,7 +359,8 @@ def _platforms(link, relink) -> str:
         cap = p.get("capability")
         if cap:
             rows.append(
-                f"| **Technology capability** | [{cap}]({link('handrail/technology-capabilities.md#' + cap.lower())}) |"
+                f"| **Technology capability** | [{_capability_name(cap)}]"
+                f"({link('handrail/technology-capabilities.md#' + cap)}) |"
             )
         out += rows + [""]
         if unknown:
@@ -412,3 +413,14 @@ def _role(role: dict, link, relink, url) -> str:
     out += [f"- {relink(line)}" for line in role["touchpoints"]]
     out.append("")
     return "\n".join(out) + "\n"
+
+
+def _capability_name(cap_id: str) -> str:
+    """The name of a level 2 technology capability, with its level 1 area."""
+    with open(os.path.join(ROOT, "capabilities", "technology-capabilities.yaml"), encoding="utf-8") as handle:
+        areas = yaml.safe_load(handle)["domains"]
+    for area in areas:
+        for l2 in area.get("level2", []):
+            if l2["id"] == cap_id:
+                return f"{l2['name']} ({area['name']})"
+    raise PluginError(f"platform capability {cap_id} is not a level 2 technology capability")

@@ -6,8 +6,8 @@
 
 ### Technology capabilities aligned to TBM
 
-- **The [technology capabilities](../handrail/technology-capabilities.md) page now uses Defra's Technology Business Management (TBM) model**: 6 level 1 areas and their level 2 capabilities, shown as a map. Defra's technology capabilities, TC01 to TC24, sit under the level 2 capability they belong to and still name the option to use first. Their ids and links are unchanged.
-- The separate technology capabilities boxes page has been folded into this page, and the old "deprecated" section has gone. Where each TC sits in the level 2 structure is a first draft for Strategic Architecture to confirm.
+- **The [technology capabilities](../handrail/technology-capabilities.md) page now uses Defra's Technology Business Management (TBM) model**: 6 level 1 areas and their level 2 capabilities, shown as a map. Where Defra has guidance, a level 2 capability lists common needs and what to use first.
+- The old TC01 to TC24 ids and their strategic, emerging and gap statuses have gone. Guardrails, platforms, reference architectures and the [capability mapping](../handrail/capability-mapping.md) now point to level 2 capabilities. Which level 2 capability each need sits under is a first draft for Strategic Architecture to confirm.
 
 ### The site has moved to the DEFRA GitHub organisation
 

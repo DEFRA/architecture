@@ -71,7 +71,7 @@ guardrails:
 
 <p class="lead">Where and how services run. Use the paved road so your team can focus on users rather than infrastructure.</p>
 
-Technology capability [TC21 Application hosting and delivery platform](../handrail/technology-capabilities.md#tc21).
+Technology capability [Enabling Platforms](../handrail/technology-capabilities.md#enabling-platforms): application hosting and delivery platform.
 
 ## GR-HOST-01 Use Defra's strategic delivery platform by default {#gr-host-01}
 
