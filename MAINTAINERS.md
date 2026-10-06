@@ -69,6 +69,6 @@ Releases follow [`CHANGELOG.md`](CHANGELOG.md) and [semantic versioning](https:/
 
 Anyone can propose a change from a fork of `DEFRA/architecture`: push a branch to the fork, then open a pull request into `DEFRA/architecture`. The checks run in the fork as well, so problems show up before the pull request is opened.
 
-Only `DEFRA/architecture` publishes the site, makes releases and runs the weekly link check, so a fork can never overwrite the site, its own `gh-pages` branch or a release. Tests keep those workflows limited to `DEFRA/architecture`.
+Only `DEFRA/architecture` makes releases and runs the weekly link check, and it always publishes the site. A fork publishes its own copy only if its owner sets the Actions variable `PUBLISH_SITE` to `true` (Settings, then Secrets and variables, then Actions), so a fork never overwrites its `gh-pages` branch by accident. Tests keep these workflows limited to `DEFRA/architecture` by default.
 
 The repository moved from a fork in October 2026 - see [moving to the DEFRA GitHub organisation](docs/about/moving-to-defra.md).
