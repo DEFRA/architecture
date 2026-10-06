@@ -4,6 +4,10 @@
 
 ## October 2026
 
+### Simpler navigation
+
+- **The top navigation has 7 tabs instead of 11.** **Rules** holds principles, guardrails and non-functional requirements; **Reuse** holds the handrail and patterns; **Topics** holds data and security. Every page keeps its address, so links still work.
+
 ### Patterns: service patterns and solution patterns
 
 - **Reference architectures are now [service patterns](../patterns/service/index.md)**, in the Patterns section. A service pattern shows the shape of a whole kind of service; a solution pattern solves one recurring problem inside a service. Both are exploratory, early work for discussion, not agreed designs. Old addresses redirect to the new pages.
