@@ -38,3 +38,14 @@ Throughout this site, **must** means a requirement, **should** means a strong de
 ## Searching
 
 Press ++slash++ or ++s++ to search. You can search for guardrail ids (such as `GR-HOST-01`) and business capability ids (such as `BC05`).
+
+## Using this site with tools and AI
+
+The site is published in forms that tools, dashboards and AI assistants can read:
+
+- <a href="../../llms.txt"><code>llms.txt</code></a> - a short guide for AI tools to every page and data file
+- a Markdown copy of every page, at the page's address followed by `index.md`
+- <a href="../../guardrails.json"><code>guardrails.json</code></a> - every guardrail and principle, with its statement, why, how to meet it, the evidence for each phase and its status
+- <a href="../../nfrs.json"><code>nfrs.json</code></a>, <a href="../../capabilities.json"><code>capabilities.json</code></a> and <a href="../../pages.json"><code>pages.json</code></a>
+
+Each page is marked as published, draft or prototype. Treat draft and prototype content as work in progress, not agreed policy. Cite guardrails by their id, such as `GR-HOST-01`, and the [version](releases.md) you checked against.

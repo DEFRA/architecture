@@ -2,7 +2,8 @@ site_name: Defra architecture
 site_description: >-
   Architecture handrails, guardrails and governance for Defra digital, data and
   technology - for internal product and platform teams and delivery partners.
-site_url: https://defra.github.io/architecture/
+# The publish step sets SITE_URL to the address the site is published at.
+site_url: !ENV [SITE_URL, 'https://defra.github.io/architecture/']
 repo_url: https://github.com/DEFRA/architecture
 repo_name: DEFRA/architecture
 edit_uri: edit/main/docs/
@@ -83,6 +84,7 @@ hooks:
   - hooks/open_questions.py
   - hooks/abbreviations.py
   - hooks/redirects.py
+  - hooks/machine.py   # keep last: it copies each page after the other hooks
 
 extra:
   generator: false

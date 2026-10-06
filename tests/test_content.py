@@ -82,6 +82,38 @@ def test_prototype_sections_show_a_banner():
         assert "- section: deliver/" in handle.read(), "the Deliver section should be marked as a prototype"
 
 
+# --- Machine-readable output ------------------------------------------------------
+
+
+def test_guardrail_parts_are_split_by_label():
+    body = "<span>Should</span> Do it.\n\n**Why:** Because.\n\n**How to meet it:** Like [this](x.md).\n"
+    assert guardrails.parts(body) == {"why": "Because.", "how_to_meet": "Like [this](x.md)."}
+
+
+def test_relative_links_become_absolute():
+    site = "https://example.org/architecture/"
+    text = "[a](../governance/tda.md#who), [b](#gr-host-01), [c](https://gov.uk)"
+    assert guardrails.absolute_links(text, "guardrails/hosting-and-platforms.md", site) == (
+        "[a](https://example.org/architecture/governance/tda/#who), "
+        "[b](https://example.org/architecture/guardrails/hosting-and-platforms/#gr-host-01), "
+        "[c](https://gov.uk)"
+    )
+
+
+def test_page_maturity():
+    machine = load_hook("machine")
+    config = {"extra": {"prototype": [{"section": "deliver/", "note": "x"}]}}
+    assert machine.maturity("deliver/alpha.md", {}, config) == "prototype"
+    assert machine.maturity("about/team.md", {"status": "draft"}, config) == "draft"
+    assert machine.maturity("guardrails/data.md", {}, config) == "published"
+
+
+def test_machine_hook_runs_last():
+    with open(os.path.join(ROOT, "mkdocs.yml"), encoding="utf-8") as handle:
+        hooks = re.findall(r"^  - hooks/(\w+\.py)", handle.read(), re.M)
+    assert hooks[-1] == "machine.py", "machine.py must be the last hook so it copies each page in full"
+
+
 # --- Guardrails ----------------------------------------------------------------
 
 

@@ -14,6 +14,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Added
 
+- For tools and AI: `llms.txt`, `pages.json` and a Markdown copy of every page, each page marked as published, draft or prototype. `guardrails.json` now includes each guardrail's why, how to meet it, its address and the site version. The site's own address comes from `SITE_URL` when it is published, so copies of the repository link to themselves.
 - A section can be marked as a prototype under `extra.prototype` in `mkdocs.yml`, so every page in it shows a "Prototype - testing with users" banner. Deliver a service is marked as a prototype.
 - A guide for the team on updating the site, linked from the contribute page: how it is built, the rules every change follows, which file to edit and how to fix a failed check.
 - `CLAUDE.md` with the repository's ground rules, layout, commands and gotchas for AI assistants, kept under 80 lines by a test.

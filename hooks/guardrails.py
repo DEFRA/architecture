@@ -155,6 +155,56 @@ def _plain(text: str) -> str:
     return text.replace("**", "").replace("`", "").strip()
 
 
+# Labelled parts of a guardrail or principle, as written in the page, and their keys in guardrails.json.
+PARTS = {
+    "Why": "why",
+    "Rationale": "why",
+    "How to meet it": "how_to_meet",
+    "How to follow it": "how_to_meet",
+    "In the Defra Digital Service Manual": "service_manual",
+    "See also": "see_also",
+}
+PART = re.compile(r"^\*\*(" + "|".join(re.escape(k) for k in PARTS) + r"):\*\*", re.M)
+REL_LINK = re.compile(r"\]\((?!https?:|mailto:)([^)\s]*)\)")
+
+
+def parts(body: str) -> dict[str, str]:
+    """The labelled parts of a guardrail body, such as why and how_to_meet, as Markdown."""
+    found: dict[str, str] = {}
+    matches = list(PART.finditer(body))
+    for i, match in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(body)
+        text = body[match.end() : end].strip()
+        key = PARTS[match.group(1)]
+        found[key] = f"{found[key]}\n\n{text}" if key in found else text
+    return found
+
+
+def page_url(src_path: str) -> str:
+    """The site path of a page, for example guardrails/data.md -> guardrails/data/."""
+    stem = src_path[: -len(".md")] if src_path.endswith(".md") else src_path
+    if stem == "index" or stem.endswith("/index"):
+        return stem[: -len("index")]
+    return stem + "/"
+
+
+def absolute_links(markdown: str, src_path: str, site_url: str) -> str:
+    """Rewrite relative Markdown links in a page as absolute addresses on the site, for use outside it."""
+    base = site_url.rstrip("/") + "/"
+
+    def fix(match):
+        target, _, anchor = match.group(1).partition("#")
+        if not target:
+            path = page_url(src_path)
+        elif target.endswith(".md"):
+            path = page_url(posixpath.normpath(posixpath.join(posixpath.dirname(src_path), target)))
+        else:
+            path = posixpath.normpath(posixpath.join(posixpath.dirname(page_url(src_path)), target))
+        return f"]({base}{path}{'#' + anchor if anchor else ''})"
+
+    return REL_LINK.sub(fix, markdown)
+
+
 # Folders whose pages define guardrails, and pages in them that do not.
 SOURCES = ("principles", "guardrails")
 NOT_GUARDRAILS = ("index.md", "library.md", "doctrine.md")
@@ -371,10 +421,23 @@ def on_page_markdown(markdown, page, config, files):
 
 
 def on_post_build(config):
+    site_url = config.get("site_url") or ""
+    extra = config.get("extra") or {}
+
+    def export(g: dict) -> dict:
+        item = {k: v for k, v in g.items() if k != "body"}
+        item["url"] = f"{site_url.rstrip('/')}/{page_url(g['page'])}#{g['id'].lower()}"
+        for key, text in parts(g["body"]).items():
+            item[key] = absolute_links(text, g["page"], site_url)
+        return item
+
     out = {
         "description": "Defra architecture guardrails and principles with their metadata",
         "source": "https://github.com/DEFRA/architecture",
-        "guardrails": [{k: v for k, v in g.items() if k != "body"} for g in _guardrails],
+        "version": extra.get("version_in_force"),
+        "version_date": extra.get("version_date"),
+        "includes_unreleased_changes": bool(extra.get("version_unreleased")),
+        "guardrails": [export(g) for g in _guardrails],
     }
     with open(os.path.join(config["site_dir"], "guardrails.json"), "w", encoding="utf-8") as handle:
         json.dump(out, handle, indent=2)

@@ -151,3 +151,6 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
+        env:
+          # Links in llms.txt, the JSON files and the sitemap use the address this copy is published at.
+          SITE_URL: ${{ github.repository == 'DEFRA/architecture' && 'https://defra.github.io/architecture/' || format('https://{0}.github.io/architecture/', github.repository_owner) }}
