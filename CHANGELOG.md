@@ -27,6 +27,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- Contribute and the decisions about this site are no longer in the top navigation, to keep it simple for users. The pages are still published at their addresses for the team.
 - Technology capabilities follow Defra's Technology Business Management (TBM) model: level 1 areas and level 2 capabilities in `capabilities/technology-capabilities.yaml`, rendered as a map. TC01 to TC24 and their statuses are removed; their options to use first now sit under the level 2 capability as needs. Business capabilities, platforms, guardrails, reference architectures and the mapping matrix point to level 2 capabilities. The boxes page is folded in. Tests check ids are unique, needs are complete and platforms name a level 2 capability.
 - The accessibility check runs light and dark mode in two parallel jobs, so CI finishes about a minute sooner. Set `A11Y_SCHEMES` to check one scheme locally.
 - Only `DEFRA/architecture` deploys the site, makes releases and runs the weekly link check. A fork runs the checks but cannot overwrite its own `gh-pages` branch, which serves redirects to the new address. A test keeps these workflows limited to `DEFRA/architecture`.

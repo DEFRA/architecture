@@ -132,6 +132,9 @@ markdown_extensions:
 # Pages built but deliberately left out of the navigation.
 not_in_nav: |
   /print/
+  # For the team that maintains the site: reached by address, not the navigation.
+  /contribute/
+  /adr/
 
 nav:
   - Home:
@@ -262,17 +265,3 @@ nav:
       - Threat modelling: security/threat-modelling.md
       - Managing security exceptions: security/managing-exceptions.md
   - Standards and links: standards/index.md
-  - Contribute:
-      - contribute/index.md
-      - Guide for the team: contribute/team-guide.md
-      - Content style: contribute/content-style.md
-      - Site design: contribute/site-design.md
-      - Where things live: contribute/where-things-live.md
-      - Decisions about this site:
-          - adr/index.md
-          - "0001 MkDocs Material with hooks": adr/0001-mkdocs-material-with-hooks.md
-          - "0002 Guardrail metadata in front matter": adr/0002-guardrail-metadata-in-front-matter.md
-          - "0003 Tags and PDFs, not versioned URLs": adr/0003-no-versioned-urls.md
-          - "0004 Musts only where required": adr/0004-musts-only-where-required.md
-          - "0005 Enterprise decisions in SharePoint": adr/0005-enterprise-decisions-in-sharepoint.md
-          - "0006 Move to DEFRA/architecture": adr/0006-move-to-defra-github.md
