@@ -82,7 +82,7 @@ The catalogue contains:
 
 ### View the catalogue
 
-➡️ [Technology Capability Catalogue](https://defra.sharepoint.com/:l:/r/teams/Team3221/Lists/Technical%20Capabilities?e=34csE5)
+➡️ [Technology Capability Catalogue](https://defra.sharepoint.com/:l:/r/teams/Team3221/Lists/Technical%20Capabilities)
 
 ---
 
