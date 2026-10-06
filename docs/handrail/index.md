@@ -65,7 +65,7 @@ Business capabilities change slowly. Products and services change quickly. Mappi
 ## Using the handrail on your project
 
 1. **Find your business capability.** Which of the [eleven capabilities](business-capabilities.md) does your service support? Most services support one or two.
-2. **Check the technology capabilities it needs.** Each business capability lists the [technology capabilities](technology-capabilities.md) that typically enable it.
+2. **Check the technology capabilities it needs.** The [capability mapping](capability-mapping.md) shows which [technology capabilities](technology-capabilities.md) each business capability typically depends on.
 3. **Use the strategic options first.** Each technology capability lists what to use. If it is marked *gap*, talk to the TDA so we solve it once.
 4. **Start from a service pattern** if one fits.
 5. **Record your choices** in an [ADR](../governance/architecture-decision-records.md), naming business capability ids (for example `BC05`) and technology capabilities (for example Enabling Platforms) so decisions can be found later.

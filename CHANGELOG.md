@@ -27,6 +27,7 @@ To release a version, change `## [Unreleased]` to `## [X.Y.Z] - YYYY-MM-DD` and 
 
 ### Changed
 
+- Business capabilities no longer list the technology capabilities that enable them; the page points to capability mapping, the one place that draft mapping is shown. Outcomes and level 2 capabilities now sit side by side.
 - Reference architectures are now service patterns, in the Patterns section alongside the solution patterns, and are marked as exploratory early work. Overclaims such as "proven" and lighter governance are removed. Old addresses redirect through a new `redirects.py` hook. The term "reference architecture" is kept for a future layered view.
 - Contribute and the decisions about this site are no longer in the top navigation, to keep it simple for users. The pages are still published at their addresses for the team.
 - Technology capabilities follow Defra's Technology Business Management (TBM) model: level 1 areas and level 2 capabilities in `capabilities/technology-capabilities.yaml`, shown as a map. TC01 to TC24, their statuses and options are removed pending internal review. Business capabilities, platforms, guardrails, reference architectures and the mapping matrix point to level 2 capabilities. The boxes page is folded in. Tests check ids are unique and platforms name a level 2 capability.

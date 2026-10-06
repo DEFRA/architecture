@@ -192,14 +192,7 @@ def _attributes(url_to, md_to=None) -> str:
     return "| Attribute | What it means |\n| --- | --- |\n" + rows + "\n"
 
 
-def _tech_name(ref: str) -> str:
-    cap = _model["tech_by_id"][ref]
-    if cap["level"] == 1:
-        return f"{cap['name']} (all)"
-    return f"{cap['name']} ({_model['tech_by_id'][cap['area']]['name']})"
-
-
-def _business_detail(_url_to, url_to) -> str:
+def _business_detail(_url_to, md_to=None) -> str:
     out = []
     current_type = None
     for cap in _model["business"]["capabilities"]:
@@ -212,11 +205,8 @@ def _business_detail(_url_to, url_to) -> str:
         out.append('<div class="grid" markdown>\n')
         out.append("<div markdown>\n\n**Outcomes**\n")
         out.extend(f"- {o}" for o in cap.get("outcomes", []))
-        out.append("\n**Level 2 capabilities** <small>(draft)</small>\n")
+        out.append("\n</div>\n<div markdown>\n\n**Level 2 capabilities** <small>(draft)</small>\n")
         out.extend(f"- {l2}" for l2 in cap.get("level2", []))
-        out.append("\n</div>\n<div markdown>\n\n**Enabled by technology capabilities**\n")
-        for ref in cap.get("technology", []):
-            out.append(f"- [{_tech_name(ref)}]({url_to(TECHNOLOGY_PAGE, ref)})")
         out.append("\n</div>\n</div>\n")
     return "\n".join(out) + "\n"
 
