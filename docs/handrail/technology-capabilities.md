@@ -82,7 +82,7 @@ The catalogue contains:
 
 ### View the catalogue
 
-➡️ [Technology Capability Catalogue](https://defra.sharepoint.com/:l:/r/teams/Team3221/Lists/Technical%20Capabilities)
+➡️ [Technology Capability Catalogue](https://defra.sharepoint.com/teams/Team3221/Lists/Technical%20Capabilities/AllItems.aspx)
 
 ---
 
@@ -112,7 +112,7 @@ Technology capabilities provide a consistent language for discussing technology 
 
 Guardrails explain the preferred approaches for delivering technology capabilities.
 
-➡️ /architecture/guardrails/library/
+➡️ ../../guardrails/library/
 
 ### Business capabilities
 
@@ -120,7 +120,7 @@ Business capabilities describe what Defra needs to do to deliver outcomes for ci
 
 Technology capabilities describe how technology enables those outcomes.
 
-➡️ /architecture/handrail/business-capabilities/
+➡️ ../business-capabilities/
 
 ### Strategic Architecture Methods & Guidance
 
