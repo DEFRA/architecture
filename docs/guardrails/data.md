@@ -128,7 +128,7 @@ See also [enterprise data architecture](../data/index.md).
 
 ## GR-DATA-05 Describe your data {#gr-data-05}
 
-<span class="rfc rfc--should">Should</span> Publish metadata for data sets so they can be found and understood - [UK GEMINI](https://www.agi.org.uk/why-uk-gemini/) for geospatial data and DCAT for other data sets.
+<span class="rfc rfc--should">Should</span> Publish metadata for data sets so they can be found and understood - [UK GEMINI](https://www.agi.org.uk/why-uk-gemini/) for geospatial data and [DCAT](https://www.w3.org/TR/vocab-dcat-3/) for other data sets.
 
 ## GR-DATA-06 Protect personal data by design {#gr-data-06}
 
