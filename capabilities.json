@@ -1,0 +1,475 @@
+{
+  "attributes": [
+    {
+      "name": "Oriented on meaningful outcomes",
+      "description": "Each capability exists to deliver an outcome for the public, the environment or the department."
+    },
+    {
+      "name": "Stable over time",
+      "description": "Capabilities change far more slowly than organisations, processes or systems."
+    },
+    {
+      "name": "Independent of organisation structure",
+      "description": "A capability can be delivered by core Defra, an arm's length body or a partner."
+    },
+    {
+      "name": "Independent of technology",
+      "description": "Capabilities say what we do, never which product does it."
+    },
+    {
+      "name": "Measurable",
+      "description": "We can assess maturity, cost, risk and investment against each capability."
+    },
+    {
+      "name": "Expressed in active, plain language",
+      "description": "Verb first, no jargon, understandable by anyone."
+    }
+  ],
+  "business_capabilities": [
+    {
+      "id": "BC01",
+      "number": "01",
+      "name": "Act as a custodian of the environment and ecosystems",
+      "type": "core",
+      "description": "Understand, protect, restore and enhance the natural environment - land, water, air, seas, habitats and species - for current and future generations.",
+      "outcomes": [
+        "Thriving plants and wildlife",
+        "Clean air and clean and plentiful water",
+        "Reduced risk from environmental hazards"
+      ],
+      "level2": [
+        "Monitor environmental condition",
+        "Protect and recover species and habitats",
+        "Manage land, water, air and marine resources",
+        "Designate and manage protected sites",
+        "Manage flood and coastal erosion risk",
+        "Manage natural capital and biodiversity net gain"
+      ],
+      "technology": [
+        "geospatial-solutions",
+        "data",
+        "scientific-data-and-laboratory-solutions",
+        "manufacturing-and-delivery"
+      ]
+    },
+    {
+      "id": "BC02",
+      "number": "02",
+      "name": "Conduct research and analyse evidence",
+      "type": "core",
+      "description": "Build and use the scientific, economic and social evidence base that underpins policy, regulation and operational decisions.",
+      "outcomes": [
+        "Decisions grounded in robust evidence",
+        "Trusted official statistics"
+      ],
+      "level2": [
+        "Commission and conduct research",
+        "Collect and curate evidence",
+        "Analyse, model and forecast",
+        "Publish official statistics",
+        "Horizon scan for emerging risks"
+      ],
+      "technology": [
+        "data",
+        "geospatial-solutions",
+        "scientific-data-and-laboratory-solutions",
+        "artificial-intelligence",
+        "communication-and-collaboration"
+      ]
+    },
+    {
+      "id": "BC03",
+      "number": "03",
+      "name": "Create policy and legislation",
+      "type": "core",
+      "description": "Develop, consult on, implement and evaluate policy, legislation and regulation, including international and trade agreements.",
+      "outcomes": [
+        "Effective, proportionate policy and regulation",
+        "Policy informed by those it affects"
+      ],
+      "level2": [
+        "Develop and appraise policy options",
+        "Consult and gather views",
+        "Draft and maintain legislation",
+        "Negotiate international agreements",
+        "Evaluate policy impact"
+      ],
+      "technology": [
+        "corporate-communication-services",
+        "data",
+        "communication-and-collaboration",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "id": "BC04",
+      "number": "04",
+      "name": "Engage with citizens and organisations",
+      "type": "core",
+      "description": "Inform, advise, listen to and build relationships with the public, farmers, businesses, partners and other stakeholders.",
+      "outcomes": [
+        "Users can find what they need and do what they need to do",
+        "Strong relationships with the sectors we work with"
+      ],
+      "level2": [
+        "Provide information and guidance",
+        "Manage customer and stakeholder relationships",
+        "Handle enquiries, complaints and information requests",
+        "Run campaigns and communications",
+        "Gather and act on feedback"
+      ],
+      "technology": [
+        "security-and-compliance",
+        "customer-service",
+        "corporate-communication-services",
+        "manufacturing-and-delivery"
+      ]
+    },
+    {
+      "id": "BC05",
+      "number": "05",
+      "name": "Issue licences and permits",
+      "type": "core",
+      "description": "Decide whether and on what terms people and organisations can carry out regulated activities, and keep registers of what has been permitted.",
+      "outcomes": [
+        "Regulated activity happens safely and lawfully",
+        "Fast, predictable decisions for applicants"
+      ],
+      "level2": [
+        "Determine eligibility and requirements",
+        "Assess and determine applications",
+        "Issue licences, permits and certificates",
+        "Vary, renew, suspend and revoke",
+        "Maintain public registers"
+      ],
+      "technology": [
+        "security-and-compliance",
+        "customer-service",
+        "finance",
+        "manufacturing-and-delivery",
+        "communication-and-collaboration",
+        "geospatial-solutions",
+        "data"
+      ]
+    },
+    {
+      "id": "BC06",
+      "number": "06",
+      "name": "Enforce compliance",
+      "type": "core",
+      "description": "Check that people and organisations meet their obligations and take proportionate action when they do not.",
+      "outcomes": [
+        "High levels of compliance",
+        "Harm prevented, and stopped quickly when it happens"
+      ],
+      "level2": [
+        "Plan risk-based regulation",
+        "Inspect, sample and audit",
+        "Gather intelligence and investigate",
+        "Take enforcement action",
+        "Manage appeals and sanctions"
+      ],
+      "technology": [
+        "manufacturing-and-delivery",
+        "geospatial-solutions",
+        "data",
+        "communication-and-collaboration"
+      ]
+    },
+    {
+      "id": "BC07",
+      "number": "07",
+      "name": "Administer funds and grants",
+      "type": "core",
+      "description": "Design and run schemes that pay public money for public goods, from application to payment, verification and recovery.",
+      "outcomes": [
+        "Public money delivers environmental and economic outcomes",
+        "Payments are accurate, on time and protected from fraud"
+      ],
+      "level2": [
+        "Design schemes",
+        "Manage applications and agreements",
+        "Verify claims",
+        "Make payments",
+        "Recover payments and manage irregularities",
+        "Evaluate scheme outcomes"
+      ],
+      "technology": [
+        "security-and-compliance",
+        "manufacturing-and-delivery",
+        "finance",
+        "geospatial-solutions",
+        "data",
+        "customer-service"
+      ]
+    },
+    {
+      "id": "BC08",
+      "number": "08",
+      "name": "Respond to incidents and crises",
+      "type": "core",
+      "description": "Prepare for, detect, respond to and recover from emergencies such as animal and plant disease outbreaks, floods, droughts and pollution.",
+      "outcomes": [
+        "Faster detection and containment",
+        "Reduced harm to people, animals, plants and the environment"
+      ],
+      "level2": [
+        "Plan and exercise for emergencies",
+        "Detect and assess incidents",
+        "Coordinate response",
+        "Contain and control",
+        "Recover and learn lessons"
+      ],
+      "technology": [
+        "manufacturing-and-delivery",
+        "geospatial-solutions",
+        "scientific-data-and-laboratory-solutions",
+        "customer-service",
+        "data"
+      ]
+    },
+    {
+      "id": "BC09",
+      "number": "09",
+      "name": "Operate and deploy assets",
+      "type": "core",
+      "description": "Plan, build, operate, maintain and dispose of physical assets such as flood defences, laboratories, vessels, land and estate.",
+      "outcomes": [
+        "Assets are available and perform when needed",
+        "Whole-life value for money"
+      ],
+      "level2": [
+        "Plan and invest in assets",
+        "Build and commission assets",
+        "Operate assets",
+        "Inspect and maintain assets",
+        "Dispose of assets"
+      ],
+      "technology": [
+        "geospatial-solutions",
+        "scientific-data-and-laboratory-solutions",
+        "manufacturing-and-delivery",
+        "finance",
+        "data"
+      ]
+    },
+    {
+      "id": "BC10",
+      "number": "10",
+      "name": "Set organisational direction",
+      "type": "supporting",
+      "description": "Set strategy and priorities, allocate investment, manage performance and risk, and govern the department and its arm's length bodies.",
+      "outcomes": [
+        "Clear priorities and accountable delivery",
+        "Investment aligned to outcomes"
+      ],
+      "level2": [
+        "Set strategy and priorities",
+        "Manage portfolio and investment",
+        "Manage performance and risk",
+        "Govern and assure",
+        "Design the operating model"
+      ],
+      "technology": [
+        "data",
+        "communication-and-collaboration"
+      ]
+    },
+    {
+      "id": "BC11",
+      "number": "11",
+      "name": "Provide shared services",
+      "type": "supporting",
+      "description": "Provide the people, finance, commercial, digital, data and technology, estates, legal and information services the rest of Defra relies on.",
+      "outcomes": [
+        "Efficient, consistent corporate services",
+        "Staff have the tools and support to do their jobs"
+      ],
+      "level2": [
+        "Manage people",
+        "Manage finance",
+        "Manage commercial and procurement",
+        "Provide digital, data and technology services",
+        "Manage estates and facilities",
+        "Manage information and records"
+      ],
+      "technology": [
+        "security-and-compliance",
+        "finance",
+        "communication-and-collaboration",
+        "enabling-platforms",
+        "operations"
+      ]
+    }
+  ],
+  "technology_capabilities": [
+    {
+      "id": "business",
+      "name": "Business",
+      "level2": [
+        {
+          "id": "product-management",
+          "name": "Product Management"
+        },
+        {
+          "id": "sales-and-marketing",
+          "name": "Sales & Marketing"
+        },
+        {
+          "id": "customer-service",
+          "name": "Customer Service"
+        },
+        {
+          "id": "manufacturing-and-delivery",
+          "name": "Manufacturing & Delivery"
+        }
+      ]
+    },
+    {
+      "id": "shared-corporate",
+      "name": "Shared & Corporate",
+      "level2": [
+        {
+          "id": "corporate-communication-services",
+          "name": "Corporate Communication Services"
+        },
+        {
+          "id": "finance",
+          "name": "Finance"
+        },
+        {
+          "id": "health-safety-and-environmental-services",
+          "name": "Health, Safety, and Environmental Services"
+        },
+        {
+          "id": "legal",
+          "name": "Legal"
+        },
+        {
+          "id": "property-and-facility-services",
+          "name": "Property & Facility Services"
+        },
+        {
+          "id": "risk-audit-and-compliance-services",
+          "name": "Risk, Audit & Compliance Services"
+        },
+        {
+          "id": "sustainability-and-esg",
+          "name": "Sustainability & ESG"
+        },
+        {
+          "id": "vendor-and-procurement-services",
+          "name": "Vendor and Procurement Services"
+        },
+        {
+          "id": "workforce",
+          "name": "Workforce"
+        }
+      ]
+    },
+    {
+      "id": "workplace",
+      "name": "Workplace",
+      "level2": [
+        {
+          "id": "connectivity",
+          "name": "Connectivity"
+        },
+        {
+          "id": "client-computing",
+          "name": "Client Computing"
+        },
+        {
+          "id": "communication-and-collaboration",
+          "name": "Communication & Collaboration"
+        }
+      ]
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": "Artificial Intelligence",
+      "level2": [
+        {
+          "id": "agentic",
+          "name": "Agentic"
+        },
+        {
+          "id": "generative",
+          "name": "Generative"
+        },
+        {
+          "id": "interpretive",
+          "name": "Interpretive"
+        },
+        {
+          "id": "predictive",
+          "name": "Predictive"
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "name": "Delivery",
+      "level2": [
+        {
+          "id": "development",
+          "name": "Development"
+        },
+        {
+          "id": "enabling-platforms",
+          "name": "Enabling Platforms"
+        },
+        {
+          "id": "operations",
+          "name": "Operations"
+        },
+        {
+          "id": "security-and-compliance",
+          "name": "Security & Compliance"
+        },
+        {
+          "id": "strategy-and-planning",
+          "name": "Strategy & Planning"
+        },
+        {
+          "id": "support",
+          "name": "Support"
+        },
+        {
+          "id": "geospatial-solutions",
+          "name": "Geospatial Solutions (Defra Customisation)"
+        },
+        {
+          "id": "scientific-data-and-laboratory-solutions",
+          "name": "Scientific Data & Laboratory Solutions (Defra Customisation)"
+        }
+      ]
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "level2": [
+        {
+          "id": "compute",
+          "name": "Compute"
+        },
+        {
+          "id": "data-centre",
+          "name": "Data Centre"
+        },
+        {
+          "id": "data",
+          "name": "Data"
+        },
+        {
+          "id": "network",
+          "name": "Network"
+        },
+        {
+          "id": "storage",
+          "name": "Storage"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1122 @@
+{
+  "version": "0.3.0",
+  "includes_unreleased_changes": false,
+  "pages": [
+    {
+      "title": "Defra architecture",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/",
+      "markdown": "https://defra.github.io/architecture/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "index.md"
+    },
+    {
+      "title": "Approval status",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/approval-status/",
+      "markdown": "https://defra.github.io/architecture/about/approval-status/index.md",
+      "maturity": "published",
+      "description": "Which parts of this site are agreed, who approved them and when, and which are still draft. Use it to judge how much weight to put on a page.",
+      "source": "about/approval-status.md"
+    },
+    {
+      "title": "Developing architecture at Defra",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/architecture-profession/",
+      "markdown": "https://defra.github.io/architecture/about/architecture-profession/index.md",
+      "maturity": "draft",
+      "description": "How architects at Defra learn, connect and grow, and how anyone interested in architecture can get involved. This is an early version: we will add to it as the profession develops.",
+      "source": "about/architecture-profession.md"
+    },
+    {
+      "title": "What's new",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/changelog/",
+      "markdown": "https://defra.github.io/architecture/about/changelog/index.md",
+      "maturity": "published",
+      "description": "Significant changes to guardrails, capabilities and governance. Minor wording changes are visible in the commit history.",
+      "source": "about/changelog.md"
+    },
+    {
+      "title": "Working with us as a delivery partner",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/delivery-partners/",
+      "markdown": "https://defra.github.io/architecture/about/delivery-partners/index.md",
+      "maturity": "published",
+      "description": "Much of Defra's digital work is delivered with partners. This page sets out what you can expect from us, and what we expect from you, so we can work as one team.",
+      "source": "about/delivery-partners.md"
+    },
+    {
+      "title": "Moving to the DEFRA GitHub organisation",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/moving-to-defra/",
+      "markdown": "https://defra.github.io/architecture/about/moving-to-defra/index.md",
+      "maturity": "published",
+      "description": "The site and its repository moved from a personal fork, howellsr/architecture, to DEFRA/architecture, published at defra.github.io/architecture. This page records how, and what keeps old links working.",
+      "source": "about/moving-to-defra.md"
+    },
+    {
+      "title": "Open questions",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/open-questions/",
+      "markdown": "https://defra.github.io/architecture/about/open-questions/index.md",
+      "maturity": "published",
+      "description": "Facts this site needs but that are not yet confirmed - names, contacts, lead times and approvals. We would rather show a gap than guess.",
+      "source": "about/open-questions.md"
+    },
+    {
+      "title": "Releases and versions",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/releases/",
+      "markdown": "https://defra.github.io/architecture/about/releases/index.md",
+      "maturity": "published",
+      "description": "Which version of the guardrails is in force, what changed in each release, and how to cite a fixed version in a contract or assessment.",
+      "source": "about/releases.md"
+    },
+    {
+      "title": "Roadmap",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/roadmap/",
+      "markdown": "https://defra.github.io/architecture/about/roadmap/index.md",
+      "maturity": "published",
+      "description": "What we are working on, what comes next and what we are considering. This site is in alpha: we are developing it in the open and it will change as we learn from the teams and partners who use it.",
+      "source": "about/roadmap.md"
+    },
+    {
+      "title": "The architecture team",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/team/",
+      "markdown": "https://defra.github.io/architecture/about/team/index.md",
+      "maturity": "draft",
+      "description": "We help Defra make good technology decisions quickly. We set direction, publish guardrails and handrails, run governance, and work alongside delivery teams.",
+      "source": "about/team.md"
+    },
+    {
+      "title": "Using this site",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/about/using-this-site/",
+      "markdown": "https://defra.github.io/architecture/about/using-this-site/index.md",
+      "maturity": "published",
+      "description": "How to find what you need, depending on who you are and what you are doing.",
+      "source": "about/using-this-site.md"
+    },
+    {
+      "title": "Decisions about this site",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/",
+      "markdown": "https://defra.github.io/architecture/adr/index.md",
+      "maturity": "published",
+      "description": "Architecture decision records (ADRs) for this site and repository. We follow our own guardrail GR-DEV-09.",
+      "source": "adr/index.md"
+    },
+    {
+      "title": "0001. Build the site with MkDocs Material and generate lists with hooks",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0001-mkdocs-material-with-hooks/",
+      "markdown": "https://defra.github.io/architecture/adr/0001-mkdocs-material-with-hooks/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0001-mkdocs-material-with-hooks.md"
+    },
+    {
+      "title": "0002. Keep guardrail metadata in each page's front matter",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0002-guardrail-metadata-in-front-matter/",
+      "markdown": "https://defra.github.io/architecture/adr/0002-guardrail-metadata-in-front-matter/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0002-guardrail-metadata-in-front-matter.md"
+    },
+    {
+      "title": "0003. Release versions as tags and PDFs, not versioned URLs",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0003-no-versioned-urls/",
+      "markdown": "https://defra.github.io/architecture/adr/0003-no-versioned-urls/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0003-no-versioned-urls.md"
+    },
+    {
+      "title": "0004. Keep Must guardrails to what is required",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0004-musts-only-where-required/",
+      "markdown": "https://defra.github.io/architecture/adr/0004-musts-only-where-required/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0004-musts-only-where-required.md"
+    },
+    {
+      "title": "0005. Record enterprise decisions in a SharePoint register, not in this repository",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0005-enterprise-decisions-in-sharepoint/",
+      "markdown": "https://defra.github.io/architecture/adr/0005-enterprise-decisions-in-sharepoint/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0005-enterprise-decisions-in-sharepoint.md"
+    },
+    {
+      "title": "0006. Move the site to DEFRA/architecture",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/adr/0006-move-to-defra-github/",
+      "markdown": "https://defra.github.io/architecture/adr/0006-move-to-defra-github/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "adr/0006-move-to-defra-github.md"
+    },
+    {
+      "title": "Contribute",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/contribute/",
+      "markdown": "https://defra.github.io/architecture/contribute/index.md",
+      "maturity": "published",
+      "description": "This site is built in the open and improves when the people who use it change it. Defra staff and delivery partners are equally welcome to contribute.",
+      "source": "contribute/index.md"
+    },
+    {
+      "title": "Content style",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/contribute/content-style/",
+      "markdown": "https://defra.github.io/architecture/contribute/content-style/index.md",
+      "maturity": "draft",
+      "description": "How we write for this site, so every page reads the same way and busy delivery teams find what they need quickly. It builds on the GOV.UK style guide; it only adds what is specific to this site.",
+      "source": "contribute/content-style.md"
+    },
+    {
+      "title": "Site design",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/contribute/site-design/",
+      "markdown": "https://defra.github.io/architecture/contribute/site-design/index.md",
+      "maturity": "draft",
+      "description": "How this site is built and why it looks and behaves the way it does - for maintainers changing the theme, a template or a generated page. To change the words, see content style instead.",
+      "source": "contribute/site-design.md"
+    },
+    {
+      "title": "Updating the Defra architecture site: a guide for the team",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/contribute/team-guide/",
+      "markdown": "https://defra.github.io/architecture/contribute/team-guide/index.md",
+      "maturity": "draft",
+      "description": "Start here if you are new to updating this site. It explains how the site is built, the rules every change follows, which file to edit for each kind of change and how a change gets published.",
+      "source": "contribute/team-guide.md"
+    },
+    {
+      "title": "Where things live",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/contribute/where-things-live/",
+      "markdown": "https://defra.github.io/architecture/contribute/where-things-live/index.md",
+      "maturity": "draft",
+      "description": "Where to find the guidance, where to suggest a change and where work is tracked - and how this site and the Defra Digital Service Manual share the work, so each fact has one home.",
+      "source": "contribute/where-things-live.md"
+    },
+    {
+      "title": "Enterprise data architecture",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/data/",
+      "markdown": "https://defra.github.io/architecture/data/index.md",
+      "maturity": "published",
+      "description": "Defra runs on data - from river levels and disease surveillance to land parcels and farm payments. Enterprise data architecture helps that data be found, trusted, joined up and reused.",
+      "source": "data/index.md"
+    },
+    {
+      "title": "Data standards",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/data/data-standards/",
+      "markdown": "https://defra.github.io/architecture/data/data-standards/index.md",
+      "maturity": "published",
+      "description": "The standards that make Defra data consistent, joinable and reusable. Use these by default - see guardrail GR-DATA-03.",
+      "source": "data/data-standards.md"
+    },
+    {
+      "title": "Defra on a page",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/data/defra-on-a-page/",
+      "markdown": "https://defra.github.io/architecture/data/defra-on-a-page/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "data/defra-on-a-page.md"
+    },
+    {
+      "title": "Deliver a service",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/",
+      "markdown": "https://defra.github.io/architecture/deliver/index.md",
+      "maturity": "prototype",
+      "description": "What architecture your team needs at each stage of delivery: the guardrails that apply, the artefacts to produce, who to talk to and the evidence to bring to an assessment.",
+      "source": "deliver/index.md"
+    },
+    {
+      "title": "Alpha",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/alpha/",
+      "markdown": "https://defra.github.io/architecture/deliver/alpha/index.md",
+      "maturity": "prototype",
+      "description": "Alpha is where you test the riskiest design assumptions. Most of the architecture decisions that are expensive to reverse are made here, so this is the phase that needs the most architecture attention.",
+      "source": "deliver/alpha.md"
+    },
+    {
+      "title": "Beta",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/beta/",
+      "markdown": "https://defra.github.io/architecture/deliver/beta/index.md",
+      "maturity": "prototype",
+      "description": "Beta is where you build the real service and prove it is secure, reliable and ready to run. The architecture job is to keep the design and the evidence in step with what you build.",
+      "source": "deliver/beta.md"
+    },
+    {
+      "title": "Discovery",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/discovery/",
+      "markdown": "https://defra.github.io/architecture/deliver/discovery/index.md",
+      "maturity": "prototype",
+      "description": "Discovery is about understanding the problem, not choosing technology. The architecture job is to find what already exists, spot constraints early and avoid committing to a solution too soon.",
+      "source": "deliver/discovery.md"
+    },
+    {
+      "title": "Check your repository automatically",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/guardrail-check/",
+      "markdown": "https://defra.github.io/architecture/deliver/guardrail-check/index.md",
+      "maturity": "prototype",
+      "description": "A GitHub Action that checks a repository against the guardrails a tool can check, and writes a report that names each guardrail. Add it on day one and fix the gaps before anyone has to ask.",
+      "source": "deliver/guardrail-check.md"
+    },
+    {
+      "title": "Live",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/live/",
+      "markdown": "https://defra.github.io/architecture/deliver/live/index.md",
+      "maturity": "prototype",
+      "description": "A live service is never finished. The architecture job is to keep it secure, supported and affordable, and to keep the evidence current so the next team can change it safely.",
+      "source": "deliver/live.md"
+    },
+    {
+      "title": "Getting onto Defra platforms",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/platforms/",
+      "markdown": "https://defra.github.io/architecture/deliver/platforms/index.md",
+      "maturity": "prototype",
+      "description": "The shared platforms most Defra services use, what each gives you, and how to get access. Using them is usually faster, cheaper and safer than building your own.",
+      "source": "deliver/platforms.md"
+    },
+    {
+      "title": "Retire a service",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/retire/",
+      "markdown": "https://defra.github.io/architecture/deliver/retire/index.md",
+      "maturity": "prototype",
+      "description": "Retiring a service well protects users, data and money. Plan it as carefully as a launch.",
+      "source": "deliver/retire.md"
+    },
+    {
+      "title": "Significant change",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/significant-change/",
+      "markdown": "https://defra.github.io/architecture/deliver/significant-change/index.md",
+      "maturity": "prototype",
+      "description": "A significant change is one that changes the service's architecture, risks or users enough that the evidence from its last assessment no longer holds. Treat it as a small piece of delivery with its own design, evidence and governance.",
+      "source": "deliver/significant-change.md"
+    },
+    {
+      "title": "Working with architects",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/working-with-architects/",
+      "markdown": "https://defra.github.io/architecture/deliver/working-with-architects/index.md",
+      "maturity": "prototype",
+      "description": "For service designers, interaction designers, content designers and user researchers: when to involve an architect, what to bring, and what you can expect in return.",
+      "source": "deliver/working-with-architects.md"
+    },
+    {
+      "title": "Alpha",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/alpha/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/alpha/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for alpha, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/alpha.md"
+    },
+    {
+      "title": "Beta",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/beta/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/beta/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for beta, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/beta.md"
+    },
+    {
+      "title": "Discovery",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/discovery/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/discovery/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for discovery, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/discovery.md"
+    },
+    {
+      "title": "Live",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/live/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/live/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for live, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/live.md"
+    },
+    {
+      "title": "Retirement",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/retire/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/retire/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for retiring a service, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/retire.md"
+    },
+    {
+      "title": "Significant change",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/checklists/significant-change/",
+      "markdown": "https://defra.github.io/architecture/deliver/checklists/significant-change/index.md",
+      "maturity": "prototype",
+      "description": "The architecture evidence for significant change, as a checklist you can work through or print. Built from the guardrail metadata each time the site is published.",
+      "source": "deliver/checklists/significant-change.md"
+    },
+    {
+      "title": "By role",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/index.md",
+      "maturity": "prototype",
+      "description": "Every guardrail names the roles that lead it. Find the guardrails for your role, what to show in each phase, and when to work with an architect.",
+      "source": "deliver/roles/index.md"
+    },
+    {
+      "title": "Content designer",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/content-designer/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/content-designer/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a content designer leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/content-designer.md"
+    },
+    {
+      "title": "Data architect",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/data-architect/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/data-architect/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a data architect leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/data-architect.md"
+    },
+    {
+      "title": "Delivery manager",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/delivery-manager/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/delivery-manager/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a delivery manager leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/delivery-manager.md"
+    },
+    {
+      "title": "Developer",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/developer/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/developer/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a developer leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/developer.md"
+    },
+    {
+      "title": "Interaction designer",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/interaction-designer/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/interaction-designer/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails an interaction designer leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/interaction-designer.md"
+    },
+    {
+      "title": "Performance analyst",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/performance-analyst/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/performance-analyst/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a performance analyst leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/performance-analyst.md"
+    },
+    {
+      "title": "Product manager",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/product-manager/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/product-manager/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a product manager leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/product-manager.md"
+    },
+    {
+      "title": "Security architect",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/security-architect/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/security-architect/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a security architect leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/security-architect.md"
+    },
+    {
+      "title": "Service designer",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/service-designer/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/service-designer/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a service designer leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/service-designer.md"
+    },
+    {
+      "title": "Technical architect",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/technical-architect/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/technical-architect/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails a technical architect leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/technical-architect.md"
+    },
+    {
+      "title": "User researcher",
+      "section": "Deliver a service",
+      "url": "https://defra.github.io/architecture/deliver/roles/user-researcher/",
+      "markdown": "https://defra.github.io/architecture/deliver/roles/user-researcher/index.md",
+      "maturity": "prototype",
+      "description": "The guardrails an user researcher leads, what to show in each phase, the patterns that help and when to work with an architect.",
+      "source": "deliver/roles/user-researcher.md"
+    },
+    {
+      "title": "Governance",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/",
+      "markdown": "https://defra.github.io/architecture/governance/index.md",
+      "maturity": "published",
+      "description": "Light-touch, proportionate and as delegated as possible. Our governance exists to help teams make good decisions quickly, not to slow them down.",
+      "source": "governance/index.md"
+    },
+    {
+      "title": "Architecture decision records",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/architecture-decision-records/",
+      "markdown": "https://defra.github.io/architecture/governance/architecture-decision-records/index.md",
+      "maturity": "published",
+      "description": "An architecture decision record (ADR) captures one significant decision, its context and its consequences. ADRs are how we make governance light: a decision that is written down well rarely needs a meeting.",
+      "source": "governance/architecture-decision-records.md"
+    },
+    {
+      "title": "Check a decision",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/decision-check/",
+      "markdown": "https://defra.github.io/architecture/governance/decision-check/index.md",
+      "maturity": "published",
+      "description": "Seven questions to find out whether your team can make a decision itself, needs targeted advice, or should take it to a design authority. It takes about two minutes and gives you a draft decision record to keep.",
+      "source": "governance/decision-check.md"
+    },
+    {
+      "title": "Exception register",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/exception-register/",
+      "markdown": "https://defra.github.io/architecture/governance/exception-register/index.md",
+      "maturity": "published",
+      "description": "Approved exceptions to guardrails: which guardrail, for which service, who owns it and when it ends. Publishing them shows where guardrails do not fit, and keeps exceptions time-limited.",
+      "source": "governance/exception-register.md"
+    },
+    {
+      "title": "Exceptions to guardrails",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/exceptions/",
+      "markdown": "https://defra.github.io/architecture/governance/exceptions/index.md",
+      "maturity": "draft",
+      "description": "Guardrails are defaults, and sometimes the right answer is different. The exception process gives you a quick, recorded decision - and tells us when a guardrail needs to change.",
+      "source": "governance/exceptions.md"
+    },
+    {
+      "title": "Guardrails health",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/guardrails-health/",
+      "markdown": "https://defra.github.io/architecture/governance/guardrails-health/index.md",
+      "maturity": "published",
+      "description": "How well the guardrails are working: where teams need exceptions, which exceptions end soon, and which guardrails are due for change. Reviewed every quarter.",
+      "source": "governance/guardrails-health.md"
+    },
+    {
+      "title": "Solution design authorities",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/solution-design-authorities/",
+      "markdown": "https://defra.github.io/architecture/governance/solution-design-authorities/index.md",
+      "maturity": "draft",
+      "description": "SDAs are where most architecture decisions are assured. They sit close to delivery, within delivery groups or portfolios, with authority delegated from the TDA. In an SDA, the principal architect is accountable for decisions.",
+      "source": "governance/solution-design-authorities.md"
+    },
+    {
+      "title": "Technical Design Authority",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/tda/",
+      "markdown": "https://defra.github.io/architecture/governance/tda/index.md",
+      "maturity": "draft",
+      "description": "The TDA is Defra's technical decision-making authority. It agrees roadmaps, grants authority to solution design authorities, and reviews cross-cutting and novel work and exceptions to the guardrails. It is a peer review that helps teams get to a good design - not an exam.",
+      "source": "governance/tda.md"
+    },
+    {
+      "title": "Technology Governance Board",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/tgb/",
+      "markdown": "https://defra.github.io/architecture/governance/tgb/index.md",
+      "maturity": "draft",
+      "description": "The TGB sets Defra's technology direction. It approves strategies, standards and guardrails, and the investment that shapes Defra's technology estate.",
+      "source": "governance/tgb.md"
+    },
+    {
+      "title": "Which route do I take?",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/triage/",
+      "markdown": "https://defra.github.io/architecture/governance/triage/index.md",
+      "maturity": "published",
+      "description": "Answer five questions to find the lightest governance route that fits your work.",
+      "source": "governance/triage.md"
+    },
+    {
+      "title": "Templates",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/templates/",
+      "markdown": "https://defra.github.io/architecture/governance/templates/index.md",
+      "maturity": "published",
+      "description": "Lightweight templates for the most common architecture artefacts. Copy them into your repository and adapt as needed.",
+      "source": "governance/templates/index.md"
+    },
+    {
+      "title": "Architecture decision record",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/templates/adr/",
+      "markdown": "https://defra.github.io/architecture/governance/templates/adr/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "governance/templates/adr.md"
+    },
+    {
+      "title": "Guardrail exception request",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/templates/exception-request/",
+      "markdown": "https://defra.github.io/architecture/governance/templates/exception-request/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "governance/templates/exception-request.md"
+    },
+    {
+      "title": "TDA submission",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/templates/tda-submission/",
+      "markdown": "https://defra.github.io/architecture/governance/templates/tda-submission/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "governance/templates/tda-submission.md"
+    },
+    {
+      "title": "Threat model",
+      "section": "Governance",
+      "url": "https://defra.github.io/architecture/governance/templates/threat-model/",
+      "markdown": "https://defra.github.io/architecture/governance/templates/threat-model/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "governance/templates/threat-model.md"
+    },
+    {
+      "title": "Guardrails",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/",
+      "markdown": "https://defra.github.io/architecture/guardrails/index.md",
+      "maturity": "published",
+      "description": "Guardrails are opinionated, good-practice defaults for designing, building and running services in Defra. They exist so teams can make good decisions quickly, without waiting for permission.",
+      "source": "guardrails/index.md"
+    },
+    {
+      "title": "Artificial intelligence",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/ai/",
+      "markdown": "https://defra.github.io/architecture/guardrails/ai/index.md",
+      "maturity": "published",
+      "description": "AI can help Defra do more with less - from classifying species in images to drafting responses. These guardrails help teams use it safely, lawfully and transparently.",
+      "source": "guardrails/ai.md"
+    },
+    {
+      "title": "APIs and integration",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/apis-and-integration/",
+      "markdown": "https://defra.github.io/architecture/guardrails/apis-and-integration/index.md",
+      "maturity": "published",
+      "description": "How services talk to each other and to partners. Good integration lets us reuse capabilities and change one part of Defra without breaking another.",
+      "source": "guardrails/apis-and-integration.md"
+    },
+    {
+      "title": "Choosing technology",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/choosing-technology/",
+      "markdown": "https://defra.github.io/architecture/guardrails/choosing-technology/index.md",
+      "maturity": "published",
+      "description": "How to decide whether to reuse, buy or build - and how to avoid being stuck with the choice.",
+      "source": "guardrails/choosing-technology.md"
+    },
+    {
+      "title": "Data",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/data/",
+      "markdown": "https://defra.github.io/architecture/guardrails/data/index.md",
+      "maturity": "published",
+      "description": "Defra's science, regulation and payments all depend on trusted data. These guardrails make sure the data each service creates is an asset for the whole department.",
+      "source": "guardrails/data.md"
+    },
+    {
+      "title": "Digital first (draft)",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/digital-first/",
+      "markdown": "https://defra.github.io/architecture/guardrails/digital-first/index.md",
+      "maturity": "published",
+      "description": "Design whole services around users, digital by default, without leaving behind people who cannot use them online. These draft guardrails describe what that means for architecture.",
+      "source": "guardrails/digital-first.md"
+    },
+    {
+      "title": "Field working and devices (draft)",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/field-working-and-devices/",
+      "markdown": "https://defra.github.io/architecture/guardrails/field-working-and-devices/index.md",
+      "maturity": "published",
+      "description": "Many Defra staff and partners work on farms, at ports, on rivers and at sea. These draft guardrails make sure the tools they use work where they work, and keep Defra data safe on the move.",
+      "source": "guardrails/field-working-and-devices.md"
+    },
+    {
+      "title": "Front end and accessibility",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/front-end-and-accessibility/",
+      "markdown": "https://defra.github.io/architecture/guardrails/front-end-and-accessibility/index.md",
+      "maturity": "published",
+      "description": "Defra services should look like government, work for everyone and work on any device.",
+      "source": "guardrails/front-end-and-accessibility.md"
+    },
+    {
+      "title": "Hosting and platforms",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/hosting-and-platforms/",
+      "markdown": "https://defra.github.io/architecture/guardrails/hosting-and-platforms/index.md",
+      "maturity": "published",
+      "description": "Where and how services run. Use the paved road so your team can focus on users rather than infrastructure.",
+      "source": "guardrails/hosting-and-platforms.md"
+    },
+    {
+      "title": "Identity and access",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/identity-and-access/",
+      "markdown": "https://defra.github.io/architecture/guardrails/identity-and-access/index.md",
+      "maturity": "published",
+      "description": "Who users are and what they are allowed to do. Getting this right once, centrally, is safer and simpler for everyone.",
+      "source": "guardrails/identity-and-access.md"
+    },
+    {
+      "title": "Guardrail library",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/library/",
+      "markdown": "https://defra.github.io/architecture/guardrails/library/index.md",
+      "maturity": "published",
+      "description": "Every guardrail in one place. Search by keyword or id, filter by area, phase, role, status or level, and select a guardrail to read why it exists and how to meet it.",
+      "source": "guardrails/library.md"
+    },
+    {
+      "title": "Observability and operations",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/observability-and-operations/",
+      "markdown": "https://defra.github.io/architecture/guardrails/observability-and-operations/index.md",
+      "maturity": "published",
+      "description": "Services live for years. These guardrails make sure they can be run, supported and improved by people who did not build them.",
+      "source": "guardrails/observability-and-operations.md"
+    },
+    {
+      "title": "Open source and working in the open",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/open-source/",
+      "markdown": "https://defra.github.io/architecture/guardrails/open-source/index.md",
+      "maturity": "published",
+      "description": "We code in the open and share what we learn. It improves quality, makes reuse easy and lets partners see how we work before they work with us.",
+      "source": "guardrails/open-source.md"
+    },
+    {
+      "title": "Products and platforms (draft)",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/products-and-platforms/",
+      "markdown": "https://defra.github.io/architecture/guardrails/products-and-platforms/index.md",
+      "maturity": "published",
+      "description": "Defra builds and runs technology as long-lived products on shared platforms, not as one-off projects. These draft guardrails describe what that means for teams.",
+      "source": "guardrails/products-and-platforms.md"
+    },
+    {
+      "title": "Security",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/security/",
+      "markdown": "https://defra.github.io/architecture/guardrails/security/index.md",
+      "maturity": "published",
+      "description": "Security guardrails for every Defra service. They put the government Secure by Design approach into practice.",
+      "source": "guardrails/security.md"
+    },
+    {
+      "title": "Software development",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/software-development/",
+      "markdown": "https://defra.github.io/architecture/guardrails/software-development/index.md",
+      "maturity": "published",
+      "description": "How we write, test and ship code so that any Defra team, or any partner, can pick it up and run with it.",
+      "source": "guardrails/software-development.md"
+    },
+    {
+      "title": "Sustainability",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/guardrails/sustainability/",
+      "markdown": "https://defra.github.io/architecture/guardrails/sustainability/index.md",
+      "maturity": "published",
+      "description": "Defra leads the Greening Government ICT and Digital Services strategy. Our own services should show what good looks like.",
+      "source": "guardrails/sustainability.md"
+    },
+    {
+      "title": "The architecture handrail",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/handrail/",
+      "markdown": "https://defra.github.io/architecture/handrail/index.md",
+      "maturity": "published",
+      "description": "Guardrails tell you where the edges are. The handrail is something to hold on to: a shared map of what Defra does, the technology that enables it, and what already exists that you can reuse.",
+      "source": "handrail/index.md"
+    },
+    {
+      "title": "Business capabilities",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/handrail/business-capabilities/",
+      "markdown": "https://defra.github.io/architecture/handrail/business-capabilities/index.md",
+      "maturity": "published",
+      "description": "Business capabilities describe what Defra does - not how, not who, and not with which system. They are the stable backbone that strategy, investment and technology hang from.",
+      "source": "handrail/business-capabilities.md"
+    },
+    {
+      "title": "Capability mapping",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/handrail/capability-mapping/",
+      "markdown": "https://defra.github.io/architecture/handrail/capability-mapping/index.md",
+      "maturity": "published",
+      "description": "How Defra's business capabilities depend on technology capabilities. Use it to find what your service will probably need, and to see where shared investment pays off most.",
+      "source": "handrail/capability-mapping.md"
+    },
+    {
+      "title": "Reference architecture",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/handrail/reference-architecture/",
+      "markdown": "https://defra.github.io/architecture/handrail/reference-architecture/index.md",
+      "maturity": "draft",
+      "description": "A layered view of Defra's technology - from the services users see down to the shared platforms and infrastructure they run on - is planned for a future iteration of this site.",
+      "source": "handrail/reference-architecture.md"
+    },
+    {
+      "title": "Services and capabilities",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/handrail/services-and-capabilities/",
+      "markdown": "https://defra.github.io/architecture/handrail/services-and-capabilities/index.md",
+      "maturity": "draft",
+      "description": "What we mean by a service, a product, a capability and related words, using Defra's service taxonomy, and how the taxonomy connects to the architecture handrail.",
+      "source": "handrail/services-and-capabilities.md"
+    },
+    {
+      "title": "Technology capabilities",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/handrail/technology-capabilities/",
+      "markdown": "https://defra.github.io/architecture/handrail/technology-capabilities/index.md",
+      "maturity": "draft",
+      "description": "Technology capabilities describe what technology must do to enable Defra's business capabilities. Defra's model is aligned to Technology Business Management (TBM): 6 level 1 areas, each with its level 2 capabilities.",
+      "source": "handrail/technology-capabilities.md"
+    },
+    {
+      "title": "Non-functional requirements",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/nfrs/",
+      "markdown": "https://defra.github.io/architecture/nfrs/index.md",
+      "maturity": "published",
+      "description": "",
+      "source": "nfrs/index.md"
+    },
+    {
+      "title": "NFR catalogue",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/nfrs/catalogue/",
+      "markdown": "https://defra.github.io/architecture/nfrs/catalogue/index.md",
+      "maturity": "draft",
+      "description": "Defra's standard non-functional requirements. Start from these rather than writing your own, so services are consistent and assessors know what good looks like.",
+      "source": "nfrs/catalogue.md"
+    },
+    {
+      "title": "Service tiers",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/nfrs/service-tiers/",
+      "markdown": "https://defra.github.io/architecture/nfrs/service-tiers/index.md",
+      "maturity": "draft",
+      "description": "Not every service needs the same level of availability and support. A service tier sets proportionate targets, so critical services get the resilience they need and smaller services are not over-engineered.",
+      "source": "nfrs/service-tiers.md"
+    },
+    {
+      "title": "Writing good NFRs",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/nfrs/writing-nfrs/",
+      "markdown": "https://defra.github.io/architecture/nfrs/writing-nfrs/index.md",
+      "maturity": "published",
+      "description": "A good NFR is specific, measurable and testable. If you cannot write a test for it, it is not finished.",
+      "source": "nfrs/writing-nfrs.md"
+    },
+    {
+      "title": "Contracting with this site",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/partners/contracting/",
+      "markdown": "https://defra.github.io/architecture/partners/contracting/index.md",
+      "maturity": "published",
+      "description": "How to reference the guardrails in a statement of requirements or statement of work, so buyers and suppliers share one clear, stable baseline.",
+      "source": "partners/contracting.md"
+    },
+    {
+      "title": "Handover and exit",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/partners/handover-and-exit/",
+      "markdown": "https://defra.github.io/architecture/partners/handover-and-exit/index.md",
+      "maturity": "published",
+      "description": "What \"done\" means when a partner hands a service to Defra or to another supplier, so the next team can run and change it without the people who built it.",
+      "source": "partners/handover-and-exit.md"
+    },
+    {
+      "title": "Mobilisation checklist",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/partners/mobilisation/",
+      "markdown": "https://defra.github.io/architecture/partners/mobilisation/index.md",
+      "maturity": "published",
+      "description": "What a delivery partner needs in place to start work on a Defra engagement, and who to meet in the first week. Start early: some access takes weeks.",
+      "source": "partners/mobilisation.md"
+    },
+    {
+      "title": "Working with other suppliers",
+      "section": "Home",
+      "url": "https://defra.github.io/architecture/partners/multi-supplier/",
+      "markdown": "https://defra.github.io/architecture/partners/multi-supplier/index.md",
+      "maturity": "published",
+      "description": "Many Defra services are built by more than one team, often from different companies. These rules of the road stop integrations, incidents and environments falling between the gaps.",
+      "source": "partners/multi-supplier.md"
+    },
+    {
+      "title": "Architecture patterns",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/",
+      "markdown": "https://defra.github.io/architecture/patterns/index.md",
+      "maturity": "published",
+      "description": "Patterns are reusable shapes for building Defra services. They are early, exploratory work: starting points for discussion, not agreed designs.",
+      "source": "patterns/index.md"
+    },
+    {
+      "title": "Acting on behalf",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/acting-on-behalf/",
+      "markdown": "https://defra.github.io/architecture/patterns/acting-on-behalf/index.md",
+      "maturity": "published",
+      "description": "Separate who someone is from what they are allowed to do, so farmers, businesses, agents and land managers can act for the organisations and holdings they represent - and nobody else.",
+      "source": "patterns/acting-on-behalf.md"
+    },
+    {
+      "title": "Asynchronous submission",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/async-submission/",
+      "markdown": "https://defra.github.io/architecture/patterns/async-submission/index.md",
+      "maturity": "published",
+      "description": "Accept a user's submission straight away, store it safely, and hand it to other systems through events - so a slow or broken back office never stops a user from applying.",
+      "source": "patterns/async-submission.md"
+    },
+    {
+      "title": "Authoritative source",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/authoritative-source/",
+      "markdown": "https://defra.github.io/architecture/patterns/authoritative-source/index.md",
+      "maturity": "published",
+      "description": "Use the record Defra already holds, by reference, instead of keeping your own copy that slowly drifts out of date.",
+      "source": "patterns/authoritative-source.md"
+    },
+    {
+      "title": "File upload and scanning",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/file-upload/",
+      "markdown": "https://defra.github.io/architecture/patterns/file-upload/index.md",
+      "maturity": "published",
+      "description": "Treat every uploaded file as hostile until it has been scanned. Keep it apart from clean files, and only let staff and systems open files that have passed.",
+      "source": "patterns/file-upload.md"
+    },
+    {
+      "title": "Publishing open data",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/open-data-publishing/",
+      "markdown": "https://defra.github.io/architecture/patterns/open-data-publishing/index.md",
+      "maturity": "published",
+      "description": "Publish data once, in open formats, with metadata that lets people find it, understand it and trust it - and an automated pipeline that keeps it current.",
+      "source": "patterns/open-data-publishing.md"
+    },
+    {
+      "title": "Service patterns",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/index.md",
+      "maturity": "draft",
+      "description": "Service patterns are early, exploratory starting shapes for common kinds of Defra service. Each shows the main building blocks of a whole service and how they connect.",
+      "source": "patterns/service/index.md"
+    },
+    {
+      "title": "Data and analytics",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/data-and-analytics/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/data-and-analytics/index.md",
+      "maturity": "draft",
+      "description": "An exploratory starting shape for collecting, managing, analysing and publishing evidence and environmental data.",
+      "source": "patterns/service/data-and-analytics.md"
+    },
+    {
+      "title": "Field inspection",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/field-inspection/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/field-inspection/index.md",
+      "maturity": "draft",
+      "description": "A proposed starting shape for services where staff plan, carry out and record inspections, surveys and sampling in the field - often with no mobile signal.",
+      "source": "patterns/service/field-inspection.md"
+    },
+    {
+      "title": "Grants and schemes",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/grants/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/grants/index.md",
+      "maturity": "draft",
+      "description": "A proposed starting shape for configuring schemes, taking applications, managing agreements, checking claims and making payments.",
+      "source": "patterns/service/grants.md"
+    },
+    {
+      "title": "Incident response",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/incident-response/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/incident-response/index.md",
+      "maturity": "draft",
+      "description": "A proposed starting shape for detecting, coordinating and reporting on incidents such as animal and plant disease outbreaks, floods and pollution events.",
+      "source": "patterns/service/incident-response.md"
+    },
+    {
+      "title": "Regulatory casework",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/regulatory-casework/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/regulatory-casework/index.md",
+      "maturity": "draft",
+      "description": "An exploratory starting shape for assessing applications, inspecting, investigating and taking enforcement action - the heart of how Defra regulates.",
+      "source": "patterns/service/regulatory-casework.md"
+    },
+    {
+      "title": "Transactional digital service",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/service/transactional-service/",
+      "markdown": "https://defra.github.io/architecture/patterns/service/transactional-service/index.md",
+      "maturity": "draft",
+      "description": "An exploratory starting shape for a public-facing Defra service where users apply, register, notify or claim something.",
+      "source": "patterns/service/transactional-service.md"
+    },
+    {
+      "title": "Worked example: apply for a licence",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/worked-example/",
+      "markdown": "https://defra.github.io/architecture/patterns/worked-example/index.md",
+      "maturity": "published",
+      "description": "A fictional Defra service, followed from context to containers, decisions and threats, to show how the service pattern, patterns and guardrails fit together.",
+      "source": "patterns/worked-example/index.md"
+    },
+    {
+      "title": "Sample ADRs",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/worked-example/adrs/",
+      "markdown": "https://defra.github.io/architecture/patterns/worked-example/adrs/index.md",
+      "maturity": "published",
+      "description": "Three architecture decision records from the fictional apply for a licence service, written with the ADR template. Use them as examples of the level of detail we expect.",
+      "source": "patterns/worked-example/adrs.md"
+    },
+    {
+      "title": "Threat model excerpt",
+      "section": "Reuse",
+      "url": "https://defra.github.io/architecture/patterns/worked-example/threat-model/",
+      "markdown": "https://defra.github.io/architecture/patterns/worked-example/threat-model/index.md",
+      "maturity": "published",
+      "description": "Part of the alpha threat model for the fictional apply for a licence service, written with the threat model template and the STRIDE method.",
+      "source": "patterns/worked-example/threat-model.md"
+    },
+    {
+      "title": "Principles",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/principles/",
+      "markdown": "https://defra.github.io/architecture/principles/index.md",
+      "maturity": "published",
+      "description": "How Defra decides. The DDTS doctrine sets the non-negotiables. The architecture principles apply them to technology change. The guardrails turn both into practical defaults for delivery teams.",
+      "source": "principles/index.md"
+    },
+    {
+      "title": "Architecture principles",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/principles/architecture-principles/",
+      "markdown": "https://defra.github.io/architecture/principles/architecture-principles/index.md",
+      "maturity": "published",
+      "description": "Defra's eight Strategic Architecture Principles. They make decisions consistent, reduce complexity and stop change fragmenting across services. Use them to govern technology change across Defra so that it supports Defra's strategic goals.",
+      "source": "principles/architecture-principles.md"
+    },
+    {
+      "title": "DDTS doctrine",
+      "section": "Rules",
+      "url": "https://defra.github.io/architecture/principles/doctrine/",
+      "markdown": "https://defra.github.io/architecture/principles/doctrine/index.md",
+      "maturity": "draft",
+      "description": "Seven non-negotiables set by the Chief Digital and Information Officer for Defra's Digital, Data and Technology Services (DDTS). They give everyone a common way of thinking and a consistent basis for decisions, so people can decide well without escalating every choice.",
+      "source": "principles/doctrine.md"
+    },
+    {
+      "title": "Enterprise security architecture",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/security/",
+      "markdown": "https://defra.github.io/architecture/security/index.md",
+      "maturity": "published",
+      "description": "Security is part of how we design and deliver, not a gate at the end. Enterprise security architecture helps teams build secure services by default and manage risk openly when they cannot.",
+      "source": "security/index.md"
+    },
+    {
+      "title": "Managing security exceptions",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/security/managing-exceptions/",
+      "markdown": "https://defra.github.io/architecture/security/managing-exceptions/index.md",
+      "maturity": "draft",
+      "description": "Sometimes a security control cannot be met - because of a legacy dependency, a supplier constraint or a delivery deadline. That is a risk decision, and it must be made explicitly, by the right person, for a limited time.",
+      "source": "security/managing-exceptions.md"
+    },
+    {
+      "title": "Secure by Design",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/security/secure-by-design/",
+      "markdown": "https://defra.github.io/architecture/security/secure-by-design/index.md",
+      "maturity": "published",
+      "description": "Secure by Design is the government's approach to building security into digital services from the start and throughout their life. This page is the architecture view of how Defra teams apply it. The Defra Security team owns Defra's security policies and the Secure by Design lifecycle requirements.",
+      "source": "security/secure-by-design.md"
+    },
+    {
+      "title": "Threat modelling",
+      "section": "Topics",
+      "url": "https://defra.github.io/architecture/security/threat-modelling/",
+      "markdown": "https://defra.github.io/architecture/security/threat-modelling/index.md",
+      "maturity": "published",
+      "description": "Threat modelling is a structured conversation about what could go wrong with a service and what to do about it. Done by the team, early and often, it is the most cost-effective security activity there is.",
+      "source": "security/threat-modelling.md"
+    },
+    {
+      "title": "Standards and links",
+      "section": "Other",
+      "url": "https://defra.github.io/architecture/standards/",
+      "markdown": "https://defra.github.io/architecture/standards/index.md",
+      "maturity": "published",
+      "description": "The government and Defra standards this site builds on. Our guardrails apply these to Defra's context - they do not replace them.",
+      "source": "standards/index.md"
+    }
+  ]
+}
