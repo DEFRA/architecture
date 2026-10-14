@@ -1,0 +1,456 @@
+{
+  "service_tiers": {
+    "status": "draft",
+    "tiers": [
+      {
+        "id": "T1",
+        "name": "Critical",
+        "summary": "Failure puts life, animal or plant health, the environment or national infrastructure at risk, or stops a statutory duty with no workaround.",
+        "examples": "Flood warnings, animal disease control, payments at statutory deadlines",
+        "availability": "99.9%",
+        "support_hours": "24 hours a day, 7 days a week",
+        "rto": "4 hours",
+        "rpo": "15 minutes",
+        "dr_test": "Every 6 months"
+      },
+      {
+        "id": "T2",
+        "name": "Important",
+        "summary": "Failure causes significant harm to users, revenue or reputation, but a short outage can be managed with a workaround.",
+        "examples": "Licensing and permitting services, grant applications",
+        "availability": "99.5%",
+        "support_hours": "7am to 8pm, Monday to Saturday",
+        "rto": "24 hours",
+        "rpo": "1 hour",
+        "dr_test": "Every year"
+      },
+      {
+        "id": "T3",
+        "name": "Standard",
+        "summary": "Failure is an inconvenience. Users can wait or use another channel until the service returns.",
+        "examples": "Information services, most internal staff tools",
+        "availability": "99%",
+        "support_hours": "8am to 6pm, Monday to Friday",
+        "rto": "3 working days",
+        "rpo": "24 hours",
+        "dr_test": "Every year"
+      },
+      {
+        "id": "T4",
+        "name": "Low",
+        "summary": "Short-lived, experimental or low-use services where failure has little impact.",
+        "examples": "Prototypes, private beta, internal reporting",
+        "availability": "Best effort",
+        "support_hours": "9am to 5pm, Monday to Friday",
+        "rto": "5 working days",
+        "rpo": "24 hours",
+        "dr_test": "Restore from backup tested once"
+      }
+    ],
+    "questions": [
+      "Could a failure put people, animals, plants or the environment at risk?",
+      "Does the service support a statutory duty or legal deadline?",
+      "How much money flows through it, and what happens if payments are late?",
+      "How many users depend on it, and is there another channel they could use?",
+      "Would an outage be reported in the media or raised in Parliament?"
+    ]
+  },
+  "catalogue": {
+    "status": "draft",
+    "categories": [
+      {
+        "id": "AVL",
+        "name": "Availability and resilience",
+        "description": "The service is there when users need it and recovers quickly when it fails.",
+        "requirements": [
+          {
+            "id": "NFR-AVL-01",
+            "title": "Availability",
+            "requirement": "The service is available to users for the target percentage of its supported hours, measured monthly, excluding planned maintenance announced 5 working days ahead.",
+            "verify": "Synthetic monitoring of the main user journey; monthly availability report.",
+            "targets": {
+              "T1": "99.9%",
+              "T2": "99.5%",
+              "T3": "99%",
+              "T4": "Best effort"
+            },
+            "guardrails": [
+              "GR-OPS-03"
+            ]
+          },
+          {
+            "id": "NFR-AVL-02",
+            "title": "Recovery time objective",
+            "requirement": "After a major failure, the service is restored within the recovery time objective.",
+            "verify": "Disaster recovery test with a timed restore.",
+            "targets": {
+              "T1": "4 hours",
+              "T2": "24 hours",
+              "T3": "3 working days",
+              "T4": "5 working days"
+            },
+            "guardrails": [
+              "GR-HOST-07"
+            ]
+          },
+          {
+            "id": "NFR-AVL-03",
+            "title": "Recovery point objective",
+            "requirement": "No more data is lost in a failure than the recovery point objective allows.",
+            "verify": "Backup configuration review and point-in-time restore test.",
+            "targets": {
+              "T1": "15 minutes",
+              "T2": "1 hour",
+              "T3": "24 hours",
+              "T4": "24 hours"
+            },
+            "guardrails": [
+              "GR-HOST-07"
+            ]
+          },
+          {
+            "id": "NFR-AVL-04",
+            "title": "No single point of failure",
+            "requirement": "The service runs across at least two availability zones, with no single component whose failure stops the service.",
+            "verify": "Architecture review and a zone failure test.",
+            "targets": {
+              "T1": "Required",
+              "T2": "Required",
+              "T3": "Recommended",
+              "T4": "Not required"
+            }
+          },
+          {
+            "id": "NFR-AVL-05",
+            "title": "Graceful degradation",
+            "requirement": "When a dependency fails, users are told what has happened and do not lose information they have entered.",
+            "verify": "Dependency failure tests in the pipeline.",
+            "guardrails": [
+              "GR-OPS-04"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "PRF",
+        "name": "Performance and capacity",
+        "description": "The service is fast enough for users and copes with expected peaks.",
+        "requirements": [
+          {
+            "id": "NFR-PRF-01",
+            "title": "Page response time",
+            "requirement": "95% of page requests complete within 2 seconds, measured at the server, at expected peak load.",
+            "verify": "Load test at peak volume before go-live and after significant change."
+          },
+          {
+            "id": "NFR-PRF-02",
+            "title": "API response time",
+            "requirement": "95% of synchronous API calls complete within 500 milliseconds at expected peak load.",
+            "verify": "Load test and production monitoring of latency percentiles.",
+            "guardrails": [
+              "GR-API-02"
+            ]
+          },
+          {
+            "id": "NFR-PRF-03",
+            "title": "Peak capacity",
+            "requirement": "The service handles twice the highest expected peak (for example a scheme deadline or flood event) without failing.",
+            "verify": "Load test at 2x forecast peak; autoscaling configuration review.",
+            "targets": {
+              "T1": "2x peak",
+              "T2": "2x peak",
+              "T3": "1.5x peak",
+              "T4": "Expected peak"
+            }
+          },
+          {
+            "id": "NFR-PRF-04",
+            "title": "Low bandwidth",
+            "requirement": "Core journeys are usable on a 3G connection, with page weight under 500KB excluding cached assets.",
+            "verify": "Lighthouse or WebPageTest on a throttled connection.",
+            "guardrails": [
+              "GR-FE-05"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "SEC",
+        "name": "Security",
+        "description": "The service protects its users, data and Defra.",
+        "requirements": [
+          {
+            "id": "NFR-SEC-01",
+            "title": "Threat model",
+            "requirement": "A current threat model exists and is reviewed at every significant change and at least annually.",
+            "verify": "Threat model in the repository or linked from it, with a review date.",
+            "guardrails": [
+              "GR-SEC-02"
+            ]
+          },
+          {
+            "id": "NFR-SEC-02",
+            "title": "Vulnerability remediation",
+            "requirement": "Critical vulnerabilities are fixed within 14 days and high within 30 days, or a risk decision is recorded.",
+            "verify": "Scanner reports and the risk register.",
+            "guardrails": [
+              "GR-SEC-05"
+            ]
+          },
+          {
+            "id": "NFR-SEC-03",
+            "title": "Independent security testing",
+            "requirement": "An IT health check proportionate to risk is completed before go-live and after significant change.",
+            "verify": "Health check report and remediation plan.",
+            "targets": {
+              "T1": "Required",
+              "T2": "Required",
+              "T3": "Required",
+              "T4": "Risk based"
+            },
+            "guardrails": [
+              "GR-SEC-06"
+            ]
+          },
+          {
+            "id": "NFR-SEC-04",
+            "title": "Encryption",
+            "requirement": "All data is encrypted in transit with TLS 1.2 or higher and encrypted at rest.",
+            "verify": "Configuration review and automated TLS checks.",
+            "guardrails": [
+              "GR-SEC-04"
+            ]
+          },
+          {
+            "id": "NFR-SEC-05",
+            "title": "Access control",
+            "requirement": "Users and services have only the permissions they need, granted by role, and access is reviewed at least every 6 months.",
+            "verify": "Role model documentation and access review records.",
+            "guardrails": [
+              "GR-IAM-03"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ACC",
+        "name": "Accessibility and usability",
+        "description": "Everyone who needs the service can use it.",
+        "requirements": [
+          {
+            "id": "NFR-ACC-01",
+            "title": "WCAG 2.2 AA",
+            "requirement": "The service meets WCAG 2.2 level AA and publishes an accessibility statement.",
+            "verify": "Automated checks in the pipeline, manual testing with assistive technology and an accessibility audit before public beta.",
+            "guardrails": [
+              "GR-FE-01"
+            ]
+          },
+          {
+            "id": "NFR-ACC-02",
+            "title": "Design system",
+            "requirement": "Public-facing pages use GOV.UK Frontend components and patterns.",
+            "verify": "Code review and service assessment.",
+            "guardrails": [
+              "GR-FE-02"
+            ]
+          },
+          {
+            "id": "NFR-ACC-03",
+            "title": "Works without JavaScript",
+            "requirement": "Core journeys can be completed with JavaScript unavailable.",
+            "verify": "End-to-end tests run with JavaScript disabled.",
+            "guardrails": [
+              "GR-FE-03"
+            ]
+          },
+          {
+            "id": "NFR-ACC-04",
+            "title": "Supported browsers and devices",
+            "requirement": "The service works on the browsers and assistive technologies in the GOV.UK Service Manual's supported list.",
+            "verify": "Cross-browser test results."
+          }
+        ]
+      },
+      {
+        "id": "OPS",
+        "name": "Observability and supportability",
+        "description": "The service can be monitored, supported and fixed by people who did not build it.",
+        "requirements": [
+          {
+            "id": "NFR-OPS-01",
+            "title": "Logging and tracing",
+            "requirement": "Structured logs, metrics and traces with correlation ids are sent to the platform observability tooling.",
+            "verify": "Dashboard and a traced request across service boundaries.",
+            "guardrails": [
+              "GR-OPS-01",
+              "GR-OPS-02"
+            ]
+          },
+          {
+            "id": "NFR-OPS-02",
+            "title": "Alerting",
+            "requirement": "Alerts on user-facing symptoms reach the support team within 5 minutes of a breach.",
+            "verify": "Alert test during operational readiness review.",
+            "targets": {
+              "T1": "24/7 on-call",
+              "T2": "Extended hours",
+              "T3": "Business hours",
+              "T4": "Business hours"
+            },
+            "guardrails": [
+              "GR-OPS-03"
+            ]
+          },
+          {
+            "id": "NFR-OPS-03",
+            "title": "Runbooks",
+            "requirement": "Runbooks cover deployment, rollback, restart, common failures and contacts.",
+            "verify": "Runbook walkthrough with the support team before public beta.",
+            "guardrails": [
+              "GR-OPS-05"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MNT",
+        "name": "Maintainability and testability",
+        "description": "The service is cheap and safe to change.",
+        "requirements": [
+          {
+            "id": "NFR-MNT-01",
+            "title": "Automated deployment",
+            "requirement": "Every change reaches production through an automated pipeline, and any release can be rolled back.",
+            "verify": "Pipeline configuration and a rollback demonstration.",
+            "guardrails": [
+              "GR-DEV-04",
+              "GR-HOST-03"
+            ]
+          },
+          {
+            "id": "NFR-MNT-02",
+            "title": "Automated tests",
+            "requirement": "Unit, integration and journey tests run on every change, and the main branch is always releasable.",
+            "verify": "Pipeline results and coverage of critical journeys.",
+            "guardrails": [
+              "GR-DEV-05"
+            ]
+          },
+          {
+            "id": "NFR-MNT-03",
+            "title": "Supported runtimes and dependencies",
+            "requirement": "Languages, frameworks and dependencies are on supported versions, with automated update pull requests.",
+            "verify": "Dependency report.",
+            "guardrails": [
+              "GR-DEV-06"
+            ]
+          },
+          {
+            "id": "NFR-MNT-04",
+            "title": "Documentation",
+            "requirement": "The repository explains how to run, test and deploy the service and links to its decision records.",
+            "verify": "README and ADR log review.",
+            "guardrails": [
+              "GR-DEV-08"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "INT",
+        "name": "Interoperability",
+        "description": "The service works with the rest of Defra and its partners.",
+        "requirements": [
+          {
+            "id": "NFR-INT-01",
+            "title": "Documented APIs",
+            "requirement": "APIs are described with OpenAPI or AsyncAPI and published to the API catalogue.",
+            "verify": "Specification in the repository; catalogue entry.",
+            "guardrails": [
+              "GR-API-02",
+              "GR-API-08"
+            ]
+          },
+          {
+            "id": "NFR-INT-02",
+            "title": "Standard identifiers",
+            "requirement": "Shared entities use the identifiers in Defra's data standards (such as SBI, CRN, CPH and UPRN).",
+            "verify": "Data model review.",
+            "guardrails": [
+              "GR-DATA-03"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "DAT",
+        "name": "Data and compliance",
+        "description": "Data is accurate, protected and kept for the right length of time.",
+        "requirements": [
+          {
+            "id": "NFR-DAT-01",
+            "title": "Data protection",
+            "requirement": "A DPIA is completed before personal data is processed, and personal data is minimised.",
+            "verify": "Approved DPIA.",
+            "guardrails": [
+              "GR-DATA-06"
+            ]
+          },
+          {
+            "id": "NFR-DAT-02",
+            "title": "Retention and disposal",
+            "requirement": "Data is retained and deleted automatically in line with Defra retention schedules.",
+            "verify": "Retention configuration and a disposal test.",
+            "guardrails": [
+              "GR-DATA-09"
+            ]
+          },
+          {
+            "id": "NFR-DAT-03",
+            "title": "Data location",
+            "requirement": "OFFICIAL data is stored in UK regions.",
+            "verify": "Infrastructure configuration review.",
+            "guardrails": [
+              "GR-HOST-06"
+            ]
+          },
+          {
+            "id": "NFR-DAT-04",
+            "title": "Data quality",
+            "requirement": "Data quality rules are defined for data that feeds payments, regulatory decisions or statistics, and are measured.",
+            "verify": "Data quality dashboard.",
+            "guardrails": [
+              "GR-DATA-08"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "SUS",
+        "name": "Sustainability",
+        "description": "The service uses no more energy and resources than it needs.",
+        "requirements": [
+          {
+            "id": "NFR-SUS-01",
+            "title": "Right-sized and switched off",
+            "requirement": "Non-production environments scale down out of hours, and production scales with demand.",
+            "verify": "Scaling configuration and monthly cost and carbon report.",
+            "guardrails": [
+              "GR-SUS-02"
+            ]
+          },
+          {
+            "id": "NFR-SUS-02",
+            "title": "Carbon reporting",
+            "requirement": "The service's cloud carbon footprint is reported alongside its cost.",
+            "verify": "Cloud provider carbon report.",
+            "guardrails": [
+              "GR-SUS-05"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
