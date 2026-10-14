@@ -1,75 +1,118 @@
-# Defra on a page
+# Overview
 
-Defra on a page (DoaP) is a high-level conceptual data model showing the enterprise conceptual data entities that underpin Defra's business data concepts.
+Defra on a page (DoaP) is a <span style="color:#69C88F">**high-level conceptual data model**</span> showing the enterprise conceptual data entities that underpin Defra's business data concepts.
 
-It provides a common vocabulary for describing the things that matter to Defra and the indicative relationships between them. It is conceptual rather than physical: it does not define database tables, attributes, operations or platform-specific implementation.
+It is important to think of this diagram as <span style="color:#69C88F">**"the cookie cutter, rather than the cookie"**</span>. 
 
-## About the model
+Much of our physical data architecture has resemblances to this diagram, but different entities and terminology will be used in many cases. One way to use the diagram is as an enabler of <span style="color:#69C88F">**common understanding**</span> of similarities and differences.
 
-A conceptual data model shows conceptual data entities and their relationships. It is the most abstract form of data model and is intended to communicate clearly with business stakeholders.
+## Using Defra on a Page
 
-A conceptual data entity is a singular, identifiable and discrete object of significance to Defra about which information needs to be kept to support business operations. The entities are independent of platforms and implementation choices.
+Use this model to:
 
-The relationships in the model are indicative examples. They are not intended to be comprehensive. In principle, any entity may relate to any other entity. More detailed domain data models expand these relationships and show cardinality.
+- establish common vocabularies across Defra
+- identify the enterprise concepts relevant to a service or domain
+- provide a starting point for domain conceptual and logical data models
+- make relationships between business concepts explicit
+- avoid embedding platform or implementation choices too early
 
-## Enterprise conceptual data model
+When developing a more detailed model, retain these enterprise concepts where they apply, add domain-specific concepts and relationships, and show cardinality at the appropriate level of detail.
+
+## Source and status
+
+This page is a web representation of *Defra on a Page (DoaP)*, document version 1.1, updated 15 March 2023. The document describes the package status as proposed. The source PDF remains available on <a href="https://defra.sharepoint.com/:b:/r/teams/Team3221/Published%20Architecture%20Documents/Data%20Architecture/Defra%20on%20a%20Page%20-%20(DoaP).pdf?d=wd6f38d7f0519422b8d1eea2c2bb3a645&csf=1&web=1&e=zG82TF" target="_blank">Defra SharePoint - Defra on a Page</a>.
+
+## Defra on a Page
 
 ```mermaid
+---
+config:
+  layout: elk
+  elk:
+    forceNodeModelOrder: true
+    considerModelOrder: NODES_AND_EDGES
+---
 flowchart TB
-  accTitle: Defra on a page enterprise conceptual data model
-  accDescr: High-level view of Defra's enterprise conceptual data entities and examples of how they relate.
 
-  Control[Control]
-  Agreement[Agreement]
-  Asset[Asset]
-  Facility[Facility]
-  Location[Location]
-  Party[Party]
-  Finance[Finance]
-  Document[Document]
-  Time[Time]
-  Activity[Activity]
-  Assessment[Assessment]
-  Communication[Communication]
-  Case[Case]
-  Address[Address]
-  Request[Request]
-  Service[Service]
-  Territory[Territory]
-  Event[Event]
-  Product[Product]
+    %% Entity declarations: retain this order when editing.
 
-  Control -->|influences| Activity
-  Agreement -->|requires| Activity
-  Agreement -->|pricing| Finance
-  Agreement -->|recorded in| Document
-  Asset -->|located at| Location
-  Asset -->|used by| Facility
-  Facility -->|located at| Location
-  Facility -->|supports| Activity
-  Party -->|responsible for| Activity
-  Party -->|contacted at| Address
-  Party -->|enters| Agreement
-  Party -->|makes| Request
-  Activity -->|happens at| Facility
-  Activity -->|results in| Event
-  Activity -->|produces| Assessment
-  Activity -->|recorded in| Document
-  Assessment -->|influences| Activity
-  Communication -->|between| Party
-  Communication -->|recorded in| Document
-  Case -->|requires| Activity
-  Request -->|for| Service
-  Service -->|provided by| Party
-  Territory -->|defines an area at| Location
-  Event -->|happens at| Location
-  Event -->|leads to| Activity
-  Product -->|defines| Asset
-  Finance -->|relates to| Party
-  Time -->|relates to| Activity
+    Agreement["Agreement"]
+
+    Finance["Finance"]
+    Communication["Communication"]
+
+    Product["Product"]
+    Event["Event"]
+    Facility["Facility"]
+    Control["Control"]
+    Case["Case"]
+    Time["Time"]
+    Party["Party"]
+
+    Territory["Territory"]
+    Asset["Asset"]
+    Activity["Activity"]
+    Address["Address"]
+    Request["Request"]
+
+    Location["Location"]
+    Assessment["Assessment"]
+    Service["Service"]
+    Document["Document"]
+
+    %% Agreements and communication
+
+    Agreement ---|pricing| Finance
+    Agreement ---|requires| Activity
+    Agreement ---|enters| Party
+    Agreement ---|recorded in| Document
+
+    Finance ---|relates to| Party
+
+    Communication ---|between| Party
+    Communication ---|recorded in| Document
+
+    %% Products, events and facilities
+
+    Product ---|defines| Asset
+
+    Event ---|results in| Activity
+    Event ---|leads to| Activity
+    Event ---|happens at| Location
+
+    Facility ---|uses| Asset
+    Facility ---|supports| Activity
+    Facility ---|happens at| Activity
+    Facility ---|located at| Location
+
+    %% Activity context
+
+    Control ---|influences| Activity
+    Case ---|requires| Activity
+    Time ---|relates to| Activity
+
+    %% Parties
+
+    Party ---|responsible for| Activity
+    Party ---|contacted at| Address
+    Party ---|makes| Request
+    Party ---|provided by| Service
+
+    %% Geography and assets
+
+    Territory ---|defines an area at| Location
+    Asset ---|located at| Location
+
+    %% Activity outputs and requests
+
+    Activity ---|influences| Assessment
+    Activity ---|produces| Assessment
+    Activity ---|recorded in| Document
+
+    Request ---|for| Service
 ```
 
-The diagram is a simplified, accessible representation of the indicative relationships in the source model. Use the entity definitions below as the authoritative description of scope.
+This diagram is a simplified, accessible representation of the source model. 
 
 ## Conceptual data entities
 
@@ -209,40 +252,3 @@ Examples include:
 ### Time
 
 A point in time measured in the context of day, week, month and year. Where a time of day is recorded, use the 24-hour clock and the ISO 8601 format `T[hh]:[mm]:[ss]`. Consult ISO 8601 where more complex time or elapsed-time representations are needed.
-
-## Relationship notation
-
-Detailed domain models use UML multiplicity notation to show how many instances of one entity may relate to an instance of another:
-
-- `0..*` means zero to many
-- `1..*` means one to many
-- `1..1` means exactly one
-- `0..1` means zero or one
-
-For example, a customer may be sent zero to many invoices, while each invoice must be sent to exactly one customer.
-
-```mermaid
-classDiagram
-  accTitle: Customer and invoice relationship example
-  accDescr: Demonstrates UML cardinality notation where a customer may be sent zero to many invoices and each invoice is sent to exactly one customer.
-
-  class Customer
-  class Invoice
-  Customer "1" --> "0..*" Invoice : is sent
-```
-
-## Using Defra on a page
-
-Use this model to:
-
-- establish a common vocabulary across Defra
-- identify the enterprise concepts relevant to a service or domain
-- provide a starting point for domain conceptual and logical data models
-- make relationships between business concepts explicit
-- avoid embedding platform or implementation choices too early
-
-When developing a more detailed model, retain these enterprise concepts where they apply, add domain-specific concepts and relationships, and show cardinality at the appropriate level of detail.
-
-## Source and status
-
-This page is a web representation of *Defra on a Page (DoaP)*, document version 1.1, updated 15 March 2023. The document describes the package status as proposed. The source PDF remains available on [Defra SharePoint](https://defra.sharepoint.com/:b:/r/teams/Team3221/Published%20Architecture%20Documents/Data%20Architecture/Defra%20on%20a%20Page%20-%20(DoaP).pdf?d=wd6f38d7f0519422b8d1eea2c2bb3a645&csf=1&web=1&e=zG82TF).
