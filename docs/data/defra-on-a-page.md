@@ -1,10 +1,10 @@
 # Overview
 
-Defra on a page (DoaP) is a <span style="color:#69C88F">**high-level conceptual data model**</span> showing the enterprise conceptual data entities that underpin Defra's business data concepts.
+Defra on a page (DoaP) is a **high-level conceptual data model** showing the enterprise conceptual data entities that underpin Defra's business data concepts.
 
-It is important to think of this diagram as <span style="color:#69C88F">**"the cookie cutter, rather than the cookie"**</span>. 
+It is important to think of this diagram as **"the cookie cutter, rather than the cookie"**. 
 
-Much of our physical data architecture has resemblances to this diagram, but different entities and terminology will be used in many cases. One way to use the diagram is as an enabler of <span style="color:#69C88F">**common understanding**</span> of similarities and differences.
+Much of our physical data architecture has resemblances to this diagram, but different entities and terminology will be used in many cases. One way to use the diagram is as an enabler of **common understanding** of similarities and differences.
 
 ## Using Defra on a Page
 
@@ -33,6 +33,8 @@ config:
     considerModelOrder: NODES_AND_EDGES
 ---
 flowchart TB
+    accTitle: Defra on a page
+    accDescr: Conceptual data model showing 19 interconnected entities: Agreement, Finance, Communication, Product, Event, Facility, Case, Time, Control, Party, Territory, Asset, Activity, Address, Request, Location, Assessment, Service and Document.
 
     %% Entity declarations: retain this order when editing.
 
