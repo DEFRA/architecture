@@ -68,6 +68,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/site.js
+  - javascripts/elk-mermaid.mjs
 
 hooks:
   - hooks/capabilities.py
